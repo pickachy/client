@@ -33,6 +33,7 @@
             "styles": [
               "src/styles.scss"
             ],
+            "sourceMap": false,
             "scripts": []
           },
           "configurations": {
@@ -89,18 +90,6 @@
               "src/**/*.ts",
               "src/**/*.html"
             ]
-          }
-        },
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "zemis:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "zemis:serve:production"
-            }
           }
         },
         "server": {
