@@ -1,1 +1,59 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'fonts';
+
+*{
+  margin:0;
+  padding:0;
+
+  &:before,
+  &:after {
+    outline: none !important;
+  }
+}
+
+html {
+  font-family: 'Roboto Regular', serif;
+  font-size: 62.5%;
+  line-height: 1.3;
+
+  section.content{
+    max-width: 102.4rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  a{
+    text-decoration: none;
+    color: inherit;
+  }
+
+  h1 {
+    font-size: 2.8rem;
+  }
+
+  h2 {
+    font-size: 2.4rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  h4 {
+    font-size: 1.6rem;
+  }
+
+  h5 {
+    font-size: 1.2rem;
+  }
+
+  h6 {
+    font-size: 0.8rem;
+  }
+
+  p {
+    font-size: 1.4rem;
+  }
+}
+
