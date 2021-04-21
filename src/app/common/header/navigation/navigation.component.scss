@@ -1,0 +1,25 @@
+nav{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  li{
+    display: flex;
+    list-style: none;
+    font-size: 1.8rem;
+    margin-right: 4.5rem;
+
+    &:last-child{
+    }
+
+    a{
+      border-bottom: 0.2rem solid transparent;
+      padding-bottom: 1rem;
+      cursor: pointer;
+      &:hover, &.active-navigation-link{
+        border-bottom-color: var(--main-green);
+      }
+    }
+  }
+}
