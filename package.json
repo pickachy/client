@@ -5,6 +5,7 @@
     "start": "ng serve",
     "build": "ng build",
     "lint": "ng lint",
+    "lint:fix": "ng lint --fix",
     "dev:ssr": "ng run zemis:serve-ssr",
     "serve:ssr": "node dist/zemis/server/main.js",
     "build:ssr": "ng build --prod && ng run zemis:server:production",
@@ -28,6 +29,7 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
+    "@angular-builders/custom-webpack": "^11.1.1",
     "@angular-devkit/architect": "^0.1102.9",
     "@angular-devkit/build-angular": "~0.1102.9",
     "@angular-eslint/builder": "4.0.0",
@@ -43,10 +45,15 @@
     "@typescript-eslint/eslint-plugin": "4.22.0",
     "@typescript-eslint/parser": "4.22.0",
     "eslint": "^7.24.0",
+    "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-import-order": "^2.1.4",
     "eslint-plugin-jsdoc": "32.3.0",
     "eslint-plugin-prefer-arrow": "1.2.3",
-    "protractor": "~7.0.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-unused-imports": "^1.1.1",
+    "eslint-webpack-plugin": "^2.5.4",
+    "prettier": "^2.2.1",
     "ts-node": "~9.1.1",
     "typescript": "~4.1.5"
   }
