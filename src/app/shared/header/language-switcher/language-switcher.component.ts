@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./language-switcher.component.scss']
 })
 export class LanguageSwitcherComponent {
-  language = "RU"
+  language = 'RU';
 
   change(language: string) {
     this.language = language;
