@@ -9,11 +9,12 @@
       li {
         display: flex;
         margin-right: 4.5rem;
+        margin-top: 1.8rem;
 
         a {
           font-size: 1.8rem;
           border-bottom: 0.2rem solid transparent;
-          padding-bottom: 1rem;
+          padding-bottom: 0.63rem;
           cursor: pointer;
           &:hover,
           &.active-navigation-link {
