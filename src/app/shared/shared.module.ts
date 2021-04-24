@@ -7,11 +7,13 @@ import { LanguageSwitcherComponent } from './header/language-switcher/language-s
 import { PageNotFoundComponent } from './pages/page-not-found.component';
 import { FooterComponent } from './footer/footer.component';
 import { CommonModule } from '@angular/common';
+import { SocialIconComponent } from './social-icon/social-icon.component';
+import { NavigationLinksComponent } from './header/navigation/navigation-links/navigation-links.component';
 
 @NgModule({
-  declarations: [HeaderComponent, NavigationComponent, LogoComponent, LanguageSwitcherComponent, PageNotFoundComponent, FooterComponent],
+  declarations: [HeaderComponent, NavigationComponent, NavigationLinksComponent, LogoComponent, LanguageSwitcherComponent, PageNotFoundComponent, FooterComponent, SocialIconComponent],
   imports: [AppRoutingModule, CommonModule],
-  exports: [HeaderComponent, PageNotFoundComponent, FooterComponent],
+  exports: [HeaderComponent, PageNotFoundComponent, FooterComponent, SocialIconComponent, NavigationLinksComponent],
   providers: [],
   bootstrap: []
 })

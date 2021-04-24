@@ -6,24 +6,28 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class NavigationService {
-  constructor(private router: Router) {}
+  public enhancedMainRoutes: NavigationRoute[];
+  public enhancedAdditionalRoutes: NavigationRoute[];
+  constructor(router: Router) {
+    const enhancedRoutes = this.traverseAndFilterByNameAndEnhance(router.config, undefined);
+    this.enhancedMainRoutes = enhancedRoutes.filter(route => !route.isAdditional);
+    this.enhancedAdditionalRoutes = enhancedRoutes.filter(route => route.isAdditional);
+  }
 
-  public getEnhancedNavigationRoutesWithName = (): NavigationRoute[] => {
-    return (function traverseAndFilterAndEnhance(routes: NavigationRoute[], parent: NavigationRoute | undefined) {
-      const result: NavigationRoute[] = [];
-      for (const route of routes) {
-        route.fullPath ??= route.path;
-        if (parent) {
-          route.fullPath = parent.fullPath!.concat('/', route.path!);
-        }
-        if (route.children) {
-          result.push(...traverseAndFilterAndEnhance(route.children, route));
-        }
-        if (route.name) {
-          result.push(route);
-        }
+  private traverseAndFilterByNameAndEnhance = (routes: NavigationRoute[], parent: NavigationRoute | undefined) => {
+    const result: NavigationRoute[] = [];
+    for (const route of routes) {
+      route.fullPath ??= route.path;
+      if (parent) {
+        route.fullPath = parent.fullPath!.concat('/', route.path!);
       }
-      return result;
-    })(this.router.config, undefined);
+      if (route.children) {
+        result.push(...this.traverseAndFilterByNameAndEnhance(route.children, route));
+      }
+      if (route.name) {
+        result.push(route);
+      }
+    }
+    return result;
   };
 }

@@ -10,6 +10,6 @@ import { NavigationService } from './navigation.service';
 export class NavigationComponent {
   navigationRoutes: NavigationRoute[];
   constructor(navigationService: NavigationService) {
-    this.navigationRoutes = navigationService.getEnhancedNavigationRoutesWithName();
+    this.navigationRoutes = navigationService.enhancedMainRoutes;
   }
 }

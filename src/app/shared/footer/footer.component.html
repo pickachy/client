@@ -1,0 +1,31 @@
+<footer>
+  <section class="content">
+    <div class="left">
+      <app-navigation-links [links]='navigationMainRoutes'></app-navigation-links>
+    </div>
+    <div class="right">
+      <app-navigation-links [links]='navigationAdditionalRoutes' [activeClass]='undefined'></app-navigation-links>
+      <div class="social-icons">
+        <app-social-icon
+          [styles]="{
+            'background-image': 'url(assets/images/social-icons-sprite.svg)',
+            'background-position': '1rem 0.4rem'
+          }"
+        ></app-social-icon>
+        <app-social-icon
+          [styles]="{
+            'background-image': 'url(assets/images/social-icons-sprite.svg)',
+            'background-position': '-3rem 0.7rem'
+          }"
+        ></app-social-icon>
+        <app-social-icon
+          [styles]="{
+            'background-image': 'url(assets/images/social-icons-sprite.svg)',
+            'background-position': '-6.7rem 0.3rem'
+          }"
+        ></app-social-icon>
+      </div>
+      <p class="copyright">© 2020–2021, ООО «ЗЕМИС.юа». При использовании материалов гиперссылка на zemis.com.ua обязательна</p>
+    </div>
+  </section>
+</footer>

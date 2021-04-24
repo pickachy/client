@@ -1,7 +1,3 @@
-<nav >
-  <li *ngFor="let navigationRoute of navigationRoutes">
-    <a routerLink="{{navigationRoute.fullPath}}" routerLinkActive="active-navigation-link">
-      {{navigationRoute.name}}
-    </a>
-  </li>
-</nav>
+<div class="top-navigation">
+  <app-navigation-links [links]="navigationRoutes"></app-navigation-links>
+</div>

@@ -8,6 +8,7 @@ export interface NavigationRoute extends Route {
   name?: string;
   fullPath?: string;
   children?: NavigationRoute[];
+  isAdditional?: boolean;
 }
 
 const routes: NavigationRoute[] = [
@@ -25,6 +26,10 @@ const routes: NavigationRoute[] = [
   { path: 'mortgage', component: HomePageComponent, name: 'Ипотека' },
   { path: 'investments', component: HomePageComponent, name: 'Инвестиции' },
   { path: 'news', component: HomePageComponent, name: 'Новости' },
+  { path: 'news', component: HomePageComponent, name: 'О проекте', isAdditional: true },
+  { path: 'news', component: HomePageComponent, name: 'Контакты', isAdditional: true },
+  { path: 'news', component: HomePageComponent, name: 'Партнерская программа', isAdditional: true },
+  { path: 'news', component: HomePageComponent, name: 'Политика конфиденциальности', isAdditional: true },
   { path: '**', component: PageNotFoundComponent }
 ];
 
