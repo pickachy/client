@@ -1,14 +1,15 @@
 .services {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   justify-content: center;
   margin-top: 3.2rem;
-  app-page-home-section-service-item {
-    display: flex;
-    flex-direction: column;
-    margin-right: 2.8rem;
-    margin-bottom: 2.8rem;
-    width:25.6rem;
+  .content {
+    flex-direction: row;
+    flex-wrap: wrap;
+    app-page-home-section-service-item {
+      display: flex;
+      flex-direction: column;
+      margin-right: 2.8rem;
+      margin-bottom: 2.8rem;
+      width: 25.6rem;
+    }
   }
 }
