@@ -9,11 +9,22 @@ import { FooterComponent } from './footer/footer.component';
 import { CommonModule } from '@angular/common';
 import { SocialIconComponent } from './social-icon/social-icon.component';
 import { NavigationLinksComponent } from './header/navigation/navigation-links/navigation-links.component';
+import { SectionFilterComponent } from './filters/section-filter/section-filter.component';
 
 @NgModule({
-  declarations: [HeaderComponent, NavigationComponent, NavigationLinksComponent, LogoComponent, LanguageSwitcherComponent, PageNotFoundComponent, FooterComponent, SocialIconComponent],
+  declarations: [
+    HeaderComponent,
+    NavigationComponent,
+    NavigationLinksComponent,
+    SectionFilterComponent,
+    LogoComponent,
+    LanguageSwitcherComponent,
+    PageNotFoundComponent,
+    FooterComponent,
+    SocialIconComponent
+  ],
   imports: [AppRoutingModule, CommonModule],
-  exports: [HeaderComponent, PageNotFoundComponent, FooterComponent, SocialIconComponent, NavigationLinksComponent],
+  exports: [HeaderComponent, PageNotFoundComponent, FooterComponent, SocialIconComponent, NavigationLinksComponent, SectionFilterComponent],
   providers: [],
   bootstrap: []
 })

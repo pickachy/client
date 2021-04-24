@@ -1,0 +1,27 @@
+<ng-container *ngIf="data">
+  <a class='best-deals-item' href="">
+    <article>
+      <div class="caption">
+        <div class="title-section">
+          <h3>{{ data.title }}</h3>
+          <p>{{ data.description }}</p>
+        </div>
+        <img src="{{ data.src }}" alt="{{ data.alt }}" />
+      </div>
+      <span class="divider"></span>
+      <div class="description">
+        <div class="description-item">
+          <p>{{ data.annualPercent }}%</p>
+          <span>годовых</span>
+        </div>
+        <div class="description-item">
+          <p>{{ data.loanTermsDays }} дней</p>
+          <span>срок кредитования</span>
+        </div>
+      </div>
+      <div class="details-button-wrapper">
+        <a class="details-button" href="">Подробнее</a>
+      </div>
+    </article>
+  </a>
+</ng-container>

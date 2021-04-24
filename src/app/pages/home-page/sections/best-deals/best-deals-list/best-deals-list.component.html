@@ -1,0 +1,5 @@
+<ng-container *ngIf="data">
+  <div class="best-deals-list">
+    <app-page-home-section-best-deals-item *ngFor="let item of data; trackBy: trackByIdentity" [data]="item"></app-page-home-section-best-deals-item>
+  </div>
+</ng-container>

@@ -1,0 +1,12 @@
+.best-deals-list {
+  display: flex;
+  flex-direction: row;
+  app-page-home-section-best-deals-item {
+    margin-top: 4.4rem;
+    margin-right: 2.8rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

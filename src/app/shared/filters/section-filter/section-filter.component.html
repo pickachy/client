@@ -1,0 +1,7 @@
+<div class="filters">
+  <ng-container *ngIf="filter !== undefined">
+    <li *ngFor="let filterItem of filter.items" [class.active-filter]="filterItem.isActive" (click)="(onClick(filterItem))" >
+      {{ filterItem.name }}
+    </li>
+  </ng-container>
+</div>

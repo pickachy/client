@@ -1,0 +1,24 @@
+.best-deals {
+  margin-top: 3.2rem;
+  background-color: var(--background-grey-block-color);
+  padding: 4.1rem 0 4.6rem 0;
+  .content {
+    flex-direction: column;
+
+    h2{
+      color: #455053;
+    }
+
+    app-section-filter{
+      margin-top: 3.5rem;
+    }
+
+    app-page-home-section-best-deals-item {
+      display: flex;
+      flex-direction: column;
+      margin-right: 2.8rem;
+      margin-bottom: 2.8rem;
+      width: 25.6rem;
+    }
+  }
+}
