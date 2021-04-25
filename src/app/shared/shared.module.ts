@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { SocialIconComponent } from './social-icon/social-icon.component';
 import { NavigationLinksComponent } from './header/navigation/navigation-links/navigation-links.component';
 import { SectionFilterComponent } from './filters/section-filter/section-filter.component';
+import { UsefulArticlesComponent } from './sections/useful-articles/useful-articles.component';
 
 @NgModule({
   declarations: [
@@ -21,9 +22,18 @@ import { SectionFilterComponent } from './filters/section-filter/section-filter.
     LanguageSwitcherComponent,
     PageNotFoundComponent,
     FooterComponent,
-    SocialIconComponent
+    SocialIconComponent,
+    UsefulArticlesComponent
   ],
   imports: [AppRoutingModule, CommonModule],
-  exports: [HeaderComponent, PageNotFoundComponent, FooterComponent, SocialIconComponent, NavigationLinksComponent, SectionFilterComponent]
+  exports: [
+    HeaderComponent,
+    PageNotFoundComponent,
+    FooterComponent,
+    SocialIconComponent,
+    NavigationLinksComponent,
+    SectionFilterComponent,
+    UsefulArticlesComponent
+  ]
 })
 export class SharedModule {}

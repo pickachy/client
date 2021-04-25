@@ -1,0 +1,16 @@
+<section class="useful-articles grayed-bg">
+  <section class="content">
+    <h2 class="section-header">Полезные статьи для вас</h2>
+    <app-section-filter [filter]="filter"></app-section-filter>
+    <section class="articles-list">
+      <ng-container *ngIf="articles">
+        <article class="article-item" *ngFor='let article of articles'>
+          <img src="{{article.imageUrl}}" alt="{{article.title}}" />
+          <h3>{{article.title}}</h3>
+          <p>{{article.description}}</p>
+          <a href="{{article.id}}">Далее</a>
+        </article>
+      </ng-container>
+    </section>
+  </section>
+</section>
