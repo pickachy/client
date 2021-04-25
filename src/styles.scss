@@ -17,6 +17,10 @@ html {
   font-size: 62.5%;
   line-height: 1.3;
 
+  .grayed-bg{
+    background-color: var(--grey-section-background);
+  }
+
   section.content {
     max-width: 114rem;
     margin: 0 auto;
