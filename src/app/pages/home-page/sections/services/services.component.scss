@@ -2,14 +2,20 @@
   justify-content: center;
   margin-top: 3.2rem;
   .content {
-    flex-direction: row;
-    flex-wrap: wrap;
-    app-page-home-section-service-item {
+    .services-list {
       display: flex;
-      flex-direction: column;
-      margin-right: 2.8rem;
-      margin-bottom: 2.8rem;
-      width: 25.6rem;
+      padding: 0 11.7rem;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      app-page-home-section-service-item {
+        display: flex;
+        flex-direction: column;
+        margin-right: 1.4rem;
+        margin-left: 1.4rem;
+        margin-bottom: 2.8rem;
+        max-width: 40%;
+      }
     }
   }
 }

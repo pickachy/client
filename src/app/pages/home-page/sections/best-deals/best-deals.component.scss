@@ -5,11 +5,11 @@
   .content {
     flex-direction: column;
 
-    h2{
-      color: #455053;
+    h2 {
+      color: var(--header-grey);
     }
 
-    app-section-filter{
+    app-section-filter {
       margin-top: 3.5rem;
     }
 

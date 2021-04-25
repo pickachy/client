@@ -21,6 +21,10 @@
             border-bottom-color: var(--main-green);
           }
         }
+
+        &:last-child{
+          margin-right:0;
+        }
       }
     }
   }
