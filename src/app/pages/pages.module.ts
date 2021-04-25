@@ -12,6 +12,7 @@ import { BestDealsListComponent } from './home-page/sections/best-deals/best-dea
 import { ExchangeRatesComponent } from './home-page/sections/exchange-rates/exchange-rates.component';
 import { FormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { PartnersComponent } from './home-page/sections/partners/partners.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     BestDealsItemComponent,
     BestDealsListComponent,
     ExchangeRatesComponent,
+    PartnersComponent,
     LoansInAdvancePageComponent
   ],
   exports: [HomePageComponent, LoansInAdvancePageComponent],
