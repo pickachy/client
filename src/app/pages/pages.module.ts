@@ -9,11 +9,23 @@ import { BestDealsService } from './home-page/sections/best-deals/best-deals.ser
 import { CommonModule } from '@angular/common';
 import { BestDealsItemComponent } from './home-page/sections/best-deals/best-deals-list/best-deals-item/best-deals-item.component';
 import { BestDealsListComponent } from './home-page/sections/best-deals/best-deals-list/best-deals-list.component';
+import { ExchangeRatesComponent } from './home-page/sections/exchange-rates/exchange-rates.component';
+import { FormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
-  declarations: [HomePageComponent, ServicesComponent, ServiceItemComponent, BestDealsComponent, BestDealsItemComponent, BestDealsListComponent, LoansInAdvancePageComponent],
+  declarations: [
+    HomePageComponent,
+    ServicesComponent,
+    ServiceItemComponent,
+    BestDealsComponent,
+    BestDealsItemComponent,
+    BestDealsListComponent,
+    ExchangeRatesComponent,
+    LoansInAdvancePageComponent
+  ],
   exports: [HomePageComponent, LoansInAdvancePageComponent],
-  imports: [SharedModule, CommonModule],
+  imports: [SharedModule, CommonModule, FormsModule, NgSelectModule, FormsModule],
   providers: [BestDealsService]
 })
 export class PagesModule {}

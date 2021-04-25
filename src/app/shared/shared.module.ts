@@ -24,8 +24,6 @@ import { SectionFilterComponent } from './filters/section-filter/section-filter.
     SocialIconComponent
   ],
   imports: [AppRoutingModule, CommonModule],
-  exports: [HeaderComponent, PageNotFoundComponent, FooterComponent, SocialIconComponent, NavigationLinksComponent, SectionFilterComponent],
-  providers: [],
-  bootstrap: []
+  exports: [HeaderComponent, PageNotFoundComponent, FooterComponent, SocialIconComponent, NavigationLinksComponent, SectionFilterComponent]
 })
 export class SharedModule {}
