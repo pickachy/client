@@ -1,7 +1,7 @@
 <section class="useful-articles grayed-bg">
   <section class="content">
     <h2 class="section-header">Полезные статьи для вас</h2>
-    <app-section-filter [filter]="filter"></app-section-filter>
+    <app-sections-tags-filter [tag]='filter'></app-sections-tags-filter>
     <section class="articles-list">
       <ng-container *ngIf="articles">
         <article class="article-item" *ngFor='let article of articles'>

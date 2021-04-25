@@ -9,15 +9,15 @@ import { FooterComponent } from './footer/footer.component';
 import { CommonModule } from '@angular/common';
 import { SocialIconComponent } from './social-icon/social-icon.component';
 import { NavigationLinksComponent } from './header/navigation/navigation-links/navigation-links.component';
-import { SectionFilterComponent } from './filters/section-filter/section-filter.component';
 import { UsefulArticlesComponent } from './sections/useful-articles/useful-articles.component';
+import { TagsFilterComponent } from './filters/tags-filter/tags-filter.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     NavigationComponent,
     NavigationLinksComponent,
-    SectionFilterComponent,
+    TagsFilterComponent,
     LogoComponent,
     LanguageSwitcherComponent,
     PageNotFoundComponent,
@@ -32,7 +32,7 @@ import { UsefulArticlesComponent } from './sections/useful-articles/useful-artic
     FooterComponent,
     SocialIconComponent,
     NavigationLinksComponent,
-    SectionFilterComponent,
+    TagsFilterComponent,
     UsefulArticlesComponent
   ]
 })

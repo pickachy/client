@@ -1,0 +1,48 @@
+$circled-item-bg:#F5F5F5;
+
+:host {
+  display: flex;
+  width:100%;
+  justify-content: space-between;
+  .filters {
+    display: flex;
+    flex-direction: row;
+    &.align-center{
+      width: 100%;
+      justify-content: center;
+    }
+    li {
+      cursor: pointer;
+      color: #373F41;
+
+      &:not(.circled){
+        border-bottom: 1px solid transparent;
+        padding-bottom: 0.5rem;
+        margin-right: 3.2rem;
+      }
+
+      &.circled{
+          padding: 0.6rem 1.6rem;
+          font-style: italic;
+          transition: filter 70ms linear;
+          background-color: $circled-item-bg;
+          border-radius: 2rem 2rem;
+          margin-right: 1.6rem;
+
+        &.active-filter, &:hover{
+          background-color: var(--main-green);
+          color: var(--white);
+          filter: drop-shadow(0 0.4rem 0.4rem rgba(0, 0, 0, 0.25));
+        }
+      }
+      &.active-filter, &:hover{
+        color: var(--main-green);
+        border-bottom-color: var(--main-green);
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

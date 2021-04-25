@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Filter, FilterItem } from '../../../../shared/filters/section-filter/section-filter.component';
 import { BestDealItemView, BestDealsService } from './best-deals.service';
+import { TagFilter, TagFilterItem } from '../../../../shared/filters/tags-filter/tags-filter.component';
 
 @Component({
   selector: 'app-page-home-section-best-deals',
@@ -8,7 +8,7 @@ import { BestDealItemView, BestDealsService } from './best-deals.service';
   styleUrls: ['./best-deals.component.scss']
 })
 export class BestDealsComponent {
-  filter: Filter = {
+  tagFilter: TagFilter = {
     items: [{ name: 'Кредиты', isActive: true }, { name: 'Кредитные карты' }, { name: 'Ипотеки' }, { name: 'Микрозаймы' }],
     onClick: this.onFilterClick
   };
@@ -18,7 +18,7 @@ export class BestDealsComponent {
     this.bestDeals = bestDealsService.getBestDeals();
   }
 
-  onFilterClick(_filterItem: FilterItem) {
+  onFilterClick(_filterItem: TagFilterItem) {
     console.log('ON FILTER CLICK');
   }
 }
