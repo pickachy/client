@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { PartnersComponent } from './home-page/sections/partners/partners.component';
 import { QasComponent } from './home-page/sections/qas/qas.component';
-import { QasListComponent } from './home-page/sections/qas/qasList/qas-list.component';
+import { QasListComponent } from './home-page/sections/qas/qas-list/qas-list.component';
 
 @NgModule({
   declarations: [
