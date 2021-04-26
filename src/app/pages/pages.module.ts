@@ -16,6 +16,7 @@ import { PartnersComponent } from './home-page/sections/partners/partners.compon
 import { QasComponent } from './home-page/sections/qas/qas.component';
 import { QasListComponent } from './home-page/sections/qas/qas-list/qas-list.component';
 import { AdvantagesComponent } from './home-page/sections/advantages/advantages.component';
+import { AdditionalLinksComponent } from './home-page/sections/additional-links/additional-links.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AdvantagesComponent } from './home-page/sections/advantages/advantages.
     QasComponent,
     AdvantagesComponent,
     QasListComponent,
-    LoansInAdvancePageComponent
+    LoansInAdvancePageComponent,
+    AdditionalLinksComponent
   ],
   exports: [HomePageComponent, LoansInAdvancePageComponent],
   imports: [SharedModule, CommonModule, FormsModule, NgSelectModule, FormsModule],

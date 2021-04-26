@@ -1,0 +1,32 @@
+.additional-links {
+  margin-top: 4.3rem;
+  .content {
+    flex-direction: column;
+    h2 {
+      color: var(--header-grey);
+    }
+    .additional-links-list {
+      display: flex;
+      flex-direction: row;
+      .additional-links-item {
+        display: flex;
+        flex-direction: column;
+        margin-top: 3.1rem;
+        margin-right: 3rem;
+        color: #737B7D;
+        width: 25%;
+        h3{
+          font-weight: bold;
+          font-size: 1.8rem;
+          line-height: 3.2rem;
+        }
+        a{
+          line-height: 3.2rem;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
