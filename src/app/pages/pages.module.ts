@@ -15,6 +15,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { PartnersComponent } from './home-page/sections/partners/partners.component';
 import { QasComponent } from './home-page/sections/qas/qas.component';
 import { QasListComponent } from './home-page/sections/qas/qas-list/qas-list.component';
+import { AdvantagesComponent } from './home-page/sections/advantages/advantages.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { QasListComponent } from './home-page/sections/qas/qas-list/qas-list.com
     ExchangeRatesComponent,
     PartnersComponent,
     QasComponent,
+    AdvantagesComponent,
     QasListComponent,
     LoansInAdvancePageComponent
   ],

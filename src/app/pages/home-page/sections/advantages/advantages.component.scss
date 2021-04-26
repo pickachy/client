@@ -1,0 +1,70 @@
+.advantages {
+  margin-top: 7.8rem;
+  .content {
+    flex-direction: column;
+    h2 {
+      color: var(--header-grey);
+    }
+    .advantages-list {
+      display: flex;
+      flex-direction: row;
+      .advantage-item {
+        display: flex;
+        flex-direction: column;
+        padding: 3.5rem 2.8rem 2.9rem;
+        margin-top: 3.4rem;
+        margin-right: 3rem;
+        width: 33.33%;
+        text-align: center;
+        align-items: center;
+        border: 0.1rem solid var(--main-green);
+
+        .image-composition {
+          position: relative;
+          margin-top: 3rem;
+          width: 13.2rem;
+          height: 13.2rem;
+          .image-circle-bg {
+            position: absolute;
+            width: 14.8rem;
+            height: 14.8rem;
+            border-radius: 50%;
+            left: -2.7rem;
+            bottom: 1.6rem;
+            opacity: 20%;
+          }
+        }
+        h3 {
+          font-weight: bold;
+          margin-top: 2rem;
+        }
+
+        p {
+          margin-top: 2rem;
+          line-height: 2.6rem;
+          font-size: 1.8rem;
+        }
+        &:nth-child(2) {
+          .image-composition {
+            .image-circle-bg {
+              left: -4.1rem;
+              bottom: 0;
+            }
+          }
+        }
+        &:nth-child(3) {
+          .image-composition {
+            .image-circle-bg {
+              left: -3.5rem;
+              bottom: 0;
+            }
+          }
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
