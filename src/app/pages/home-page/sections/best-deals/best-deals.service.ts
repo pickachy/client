@@ -1,9 +1,5 @@
 import { Injectable } from '@angular/core';
-
-export interface Image {
-  src: string;
-  alt: string;
-}
+import { Image } from '../../../../shared/media.types';
 
 export enum BestDealType {
   LOANS
