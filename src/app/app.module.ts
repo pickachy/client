@@ -6,11 +6,12 @@ import { SharedModule } from './shared/shared.module';
 import { PagesModule } from './pages/pages.module';
 import { NavigationService } from './shared/header/navigation/navigation.service';
 import { UsefulArticlesService } from './shared/sections/useful-articles/useful-articles.service';
+import { QasService } from './pages/home-page/sections/qas/qas.service';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }), AppRoutingModule, SharedModule, PagesModule],
-  providers: [NavigationService, UsefulArticlesService],
+  providers: [NavigationService, UsefulArticlesService, QasService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
