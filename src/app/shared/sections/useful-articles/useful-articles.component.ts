@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Filter } from '../../filters/section-filter/section-filter.component';
+import { TagFilter } from '../../filters/tags-filter/tags-filter.component';
 import { ArticleItemView } from './useful-articles.service';
 
 @Component({
@@ -8,6 +8,6 @@ import { ArticleItemView } from './useful-articles.service';
   styleUrls: ['./useful-articles.component.scss']
 })
 export class UsefulArticlesComponent {
-  @Input() filter?: Filter;
-  @Input() articles?: ArticleItemView[];
+  @Input() filter?: TagFilter;
+  @Input() data?: ArticleItemView[];
 }
