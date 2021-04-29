@@ -17,7 +17,7 @@ html {
   font-size: 62.5%;
   line-height: 1.3;
 
-  .grayed-bg{
+  .grayed-bg {
     background-color: var(--grey-section-background);
   }
 
@@ -29,10 +29,16 @@ html {
   }
 
   h2.section-header {
-    width:100%;
+    width: 100%;
     font-weight: 500;
     font-size: 2.4rem;
     text-align: left;
+  }
+
+  a.hover-underlined {
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   li {
@@ -76,7 +82,8 @@ html {
     line-height: 1.8rem;
   }
 
-  p, li {
+  p,
+  li {
     font-size: 1.4rem;
     line-height: 1.8rem;
   }

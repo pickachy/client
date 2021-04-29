@@ -5,10 +5,6 @@
     display: flex;
     flex-direction: column;
     margin-top: 1.5rem;
-    cursor: pointer;
-    &:first-child {
-      margin-top: 3rem;
-    }
     .question-caption {
       display: flex;
       flex-direction: row;
@@ -16,6 +12,9 @@
       background-color: var(--grey-section-background);
       justify-content: space-between;
       align-items: center;
+      transition: background-color var(--transition-duration) linear;
+      cursor: pointer;
+
       p {
         display: flex;
         font-weight: bold;
@@ -58,6 +57,9 @@
       .answer {
         display: flex;
       }
+    }
+    &:first-child {
+      margin-top: 3rem;
     }
     &:last-child {
       margin-right: 0;

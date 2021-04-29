@@ -8,9 +8,16 @@ import { QAItemView } from '../qas.service';
 })
 export class QasListComponent {
   @Input() data?: QAItemView[];
-  qaSelectedId?: number;
+  qaSelectedIds: number[] = [];
 
   onSelect(id: number) {
-    this.qaSelectedId = this.qaSelectedId !== id ? id : undefined;
+    const initialLength = this.qaSelectedIds.length;
+    const selectedIds = this.qaSelectedIds.filter(selectedId => selectedId !== id);
+    if (selectedIds.length === initialLength) {
+      this.qaSelectedIds.push(id);
+    }
+    else{
+      this.qaSelectedIds = selectedIds;
+    }
   }
 }

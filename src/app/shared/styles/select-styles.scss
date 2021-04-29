@@ -26,7 +26,7 @@ $arrow-color: #737b7d;
     border: none;
     min-height: auto;
     color: var(--black);
-    .ng-value-container{
+    .ng-value-container {
       padding-left: 0.5rem;
     }
     &:hover {
@@ -36,13 +36,14 @@ $arrow-color: #737b7d;
   span.ng-clear-wrapper {
     color: $arrow-color;
     margin-left: 0.6rem;
-    width:auto;
+    width: auto;
   }
 
   .ng-dropdown-panel {
     border: none;
     box-shadow: 0 0.8rem 0.8rem #d9d9d9;
     .ng-dropdown-panel-items {
+      margin-top: 0.1rem;
       .ng-option {
         &.ng-option-selected {
           background-color: transparent;
@@ -60,7 +61,7 @@ $arrow-color: #737b7d;
     .ng-select-container {
       height: auto;
       .ng-value-container {
-        .ng-input{
+        .ng-input {
           top: 0;
         }
       }

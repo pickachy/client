@@ -1,6 +1,6 @@
 <div class="qas-list">
-  <article class="qa-item" *ngFor="let qa of data" (click)="onSelect(qa.id)" [class.active]="qa.id === qaSelectedId">
-    <div class="question-caption">
+  <article class="qa-item" *ngFor="let qa of data" [class.active]="qaSelectedIds.includes(qa.id)">
+    <div class="question-caption" (click)="onSelect(qa.id)">
       <p>{{ qa.title }}</p>
       <span class="accordion-trigger"></span>
     </div>

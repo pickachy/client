@@ -8,4 +8,5 @@ import { NavigationRoute } from '../../../../app-routing.module';
 export class NavigationLinksComponent {
   @Input() links: NavigationRoute[] = [];
   @Input() activeClass: string | undefined = 'active-navigation-link';
+  @Input() linkClassName?: string;
 }

@@ -1,10 +1,10 @@
 <footer>
   <section class="content">
     <div class="left">
-      <app-navigation-links [links]='navigationMainRoutes'></app-navigation-links>
+      <app-navigation-links [links]="navigationMainRoutes" linkClassName="hover-underlined"></app-navigation-links>
     </div>
     <div class="right">
-      <app-navigation-links [links]='navigationAdditionalRoutes' [activeClass]='undefined'></app-navigation-links>
+      <app-navigation-links [links]="navigationAdditionalRoutes" [activeClass]="undefined" linkClassName="hover-underlined"></app-navigation-links>
       <div class="social-icons">
         <app-social-icon
           [styles]="{

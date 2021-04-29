@@ -16,6 +16,7 @@
           border-bottom: 0.2rem solid transparent;
           padding-bottom: 0.63rem;
           cursor: pointer;
+          transition: border-bottom-color var(--transition-duration) linear;
           &:hover,
           &.active-navigation-link {
             border-bottom-color: var(--main-green);

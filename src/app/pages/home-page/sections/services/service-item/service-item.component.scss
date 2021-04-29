@@ -4,6 +4,7 @@
   justify-content: center;
   border: 1px solid var(--main-green);
   text-align: center;
+  transition: box-shadow var(--transition-duration) linear;
   .image-composition-wrapper {
     display: flex;
     justify-content: center;
@@ -36,5 +37,9 @@
     white-space: nowrap;
     width:100%;
     margin-bottom: 1.7rem;
+  }
+
+  &:hover{
+    box-shadow: var(--box-shadow);
   }
 }

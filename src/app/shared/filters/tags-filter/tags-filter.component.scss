@@ -19,12 +19,15 @@ $circled-item-bg:#F5F5F5;
         border-bottom: 1px solid transparent;
         padding-bottom: 0.5rem;
         margin-right: 3.2rem;
+        transition-property: border-bottom-color, color;
+        transition-duration: var(--transition-duration);
+        transition-timing-function: linear;
       }
 
       &.circled{
           padding: 0.6rem 1.6rem;
           font-style: italic;
-          transition: filter 70ms linear;
+          transition: box-shadow 70var(--transition-duration) linear;
           background-color: $circled-item-bg;
           border-radius: 2rem 2rem;
           margin-right: 1.6rem;
@@ -32,13 +35,15 @@ $circled-item-bg:#F5F5F5;
         &.active-filter, &:hover{
           background-color: var(--main-green);
           color: var(--white);
-          filter: drop-shadow(0 0.4rem 0.4rem #bfbfbf);
+          box-shadow: var(--box-shadow);
         }
       }
       &.active-filter, &:hover{
         color: var(--main-green);
         border-bottom-color: var(--main-green);
       }
+
+
 
       &:last-child {
         margin-right: 0;

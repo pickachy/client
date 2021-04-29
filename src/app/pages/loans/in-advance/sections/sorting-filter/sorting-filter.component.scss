@@ -9,6 +9,7 @@
       .sorting-filter-item {
         margin-right: 3.5rem;
         cursor: pointer;
+        transition: color var(--transition-duration) linear;
         &.active, &:hover {
           color: var(--main-green);
         }
