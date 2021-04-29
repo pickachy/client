@@ -15,8 +15,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { PartnersComponent } from './home-page/sections/partners/partners.component';
 import { QasComponent } from './home-page/sections/qas/qas.component';
 import { QasListComponent } from './home-page/sections/qas/qas-list/qas-list.component';
-import { AdvantagesComponent } from './home-page/sections/advantages/advantages.component';
-import { AdditionalLinksComponent } from './home-page/sections/additional-links/additional-links.component';
+import { SortingFilterComponent } from './loans/in-advance/sections/sorting-filter/sorting-filter.component';
+import { LoansListComponent } from './loans/in-advance/sections/loans-list/loans-list.component';
+import { LoansService } from './loans/in-advance/sections/loans-list/loans.service';
 
 @NgModule({
   declarations: [
@@ -29,13 +30,13 @@ import { AdditionalLinksComponent } from './home-page/sections/additional-links/
     ExchangeRatesComponent,
     PartnersComponent,
     QasComponent,
-    AdvantagesComponent,
     QasListComponent,
     LoansInAdvancePageComponent,
-    AdditionalLinksComponent
+    SortingFilterComponent,
+    LoansListComponent
   ],
   exports: [HomePageComponent, LoansInAdvancePageComponent],
   imports: [SharedModule, CommonModule, FormsModule, NgSelectModule, FormsModule],
-  providers: [BestDealsService]
+  providers: [BestDealsService, LoansService]
 })
 export class PagesModule {}

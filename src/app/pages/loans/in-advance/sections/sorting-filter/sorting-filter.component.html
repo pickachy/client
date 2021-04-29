@@ -1,0 +1,12 @@
+<ng-container *ngIf="data">
+  <section class="sorting-filter">
+    <section class="content">
+      <p>Сортировать:</p>
+      <ul class="sorting-filter-list">
+        <li *ngFor="let item of data.items" (click)="onClick(item)" class="sorting-filter-item" [class.active]="item === selectedItem">
+          {{ item }}
+        </li>
+      </ul>
+    </section>
+  </section>
+</ng-container>

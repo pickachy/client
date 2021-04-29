@@ -1,0 +1,24 @@
+.sorting-filter {
+  margin-top: 3.1rem;
+  .content {
+    font-size: 1.4rem;
+    font-style: italic;
+    .sorting-filter-list {
+      display: flex;
+      flex-direction: row;
+      .sorting-filter-item {
+        margin-right: 3.5rem;
+        cursor: pointer;
+        &.active, &:hover {
+          color: var(--main-green);
+        }
+        &:first-child {
+          margin-left: 3rem;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

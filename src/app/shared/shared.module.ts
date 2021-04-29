@@ -11,6 +11,8 @@ import { SocialIconComponent } from './social-icon/social-icon.component';
 import { NavigationLinksComponent } from './header/navigation/navigation-links/navigation-links.component';
 import { UsefulArticlesComponent } from './sections/useful-articles/useful-articles.component';
 import { TagsFilterComponent } from './filters/tags-filter/tags-filter.component';
+import { AdditionalLinksComponent } from './sections/additional-links/additional-links.component';
+import { AdvantagesComponent } from './sections/advantages/advantages.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { TagsFilterComponent } from './filters/tags-filter/tags-filter.component
     PageNotFoundComponent,
     FooterComponent,
     SocialIconComponent,
-    UsefulArticlesComponent
+    UsefulArticlesComponent,
+    AdditionalLinksComponent,
+    AdvantagesComponent
   ],
   imports: [AppRoutingModule, CommonModule],
   exports: [
@@ -33,7 +37,9 @@ import { TagsFilterComponent } from './filters/tags-filter/tags-filter.component
     SocialIconComponent,
     NavigationLinksComponent,
     TagsFilterComponent,
-    UsefulArticlesComponent
+    UsefulArticlesComponent,
+    AdditionalLinksComponent,
+    AdvantagesComponent
   ]
 })
 export class SharedModule {}
