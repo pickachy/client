@@ -32,7 +32,7 @@ $circled-item-bg:#F5F5F5;
         &.active-filter, &:hover{
           background-color: var(--main-green);
           color: var(--white);
-          filter: drop-shadow(0 0.4rem 0.4rem rgba(0, 0, 0, 0.25));
+          filter: drop-shadow(0 0.4rem 0.4rem #bfbfbf);
         }
       }
       &.active-filter, &:hover{

@@ -41,7 +41,7 @@ $arrow-color: #737b7d;
 
   .ng-dropdown-panel {
     border: none;
-    box-shadow: none;
+    box-shadow: 0 0.8rem 0.8rem #d9d9d9;
     .ng-dropdown-panel-items {
       .ng-option {
         &.ng-option-selected {
@@ -51,7 +51,7 @@ $arrow-color: #737b7d;
           }
         }
         &.ng-option-marked {
-          background-color: var(--orange);
+          background-color: var(--light-azure);
         }
       }
     }

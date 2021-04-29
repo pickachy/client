@@ -3,8 +3,8 @@
     <h2 class="section-header">Вопросы и ответы</h2>
     <app-sections-tags-filter [tag]="tags" theme="circled"></app-sections-tags-filter>
     <div class="sub-filters">
-      <ng-select [items]="mainTags" bindValue="value" [(ngModel)]="mainTag" [clearable]="false"></ng-select>
-      <ng-select [items]="subTags" bindValue="value" [(ngModel)]="subTag" [clearable]="false"></ng-select>
+      <ng-select [items]="mainTags" bindValue="value" [(ngModel)]="mainTag" [clearable]="false" [searchable]="false"></ng-select>
+      <ng-select [items]="subTags" bindValue="value" [(ngModel)]="subTag" [clearable]="false" [searchable]="false"></ng-select>
     </div>
     <app-page-home-section-qas-list [data]="qas"></app-page-home-section-qas-list>
   </section>
