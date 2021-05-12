@@ -1,3 +1,5 @@
+@import 'src/app/shared/styles/_mixins';
+
 .advantages {
   margin-top: 7.8rem;
   .content {
@@ -7,14 +9,11 @@
     }
     .advantages-list {
       display: flex;
-      flex-direction: row;
       .advantage-item {
         display: flex;
         flex-direction: column;
         padding: 3.5rem 2.8rem 2.9rem;
-        margin-top: 3.4rem;
-        margin-right: 3rem;
-        width: 33.33%;
+        flex: 1 1 33.33333%;
         text-align: center;
         align-items: center;
         border: 0.1rem solid var(--main-green);
@@ -60,11 +59,27 @@
             }
           }
         }
-
-        &:last-child {
-          margin-right: 0;
-        }
       }
+    }
+  }
+}
+
+@include desktop {
+  section.advantages-list {
+    flex-direction: row;
+    column-gap: 3rem;
+    .advantage-item {
+      margin-top: 3.4rem;
+    }
+  }
+}
+
+@include touch {
+  section.advantages-list {
+    flex-wrap: wrap;
+    flex-direction: column;
+    .advantage-item {
+      margin-top: 0.7rem;
     }
   }
 }
