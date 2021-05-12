@@ -1,45 +1,98 @@
-$text-color: #737B7D;
+@import 'src/app/shared/styles/_mixins';
 
 .useful-articles {
   background-color: var(--grey-section-background);
-  padding: 3.7rem 0 2.2rem 0;
   .content {
     flex-direction: column;
 
     app-sections-tags-filter {
       margin-top: 3rem;
     }
-
     .articles-list {
       display: flex;
-      flex-direction: row;
       .article-item {
         display: flex;
         flex-direction: column;
-        margin-right: 3rem;
-        margin-top: 4.2rem;
-        color: $text-color;
+        color: #737b7d;
 
-        h3{
+        img {
+          width: 100%;
+        }
+        h3 {
           line-height: 3.2rem;
           margin-top: 1.5rem;
         }
-        p{
+        p {
           line-height: 2.2rem;
           margin-top: 0.7rem;
           font-size: 1.6rem;
         }
 
-        a{
-          margin-top: 1rem;
+        .link-wrapper {
           text-align: right;
-          font-size: 1.2rem;
-          text-decoration: underline;
+          a {
+            font-size: 1.2rem;
+            text-decoration: underline;
+          }
         }
 
-        &:last-child{
-          margin-right:0;
+        &:last-child {
+          margin-right: 0;
         }
+      }
+    }
+  }
+}
+
+@include desktop {
+  .useful-articles {
+    padding: 3.7rem 0 2.2rem 0;
+
+    .articles-list {
+      flex-direction: row;
+      .article-item {
+        margin-right: 3rem;
+        margin-top: 4.2rem;
+        .link-wrapper {
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@include touch {
+  .useful-articles {
+    padding: 2.4rem 0 2.2rem 0;
+    margin-top: 1.5rem;
+    .articles-list {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: space-between;
+      .article-item {
+        margin-top: 2.4rem;
+        flex: 1 1 calc(50% - 1.5rem);
+        .img-wrapper {
+          height: 10rem;
+          position: relative;
+          overflow-y: hidden;
+          img {
+            position: absolute;
+            top: -100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include touch-phone {
+  .useful-articles {
+    .articles-list {
+      gap: 0;
+      .article-item {
+        flex: 1 1 100%;
       }
     }
   }
