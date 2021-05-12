@@ -1,6 +1,7 @@
+@import 'src/app/shared/styles/_mixins';
+
 footer {
   background-color: #455053;
-  padding: 3rem 0 5rem 0;
   color: var(--white);
   margin-top: 3.3rem;
   .content {
@@ -9,7 +10,7 @@ footer {
     .left {
       display: flex;
       flex-direction: column;
-      width: 30%;
+      flex: 1 1 30%;
       ::ng-deep app-navigation-links {
         li {
           margin-bottom: 1.4rem;
@@ -26,18 +27,14 @@ footer {
     .right {
       display: flex;
       flex-direction: column;
-      width: 70%;
+      flex: 1 1 70%;
 
       ::ng-deep app-navigation-links {
-        margin-bottom: 4.4rem;
         justify-content: right;
         nav {
           display: flex;
-          flex-direction: row;
-          justify-content: flex-end;
           li {
             display: flex;
-            margin-left: 3.2rem;
             a {
               color: #b5b5b5;
               font-size: 1.2rem;
@@ -52,7 +49,7 @@ footer {
         display: flex;
         flex-direction: row;
         justify-content: center;
-        margin-bottom: 5.6rem;
+        margin-top: 4.4rem;
 
         app-social-icon {
           margin-right: 3rem;
@@ -67,6 +64,61 @@ footer {
     .copyright {
       font-size: 1.2rem;
       text-align: center;
+    }
+  }
+}
+
+@include desktop {
+  footer {
+    padding: 3rem 0 5rem 0;
+    .right {
+      ::ng-deep nav {
+        flex-direction: row;
+        justify-content: flex-end;
+        li {
+          margin-left: 3.2rem;
+        }
+      }
+      .copyright {
+        margin-top: 5.6rem;
+      }
+    }
+  }
+}
+
+@include touch {
+  footer {
+    padding: 3rem 0 5rem 0;
+    ::ng-deep li {
+      margin-left: 3.2rem;
+    }
+    .copyright {
+      margin-top: 5.6rem;
+    }
+  }
+}
+
+@include touch-phone {
+  footer {
+    padding: 2.8rem 0 3.1rem 0;
+    .content {
+      text-align: center;
+      flex-direction: column;
+      ::ng-deep nav {
+        flex-direction: column;
+        text-align: center;
+        margin-top: 0;
+        li {
+          margin-left: 0;
+          justify-content: center;
+        }
+      }
+      .right {
+        margin-top: 2rem;
+      }
+      .copyright {
+        margin-top: 3.3rem;
+      }
     }
   }
 }
