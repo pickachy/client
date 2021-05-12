@@ -1,0 +1,11 @@
+﻿@mixin touch {
+  @media (max-width: 833px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 834px) {
+    @content;
+  }
+}

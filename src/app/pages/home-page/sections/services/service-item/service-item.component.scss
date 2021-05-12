@@ -1,45 +1,87 @@
-.service-item {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border: 1px solid var(--main-green);
-  text-align: center;
-  transition: box-shadow var(--transition-duration) linear;
-  .image-composition-wrapper {
+@import 'src/app/shared/styles/_mixins';
+
+a {
+  width: 100%;
+  .service-item {
     display: flex;
     justify-content: center;
-    margin-bottom: 1.5rem;
-    .image-composition {
-      position: relative;
-      margin: 4.1rem 8.7rem 0 8.8rem;
-      .image-circle-bg {
-        position: absolute;
-        width: 8.2rem;
-        height: 8.2rem;
-        border-radius: 50%;
-        left: -1.8rem;
-        bottom: 0;
-        opacity: 20%;
-      }
-      img {
-        display: flex;
+    border: 0.1rem solid var(--main-green);
+    text-align: center;
+    .image-composition-wrapper {
+      display: flex;
+      .image-composition {
         position: relative;
-        width: 6.7rem;
-        height: 6.7rem;
+        .image-circle-bg {
+          position: absolute;
+          border-radius: 50%;
+          left: -1.8rem;
+          bottom: 0;
+          opacity: 20%;
+        }
+        img {
+          display: flex;
+          position: relative;
+        }
       }
     }
-  }
 
-  p {
-    font-weight: 500;
-    font-size: 2.1rem;
-    line-height: 3.2rem;
-    white-space: nowrap;
-    width:100%;
-    margin-bottom: 1.7rem;
+    p {
+      font-weight: 500;
+      line-height: 3.2rem;
+      white-space: nowrap;
+      width: 100%;
+    }
   }
-
-  &:hover{
-    box-shadow: var(--box-shadow);
+}
+@include desktop {
+  .service-item {
+    justify-content: center;
+    flex-direction: column;
+    transition: box-shadow var(--transition-duration) linear;
+    .image-composition-wrapper {
+      margin-bottom: 1.5rem;
+      .image-composition {
+        margin: 4.1rem 8.7rem 0 8.8rem;
+        .image-circle-bg{
+          width: 8.2rem;
+          height: 8.2rem;
+        }
+        img{
+          width: 6.7rem;
+          height: 6.7rem;
+        }
+      }
+    }
+    p {
+      margin-bottom: 1.7rem;
+      font-size: 2.1rem;
+    }
+    &:hover {
+      box-shadow: var(--box-shadow);
+    }
+  }
+}
+@include touch {
+  .service-item {
+    flex-direction: row;
+    align-items: center;
+    .image-composition-wrapper {
+      margin: 3.2rem 2.2rem 1.8rem 4.7rem;
+      .image-circle-bg{
+        width: 6.1rem;
+        height: 6.1rem;
+      }
+      .image-composition{
+        img{
+          width: 4.6rem;
+          height: 4.6rem;
+        }
+      }
+    }
+    p {
+      text-align: left;
+      font-size: 1.8rem;
+      margin-right:2.1rem;
+    }
   }
 }
