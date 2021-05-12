@@ -7,16 +7,22 @@ $circled-item-bg:#F5F5F5;
   .filters {
     display: flex;
     flex-direction: row;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 0.5rem;
     &.align-center{
       width: 100%;
       justify-content: center;
     }
     li {
+      display: flex;
+      flex: 0 0 auto;
       cursor: pointer;
       color: #373F41;
+      white-space: nowrap;
 
       &:not(.circled){
-        border-bottom: 1px solid transparent;
+        border-bottom: 0.1rem solid transparent;
         padding-bottom: 0.5rem;
         margin-right: 3.2rem;
         transition-property: border-bottom-color, color;

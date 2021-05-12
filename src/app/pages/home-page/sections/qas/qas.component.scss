@@ -1,22 +1,39 @@
+@import 'src/app/shared/styles/_mixins';
+
 .qas {
   margin-top: 4.5rem;
   .content {
     flex-direction: column;
     h2 {
       color: var(--header-grey);
-      margin-bottom: 3.9rem;
     }
     .sub-filters {
       display: flex;
       flex-direction: row;
       justify-content: left;
       margin-top: 2.3rem;
+      flex-wrap: wrap;
+      column-gap: 3.3rem;
+    }
+  }
+}
 
-      ng-select {
-        &:first-child {
-          margin-right: 3.3rem;
-        }
-      }
+@include desktop {
+  h2 {
+    margin-bottom: 3.9rem;
+  }
+}
+
+@include touch{
+  h2 {
+    margin-bottom: 2.3rem;
+  }
+}
+
+@include touch-custom-phone(364px) {
+  ng-select {
+    &:last-child{
+      margin-top: 2.2rem;
     }
   }
 }
