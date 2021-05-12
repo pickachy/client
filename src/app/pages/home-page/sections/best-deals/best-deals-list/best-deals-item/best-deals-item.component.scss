@@ -1,71 +1,74 @@
-:host {
+@import 'src/app/shared/styles/_mixins';
+
+article {
   display: flex;
   flex-direction: column;
-  width: 40%;
-  .best-deals-item {
-    transition: box-shadow var(--transition-duration) linear;
-    article {
+  padding: 2.5rem 1.8rem 1.8rem 1.8rem;
+  border: 0.1rem solid var(--main-green);
+  background-color: var(--white);
+  .caption {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    .title-section {
       display: flex;
       flex-direction: column;
-      padding: 2.5rem 1.8rem 1.8rem 1.8rem;
-      border: 0.1rem solid var(--main-green);
-      background-color: var(--white);
-      .caption {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        .title-section {
-          display: flex;
-          flex-direction: column;
 
-          h3 {
-            margin-bottom: 0.9rem;
-          }
-
-          p {
-            font-weight: 300;
-          }
-        }
-      }
-      .description {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        margin-bottom: 2.9rem;
-        .description-item {
-          display: flex;
-          flex-direction: column;
-          p {
-            font-size: 2.4rem;
-            font-weight: bold;
-            margin-bottom: 0.8rem;
-          }
-          span {
-            font-size: 1.4rem;
-            font-weight: 300;
-          }
-        }
-      }
-      .divider {
-        width: 100%;
-        margin-top: 1.7rem;
-        margin-bottom: 2.9rem;
-        height: 0.1rem;
-        background-color: #000000;
+      h3 {
+        margin-bottom: 0.9rem;
       }
 
-      .details-button-wrapper {
-        display: flex;
-        .details-button {
-          text-transform: uppercase;
-          padding: 1.2rem 2.6rem;
-          border: 0.1rem solid var(--black);
-          transition-property: background-color, color;
-          transition-duration: var(--transition-duration);
-          transition-timing-function: linear;
-        }
+      p {
+        font-weight: 300;
       }
+    }
+  }
+  .description {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 2.9rem;
+    .description-item {
+      display: flex;
+      flex-direction: column;
+      p {
+        font-size: 2.4rem;
+        font-weight: bold;
+        margin-bottom: 0.8rem;
+      }
+      span {
+        font-size: 1.4rem;
+        font-weight: 300;
+      }
+    }
+  }
+  .divider {
+    width: 100%;
+    margin-top: 1.7rem;
+    margin-bottom: 2.9rem;
+    height: 0.1rem;
+    background-color: #000000;
+  }
+
+  .details-button-wrapper {
+    display: flex;
+    .details-button {
+      text-transform: uppercase;
+      padding: 1.2rem 2.6rem;
+      border: 0.1rem solid var(--black);
+    }
+  }
+}
+
+@include desktop {
+  .best-deals-item {
+    transition: box-shadow var(--transition-duration) linear;
+
+    .details-button {
+      transition-property: background-color, color;
+      transition-duration: var(--transition-duration);
+      transition-timing-function: linear;
     }
 
     &:hover {

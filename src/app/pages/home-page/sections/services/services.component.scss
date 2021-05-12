@@ -9,8 +9,6 @@
       justify-content: center;
       app-page-home-section-service-item {
         display: flex;
-        margin-right: 1.4rem;
-        margin-left: 1.4rem;
       }
     }
   }
@@ -25,6 +23,8 @@
       max-width: 40%;
       flex-direction: column;
       margin-bottom: 2.8rem;
+      margin-right: 1.4rem;
+      margin-left: 1.4rem;
     }
   }
 }

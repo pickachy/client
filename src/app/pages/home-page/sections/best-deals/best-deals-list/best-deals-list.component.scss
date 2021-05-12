@@ -1,12 +1,36 @@
+@import 'src/app/shared/styles/__mixins';
+
 .best-deals-list {
   display: flex;
   flex-direction: row;
   app-page-home-section-best-deals-item {
-    margin-top: 4.4rem;
+    display: flex;
+    flex: 0 0 calc(33.333333% - 1.866666667rem);
+    flex-direction: column;
     margin-right: 2.8rem;
 
     &:last-child {
       margin-right: 0;
+    }
+  }
+}
+
+@include desktop {
+  app-page-home-section-best-deals-item {
+    margin-top: 4.4rem;
+  }
+}
+
+@include touch {
+  .best-deals-list {
+    flex-wrap: wrap;
+    app-page-home-section-best-deals-item {
+      margin-top: 0.9rem;
+      flex-basis: 100%;
+
+      &:first-child{
+        margin-top: 2.2rem;
+      }
     }
   }
 }
