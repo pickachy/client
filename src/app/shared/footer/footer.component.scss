@@ -1,6 +1,7 @@
 @import 'src/app/shared/styles/_mixins';
 
 footer {
+  padding: 3rem 0 5rem 0;
   background-color: #455053;
   color: var(--white);
   margin-top: 3.3rem;
@@ -69,32 +70,24 @@ footer {
 }
 
 @include desktop {
-  footer {
-    padding: 3rem 0 5rem 0;
-    .right {
-      ::ng-deep nav {
-        flex-direction: row;
-        justify-content: flex-end;
-        li {
-          margin-left: 3.2rem;
-        }
-      }
-      .copyright {
-        margin-top: 5.6rem;
-      }
+  ::ng-deep nav {
+    flex-direction: row;
+    justify-content: flex-end;
+    li {
+      margin-left: 3.2rem;
     }
+  }
+  .copyright {
+    margin-top: 5.6rem;
   }
 }
 
 @include touch {
-  footer {
-    padding: 3rem 0 5rem 0;
-    ::ng-deep li {
-      margin-left: 3.2rem;
-    }
-    .copyright {
-      margin-top: 5.6rem;
-    }
+  ::ng-deep li {
+    margin-left: 3.2rem;
+  }
+  .copyright {
+    margin-top: 5.6rem;
   }
 }
 
