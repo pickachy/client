@@ -16,7 +16,7 @@
       border: 0.1rem solid #bbbbbb;
       margin-bottom: 2.4rem;
       flex: 1 1 25%;
-      img{
+      img {
         max-width: 100%;
         height: auto;
       }
@@ -25,39 +25,36 @@
 }
 
 @include desktop {
-  h2{
+  h2 {
     margin-bottom: 3.9rem;
   }
   .partners {
     margin-top: 4.5rem;
     flex-direction: row;
-    .partner-item {
-      margin-right: 3rem;
-      max-width: calc(25% - 9.5rem);
-      &:last-child {
-        margin-right: 0;
+    .partners-list {
+      column-gap: 3rem;
+      .partner-item {
+        max-width: calc(25% - 9.5rem);
       }
     }
   }
 }
 
 @include touch {
-  h2{
+  h2 {
     margin-bottom: 2.1rem;
   }
   .partners {
     margin-top: 4.2rem;
-    .partners-list {
-      .partner-item {
-        margin-left: 1.5rem;
-        margin-right: 1.5rem;
-      }
+    .partner-item {
+      margin-left: 1.5rem;
+      margin-right: 1.5rem;
     }
   }
 }
 
 @include touch-phone {
-  h2{
+  h2 {
     margin-bottom: 1.2rem;
   }
   .partners {
