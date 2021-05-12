@@ -4,6 +4,12 @@
   }
 }
 
+@mixin touch-phone {
+  @media (max-width: 520px) {
+    @content;
+  }
+}
+
 @mixin desktop {
   @media (min-width: 834px) {
     @content;

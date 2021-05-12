@@ -1,27 +1,70 @@
-$border-color: #bbbbbb;
+@import 'src/app/shared/styles/_mixins';
 
-.partners {
-  margin-top: 4.5rem;
-  .content {
-    flex-direction: column;
-    h2{
-      color: var(--header-grey);
-      margin-bottom: 3.9rem;
-    }
-    .partners-list {
+.content {
+  flex-direction: column;
+  h2 {
+    color: var(--header-grey);
+  }
+  .partners-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .partner-item {
       display: flex;
-      flex-direction: row;
-      .partner-item {
-        display: flex;
-        width: calc(25% - 9rem);
-        padding: 1.9rem 3.5rem;
-        border: 0.1rem solid $border-color;
-        margin-right: 3rem;
-        margin-bottom: 2.4rem;
+      justify-content: center;
+      padding: 1.9rem 3.5rem;
+      border: 0.1rem solid #bbbbbb;
+      margin-bottom: 2.4rem;
+      flex: 1 1 25%;
+      img{
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
 
-        &:last-child{
-          margin-right:0;
-        }
+@include desktop {
+  h2{
+    margin-bottom: 3.9rem;
+  }
+  .partners {
+    margin-top: 4.5rem;
+    flex-direction: row;
+    .partner-item {
+      margin-right: 3rem;
+      max-width: calc(25% - 9.5rem);
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+@include touch {
+  h2{
+    margin-bottom: 2.1rem;
+  }
+  .partners {
+    margin-top: 4.2rem;
+    .partners-list {
+      .partner-item {
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+      }
+    }
+  }
+}
+
+@include touch-phone {
+  h2{
+    margin-bottom: 1.2rem;
+  }
+  .partners {
+    .partners-list {
+      flex-direction: column;
+      .partner-item {
+        margin: 0.9rem 0 0;
       }
     }
   }
