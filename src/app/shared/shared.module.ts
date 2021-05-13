@@ -13,6 +13,7 @@ import { UsefulArticlesComponent } from './sections/useful-articles/useful-artic
 import { TagsFilterComponent } from './filters/tags-filter/tags-filter.component';
 import { AdditionalLinksComponent } from './sections/additional-links/additional-links.component';
 import { AdvantagesComponent } from './sections/advantages/advantages.component';
+import { AdaptComponent } from './tools/adapt/adapt.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AdvantagesComponent } from './sections/advantages/advantages.component'
     SocialIconComponent,
     UsefulArticlesComponent,
     AdditionalLinksComponent,
-    AdvantagesComponent
+    AdvantagesComponent,
+    AdaptComponent
   ],
   imports: [AppRoutingModule, CommonModule],
   exports: [
@@ -39,7 +41,8 @@ import { AdvantagesComponent } from './sections/advantages/advantages.component'
     TagsFilterComponent,
     UsefulArticlesComponent,
     AdditionalLinksComponent,
-    AdvantagesComponent
+    AdvantagesComponent,
+    AdaptComponent
   ]
 })
 export class SharedModule {}
