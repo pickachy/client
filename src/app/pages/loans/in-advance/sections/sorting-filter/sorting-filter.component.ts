@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-export interface SortingFilter{
+import { Component, Input, OnInit } from '@angular/core';
+export interface SortingFilter {
   items: string[];
   onClick: () => void;
 }
@@ -8,11 +8,15 @@ export interface SortingFilter{
   templateUrl: './sorting-filter.component.html',
   styleUrls: ['./sorting-filter.component.scss']
 })
-export class SortingFilterComponent {
+export class SortingFilterComponent implements OnInit {
   @Input() data?: SortingFilter;
-  selectedItem?: string
+  selectedItem?: string;
 
-  onClick(item: string){
+  ngOnInit(): void {
+    this.selectedItem = this.data?.items[0];
+  }
+
+  onClick(item: string) {
     this.selectedItem = item;
   }
 }

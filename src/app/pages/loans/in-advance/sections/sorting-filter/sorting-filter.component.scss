@@ -1,16 +1,29 @@
+@import 'src/app/shared/styles/_mixins';
+
 .sorting-filter {
-  margin-top: 3.1rem;
   .content {
     font-size: 1.4rem;
-    font-style: italic;
+    p {
+      font-style: italic;
+    }
+  }
+}
+
+@include desktop {
+  .sorting-filter {
+    margin-top: 3.1rem;
+  }
+  .content {
     .sorting-filter-list {
       display: flex;
       flex-direction: row;
       .sorting-filter-item {
         margin-right: 3.5rem;
         cursor: pointer;
+        font-style: italic;
         transition: color var(--transition-duration) linear;
-        &.active, &:hover {
+        &.active,
+        &:hover {
           color: var(--main-green);
         }
         &:first-child {
@@ -20,6 +33,18 @@
           margin-right: 0;
         }
       }
+    }
+  }
+}
+
+@include touch {
+  .sorting-filter {
+    margin-top: 1.9rem;
+  }
+  .content {
+    justify-content: left;
+    ng-select {
+      display: flex;
     }
   }
 }

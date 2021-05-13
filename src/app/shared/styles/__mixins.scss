@@ -10,7 +10,7 @@
   }
 }
 
-@mixin touch-custom-phone($width) {
+@mixin max-screen-custom($width) {
   @media (max-width: $width) {
     @content;
   }

@@ -1,11 +1,11 @@
 @import '~@ng-select/ng-select/themes/default.theme.css';
 
-$arrow-color: #737b7d;
+$arrow-color: #737b7d87;
 
 .ng-select {
   font-size: 1.4rem;
   .ng-arrow-wrapper {
-    width: 1.6rem;
+    width: 1.9rem;
     transition: transform 0.3s;
     margin-left: 0.6rem;
     span {
@@ -18,6 +18,11 @@ $arrow-color: #737b7d;
         top: -0.2rem;
         transform: rotate(135deg);
         color: $arrow-color;
+      }
+    }
+    &:hover {
+      .ng-arrow {
+        border-top-color: $arrow-color;
       }
     }
   }
@@ -42,6 +47,7 @@ $arrow-color: #737b7d;
   .ng-dropdown-panel {
     border: none;
     box-shadow: 0 0.8rem 0.8rem #d9d9d9;
+    width: auto;
     .ng-dropdown-panel-items {
       margin-top: 0.1rem;
       .ng-option {

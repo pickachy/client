@@ -12,10 +12,6 @@ $circled-item-bg: #f5f5f5;
     overflow-x: auto;
     flex-wrap: nowrap;
     padding-bottom: 0.5rem;
-    &.align-center {
-      width: 100%;
-      justify-content: center;
-    }
   }
 }
 
@@ -60,16 +56,20 @@ li {
 }
 
 @include desktop {
+  .filters {
+    &.align-center {
+      width: 100%;
+      justify-content: center;
+    }
+  }
   li {
     &.circled {
-
       &:hover {
         background-color: var(--main-green);
         color: var(--white);
         box-shadow: var(--box-shadow);
       }
     }
-
 
     &:hover {
       color: var(--main-green);

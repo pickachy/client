@@ -2,11 +2,18 @@
   <section class="sorting-filter">
     <section class="content">
       <p>Сортировать:</p>
-      <ul class="sorting-filter-list">
-        <li *ngFor="let item of data.items" (click)="onClick(item)" class="sorting-filter-item" [class.active]="item === selectedItem">
-          {{ item }}
-        </li>
-      </ul>
+      <app-adapt [to]="'desktop'">
+        <ul class="sorting-filter-list">
+          <li *ngFor="let item of data.items" (click)="onClick(item)" class="sorting-filter-item" [class.active]="item === selectedItem">
+            {{ item }}
+          </li>
+        </ul>
+      </app-adapt>
+      <app-adapt [to]="'mobile'">
+        <ng-select [searchable]="false" [clearable]="false" [(ngModel)]="selectedItem">
+          <ng-option *ngFor="let item of data.items" value="item" (change)="onClick(item)">{{ item }}</ng-option>
+        </ng-select>
+      </app-adapt>
     </section>
   </section>
 </ng-container>

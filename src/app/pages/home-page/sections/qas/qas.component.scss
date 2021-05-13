@@ -30,7 +30,7 @@
   }
 }
 
-@include touch-custom-phone(364px) {
+@include max-screen-custom(364px) {
   ng-select {
     &:last-child{
       margin-top: 2.2rem;

@@ -52,7 +52,7 @@
   }
 }
 
-@include touch-custom-phone(420px) {
+@include max-screen-custom(420px) {
   .additional-links-list {
     column-gap: 0;
     .additional-links-item {
