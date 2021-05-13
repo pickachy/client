@@ -70,22 +70,31 @@ footer {
 }
 
 @include desktop {
-  ::ng-deep nav {
-    flex-direction: row;
-    justify-content: flex-end;
-    li {
-      margin-left: 3.2rem;
+  footer {
+    .right {
+      ::ng-deep nav {
+        flex-direction: row;
+        justify-content: flex-end;
+
+        li {
+          margin-left: 3.2rem;
+        }
+      }
     }
   }
+
   .copyright {
     margin-top: 5.6rem;
   }
 }
 
 @include touch {
-  ::ng-deep li {
-    margin-left: 3.2rem;
+  footer {
+    ::ng-deep li {
+      margin-left: 3.2rem;
+    }
   }
+
   .copyright {
     margin-top: 5.6rem;
   }
