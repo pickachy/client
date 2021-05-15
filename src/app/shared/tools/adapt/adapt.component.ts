@@ -16,15 +16,19 @@ export class AdaptComponent implements OnInit, OnDestroy {
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
     this.isBrowser = isPlatformBrowser(this.platformId);
-    this.mqList = this.isBrowser ? window.matchMedia('(max-width: 833px)') : (null as any);
+    this.mqList = this.isBrowser ? window.matchMedia('(max-width: 833px)') : (undefined as any);
   }
 
   ngOnInit(): void {
-    this.mqList.addEventListener('change', this.onChange);
+    if (this.isBrowser) {
+      this.mqList.addEventListener('change', this.onChange);
+    }
     this.onChange(this.mqList);
   }
   ngOnDestroy(): void {
-    this.mqList.removeEventListener('change', this.onChange);
+    if (this.isBrowser) {
+      this.mqList.removeEventListener('change', this.onChange);
+    }
   }
 
   private readonly onChange = (x: MediaQueryList | MediaQueryListEvent) => {
