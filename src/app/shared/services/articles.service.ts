@@ -1,19 +1,12 @@
 import { Injectable } from '@angular/core';
+import { Article } from '@models/article.model';
 
-interface ArticleDto {
-  id: number;
-  title: string;
-  description: string;
-  imageUrl: string;
-}
-
-export interface ArticleItemView extends ArticleDto {}
 
 @Injectable({
   providedIn: 'root'
 })
-export class UsefulArticlesService {
-  getArticles = (): ArticleItemView[] => [
+export class ArticlesService {
+  getArticles = (): Article[] => [
     {
       id: 0,
       title: 'Et has minim elitr intellegat',

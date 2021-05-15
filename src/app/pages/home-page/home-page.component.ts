@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { ArticleItemView, UsefulArticlesService } from '../../shared/sections/useful-articles/useful-articles.service';
-import { TagFilter } from '../../shared/filters/tags-filter/tags-filter.component';
+import { TagFilter } from '@shared/filters/tags-filter/tags-filter.component';
+import { ArticlesService } from '@shared/services/articles.service';
+import { Article } from '@models/article.model';
 
 @Component({
   selector: 'app-page-home',
@@ -12,8 +13,8 @@ export class HomePageComponent {
     items: [{ name: 'Кредиты', isActive: true }, { name: 'Кредитные карты' }, { name: 'Ипотеки' }, { name: 'Микрозаймы' }],
     onClick: () => null
   };
-  articles: ArticleItemView[];
-  constructor(private articlesService: UsefulArticlesService) {
+  articles: Article[];
+  constructor(private articlesService: ArticlesService) {
     this.articles = articlesService.getArticles();
   }
 }

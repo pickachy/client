@@ -1,15 +1,9 @@
 import { NgModule } from '@angular/core';
-import { Route, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoansInAdvancePageComponent } from './pages/loans/in-advance/loans-in-advance-page.component';
-import { PageNotFoundComponent } from './shared/pages/page-not-found.component';
-
-export interface NavigationRoute extends Route {
-  name?: string;
-  fullPath?: string;
-  children?: NavigationRoute[];
-  isAdditional?: boolean;
-}
+import { PageNotFoundComponent } from '@shared/pages/page-not-found.component';
+import { NavigationRoute } from '@models/navigation-route.model';
 
 const routes: NavigationRoute[] = [
   { path: '', component: HomePageComponent },

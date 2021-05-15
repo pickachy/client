@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { LoanItemView, LoansService } from './loans.service';
+import { LoansService } from '@shared/services/loans.service';
+import { Loan } from '@models/loan.model';
+
 export interface SortingFilter{
   items: string[];
   onClick: () => void;
@@ -10,13 +12,13 @@ export interface SortingFilter{
   styleUrls: ['./loans-list.component.scss']
 })
 export class LoansListComponent {
-  @Input() data?: LoanItemView[];
+  @Input() data?: Loan[];
 
   constructor(loansService: LoansService) {
     this.data = loansService.getLoans();
   }
 
-  onClick(_item: LoanItemView){
+  onClick(_item: Loan){
 
   }
 }

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { BestDealItemView } from '../../best-deals.service';
+import { BestDeal } from '@models/best-deal.model';
 
 @Component({
   selector: 'app-page-home-section-best-deals-item',
@@ -7,5 +7,5 @@ import { BestDealItemView } from '../../best-deals.service';
   styleUrls: ['./best-deals-item.component.scss']
 })
 export class BestDealsItemComponent {
-  @Input() data?: BestDealItemView;
+  @Input() data?: BestDeal;
 }

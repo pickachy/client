@@ -1,36 +1,19 @@
 import { Injectable } from '@angular/core';
-import { Image } from '../../../../../shared/media.types';
-
-enum BankType {
-  PRIVAT_BANK,
-  MONEY_FAST
-}
-
-const BankTypeImageMap: { [type: number]: Image } = {
-  [BankType.PRIVAT_BANK]: { src: 'assets/images/loans-page/loans-in-advance-page/sportbank.png', alt: 'privat bank' },
-  [BankType.MONEY_FAST]: { src: 'assets/images/loans-page/loans-in-advance-page/sportbank.png', alt: 'privat bank' }
-};
-
-interface LoanDto {
-  id: number;
-  initialAmount: number;
-  finalAmount: number;
-  maximumProcessingTime: number;
-  termDays: number;
-  initialRatePercent: number;
-  bankType: BankType;
-}
-
-export interface LoanItemView extends LoanDto {
-  imageUrl: string;
-  alt: string;
-}
+import { BestDeal, BestDealType } from '@models/best-deal.model';
+import { BankType, BankTypeImageMap, Loan } from '@models/loan.model';
+import { Image } from '@models/image.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoansService {
-  getLoans = (): LoanItemView[] => [
+  imagesMap: { [type: number]: Image } = {
+    [BestDealType.LOANS]: {
+      src: 'assets/images/home-page/best-deals/privatbank.svg',
+      alt: 'pb'
+    }
+  };
+  getLoans = (): Loan[] => [
     {
       id: 0,
       initialAmount: 2000,
@@ -118,6 +101,38 @@ export class LoansService {
       initialRatePercent: 0,
       bankType: BankType.MONEY_FAST,
       alt: BankTypeImageMap[BankType.MONEY_FAST].alt
+    }
+  ];
+  getBestDeals = (): BestDeal[] => [
+    {
+      id: 0,
+      title: 'Приват Банк',
+      description: 'Кредит "Доверие"',
+      annualPercent: 4.9,
+      loanTermsDays: 90,
+      type: BestDealType.LOANS,
+      src: this.imagesMap[BestDealType.LOANS].src,
+      alt: this.imagesMap[BestDealType.LOANS].alt
+    },
+    {
+      id: 0,
+      title: 'Приват Банк',
+      description: 'Кредит "Доверие"',
+      annualPercent: 4.9,
+      loanTermsDays: 90,
+      type: BestDealType.LOANS,
+      src: this.imagesMap[BestDealType.LOANS].src,
+      alt: this.imagesMap[BestDealType.LOANS].alt
+    },
+    {
+      id: 0,
+      title: 'Приват Банк',
+      description: 'Кредит "Доверие"',
+      annualPercent: 4.9,
+      loanTermsDays: 90,
+      type: BestDealType.LOANS,
+      src: this.imagesMap[BestDealType.LOANS].src,
+      alt: this.imagesMap[BestDealType.LOANS].alt
     }
   ];
 }

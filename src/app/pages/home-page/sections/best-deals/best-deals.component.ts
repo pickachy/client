@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { BestDealItemView, BestDealsService } from './best-deals.service';
-import { TagFilter, TagFilterItem } from '../../../../shared/filters/tags-filter/tags-filter.component';
+import { TagFilter, TagFilterItem } from '@shared/filters/tags-filter/tags-filter.component';
+import { LoansService } from '@shared/services/loans.service';
+import { BestDeal } from '@models/best-deal.model';
 
 @Component({
   selector: 'app-page-home-section-best-deals',
@@ -12,10 +13,10 @@ export class BestDealsComponent {
     items: [{ name: 'Кредиты', isActive: true }, { name: 'Кредитные карты' }, { name: 'Ипотеки' }, { name: 'Микрозаймы' }],
     onClick: this.onFilterClick
   };
-  bestDeals: BestDealItemView[];
+  bestDeals: BestDeal[];
 
-  constructor(bestDealsService: BestDealsService) {
-    this.bestDeals = bestDealsService.getBestDeals();
+  constructor(loansService: LoansService) {
+    this.bestDeals = loansService.getBestDeals();
   }
 
   onFilterClick(_filterItem: TagFilterItem) {

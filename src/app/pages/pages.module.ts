@@ -4,8 +4,7 @@ import { LoansInAdvancePageComponent } from './loans/in-advance/loans-in-advance
 import { ServicesComponent } from './home-page/sections/services/services.component';
 import { ServiceItemComponent } from './home-page/sections/services/service-item/service-item.component';
 import { BestDealsComponent } from './home-page/sections/best-deals/best-deals.component';
-import { SharedModule } from '../shared/shared.module';
-import { BestDealsService } from './home-page/sections/best-deals/best-deals.service';
+import { SharedModule } from '@shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { BestDealsItemComponent } from './home-page/sections/best-deals/best-deals-list/best-deals-item/best-deals-item.component';
 import { BestDealsListComponent } from './home-page/sections/best-deals/best-deals-list/best-deals-list.component';
@@ -17,7 +16,7 @@ import { QasComponent } from './home-page/sections/qas/qas.component';
 import { QasListComponent } from './home-page/sections/qas/qas-list/qas-list.component';
 import { SortingFilterComponent } from './loans/in-advance/sections/sorting-filter/sorting-filter.component';
 import { LoansListComponent } from './loans/in-advance/sections/loans-list/loans-list.component';
-import { LoansService } from './loans/in-advance/sections/loans-list/loans.service';
+import { LoansService } from '@shared/services/loans.service';
 
 @NgModule({
   declarations: [
@@ -37,6 +36,6 @@ import { LoansService } from './loans/in-advance/sections/loans-list/loans.servi
   ],
   exports: [HomePageComponent, LoansInAdvancePageComponent],
   imports: [SharedModule, CommonModule, FormsModule, NgSelectModule, FormsModule],
-  providers: [BestDealsService, LoansService]
+  providers: [LoansService]
 })
 export class PagesModule {}

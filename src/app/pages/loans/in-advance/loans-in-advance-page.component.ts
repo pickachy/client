@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { ArticleItemView, UsefulArticlesService } from '../../../shared/sections/useful-articles/useful-articles.service';
-import { TagFilter } from '../../../shared/filters/tags-filter/tags-filter.component';
+import { TagFilter } from '@shared/filters/tags-filter/tags-filter.component';
 import { SortingFilter } from './sections/sorting-filter/sorting-filter.component';
+import { Article } from '@models/article.model';
+import { ArticlesService } from '@shared/services/articles.service';
 
 @Component({
   selector: 'app-page-loans-in-advance',
@@ -21,8 +22,8 @@ export class LoansInAdvancePageComponent {
     items: ['по популярности', 'по сумме', 'по сроку', 'по ставке', 'по времени принятия решения', 'без сортировки'],
     onClick: () => null
   };
-  articles: ArticleItemView[];
-  constructor(private articlesService: UsefulArticlesService) {
+  articles: Article[];
+  constructor(private articlesService: ArticlesService) {
     this.articles = articlesService.getArticles();
   }
 }

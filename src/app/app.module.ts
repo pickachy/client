@@ -2,16 +2,17 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SharedModule } from './shared/shared.module';
+import { SharedModule } from '@shared/shared.module';
 import { PagesModule } from './pages/pages.module';
-import { NavigationService } from './shared/header/navigation/navigation.service';
-import { UsefulArticlesService } from './shared/sections/useful-articles/useful-articles.service';
-import { QasService } from './pages/home-page/sections/qas/qas.service';
+import { QasService } from '@shared/services/qas.service';
+import { LoansService } from '@shared/services/loans.service';
+import { ArticlesService } from '@shared/services/articles.service';
+import { NavigationService } from '@shared/services/navigation.service';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }), AppRoutingModule, SharedModule, PagesModule],
-  providers: [NavigationService, UsefulArticlesService, QasService],
+  providers: [NavigationService, ArticlesService, QasService, LoansService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

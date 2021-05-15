@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { NavigationRoute } from '../../../../app-routing.module';
+import { NavigationRoute } from '@models/navigation-route.model';
 
 @Component({
   selector: 'app-navigation-links',

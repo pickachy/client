@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { QAItemView } from '../qas.service';
+import { QuestionAnswer } from '@models/qa.model';
 
 @Component({
   selector: 'app-page-home-section-qas-list',
@@ -7,7 +7,7 @@ import { QAItemView } from '../qas.service';
   styleUrls: ['./qas-list.component.scss']
 })
 export class QasListComponent {
-  @Input() data?: QAItemView[];
+  @Input() data?: QuestionAnswer[];
   qaSelectedIds: number[] = [];
 
   onSelect(id: number) {

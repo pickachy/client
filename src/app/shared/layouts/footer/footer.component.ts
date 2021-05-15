@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { NavigationService } from '../header/navigation/navigation.service';
-import { NavigationRoute } from '../../app-routing.module';
+import { NavigationService } from '@shared/services/navigation.service';
+import { NavigationRoute } from '@models/navigation-route.model';
 
 @Component({
   selector: 'app-footer',

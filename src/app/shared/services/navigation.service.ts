@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { NavigationRoute } from '../../../app-routing.module';
 import { Router } from '@angular/router';
+import { NavigationRoute } from '@models/navigation-route.model';
 
 @Injectable({
   providedIn: 'root'

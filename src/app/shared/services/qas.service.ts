@@ -1,18 +1,12 @@
 import { Injectable } from '@angular/core';
+import { QuestionAnswer } from '@models/qa.model';
 
-interface QADto {
-  id: number;
-  title: string;
-  body: string;
-}
-
-export interface QAItemView extends QADto {}
 
 @Injectable({
   providedIn: 'root'
 })
 export class QasService {
-  getQas = (): QAItemView[] => [
+  getQas = (): QuestionAnswer[] => [
     {
       id: 0,
       title: 'Долги',
