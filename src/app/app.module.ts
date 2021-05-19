@@ -8,10 +8,12 @@ import { QasService } from '@shared/services/qas.service';
 import { LoansService } from '@shared/services/loans.service';
 import { ArticlesService } from '@shared/services/articles.service';
 import { NavigationService } from '@shared/services/navigation.service';
+import { GraphQLModule } from './graphql.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }), AppRoutingModule, SharedModule, PagesModule],
+  imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }), AppRoutingModule, SharedModule, PagesModule, GraphQLModule, HttpClientModule],
   providers: [NavigationService, ArticlesService, QasService, LoansService],
   bootstrap: [AppComponent]
 })
