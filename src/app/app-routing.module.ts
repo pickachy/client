@@ -4,6 +4,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoansInAdvancePageComponent } from './pages/loans/in-advance/loans-in-advance-page.component';
 import { PageNotFoundComponent } from '@shared/pages/page-not-found.component';
 import { NavigationRoute } from '@models/navigation-route.model';
+import { LoanInAdvanceSinglePageComponent } from './pages/loans/in-advance/loan-single/loan-in-advance-single-page.component';
 
 const routes: NavigationRoute[] = [
   { path: '', component: HomePageComponent },
@@ -14,6 +15,10 @@ const routes: NavigationRoute[] = [
         path: 'in-advance',
         component: LoansInAdvancePageComponent,
         name: 'Кредиты'
+      },
+      {
+        path: 'in-advance/:id',
+        component: LoanInAdvanceSinglePageComponent
       }
     ]
   },

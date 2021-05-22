@@ -17,6 +17,8 @@ import { QasListComponent } from './home-page/sections/qas/qas-list/qas-list.com
 import { SortingFilterComponent } from './loans/in-advance/sections/sorting-filter/sorting-filter.component';
 import { LoansListComponent } from './loans/in-advance/sections/loans-list/loans-list.component';
 import { LoansService } from '@shared/services/loans.service';
+import { LoanInAdvanceSinglePageComponent } from './loans/in-advance/loan-single/loan-in-advance-single-page.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -32,10 +34,11 @@ import { LoansService } from '@shared/services/loans.service';
     QasListComponent,
     LoansInAdvancePageComponent,
     SortingFilterComponent,
-    LoansListComponent
+    LoansListComponent,
+    LoanInAdvanceSinglePageComponent
   ],
-  exports: [HomePageComponent, LoansInAdvancePageComponent],
-  imports: [SharedModule, CommonModule, FormsModule, NgSelectModule, FormsModule],
+  exports: [HomePageComponent, LoansInAdvancePageComponent, LoanInAdvanceSinglePageComponent],
+  imports: [SharedModule, CommonModule, FormsModule, NgSelectModule, FormsModule, RouterModule],
   providers: [LoansService]
 })
 export class PagesModule {}

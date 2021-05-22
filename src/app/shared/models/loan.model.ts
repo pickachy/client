@@ -1,8 +1,8 @@
 import { Image } from '@models/image.model';
 
 export enum BankType {
-  PRIVAT_BANK,
-  MONEY_FAST
+  PRIVAT_BANK = 'Privat Bank',
+  MONEY_FAST = 'Money Fast'
 }
 export interface LoanDto {
   id: number;
@@ -14,7 +14,7 @@ export interface LoanDto {
   bankType: BankType;
 }
 
-export const BankTypeImageMap: { [type: number]: Image } = {
+export const BankTypeImageMap: { [type: string]: Image } = {
   [BankType.PRIVAT_BANK]: { src: 'assets/images/loans-page/loans-in-advance-page/sportbank.png', alt: 'privat bank' },
   [BankType.MONEY_FAST]: { src: 'assets/images/loans-page/loans-in-advance-page/sportbank.png', alt: 'privat bank' }
 };

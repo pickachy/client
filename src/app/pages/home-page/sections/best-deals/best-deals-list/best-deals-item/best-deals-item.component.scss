@@ -24,12 +24,12 @@ article {
       }
     }
   }
-  .description {
+  .padded-content {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 2.9rem;
-    .description-item {
+    .details-list-item {
       display: flex;
       flex-direction: column;
       p {

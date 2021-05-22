@@ -4,7 +4,7 @@
       <section class="loans-list">
         <article class="loans-list-item" *ngFor="let item of data" (click)="onClick(item)">
           <figure class="image-wrapper"><img src="{{ item.imageUrl }}" alt="{{ item.alt }}" /></figure>
-          <div class="description">
+          <div class='padded-content'>
             <p>
               <span class="key">Сумма:</span><span class="value bold">{{ item.initialAmount }} - {{ item.finalAmount }}</span>
             </p>
@@ -20,7 +20,7 @@
           </div>
           <div class="buttons">
             <a href="" class="get-money-btn">Получить деньги</a>
-            <a href="" class="details-btn">i</a>
+            <a routerLink="{{ item.id }}" class="details-btn">i</a>
           </div>
         </article>
       </section>
