@@ -77,8 +77,8 @@ h1 {
   .sticky-btn {
     font-size: 2rem;
     background-color: var(--main-green);
-    padding-top:2rem;
-    padding-bottom:2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 }
 
@@ -132,6 +132,9 @@ h1 {
     p {
       margin-top: 3rem;
     }
+    input {
+      min-height: 3.4rem;
+    }
   }
   .calculator-right {
     display: flex;
@@ -181,7 +184,6 @@ h1 {
     display: flex;
     margin-top: 0.8rem;
     &.full-details-list-item-key {
-      font-weight: bold;
       flex: 1 1 30%;
     }
     &.full-details-list-item-value {
@@ -243,6 +245,9 @@ h1 {
       }
     }
   }
+  .full-details-list-item-key {
+    font-weight: bold;
+  }
 }
 
 @include max-screen-custom(645px) {
@@ -257,6 +262,12 @@ h1 {
         }
         .calculator-left {
           padding-right: 0;
+          label{
+            margin-top: 1rem;
+          }
+          p{
+            margin-top: 1rem;
+          }
         }
         .calculator-right {
           border-left: none;
