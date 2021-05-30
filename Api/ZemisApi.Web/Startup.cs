@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Serilog;
+using ZemisApi.Extensions;
 using ZemisApi.Infrastructure.Repositories;
 using ZemisApi.Queries;
 
@@ -23,9 +23,9 @@ namespace ZemisApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddLogging(options => options.AddSerilog());
+            services.AddSerilog();
 
-            services.AddDbContext<AppDbContext>(options => options
+            services.AddDbContextPool<AppDbContext>(options => options
                 .UseMySql(Configuration.GetConnectionString("MySql"), new MySqlServerVersion(new Version(8, 0, 25))));
 
             services

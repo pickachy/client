@@ -1,3 +1,4 @@
+using ZemisApi.Core.Models;
 using ZemisApi.Types;
 
 namespace ZemisApi.Queries

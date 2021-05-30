@@ -1,15 +1,20 @@
+using System.Reflection;
 using Microsoft.EntityFrameworkCore;
-using ZemisApi.Infrastructure.Repositories.Entities;
+using ZemisApi.Core.Models;
 
 namespace ZemisApi.Infrastructure.Repositories
 {
     public class AppDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
-        {
-            
-        }
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options){}
 
-        public DbSet<LoanEntity> Loans { get; set; }
+        public DbSet<Loan> Loan { get; set; }
+        public DbSet<Seo> Seo { get; set; }
+        
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        }
     }
 }

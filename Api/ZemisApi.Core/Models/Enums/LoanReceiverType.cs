@@ -1,4 +1,4 @@
-namespace ZemisApi.Infrastructure.Repositories.Entities.Enums
+namespace ZemisApi.Core.Models.Enums
 {
     public enum LoanProviderType
     {

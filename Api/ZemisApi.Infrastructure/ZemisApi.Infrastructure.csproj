@@ -16,5 +16,10 @@
     
     <ItemGroup>
       <Folder Include="Migrations" />
+      <Folder Include="Repositories\Entities" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\ZemisApi.Core\ZemisApi.Core.csproj" />
     </ItemGroup>
 </Project>
