@@ -2,8 +2,10 @@ using ZemisApi.Types;
 
 namespace ZemisApi.Queries
 {
-    public class WebPagesQuery
+    public class Query
     {
+        #region WebPage
+
         public WebPageAggregation GetWebPageAggregation() => new WebPageAggregation
         {
             Seo = new Seo
@@ -13,5 +15,7 @@ namespace ZemisApi.Queries
                 Title = "tiltl"
             }
         };
+
+        #endregion
     }
 }

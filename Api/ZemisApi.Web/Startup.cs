@@ -29,13 +29,9 @@ namespace ZemisApi
                 .UseMySql(Configuration.GetConnectionString("MySql"), new MySqlServerVersion(new Version(8, 0, 25))));
 
             services
-                .AddGraphQLServer("webpages")
-                .AddQueryType<WebPagesQuery>();
+                .AddGraphQLServer()
+                .AddQueryType<Query>();
             
-            services
-                .AddGraphQLServer("loans")
-                .AddQueryType<LoansQuery>();
-
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
@@ -51,8 +47,7 @@ namespace ZemisApi
                 .UseRouting()
                 .UseEndpoints(endpoints =>
                 {
-                    endpoints.MapGraphQL("/webpages/graphql", "webpages");
-                    endpoints.MapGraphQL("/loans/graphql", "loans");
+                    endpoints.MapGraphQL();
                 });
         }
     }
