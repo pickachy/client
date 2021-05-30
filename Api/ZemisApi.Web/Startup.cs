@@ -5,9 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
 using Serilog;
-using ZemisApi.Infrastructure;
 using ZemisApi.Infrastructure.Repositories;
 using ZemisApi.Queries;
 
@@ -31,8 +29,12 @@ namespace ZemisApi
                 .UseMySql(Configuration.GetConnectionString("MySql"), new MySqlServerVersion(new Version(8, 0, 25))));
 
             services
-                .AddGraphQLServer()
-                .AddQueryType<SiteQuery>();
+                .AddGraphQLServer("webpages")
+                .AddQueryType<WebPagesQuery>();
+            
+            services
+                .AddGraphQLServer("loans")
+                .AddQueryType<LoansQuery>();
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
@@ -47,7 +49,11 @@ namespace ZemisApi
 
             app
                 .UseRouting()
-                .UseEndpoints(endpoints => { endpoints.MapGraphQL(); });
+                .UseEndpoints(endpoints =>
+                {
+                    endpoints.MapGraphQL("/webpages/graphql", "webpages");
+                    endpoints.MapGraphQL("/loans/graphql", "loans");
+                });
         }
     }
 }
