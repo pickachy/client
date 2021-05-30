@@ -1,9 +1,15 @@
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Serilog;
+using ZemisApi.Infrastructure;
+using ZemisApi.Infrastructure.Repositories;
+using ZemisApi.Queries;
 
 namespace ZemisApi
 {
@@ -19,8 +25,16 @@ namespace ZemisApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
-            services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "ZemisApi", Version = "v1"}); });
+            services.AddLogging(options => options.AddSerilog());
+
+            services.AddDbContext<AppDbContext>(options => options
+                .UseMySql(Configuration.GetConnectionString("MySql"), new MySqlServerVersion(new Version(8, 0, 25))));
+
+            services
+                .AddGraphQLServer()
+                .AddQueryType<SiteQuery>();
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -29,13 +43,11 @@ namespace ZemisApi
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ZemisApi v1"));
             }
 
-            app.UseRouting();
-
-            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            app
+                .UseRouting()
+                .UseEndpoints(endpoints => { endpoints.MapGraphQL(); });
         }
     }
 }
