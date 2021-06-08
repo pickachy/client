@@ -2,7 +2,7 @@ using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using ZemisApi.Core.Models;
 
-namespace ZemisApi.Infrastructure.Repositories
+namespace ZemisApi.Infrastructure.DataAccess
 {
     public class AppDbContext : DbContext
     {

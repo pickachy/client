@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using ZemisApi.Core.Models;
 
-namespace ZemisApi.Infrastructure.Repositories.SchemeConfiguration
+namespace ZemisApi.Infrastructure.DataAccess.SchemeConfiguration
 {
     public class LoansConfiguration : IEntityTypeConfiguration<Loan>
     {

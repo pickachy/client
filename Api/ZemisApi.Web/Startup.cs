@@ -6,7 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ZemisApi.Extensions;
-using ZemisApi.Infrastructure.Repositories;
+using ZemisApi.Infrastructure.DataAccess;
 using ZemisApi.Queries;
 
 namespace ZemisApi

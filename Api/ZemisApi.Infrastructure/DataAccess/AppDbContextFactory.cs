@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 
-namespace ZemisApi.Infrastructure.Repositories
+namespace ZemisApi.Infrastructure.DataAccess
 {
     public class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
     {
