@@ -5,8 +5,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ZemisApi.Core.Interfaces.Repositories;
 using ZemisApi.Extensions;
 using ZemisApi.Infrastructure.DataAccess;
+using ZemisApi.Infrastructure.DataAccess.Repositories;
 using ZemisApi.Queries;
 
 namespace ZemisApi
@@ -25,14 +27,21 @@ namespace ZemisApi
         {
             services.AddSerilog();
 
-            services.AddDbContextPool<AppDbContext>(options => options
-                .UseMySql(Configuration.GetConnectionString("MySql"), new MySqlServerVersion(new Version(8, 0, 25))));
+            services.AddDbContext<AppDbContext>(options => options
+                .UseMySql(Configuration.GetConnectionString("MySql"), new MySqlServerVersion(new Version(8, 0, 25))), ServiceLifetime.Transient);
 
             services
                 .AddGraphQLServer()
                 .AddQueryType<Query>();
             
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            // services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            #region Repositories
+
+            services.AddTransient<ILoansRepository, LoansRepository>();
+            services.AddTransient<ISeoRepository, SeoRepository>();
+
+            #endregion
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

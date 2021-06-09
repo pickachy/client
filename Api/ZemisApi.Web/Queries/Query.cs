@@ -1,4 +1,7 @@
-using ZemisApi.Core.Models;
+using System.Threading.Tasks;
+using HotChocolate;
+using Microsoft.EntityFrameworkCore;
+using ZemisApi.Core.Interfaces.Repositories;
 using ZemisApi.Types;
 
 namespace ZemisApi.Queries
@@ -7,15 +10,18 @@ namespace ZemisApi.Queries
     {
         #region WebPage
 
-        public WebPageAggregation GetWebPageAggregation() => new WebPageAggregation
+        public async Task<WebPageAggregation> GetWebPageAggregation(string url, [Service]ILoansRepository loansRepository, [Service]ISeoRepository seoRepository)
         {
-            Seo = new Seo
+            var loansTask = loansRepository.GetAll().ToListAsync();
+            var seoTask = seoRepository.GetByUrlAsync(url);
+            await Task.WhenAll(loansTask, seoTask);
+            
+            return new WebPageAggregation
             {
-                Description = "test",
-                Keywords = "keywords",
-                Title = "tiltl"
-            }
-        };
+                Seo = seoTask.Result,
+                Loans = loansTask.Result
+            };
+        }
 
         #endregion
     }

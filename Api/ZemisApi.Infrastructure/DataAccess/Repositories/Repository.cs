@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using ZemisApi.Core.Interfaces.Repositories;
 
 namespace ZemisApi.Infrastructure.DataAccess.Repositories
@@ -18,7 +19,7 @@ namespace ZemisApi.Infrastructure.DataAccess.Repositories
         {
             try
             {
-                return Context.Set<TEntity>();
+                return Context.Set<TEntity>().AsNoTracking();
             }
             catch (Exception ex)
             {
