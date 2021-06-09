@@ -225,3 +225,5 @@ project.lock.json
 #####
 
 .idea
+
+ZemisApi.Web/Logs/*
