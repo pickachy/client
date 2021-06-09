@@ -56,7 +56,7 @@ namespace ZemisApi
                 .UseRouting()
                 .UseEndpoints(endpoints =>
                 {
-                    endpoints.MapGraphQL();
+                    endpoints.MapGraphQL("/api/v1/graphql");
                 });
         }
     }
