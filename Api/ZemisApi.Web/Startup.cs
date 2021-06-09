@@ -1,4 +1,3 @@
-using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -28,7 +27,7 @@ namespace ZemisApi
             services.AddSerilog();
 
             services.AddDbContext<AppDbContext>(options => options
-                .UseMySql(Configuration.GetConnectionString("MySql"), new MySqlServerVersion(new Version(8, 0, 25))), ServiceLifetime.Transient);
+                .UseMySql(Configuration.GetConnectionString("MySql"), new MySqlServerVersion(Configuration.GetSection("MySql:Version").Value)));
 
             services
                 .AddGraphQLServer()
@@ -52,6 +51,10 @@ namespace ZemisApi
                 app.UseDeveloperExceptionPage();
             }
 
+            using var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope();
+            using var context = serviceScope.ServiceProvider.GetService<AppDbContext>();
+            context.Database.Migrate();
+            
             app
                 .UseRouting()
                 .UseEndpoints(endpoints =>
