@@ -15,7 +15,7 @@ namespace ZemisApi.Extensions
             {
                 var configuration = new LoggerConfiguration();
 
-                options.Invoke(x, configuration);
+                options(x, configuration);
 
                 var logger = configuration.CreateLogger();
 
@@ -27,12 +27,7 @@ namespace ZemisApi.Extensions
         {
             return services.AddSerilog((provider, config) =>
             {
-                var configurationSection = provider.GetRequiredService<IConfiguration>().GetSection("Serilog");
-
-                if (!configurationSection.Exists())
-                {
-                    throw new ArgumentException("Section serilog not found in configuration");
-                }
+                var configurationSection = provider.GetRequiredService<IConfiguration>();
 
                 config.ReadFrom.Configuration(configurationSection);
             });
