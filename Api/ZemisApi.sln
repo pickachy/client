@@ -6,6 +6,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZemisApi.Core", "ZemisApi.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZemisApi.Infrastructure", "ZemisApi.Infrastructure\ZemisApi.Infrastructure.csproj", "{13B21B6D-1C57-496E-AD78-F1831CEB5EFE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFiles", "SolutionFiles", "{489414E5-23C0-46E3-9E07-63123CC20B95}"
+ProjectSection(SolutionItems) = preProject
+	Dockerfile = Dockerfile
+	.dockerignore = .dockerignore
+EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
