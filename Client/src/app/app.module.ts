@@ -10,11 +10,12 @@ import { ArticlesService } from '@shared/services/articles.service';
 import { NavigationService } from '@shared/services/navigation.service';
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
+import { PagesService } from '@shared/services/pages.service';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }), AppRoutingModule, SharedModule, PagesModule, GraphQLModule, HttpClientModule],
-  providers: [NavigationService, ArticlesService, QasService, LoansService],
+  providers: [NavigationService, ArticlesService, QasService, LoansService, PagesService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
