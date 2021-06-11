@@ -25,7 +25,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": true,
+            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets/images"
@@ -47,27 +47,30 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "optimization": true,
               "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
                   "maximumWarning": "4mb",
-                  "maximumError": "5mb"
+                  "maximumError": "1mb"
                 },
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "2kb",
-                  "maximumError": "4mb"
+                  "maximumError": "5kb"
                 }
               ]
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
@@ -75,10 +78,14 @@
             "browserTarget": "zemis:build"
           },
           "configurations": {
+            "development": {
+              "browserTarget": "zemis:build:development"
+            },
             "production": {
               "browserTarget": "zemis:build:production"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
@@ -94,7 +101,8 @@
           "options": {
             "outputPath": "dist/zemis/server",
             "main": "server.ts",
-            "tsConfig": "tsconfig.server.json"
+            "tsConfig": "tsconfig.server.json",
+            "inlineStyleLanguage": "scss"
           },
           "configurations": {
             "production": {
@@ -104,11 +112,15 @@
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.prod.ts"
                 }
-              ],
-              "sourceMap": false,
-              "optimization": true
+              ]
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "serve-ssr": {
           "builder": "@nguniversal/builders:ssr-dev-server",
@@ -117,11 +129,16 @@
             "serverTarget": "zemis:server"
           },
           "configurations": {
+            "development": {
+              "browserTarget": "zemis:build:development",
+              "serverTarget": "zemis:server:development"
+            },
             "production": {
               "browserTarget": "zemis:build:production",
               "serverTarget": "zemis:server:production"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "prerender": {
           "builder": "@nguniversal/builders:prerender",
