@@ -12,6 +12,7 @@ services:
       - proxy
     volumes:
       - client-dist:/var/www/html/
+      - ./Proxy/default.conf:/etc/nginx/conf.d/default.conf
       
   client:
     build: ./Client
