@@ -1,0 +1,52 @@
+version: "3.9"
+
+services:
+  proxy:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - "client"
+    networks:
+      - proxy
+    volumes:
+      - client-dist:/var/www/html/
+      - ./Proxy/default.conf:/etc/nginx/conf.d/default.conf
+      
+  client:
+    build: ./Client
+    ports:
+      - "4000:4000"
+    networks:
+      - proxy
+      - api
+    volumes:
+      - client-dist:/app/dist/zemis/browser/
+      
+  api:
+    build: ./Api
+    ports:
+      - "5000:5000"
+    environment:
+      ASPNET_ENVIRONMENT: Production
+    depends_on:
+      - "db"
+    networks:
+      - api
+      
+  db:
+    image: mysql:8.0.25
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    networks:
+      - api
+      
+networks:
+  proxy:
+  api:
+  
+volumes:
+  client-dist:

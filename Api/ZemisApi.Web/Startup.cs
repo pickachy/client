@@ -1,9 +1,14 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
+using ZemisApi.Core.Interfaces.Repositories;
+using ZemisApi.Extensions;
+using ZemisApi.Infrastructure.DataAccess;
+using ZemisApi.Infrastructure.DataAccess.Repositories;
+using ZemisApi.Queries;
 
 namespace ZemisApi
 {
@@ -19,8 +24,23 @@ namespace ZemisApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
-            services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "ZemisApi", Version = "v1"}); });
+            services.AddSerilog();
+
+            services.AddDbContext<AppDbContext>(options => options
+                .UseMySql(Configuration.GetConnectionString("MySql"), new MySqlServerVersion(Configuration.GetSection("MySql:Version").Value)));
+
+            services
+                .AddGraphQLServer()
+                .AddQueryType<Query>();
+            
+            // services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            #region Repositories
+
+            services.AddTransient<ILoansRepository, LoansRepository>();
+            services.AddTransient<ISeoRepository, SeoRepository>();
+
+            #endregion
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -29,13 +49,18 @@ namespace ZemisApi
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ZemisApi v1"));
             }
 
-            app.UseRouting();
+            using var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope();
+            using var context = serviceScope.ServiceProvider.GetService<AppDbContext>();
+            context.Database.EnsureCreated();
 
-            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            app
+                .UseRouting()
+                .UseEndpoints(endpoints =>
+                {
+                    endpoints.MapGraphQL("/api/v1/graphql");
+                });
         }
     }
 }

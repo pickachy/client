@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 
 namespace ZemisApi
@@ -15,8 +16,21 @@ namespace ZemisApi
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder
-                        .UseKestrel()
-                        .UseUrls("http://localhost:5000")
+                        .ConfigureAppConfiguration((hostingContext, configuration) =>
+                        {
+                            configuration.Sources.Clear();
+
+                            if (hostingContext.HostingEnvironment.IsDevelopment())
+                            {
+                                configuration.AddJsonFile("appsettings.Development.json");
+                            }
+                            
+                            if (hostingContext.HostingEnvironment.IsProduction())
+                            {
+                                configuration.AddJsonFile("appsettings.json");
+                            }
+                        })
+                        .UseKestrel(options => options.ListenAnyIP(5000))
                         .UseStartup<Startup>();
                 });
     }
