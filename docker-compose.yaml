@@ -27,6 +27,8 @@ services:
     build: ./Api
     ports:
       - "5000:5000"
+    environment:
+      ASPNET_ENVIRONMENT: Production
     depends_on:
       - "db"
     networks:
