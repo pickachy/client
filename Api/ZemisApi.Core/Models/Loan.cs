@@ -20,5 +20,6 @@ namespace ZemisApi.Core.Models
         public string WithdrawalMethodsDescription { get; set; }
         public string BonusesDescription { get; set; }
         public string ExtraInfo { get; set; }
+        public string ReceiversDescription { get; set; }
     }
 }

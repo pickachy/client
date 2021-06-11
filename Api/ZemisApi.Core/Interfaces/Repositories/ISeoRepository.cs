@@ -5,6 +5,6 @@ namespace ZemisApi.Core.Interfaces.Repositories
 {
     public interface ISeoRepository: IRepository<Seo>
     {
-        Task<Seo> GetByUrlAsync(string url);
+        Task<Seo> GetByHomePage();
     }
 }

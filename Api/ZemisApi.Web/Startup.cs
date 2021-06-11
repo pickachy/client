@@ -27,11 +27,13 @@ namespace ZemisApi
             services.AddSerilog();
 
             services.AddDbContext<AppDbContext>(options => options
-                .UseMySql(Configuration.GetConnectionString("MySql"), new MySqlServerVersion(Configuration.GetSection("MySql:Version").Value)));
+                .UseMySql(Configuration.GetConnectionString("MySql"), new MySqlServerVersion(Configuration.GetSection("MySql:Version").Value)), ServiceLifetime.Transient);
 
             services
                 .AddGraphQLServer()
                 .AddQueryType<Query>();
+
+            services.AddCors();
             
             // services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
@@ -55,6 +57,12 @@ namespace ZemisApi
             using var context = serviceScope.ServiceProvider.GetService<AppDbContext>();
             context.Database.EnsureCreated();
 
+            app.UseCors(options => options
+                .AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+            );
+            
             app
                 .UseRouting()
                 .UseEndpoints(endpoints =>

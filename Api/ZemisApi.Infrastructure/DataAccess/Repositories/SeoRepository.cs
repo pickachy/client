@@ -1,4 +1,4 @@
-using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ZemisApi.Core.Interfaces.Repositories;
@@ -12,9 +12,14 @@ namespace ZemisApi.Infrastructure.DataAccess.Repositories
         {
         }
 
-        public Task<Seo> GetByUrlAsync(string url)
+        public Task<Seo> GetByHomePage()
         {
-            return GetAll().FirstAsync(x => x.Url.Equals(url));
+            return GetAll().Select(columns => new Seo
+            {
+                Title = columns.Title,
+                Description = columns.Description,
+                Keywords = columns.Keywords
+            }).FirstAsync();
         }
     }
 }
