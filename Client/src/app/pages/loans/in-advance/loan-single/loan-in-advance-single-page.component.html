@@ -1,24 +1,24 @@
 <ng-container *ngIf="data">
   <section class="main-description content">
-    <h1>Микрокредит «До зарплаты» от МФО {{ data.bankType }}</h1>
+    <h1>Микрокредит «До зарплаты» от МФО {{ data.id }}</h1>
     <div class="image-wrapper">
       <figure class="image-composition">
-        <img src="{{ data.imageUrl }}" alt="{{ data.alt }}" title="{{ data.bankType }}" loading="lazy" />
+        <img src="{{ data.imageUrl }}" alt="{{ data.alt }}" title="{{ data.id }}" loading="lazy" />
       </figure>
     </div>
     <section class="padded-content">
       <div class="main-details-list">
         <div class="main-details-list-item">
           <p>Сумма</p>
-          <p>{{ data.initialAmount }} - {{ data.finalAmount }}грн</p>
+          <p>{{ data.amountFrom }} - {{ data.amountTo }}грн</p>
         </div>
         <div class="main-details-list-item">
           <p>Срок</p>
-          <p>{{ data.maximumProcessingTime }} дней</p>
+          <p>{{ data.termDays }} дней</p>
         </div>
         <div class="main-details-list-item">
           <p>Ставка</p>
-          <p>{{ data.initialRatePercent }}%</p>
+          <p>{{ data.initialDayRate }}%</p>
         </div>
       </div>
       <div class="additional-details-list">
@@ -89,26 +89,24 @@
         <h2>О кредите</h2>
         <div class="full-details-list">
           <p class="full-details-list-item full-details-list-item-key">Время работы с заявками</p>
-          <p class="full-details-list-item full-details-list-item-value">ПН-ВС c 00:00 - 23:59</p>
+          <p class="full-details-list-item full-details-list-item-value">{{ data.issueWorkingHoursDescription }}</p>
           <p class="full-details-list-item full-details-list-item-key">Рассмотрение заявки</p>
-          <p class="full-details-list-item full-details-list-item-value">15 мин</p>
-          <p class="full-details-list-item full-details-list-item-key">Сумма первого займа</p>
-          <p class="full-details-list-item full-details-list-item-value">от 500 до 10000грн</p>
+          <p class="full-details-list-item full-details-list-item-value">{{ data.processingTimeMinutes }} мин</p>
           <p class="full-details-list-item full-details-list-item-key">Ставка</p>
           <p class="full-details-list-item full-details-list-item-value">от 0.01% в день</p>
           <p class="full-details-list-item full-details-list-item-key">Оформление онлайн</p>
-          <p class="full-details-list-item full-details-list-item-value">Возможно</p>
+          <p class="full-details-list-item full-details-list-item-value">{{ data.isOnlineProcessing ? "Возможно" : "Нет" }}</p>
           <p class="full-details-list-item full-details-list-item-key">Подходит для</p>
-          <p class="full-details-list-item full-details-list-item-value">Студентов</p>
+          <p class="full-details-list-item full-details-list-item-value">{{ data.receiversDescription }}</p>
         </div>
       </div>
       <div class="full-details-composition">
         <h2>Условия получения</h2>
         <div class="full-details-list">
           <p class="full-details-list-item full-details-list-item-key">Возраст заемщика</p>
-          <p class="full-details-list-item full-details-list-item-value">18-65лет</p>
+          <p class="full-details-list-item full-details-list-item-value">{{ data.borrowerAgeFrom }}-{{ data.borrowerAgeTo }}лет</p>
           <p class="full-details-list-item full-details-list-item-key">Комиссия</p>
-          <p class="full-details-list-item full-details-list-item-value">Без скрытых комиссий и лишних платежей</p>
+          <p class="full-details-list-item full-details-list-item-value">{{ data.commissionDescription }}</p>
           <p class="full-details-list-item full-details-list-item-key">Документы</p>
           <p class="full-details-list-item full-details-list-item-value">Паспорт и идентификационный код</p>
           <p class="full-details-list-item full-details-list-item-key">Пролонгация</p>
@@ -116,14 +114,11 @@
             Первый кредит выдается на срок до 30 дней. После уплаты процентов возможно продление кредита на аналогичный срок
           </p>
           <p class="full-details-list-item full-details-list-item-key">Погашение</p>
-          <p class="full-details-list-item full-details-list-item-value">
-            Вернуть кредит можно через Личный кабинет нас сайте компании, через терминалы ПриватБанка (Приват24), IBox, EasyPay, City24, Sistem (SIS)
-            , банковским переводом в кассе любого банка Источник: hotline.finance
-          </p>
+          <p class="full-details-list-item full-details-list-item-value">{{ data.repaymentMethodsDescription }}</p>
           <p class="full-details-list-item full-details-list-item-key">Акции и бонусы</p>
-          <p class="full-details-list-item full-details-list-item-value">Первый кредит под 0.01%</p>
+          <p class="full-details-list-item full-details-list-item-value">{{ data.bonusesDescription }}</p>
           <p class="full-details-list-item full-details-list-item-key">Дополнительно</p>
-          <p class="full-details-list-item full-details-list-item-value">100% онлайн-процесс<br />Программа лояльности для постоянных клиентов</p>
+          <p class="full-details-list-item full-details-list-item-value">{{ data.extraInfo }}</p>
         </div>
       </div>
     </section>

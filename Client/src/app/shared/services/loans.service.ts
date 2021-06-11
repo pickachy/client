@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BestDeal, BestDealType } from '@models/best-deal.model';
-import { BankType, BankTypeImageMap, Loan } from '@models/loan.model';
+import { LoanProviderType, LoanProviderTypeImageMap, Loan } from '@models/loan.model';
 import { Image } from '@models/image.model';
 
-const loansData = [
+const loansData: any = [
   {
     id: 0,
     initialAmount: 2000,
@@ -11,86 +11,86 @@ const loansData = [
     maximumProcessingTime: 15,
     termDays: 365,
     initialRatePercent: 0,
-    bankType: BankType.MONEY_FAST,
-    imageUrl: BankTypeImageMap[BankType.MONEY_FAST].src,
-    alt: BankTypeImageMap[BankType.MONEY_FAST].alt
+    bankType: LoanProviderType.LOANY,
+    imageUrl: LoanProviderTypeImageMap[LoanProviderType.LOANY].src,
+    alt: LoanProviderTypeImageMap[LoanProviderType.LOANY].alt
   },
   {
     id: 1,
-    imageUrl: BankTypeImageMap[BankType.MONEY_FAST].src,
+    imageUrl: LoanProviderTypeImageMap[LoanProviderType.LOANY].src,
     initialAmount: 2000,
     finalAmount: 10000,
     maximumProcessingTime: 15,
     termDays: 365,
     initialRatePercent: 0,
-    bankType: BankType.MONEY_FAST,
-    alt: BankTypeImageMap[BankType.MONEY_FAST].alt
+    bankType: LoanProviderType.LOANY,
+    alt: LoanProviderTypeImageMap[LoanProviderType.LOANY].alt
   },
   {
     id: 2,
-    imageUrl: BankTypeImageMap[BankType.MONEY_FAST].src,
+    imageUrl: LoanProviderTypeImageMap[LoanProviderType.LOANY].src,
     initialAmount: 2000,
     finalAmount: 10000,
     maximumProcessingTime: 15,
     termDays: 365,
     initialRatePercent: 0,
-    bankType: BankType.MONEY_FAST,
-    alt: BankTypeImageMap[BankType.MONEY_FAST].alt
+    bankType: LoanProviderType.LOANY,
+    alt: LoanProviderTypeImageMap[LoanProviderType.LOANY].alt
   },
   {
     id: 3,
-    imageUrl: BankTypeImageMap[BankType.MONEY_FAST].src,
+    imageUrl: LoanProviderTypeImageMap[LoanProviderType.LOANY].src,
     initialAmount: 2000,
     finalAmount: 10000,
     maximumProcessingTime: 15,
     termDays: 365,
     initialRatePercent: 0,
-    bankType: BankType.MONEY_FAST,
-    alt: BankTypeImageMap[BankType.MONEY_FAST].alt
+    bankType: LoanProviderType.LOANY,
+    alt: LoanProviderTypeImageMap[LoanProviderType.LOANY].alt
   },
   {
     id: 4,
-    imageUrl: BankTypeImageMap[BankType.MONEY_FAST].src,
+    imageUrl: LoanProviderTypeImageMap[LoanProviderType.LOANY].src,
     initialAmount: 2000,
     finalAmount: 10000,
     maximumProcessingTime: 15,
     termDays: 365,
     initialRatePercent: 0,
-    bankType: BankType.MONEY_FAST,
-    alt: BankTypeImageMap[BankType.MONEY_FAST].alt
+    bankType: LoanProviderType.LOANY,
+    alt: LoanProviderTypeImageMap[LoanProviderType.LOANY].alt
   },
   {
     id: 5,
-    imageUrl: BankTypeImageMap[BankType.MONEY_FAST].src,
+    imageUrl: LoanProviderTypeImageMap[LoanProviderType.LOANY].src,
     initialAmount: 2000,
     finalAmount: 10000,
     maximumProcessingTime: 15,
     termDays: 365,
     initialRatePercent: 0,
-    bankType: BankType.MONEY_FAST,
-    alt: BankTypeImageMap[BankType.MONEY_FAST].alt
+    bankType: LoanProviderType.LOANY,
+    alt: LoanProviderTypeImageMap[LoanProviderType.LOANY].alt
   },
   {
     id: 6,
-    imageUrl: BankTypeImageMap[BankType.MONEY_FAST].src,
+    imageUrl: LoanProviderTypeImageMap[LoanProviderType.LOANY].src,
     initialAmount: 2000,
     finalAmount: 10000,
     maximumProcessingTime: 15,
     termDays: 365,
     initialRatePercent: 0,
-    bankType: BankType.MONEY_FAST,
-    alt: BankTypeImageMap[BankType.MONEY_FAST].alt
+    bankType: LoanProviderType.LOANY,
+    alt: LoanProviderTypeImageMap[LoanProviderType.LOANY].alt
   },
   {
     id: 8,
-    imageUrl: BankTypeImageMap[BankType.MONEY_FAST].src,
+    imageUrl: LoanProviderTypeImageMap[LoanProviderType.LOANY].src,
     initialAmount: 2000,
     finalAmount: 10000,
     maximumProcessingTime: 15,
     termDays: 365,
     initialRatePercent: 0,
-    bankType: BankType.MONEY_FAST,
-    alt: BankTypeImageMap[BankType.MONEY_FAST].alt
+    bankType: LoanProviderType.LOANY,
+    alt: LoanProviderTypeImageMap[LoanProviderType.LOANY].alt
   }
 ];
 
@@ -109,7 +109,7 @@ export class LoansService {
   }
 
   getLoanById(id: number): Loan {
-    return loansData.find(loan => loan.id === id)!;
+    return loansData.find((loan: any) => loan.id === id)!;
   }
 
   getBestDeals = (): BestDeal[] => [

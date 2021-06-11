@@ -6,21 +6,21 @@
           <figure class="image-wrapper"><img src="{{ item.imageUrl }}" alt="{{ item.alt }}" /></figure>
           <div class='padded-content'>
             <p>
-              <span class="key">Сумма:</span><span class="value bold">{{ item.initialAmount }} - {{ item.finalAmount }}</span>
+              <span class="key">Сумма:</span><span class="value bold">{{ item.amountFrom }} - {{ item.amountTo }} грн.</span>
             </p>
             <p>
-              <span class="key">Время:</span><span class="value greened">до {{ item.maximumProcessingTime }} минут</span>
+              <span class="key">Время:</span><span class="value greened">до {{ item.processingTimeMinutes }} минут</span>
             </p>
             <p>
-              <span class="key">Срок:</span> <span class="value">от {{ item.termDays }}</span>
+              <span class="key">Срок:</span> <span class="value">от {{ item.termDays }} дней</span>
             </p>
             <p>
-              <span class="key">Ставка:</span><span class="value bold">от {{ item.initialRatePercent }}%</span>
+              <span class="key">Ставка:</span><span class="value bold">от {{ item.initialDayRate }}%</span>
             </p>
           </div>
           <div class="buttons">
             <a href="" class="get-money-btn">Получить деньги</a>
-            <a routerLink="{{ item.id }}" class="details-btn">i</a>
+            <a routerLink="loans/in-advance/{{ LoanProviderType[item.id] }}" class="details-btn">i</a>
           </div>
         </article>
       </section>
