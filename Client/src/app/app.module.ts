@@ -11,10 +11,24 @@ import { NavigationService } from '@shared/services/navigation.service';
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
 import { PagesService } from '@shared/services/pages.service';
+import { NgProgressModule } from 'ngx-progressbar';
+import { NgProgressHttpModule } from 'ngx-progressbar/http';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }), AppRoutingModule, SharedModule, PagesModule, GraphQLModule, HttpClientModule],
+  imports: [
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    AppRoutingModule,
+    SharedModule,
+    PagesModule,
+    GraphQLModule,
+    HttpClientModule,
+    NgProgressModule.withConfig({
+      thick: true,
+      color: '#85af6a'
+    }),
+    NgProgressHttpModule
+  ],
   providers: [NavigationService, ArticlesService, QasService, LoansService, PagesService],
   bootstrap: [AppComponent]
 })

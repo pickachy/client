@@ -34,7 +34,7 @@ import { LoanInAdvanceSinglePageComponent } from './pages/loans/in-advance/loan-
 const routes: NavigationRoute[] = [
   { path: '', component: LoansInAdvancePageComponent },
   {
-    path: 'loans/in-advance/:id',
+    path: 'loans/mfo/:id',
     component: LoanInAdvanceSinglePageComponent
   },
   { path: '**', component: PageNotFoundComponent }

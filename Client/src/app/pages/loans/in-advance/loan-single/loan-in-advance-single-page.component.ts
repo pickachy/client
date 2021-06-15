@@ -3,6 +3,7 @@ import { Loan } from '@models/loan.model';
 import { ActivatedRoute } from '@angular/router';
 import { PagesService } from '@shared/services/pages.service';
 import { Subscription } from 'rxjs';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-page-loans-in-advance-single',
@@ -13,11 +14,19 @@ export class LoanInAdvanceSinglePageComponent implements OnInit, OnDestroy {
   data?: Loan;
   private querySubscription?: Subscription;
 
-  constructor(private pagesService: PagesService, private activateRoute: ActivatedRoute) {}
+  constructor(private title: Title, private meta: Meta, private pagesService: PagesService, private activateRoute: ActivatedRoute) {}
+
   ngOnInit(): void {
     this.querySubscription = this.pagesService
       .getSingleLoanInAdvancePageAggregation(Number(this.activateRoute.snapshot.params['id']))
-      .subscribe(data => this.data = data.loanInAdvanceSingleWebPageAggregation.loan);
+      .subscribe(data => {
+        this.title.setTitle(data.loanInAdvanceSingleWebPageAggregation.seo.title);
+        this.meta.addTags([
+          { name: 'title', content: data.loanInAdvanceSingleWebPageAggregation.seo.title },
+          { name: 'description', content: data.loanInAdvanceSingleWebPageAggregation.seo.description }
+        ]);
+        this.data = data.loanInAdvanceSingleWebPageAggregation.loan;
+      });
   }
   ngOnDestroy(): void {
     this.querySubscription?.unsubscribe();

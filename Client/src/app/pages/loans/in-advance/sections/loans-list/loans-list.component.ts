@@ -11,11 +11,4 @@ export class LoansListComponent {
   public get LoanProviderType() {
     return LoanProviderType;
   }
-  constructor() {
-    console.log(this.data);
-  }
-
-  onClick(_item: LoanOverview){
-
-  }
 }

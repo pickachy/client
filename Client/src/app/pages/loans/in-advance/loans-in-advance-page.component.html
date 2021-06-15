@@ -6,11 +6,7 @@
   <!--  <app-sections-tags-filter [tag]="loansTagFilter" theme="circled" [alignCenter]="true"></app-sections-tags-filter>-->
 </section>
 <!--<app-page-loans-in-advance-sections-sorting-filter [data]="sortingFilter"></app-page-loans-in-advance-sections-sorting-filter>-->
-<ng-container *ngIf="pageAggregation">
-  <app-page-loans-in-advance-sections-loans-list
-    [data]="pageAggregation.homeWebPageAggregation.loans"
-  ></app-page-loans-in-advance-sections-loans-list>
-</ng-container>
+<app-page-loans-in-advance-sections-loans-list [data]="pageAggregation?.homeWebPageAggregation?.loans"></app-page-loans-in-advance-sections-loans-list>
 <!--<app-sections-useful-articles [filter]="articlesTagFilter" [data]="articles"></app-sections-useful-articles>-->
 <!--<app-page-home-section-advantages></app-page-home-section-advantages>-->
 <!--<app-page-home-section-additional-links></app-page-home-section-additional-links>-->
