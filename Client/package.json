@@ -8,8 +8,9 @@
     "lint:fix": "ng lint --fix",
     "dev:ssr": "ng run zemis:serve-ssr",
     "serve:ssr": "node dist/zemis/server/main.js",
-    "build:ssr": "ng build && ng run zemis:server",
-    "prerender": "ng run zemis:prerender"
+    "build:ssr": "ng build && ng run zemis:server && npm run compress",
+    "prerender": "ng run zemis:prerender && npm run compress",
+    "compress": "gzipper c -t 10240 --level=9 --remove-larger dist/zemis/browser && gzipper c -t 10240 --brotli --remove-larger dist/zemis/browser"
   },
   "private": true,
   "dependencies": {
@@ -55,6 +56,7 @@
     "eslint-plugin-prefer-arrow": "1.2.3",
     "eslint-plugin-unused-imports": "1.1.1",
     "eslint-webpack-plugin": "2.5.4",
+    "gzipper": "^4.5.0",
     "prettier": "2.3.1",
     "typescript": "4.2.3"
   }
