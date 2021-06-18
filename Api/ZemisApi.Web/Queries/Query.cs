@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using AutoMapper;
 using HotChocolate;
 using Microsoft.EntityFrameworkCore;
 using ZemisApi.Core.Interfaces.Repositories;
@@ -10,18 +12,25 @@ namespace ZemisApi.Queries
 {
     public class Query
     {
+        private readonly IMapper _mapper;
+        
+        public Query(IMapper mapper)
+        {
+            _mapper = mapper;
+        }
+        
         #region WebPage
 
         public async Task<HomeWebPageAggregation> GetHomeWebPageAggregation([Service]ILoansRepository loansRepository, [Service]ISeoRepository seoRepository)
         {
             var loansTask = loansRepository.GetAll().ToListAsync();
-            var seoTask = seoRepository.GetByHomePage();
+            var seoTask = seoRepository.GetByUrl("/");
             await Task.WhenAll(loansTask, seoTask);
             
             return new HomeWebPageAggregation
             {
-                Seo = seoTask.Result,
-                Loans = loansTask.Result
+                Seo = _mapper.Map<SeoDto>(seoTask.Result),
+                Loans = _mapper.Map<IEnumerable<LoanDto>>(loansTask.Result)
             };
         }
         
@@ -29,23 +38,26 @@ namespace ZemisApi.Queries
         {
             if (!Enum.TryParse(id.ToString(), out LoanProviderType loanProviderType))
             {
-                throw new Exception("AA");
+                throw new Exception("Invalid Provider");
             }
             
             var loanTask = loansRepository.GetById(loanProviderType);
-            var seoTask = seoRepository.GetByHomePage();
+            var seoTask = seoRepository.GetByUrl("loans/mfo/$");
             await Task.WhenAll(loanTask, seoTask);
 
-            seoTask.Result.Description = string.Join(seoTask.Result.Description, 
-                loanTask.Result.Id, 
-                loanTask.Result.AmountFrom, 
-                loanTask.Result.AmountTo, 
-                loanTask.Result.InitialDayRate);
+            var seoDto = _mapper.Map<SeoDto>(seoTask.Result);
+            var loanDto = _mapper.Map<LoanDto>(loanTask.Result);
+            
+            seoDto.Description = string.Join(seoDto.Description, 
+                loanDto.ProviderName, 
+                loanDto.AmountFrom, 
+                loanDto.AmountTo, 
+                loanDto.InitialDayRate);
             
             return new LoanInAdvanceSingleWebPageAggregation
             {
-                Seo = seoTask.Result,
-                Loan = loanTask.Result
+                Seo = seoDto,
+                Loan = loanDto
             };
         }
 

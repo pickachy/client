@@ -6,20 +6,23 @@ using ZemisApi.Core.Models;
 
 namespace ZemisApi.Infrastructure.DataAccess.Repositories
 {
-    public class SeoRepository: Repository<Seo>, ISeoRepository
+    public class SeoRepository : Repository<Seo>, ISeoRepository
     {
         public SeoRepository(AppDbContext context) : base(context)
         {
         }
 
-        public Task<Seo> GetByHomePage()
+        public Task<Seo> GetByUrl(string url)
         {
-            return GetAll().Select(columns => new Seo
-            {
-                Title = columns.Title,
-                Description = columns.Description,
-                Keywords = columns.Keywords
-            }).FirstAsync();
+            return GetAll()
+                .Where(entity => entity.Url.Equals(url))
+                .Select(columns => new Seo
+                {
+                    Title = columns.Title,
+                    Description = columns.Description,
+                    Keywords = columns.Keywords
+                })
+                .FirstAsync();
         }
     }
 }
