@@ -34,6 +34,8 @@ namespace ZemisApi.Infrastructure.Migrations
                     BonusesDescription = table.Column<string>(type: "varchar(1500)", maxLength: 1500, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     ExtraInfo = table.Column<string>(type: "varchar(1500)", maxLength: 1500, nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    ReceiversDescription = table.Column<string>(type: "varchar(300)", maxLength: 300, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>

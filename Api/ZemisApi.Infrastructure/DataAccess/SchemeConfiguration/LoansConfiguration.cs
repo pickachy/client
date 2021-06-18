@@ -39,7 +39,7 @@ namespace ZemisApi.Infrastructure.DataAccess.SchemeConfiguration
                 .HasMaxLength(1500);
             
             builder.Property(b => b.ReceiversDescription)
-                .HasMaxLength(500);
+                .HasMaxLength(300);
         }
     }
 }

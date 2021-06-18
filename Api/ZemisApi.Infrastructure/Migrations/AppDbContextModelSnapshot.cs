@@ -64,6 +64,10 @@ namespace ZemisApi.Infrastructure.Migrations
                         .HasMaxLength(10080)
                         .HasColumnType("int");
 
+                    b.Property<string>("ReceiversDescription")
+                        .HasMaxLength(300)
+                        .HasColumnType("varchar(300)");
+
                     b.Property<string>("RepaymentMethodsDescription")
                         .HasMaxLength(1500)
                         .HasColumnType("varchar(1500)");

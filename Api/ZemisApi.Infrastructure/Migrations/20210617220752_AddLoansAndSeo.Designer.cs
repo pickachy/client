@@ -8,7 +8,7 @@ using ZemisApi.Infrastructure.DataAccess;
 namespace ZemisApi.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210609190233_AddLoansAndSeo")]
+    [Migration("20210617220752_AddLoansAndSeo")]
     partial class AddLoansAndSeo
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -65,6 +65,10 @@ namespace ZemisApi.Infrastructure.Migrations
                     b.Property<int>("ProcessingTimeMinutes")
                         .HasMaxLength(10080)
                         .HasColumnType("int");
+
+                    b.Property<string>("ReceiversDescription")
+                        .HasMaxLength(300)
+                        .HasColumnType("varchar(300)");
 
                     b.Property<string>("RepaymentMethodsDescription")
                         .HasMaxLength(1500)
