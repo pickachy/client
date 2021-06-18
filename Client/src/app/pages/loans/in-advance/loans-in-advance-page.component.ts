@@ -33,10 +33,10 @@ export class LoansInAdvancePageComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.querySubscription = this.pageService.getHomePageAggregation().subscribe(data => {
       this.pageAggregation = data;
-      this.title.setTitle(data.homeWebPageAggregation.seo.title);
+      this.title.setTitle(data.seo.title);
       this.meta.addTags([
-        { name: 'title', content: data.homeWebPageAggregation.seo.title },
-        { name: 'description', content: data.homeWebPageAggregation.seo.description }
+        { name: 'title', content: data.seo.title },
+        { name: 'description', content: data.seo.description }
       ]);
     });
   }

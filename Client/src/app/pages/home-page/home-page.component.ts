@@ -14,6 +14,7 @@ export class HomePageComponent {
     onClick: () => null
   };
   articles: Article[];
+
   constructor(private articlesService: ArticlesService) {
     this.articles = articlesService.getArticles();
   }

@@ -1,17 +1,49 @@
 import { Image } from '@models/image.model';
 
 export enum LoanProviderType {
-  SHVIDKO_GROSHI = 1,
-  LOANY = 2
+  CREDIT7 = 1,
+  CREDIT_PLUS = 2,
+  MY_CREDIT = 3,
+  SHVIDKO_GROSHI = 4,
+  DINERO = 5,
+  E_GROSHI = 6,
+  TENGO = 7,
+  CCLOAN = 8,
+  CASH_BERRY = 9,
+  ALEX_CREDIT = 10,
+  MONEYEVO = 11,
+  MILOAN = 12,
+  BISTRO_ZAYM = 13,
+  VASHA_GOTIVOCHKA = 14,
+  FORZA_CREDIT = 15,
+  SOS_CREDIT = 16,
+  CREDIT_KASSA = 17,
+  ZECREDIT = 18,
+  KACHAY_GROSHI = 19,
+  MONEY4YOU = 20,
+  LOANY = 21,
+  KF_UA = 22,
+  CREDIT_BOX = 23,
+  POZICHKA = 24,
+  MONEY_BOOM = 25,
+  NEOCREDIT = 26,
+  BANANA_CREDIT = 27,
+  EVRO_GROSHI = 28,
+  MONETKA = 29
 }
+
 
 export const LoanProviderTypeImageMap: { [type: number]: Image } = {
   [LoanProviderType.SHVIDKO_GROSHI]: { src: 'assets/images/loans-page/loans-in-advance-page/sportbank.png', alt: 'privat bank' },
   [LoanProviderType.LOANY]: { src: 'assets/images/loans-page/loans-in-advance-page/sportbank.png', alt: 'privat bank' }
 };
 
+
 export interface LoanOverviewDto {
-  id: LoanProviderType
+  providerTypeId: LoanProviderType;
+  providerImageExtension: string;
+  providerName: string;
+  referralLink: string;
   amountFrom: number;
   amountTo: number;
   dayRate: number;
@@ -20,7 +52,7 @@ export interface LoanOverviewDto {
   termDays: number;
 }
 
-export interface LoanDto extends LoanOverviewDto{
+export interface LoanDto extends LoanOverviewDto {
   bonusesDescription: string;
   borrowerAgeFrom: number;
   borrowerAgeTo: number;
@@ -33,12 +65,5 @@ export interface LoanDto extends LoanOverviewDto{
   receiversDescription: string;
 }
 
-export interface LoanOverview extends LoanOverviewDto {
-  imageUrl: string;
-  alt: string;
-}
-
-export interface Loan extends LoanDto {
-  imageUrl: string;
-  alt: string;
-}
+export interface LoanOverview extends LoanOverviewDto{}
+export interface Loan extends LoanDto{}

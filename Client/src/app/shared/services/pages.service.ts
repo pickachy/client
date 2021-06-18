@@ -2,7 +2,11 @@ import { Injectable } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { HomePageAggregation, SingleLoanInAdvancePageAggregation } from '@models/page.model';
+import {
+  HomePageAggregation, HomePageAggregationDto,
+  SingleLoanInAdvancePageAggregation,
+  SingleLoanInAdvancePageAggregationDto
+} from '@models/page.model';
 import { LoanProviderType } from '@models/loan.model';
 
 const GET_HOME_PAGE_AGGREGATION = gql`
@@ -14,7 +18,10 @@ const GET_HOME_PAGE_AGGREGATION = gql`
         description
       }
       loans {
-        id
+        providerTypeId
+        providerImageExtension
+        providerName
+        referralLink
         amountFrom
         amountTo
         initialDayRate
@@ -34,7 +41,10 @@ const GET_LOAN_IN_ADVANCE_SINGLE_PAGE_AGGREGATION = gql`
         description
       }
       loan {
-        id
+        providerTypeId
+        providerImageExtension
+        providerName
+        referralLink
         amountFrom
         amountTo
         bonusesDescription
@@ -50,6 +60,7 @@ const GET_LOAN_IN_ADVANCE_SINGLE_PAGE_AGGREGATION = gql`
         repaymentMethodsDescription
         termDays
         withdrawalMethodsDescription
+        receiversDescription
       }
     }
   }
@@ -63,13 +74,13 @@ export class PagesService {
 
   public getHomePageAggregation(): Observable<HomePageAggregation> {
     return this.apollo
-      .query<HomePageAggregation>({ query: GET_HOME_PAGE_AGGREGATION })
-      .pipe(map(result => result.data));
+      .query<HomePageAggregationDto>({ query: GET_HOME_PAGE_AGGREGATION })
+      .pipe(map(result => result.data.homeWebPageAggregation));
   }
 
   public getSingleLoanInAdvancePageAggregation(id: LoanProviderType): Observable<SingleLoanInAdvancePageAggregation> {
     return this.apollo
-      .query<SingleLoanInAdvancePageAggregation>({ query: GET_LOAN_IN_ADVANCE_SINGLE_PAGE_AGGREGATION, variables: { id } })
-      .pipe(map(result => result.data));
+      .query<SingleLoanInAdvancePageAggregationDto>({ query: GET_LOAN_IN_ADVANCE_SINGLE_PAGE_AGGREGATION, variables: { id } })
+      .pipe(map(result => result.data.loanInAdvanceSingleWebPageAggregation));
   }
 }

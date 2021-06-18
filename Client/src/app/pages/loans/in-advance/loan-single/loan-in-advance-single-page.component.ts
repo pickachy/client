@@ -12,6 +12,7 @@ import { Meta, Title } from '@angular/platform-browser';
 })
 export class LoanInAdvanceSinglePageComponent implements OnInit, OnDestroy {
   data?: Loan;
+
   private querySubscription?: Subscription;
 
   constructor(private title: Title, private meta: Meta, private pagesService: PagesService, private activateRoute: ActivatedRoute) {}
@@ -20,15 +21,19 @@ export class LoanInAdvanceSinglePageComponent implements OnInit, OnDestroy {
     this.querySubscription = this.pagesService
       .getSingleLoanInAdvancePageAggregation(Number(this.activateRoute.snapshot.params['id']))
       .subscribe(data => {
-        this.title.setTitle(data.loanInAdvanceSingleWebPageAggregation.seo.title);
+        this.title.setTitle(data.seo.title);
         this.meta.addTags([
-          { name: 'title', content: data.loanInAdvanceSingleWebPageAggregation.seo.title },
-          { name: 'description', content: data.loanInAdvanceSingleWebPageAggregation.seo.description }
+          { name: 'title', content: data.seo.title },
+          { name: 'description', content: data.seo.description }
         ]);
-        this.data = data.loanInAdvanceSingleWebPageAggregation.loan;
+        this.data = data.loan;
       });
   }
   ngOnDestroy(): void {
     this.querySubscription?.unsubscribe();
+  }
+
+  scrollToElement($element: HTMLElement): void {
+    $element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
   }
 }

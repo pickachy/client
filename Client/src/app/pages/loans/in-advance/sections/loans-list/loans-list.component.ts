@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { LoanOverview, LoanProviderType } from '@models/loan.model';
+import { LoanOverview } from '@models/loan.model';
 
 @Component({
   selector: 'app-page-loans-in-advance-sections-loans-list',
@@ -8,7 +8,4 @@ import { LoanOverview, LoanProviderType } from '@models/loan.model';
 })
 export class LoansListComponent {
   @Input() data?: LoanOverview[];
-  public get LoanProviderType() {
-    return LoanProviderType;
-  }
 }

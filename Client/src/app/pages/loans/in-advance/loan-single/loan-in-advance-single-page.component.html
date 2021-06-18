@@ -1,9 +1,14 @@
 <ng-container *ngIf="data">
   <section class="main-description content">
-    <h1>Микрокредит «До зарплаты» от МФО {{ data.id }}</h1>
+    <h1>Микрокредит «До зарплаты» от МФО {{ data.providerName }}</h1>
     <div class="image-wrapper">
       <figure class="image-composition">
-        <img src="{{ data.imageUrl }}" alt="{{ data.alt }}" title="{{ data.id }}" loading="lazy" />
+        <img
+          src="assets/images/loans-page/loans-in-advance-page/{{ data.providerTypeId + '.' + data.providerImageExtension }}"
+          alt="{{ data.providerName }}"
+          title="{{ data.providerTypeId }}"
+          loading="lazy"
+        />
       </figure>
     </div>
     <section class="padded-content">
@@ -47,43 +52,27 @@
     <section class="description-buttons">
       <div class="padded-content">
         <div class="details-btn-wrapper">
-          <a href="" class="details-btn"
+          <span (click)="scrollToElement(full_details)" class="details-btn"
             >Подробные условия
             <svg xmlns="http://www.w3.org/2000/svg" width="8" height="10" xmlns:v="https://vecta.io/nano">
               <path d="M4 8.603L7.35 5l.65.699L4 10 0 5.699.65 5zm0-5L7.35 0 8 .699 4 5 0 .699.65 0z" />
             </svg>
-          </a>
+          </span>
         </div>
-        <a href="" class="get-money-btn">Получить деньги</a>
+        <a *ngIf="data.referralLink" href="{{ data.referralLink }}" class="get-money-btn">Получить деньги</a>
       </div>
     </section>
   </section>
 
-  <section class="calculator grayed-bg">
-    <section class="content">
-      <section class="padded-content">
-        <div class="calculator-left">
-          <h2>Рассчитать график платежей</h2>
-          <label for="sum">Введите сумму от 2000 до 30000 грн</label>
-          <input id="sum" type="text" />
-          <label for="term">Срок от 7 до 21 дней</label>
-          <input id="term" type="text" />
-          <p>
-            Расчеты в калькуляторе являются предварительными. Подробные условия вы сможете узнать при оформлении заявки. Расчет даты возврата
-            производится с текущего дня.
-          </p>
-        </div>
-        <div class="calculator-right">
-          <p>Сумма к возврату <span>2000 грн</span></p>
-          <p>В срок до <span class="greened">28 мая</span></p>
-          <p>Ставка <span>от 0%</span></p>
-          <a href="" class="get-money-btn">Получить деньги</a>
-        </div>
-      </section>
-    </section>
-  </section>
+  <app-page-loans-in-advance-single-calculator
+    [initialDayRate]="data.initialDayRate"
+    [dayRate]="data.dayRate"
+    [amountFrom]="data.amountFrom"
+    [amountTo]="data.amountTo"
+    [referralLink]="data.referralLink"
+  ></app-page-loans-in-advance-single-calculator>
 
-  <section class="full-details">
+  <section #full_details class="full-details">
     <section class="content">
       <div class="full-details-composition">
         <h2>О кредите</h2>
@@ -95,7 +84,7 @@
           <p class="full-details-list-item full-details-list-item-key">Ставка</p>
           <p class="full-details-list-item full-details-list-item-value">от 0.01% в день</p>
           <p class="full-details-list-item full-details-list-item-key">Оформление онлайн</p>
-          <p class="full-details-list-item full-details-list-item-value">{{ data.isOnlineProcessing ? "Возможно" : "Нет" }}</p>
+          <p class="full-details-list-item full-details-list-item-value">{{ data.isOnlineProcessing ? 'Возможно' : 'Нет' }}</p>
           <p class="full-details-list-item full-details-list-item-key">Подходит для</p>
           <p class="full-details-list-item full-details-list-item-value">{{ data.receiversDescription }}</p>
         </div>
@@ -115,15 +104,19 @@
           </p>
           <p class="full-details-list-item full-details-list-item-key">Погашение</p>
           <p class="full-details-list-item full-details-list-item-value">{{ data.repaymentMethodsDescription }}</p>
-          <p class="full-details-list-item full-details-list-item-key">Акции и бонусы</p>
-          <p class="full-details-list-item full-details-list-item-value">{{ data.bonusesDescription }}</p>
-          <p class="full-details-list-item full-details-list-item-key">Дополнительно</p>
-          <p class="full-details-list-item full-details-list-item-value">{{ data.extraInfo }}</p>
+          <ng-container *ngIf="data.bonusesDescription">
+            <p class="full-details-list-item full-details-list-item-key">Акции и бонусы</p>
+            <p class="full-details-list-item full-details-list-item-value">{{ data.bonusesDescription }}</p>
+          </ng-container>
+          <ng-container *ngIf="data.extraInfo">
+            <p class="full-details-list-item full-details-list-item-key">Дополнительно</p>
+            <p class="full-details-list-item full-details-list-item-value" innerHTML="{{ data.extraInfo }}"></p>
+          </ng-container>
         </div>
       </div>
     </section>
   </section>
   <section class="content sticky-btn-wrapper">
-    <a href="" class="get-money-btn sticky-btn"> Получить деньги </a>
+    <a *ngIf="data.referralLink" href="{{ data.referralLink }}" class="get-money-btn sticky-btn"> Получить деньги </a>
   </section>
 </ng-container>

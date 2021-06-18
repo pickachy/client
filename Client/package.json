@@ -3,10 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "start": "ng serve --host=0.0.0.0 --disable-host-check",
-    "build": "ng build",
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
-    "dev:ssr": "ng run zemis:serve-ssr",
     "serve:ssr": "node dist/zemis/server/main.js",
     "build:ssr": "ng build && ng run zemis:server && npm run compress",
     "prerender": "ng run zemis:prerender && npm run compress",

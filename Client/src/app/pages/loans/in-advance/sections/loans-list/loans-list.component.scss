@@ -10,16 +10,20 @@
     article.loans-list-item {
       display: flex;
       flex-direction: column;
-      flex: 1 0 auto;
-      max-width: 100%;
       border: 0.1rem solid #e2e3e3;
       margin-top: 1.7rem;
       text-align: center;
+      flex: 1 0 auto;
 
       .image-wrapper {
         padding: 1rem 0 1rem 1.3rem;
         background-color: #f0f0f0;
         text-align: left;
+
+        img {
+          max-width: 12rem;
+          height: 3.5rem;
+        }
       }
       .padded-content {
         padding-left: 1.3rem;
@@ -72,6 +76,11 @@
     color: var(--white);
     border-radius: 0.3rem;
     margin-right: 1.4rem;
+
+    &.get-money-btn-disabled{
+      cursor:default;
+      background-color: var(--grey-section-background);
+    }
   }
   .details-btn {
     border: 0.1rem solid var(--black);

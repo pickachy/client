@@ -1,9 +1,7 @@
-export interface SeoDto{
-    title: string;
-    description: string;
-    keywords: string;
+export interface SeoDto {
+  title: string;
+  description: string;
+  keywords: string;
 }
 
-export interface Seo extends SeoDto{
-
-}
+export interface Seo extends SeoDto {}
