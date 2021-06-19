@@ -8,56 +8,8 @@
   flex-direction: column;
 }
 
-h1 {
-  margin-top: 3.7rem;
-  padding: 0 3rem;
-}
-
-.image-wrapper {
-  display: flex;
-  border: 1px solid var(--grey-section-background);
-  border-radius: 4px;
-  padding: 0 3rem;
-  margin-top: 3.4rem;
-  img {
-    max-width: 12rem;
-    min-width: 11rem;
-    min-height: 2rem;
-    max-height: 4rem;
-    margin: 1.8rem 0;
-  }
-}
-
 .padded-content {
   padding: 0 3rem;
-}
-.main-details-list {
-  display: flex;
-  flex-direction: row;
-  margin-top: 3rem;
-
-  .main-details-list-item {
-    flex-direction: column;
-    flex: 1 1 auto;
-    p {
-      font-size: 1.8rem;
-      &:last-child {
-        font-weight: bold;
-        margin-top: 0.5rem;
-      }
-    }
-  }
-}
-
-.additional-details-list {
-  margin-top: 5.5rem;
-  .additional-details-list-item {
-    font-size: 1.6rem;
-    margin-top: 1rem;
-    path {
-      fill: var(--main-green);
-    }
-  }
 }
 
 .get-money-btn {
@@ -67,45 +19,6 @@ h1 {
   padding: 1.2rem 6rem;
   border-radius: 0.4rem;
   white-space: nowrap;
-}
-.sticky-btn-wrapper {
-  display: flex;
-  margin-top: 1.5rem;
-  position: sticky;
-  bottom: 0;
-  padding-bottom: 1rem;
-  .sticky-btn {
-    font-size: 2rem;
-    background-color: var(--main-green);
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
-}
-
-.description-buttons {
-  margin-top: 3rem;
-  border-top: 0.1rem solid #dddede;
-  .padded-content {
-    display: flex;
-    padding: 3rem;
-    justify-content: space-between;
-  }
-  .details-btn-wrapper {
-    display: flex;
-    align-items: center;
-    .details-btn {
-      display: flex;
-      align-items: center;
-      color: var(--azure);
-      svg {
-        margin-left: 0.5rem;
-        fill: var(--azure);
-      }
-    }
-  }
-  .get-money-btn {
-    background-color: var(--main-green);
-  }
 }
 
 .calculator {
@@ -140,12 +53,12 @@ h1 {
       border-radius: 0.3rem;
       cursor: pointer;
     }
-    .input-invalid{
+    .input-invalid {
       border-color: var(--input-error);
     }
-    .input-errors-list{
+    .input-errors-list {
       margin-top: 0.5rem;
-      span{
+      span {
         color: var(--input-error);
         font-size: 1.4rem;
       }
@@ -156,9 +69,9 @@ h1 {
     flex-direction: column;
     padding: 3rem 0 2rem 2rem;
     border-left: 0.1rem solid #dddede;
-    .calculator-rate-mode-switcher{
+    .calculator-rate-mode-switcher {
       flex-direction: row;
-      input{
+      input {
         margin-right: 1rem;
       }
     }
@@ -186,42 +99,7 @@ h1 {
   }
 }
 
-.full-details {
-  margin-top: 3rem;
-  .full-details-composition {
-    margin-top: 2.5rem;
-    &:first-child {
-      margin-top: 0;
-    }
-  }
-  .full-details-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-top: 1.5rem;
-  }
-
-  .full-details-list-item {
-    display: flex;
-    margin-top: 0.8rem;
-    &.full-details-list-item-key {
-      flex: 1 1 30%;
-    }
-    &.full-details-list-item-value {
-      flex: 1 1 70%;
-    }
-  }
-}
-
 @include desktop {
-  .description-buttons {
-    .get-money-btn {
-      transition: background-color var(--transition-duration) linear;
-      &:hover {
-        background-color: var(--light-green-btn);
-      }
-    }
-  }
   .calculator {
     .calculator-right {
       .get-money-btn {
@@ -231,43 +109,6 @@ h1 {
         }
       }
     }
-  }
-  .sticky-btn-wrapper {
-    display: none;
-  }
-}
-
-@include touch {
-  h1 {
-    font-size: 2rem;
-    line-height: 2.2rem;
-    padding: 0 1rem;
-  }
-  .main-description {
-    .image-wrapper {
-      margin-top: 1rem;
-      img {
-        margin: 1rem 0;
-      }
-    }
-    .description-buttons {
-      display: none;
-    }
-
-    .padded-content {
-      padding: 0;
-    }
-
-    .additional-details-list {
-      margin-top: 3.5rem;
-      padding-bottom: 2rem;
-      .additional-details-list-item {
-        font-size: 1.4rem;
-      }
-    }
-  }
-  .full-details-list-item-key {
-    font-weight: bold;
   }
 }
 
@@ -283,10 +124,10 @@ h1 {
         }
         .calculator-left {
           padding-right: 0;
-          label{
+          label {
             margin-top: 1rem;
           }
-          p{
+          p {
             margin-top: 1rem;
           }
         }
@@ -296,17 +137,6 @@ h1 {
           padding-right: 0;
           padding-top: 0;
         }
-      }
-    }
-  }
-  .full-details {
-    .full-details-list {
-      margin-top: 0.5rem;
-    }
-    .full-details-list-item {
-      &.full-details-list-item-key,
-      &.full-details-list-item-value {
-        flex: 1 1 100%;
       }
     }
   }

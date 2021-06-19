@@ -2,7 +2,7 @@
   <section class="content">
     <section class="loans-list">
       <ng-container *ngIf="data">
-        <article class="loans-list-item" *ngFor="let item of data">
+        <article class="loans-list-item" *ngFor="let item of data; let i = index">
           <figure class="image-wrapper">
             <img
               src="assets/images/loans-page/loans-in-advance-page/{{ item.providerTypeId + '.' + item.providerImageExtension }}"
@@ -24,11 +24,14 @@
             </p>
           </div>
           <div class="buttons">
-            <a [attr.href]='item.referralLink ? item.referralLink : null' class="get-money-btn" [class.get-money-btn-disabled]="!item.referralLink">Получить деньги</a>
+            <a [attr.href]="item.referralLink ? item.referralLink : null" class="get-money-btn" [class.get-money-btn-disabled]="!item.referralLink"
+              >Получить деньги</a
+            >
             <a routerLink="loans/mfo/{{ item.providerTypeId }}" class="details-btn">i</a>
           </div>
         </article>
       </ng-container>
+      <div></div>
     </section>
   </section>
 </section>
