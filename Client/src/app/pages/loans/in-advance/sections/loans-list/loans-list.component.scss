@@ -109,7 +109,7 @@
 @include touch-phone() {
   .loans-list {
     grid-template-columns: 1fr 1fr;
-    grid-gap: 0.1rem;
+    grid-gap: 0.3rem;
     margin-top: 0;
 
     article.loans-list-item {

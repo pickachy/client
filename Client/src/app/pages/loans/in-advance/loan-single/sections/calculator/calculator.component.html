@@ -31,9 +31,12 @@
           Ставка <span>{{ rateDescription }}</span>
         </p>
         <p class="calculator-rate-mode-switcher">
-          <input type="checkbox" [(ngModel)]="isFirstProcessing" (change)="handleRateModeChange()" />Первое оформление кредита
+          <input id="is_first_processing" type="checkbox" [(ngModel)]="isFirstProcessing" (change)="handleRateModeChange()" /><label
+            for="is_first_processing"
+            >Первое оформление кредита</label
+          >
         </p>
-        <a *ngIf="referralLink"  href="{{ referralLink }}" class="get-money-btn">Получить деньги</a>
+        <a *ngIf="referralLink" href="{{ referralLink }}" class="get-money-btn">Получить деньги</a>
       </div>
     </section>
   </section>
