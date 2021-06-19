@@ -67,6 +67,6 @@ export class CalculatorComponent implements OnChanges, OnInit, OnDestroy {
   }
 
   getRateDescription(): string {
-    return this.isFirstProcessing ? `от ${this.initialDayRate}%` : `${this.dayRate}%`;
+    return this.initialDayRate === this.dayRate ? `${this.dayRate}%` : this.isFirstProcessing ? `от ${this.initialDayRate}%` : `${this.dayRate}%`;
   }
 }

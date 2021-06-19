@@ -23,3 +23,13 @@ export const addDays = (date: Date, days: number): Date => {
   result.setDate(date.getDate() + days);
   return result;
 };
+
+export const getCurrentDate = (): string => {
+  const today = new Date();
+
+  const month = (today.getMonth()+1).toString().padStart(2, '0');
+  const year = today.getFullYear().toString().padStart(2, '0');
+  const day = today.getDate().toString().padStart(2, '0');
+
+  return `${day}.${month}.${year}`;
+};

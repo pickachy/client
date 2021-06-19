@@ -30,7 +30,7 @@
         <p>
           Ставка <span>{{ rateDescription }}</span>
         </p>
-        <p class="calculator-rate-mode-switcher">
+        <p class="calculator-rate-mode-switcher" *ngIf='initialDayRate !== dayRate'>
           <input id="is_first_processing" type="checkbox" [(ngModel)]="isFirstProcessing" (change)="handleRateModeChange()" /><label
             for="is_first_processing"
             >Первое оформление кредита</label

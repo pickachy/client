@@ -30,13 +30,14 @@ app-sections-tags-filter {
 
 @include touch {
   h1 {
-    margin-top: 3rem;
+    margin-top: 1.5rem;
     color: var(--main-green);
   }
   p {
-    margin-top: 2.1rem;
+    margin-top: 1rem;
+    font-size: 1.4rem;
   }
-  app-sections-tags-filter{
+  app-sections-tags-filter {
     margin-top: 2rem;
   }
 }

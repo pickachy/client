@@ -3,6 +3,7 @@ import { PagesService } from '@shared/services/pages.service';
 import { Subscription } from 'rxjs';
 import { HomePageAggregation } from '@models/page.model';
 import { Meta, Title } from '@angular/platform-browser';
+import { getCurrentDate } from '@shared/tools/dateUtils';
 
 @Component({
   selector: 'app-page-loans-in-advance',
@@ -25,6 +26,8 @@ export class LoansInAdvancePageComponent implements OnInit, OnDestroy {
   // articles: Article[];
   private querySubscription?: Subscription;
   pageAggregation?: HomePageAggregation;
+  loansCount?: number;
+  currentDate: string = getCurrentDate();
 
   constructor(/*private articlesService: ArticlesService, */ private title: Title, private meta: Meta, private pageService: PagesService) {
     // this.articles = articlesService.getArticles();
@@ -33,6 +36,7 @@ export class LoansInAdvancePageComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.querySubscription = this.pageService.getHomePageAggregation().subscribe(data => {
       this.pageAggregation = data;
+      this.loansCount = data.loans.length;
       this.title.setTitle(data.seo.title);
       this.meta.addTags([
         { name: 'title', content: data.seo.title },
