@@ -25,6 +25,7 @@ services:
       - "api"
     networks:
       - api
+      - proxy
     volumes:
       - client-dist:/app/dist/zemis/browser/
 
