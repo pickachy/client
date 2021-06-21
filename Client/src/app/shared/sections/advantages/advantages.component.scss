@@ -1,0 +1,91 @@
+@import 'src/app/shared/styles/_mixins';
+
+.content {
+  flex-direction: column;
+  h2 {
+    color: var(--header-grey);
+  }
+  .advantages-list {
+    display: flex;
+    .advantage-item {
+      display: flex;
+      flex-direction: column;
+      padding: 3.5rem 2.8rem 2.9rem;
+      flex: 1 1 33.33333%;
+      text-align: center;
+      align-items: center;
+      border: 0.1rem solid var(--main-green);
+
+      .image-composition {
+        position: relative;
+        margin-top: 3rem;
+        width: 13.2rem;
+        height: 13.2rem;
+        .image-circle-bg {
+          position: absolute;
+          width: 14.8rem;
+          height: 14.8rem;
+          border-radius: 50%;
+          left: -2.7rem;
+          bottom: 1.6rem;
+          opacity: 20%;
+        }
+      }
+      h3 {
+        font-weight: bold;
+        margin-top: 2rem;
+      }
+
+      p {
+        margin-top: 2rem;
+        line-height: 2.6rem;
+        font-size: 1.8rem;
+      }
+      &:nth-child(2) {
+        .image-composition {
+          .image-circle-bg {
+            left: -4.1rem;
+            bottom: 0;
+          }
+        }
+      }
+      &:nth-child(3) {
+        .image-composition {
+          .image-circle-bg {
+            left: -3.5rem;
+            bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include desktop {
+  .advantages {
+    margin-top: 7.8rem;
+  }
+  section.advantages-list {
+    flex-direction: row;
+    column-gap: 3rem;
+    .advantage-item {
+      margin-top: 3.4rem;
+    }
+  }
+}
+
+@include touch {
+  .advantages {
+    margin-top: 3.5rem;
+  }
+  section.advantages-list {
+    flex-wrap: wrap;
+    flex-direction: column;
+    .advantage-item {
+      margin-top: 0.7rem;
+      &:first-child{
+        margin-top: 2.2rem;
+      }
+    }
+  }
+}

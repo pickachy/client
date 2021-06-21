@@ -1,0 +1,36 @@
+@import 'src/app/shared/styles/_mixins';
+
+.best-deals {
+  .content {
+    flex-direction: column;
+
+    h2 {
+      color: var(--header-grey);
+    }
+
+    app-sections-tags-filter {
+      margin-top: 3.5rem;
+    }
+
+    app-page-home-section-best-deals-item {
+      display: flex;
+      flex-direction: column;
+      margin-right: 2.8rem;
+      margin-bottom: 2.8rem;
+    }
+  }
+}
+
+@include desktop{
+  .best-deals{
+    margin-top: 3.2rem;
+    padding: 4.1rem 0 4.6rem 0;
+  }
+}
+
+@include touch{
+  .best-deals{
+    margin-top: 1.9rem;
+    padding: 2.2rem 0 1.3rem 0;
+  }
+}

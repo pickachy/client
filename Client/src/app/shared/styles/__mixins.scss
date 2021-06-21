@@ -1,0 +1,23 @@
+﻿@mixin touch {
+  @media (max-width: 833px) {
+    @content;
+  }
+}
+
+@mixin touch-phone {
+  @media (max-width: 520px) {
+    @content;
+  }
+}
+
+@mixin max-screen-custom($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 834px) {
+    @content;
+  }
+}

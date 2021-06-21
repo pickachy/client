@@ -1,0 +1,43 @@
+<section class="calculator grayed-bg">
+  <section class="content">
+    <section class="padded-content">
+      <form [formGroup]="form" novalidate class="calculator-left">
+        <h2>Рассчитать график платежей</h2>
+        <label for="sum">Введите сумму от {{ amountFrom }} до {{ amountTo }} грн</label>
+        <input id="sum" type="text" formControlName="sum" [class.input-invalid]="f.sum.invalid" />
+        <div *ngIf="f.sum.invalid && f.sum.errors" class="input-errors-list">
+          <span *ngIf="f.sum.errors.min">Сумма должна быть от {{ amountFrom }}грн.</span>
+          <span *ngIf="f.sum.errors.max">Сумма должна быть до {{ amountTo }}грн.</span>
+        </div>
+        <label for="term">Срок от 1 до 30 дней</label>
+        <input id="term" type="text" formControlName="termDays" [class.input-invalid]="f.termDays.invalid" />
+        <div *ngIf="f.termDays.invalid && f.termDays.errors" class="input-errors-list">
+          <span *ngIf="f.termDays.errors.min">Срок должен быть больше чем 1день.</span>
+          <span *ngIf="f.termDays.errors.max">Срок должен быть меньше чем 30дней.</span>
+        </div>
+        <p>
+          Расчеты в калькуляторе являются предварительными. Подробные условия вы сможете узнать при оформлении заявки. Расчет даты возврата
+          производится с текущего дня.
+        </p>
+      </form>
+      <div class="calculator-right">
+        <p>
+          Сумма к возврату <span>{{ sumDescription }} грн</span>
+        </p>
+        <p>
+          В срок до <span class="greened">{{ termDescription }}</span>
+        </p>
+        <p>
+          Ставка <span>{{ rateDescription }}</span>
+        </p>
+        <p class="calculator-rate-mode-switcher" *ngIf='initialDayRate !== dayRate'>
+          <input id="is_first_processing" type="checkbox" [(ngModel)]="isFirstProcessing" (change)="handleRateModeChange()" /><label
+            for="is_first_processing"
+            >Первое оформление кредита</label
+          >
+        </p>
+        <a *ngIf="referralLink" href="{{ referralLink }}" target='_blank' class="get-money-btn">Получить деньги</a>
+      </div>
+    </section>
+  </section>
+</section>

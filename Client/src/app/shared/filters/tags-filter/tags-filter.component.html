@@ -1,0 +1,12 @@
+<div class="filters" [class.align-center]="alignCenter">
+  <ng-container *ngIf="tag !== undefined">
+    <li
+      *ngFor="let tagItem of tag.items"
+      [class.circled]="theme === 'circled'"
+      [class.active-filter]="tagItem.isActive"
+      (click)="onClick(tagItem)"
+    >
+      {{ tagItem.name }}
+    </li>
+  </ng-container>
+</div>

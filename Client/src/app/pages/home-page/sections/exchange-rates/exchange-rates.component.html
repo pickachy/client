@@ -1,0 +1,14 @@
+<section class="exchange-rates">
+  <section class="content">
+    <div class="select-wrapper">
+      <p>Курс</p>
+      <ng-select [items]="people" bindValue="value" [(ngModel)]="id" [searchable]="false" [clearable]="false"></ng-select>
+    </div>
+    <div class="exchange-rates-list">
+      <p class="exchange-rate-item active">USD: {{ usd }}</p>
+      <p class="exchange-rate-item">EUR: {{ eur }}</p>
+      <p class="exchange-rate-item">Bit: {{ bit }}</p>
+      <p class="exchange-rate-item">Gold: {{ gold }}</p>
+    </div>
+  </section>
+</section>
