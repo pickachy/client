@@ -3,11 +3,12 @@ import { APOLLO_OPTIONS } from 'apollo-angular';
 import { ApolloClientOptions, InMemoryCache } from '@apollo/client/core';
 import { HttpLink } from 'apollo-angular/http';
 import { environment } from '../environments/environment';
+import { isBrowser } from '@shared/tools/environmentUtils';
 
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
   return {
     link: httpLink.create({
-      uri: environment.apiUrl // <-- add the URL of the GraphQL server here
+      uri: isBrowser ? environment.publicApiUrl : environment.serverApiUrl
     }),
     cache: new InMemoryCache()
   };
