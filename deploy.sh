@@ -13,13 +13,19 @@ done
 >&2 echo "Mysql is up - executing command"
 
 
+# waiting for seeded data
+until docker exec -it db mysql -h 127.0.0.1 -u "root" -c -proot --silent --execute="SELECT 1 FROM Loan"; do
+  >&2 echo "Loans data has not been seeded yet... Waiting"
+  sleep 10
+done
+
+until docker exec -it db mysql -h 127.0.0.1 -u "root" -c -proot --silent --execute="SELECT 1 FROM Seo"; do
+  >&2 echo "Seo data has not been seeded yet... Waiting"
+  sleep 10
+done
+
 # deploying api service, so client will be able to execute prerendering
 docker-compose up -d api
-
-# Seed data to database
-sleep 5
-bash seed.sh
-
 docker-compose up -d client
 docker-compose up -d proxy
 
