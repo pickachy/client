@@ -6,5 +6,4 @@ COPY . /app
 
 EXPOSE 4000
 
-ENTRYPOINT ["npm", "run", "prerender"]
-CMD ["npm", "run", "serve:ssr"]
+CMD npm run prerender && npm run serve:ssr
