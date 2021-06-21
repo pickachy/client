@@ -11,30 +11,16 @@ import { getCurrentDate } from '@shared/tools/dateUtils';
   styleUrls: ['./loans-in-advance-page.component.scss']
 })
 export class LoansInAdvancePageComponent implements OnInit, OnDestroy {
-  // loansTagFilter: TagFilter = {
-  //   items: [{ name: 'Кредиты', isActive: true }, { name: 'Кредитные карты' }, { name: 'Ипотеки' }, { name: 'Микрозаймы' }],
-  //   onClick: () => null
-  // };
-  // articlesTagFilter: TagFilter = {
-  //   items: [{ name: 'Кредиты', isActive: true }, { name: 'Кредитные карты' }, { name: 'Ипотеки' }, { name: 'Микрозаймы' }],
-  //   onClick: () => null
-  // };
-  // sortingFilter: SortingFilter = {
-  //   items: ['по популярности', 'по сумме', 'по сроку', 'по ставке', 'по времени принятия решения', 'без сортировки'],
-  //   onClick: () => null
-  // };
-  // articles: Article[];
   private querySubscription?: Subscription;
   pageAggregation?: HomePageAggregation;
   loansCount: number = 0;
   currentDate: string = getCurrentDate();
 
   constructor(
-    /*private articlesService: ArticlesService, */ private title: Title,
+    private title: Title,
     private meta: Meta,
     private pageService: PagesService
   ) {
-    // this.articles = articlesService.getArticles();
   }
 
   ngOnInit(): void {
