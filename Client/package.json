@@ -7,7 +7,7 @@
     "lint:fix": "ng lint --fix",
     "serve:ssr": "node dist/zemis/server/main.js",
     "build:ssr": "ng build && ng run zemis:server && npm run compress",
-    "prerender": "ng run zemis:prerender && npm run compress",
+    "prerender": "node --max-old-space-size=1536 ./node_modules/@angular/cli/bin/ng run zemis:prerender && npm run compress",
     "compress": "gzipper c -t 10240 --level=9 --remove-larger dist/zemis/browser"
   },
   "private": true,
