@@ -19,14 +19,7 @@ export class AppComponent implements OnInit {
       if (isBrowser) {
         const existedUtm = localStorage.getItem(utmName);
         const existedUtmTimestamp = localStorage.getItem(utmTimestampName);
-        console.log(param);
 
-        if (existedUtmTimestamp && existedUtm) {
-          const days = (Date.now() - parseInt(existedUtmTimestamp)) / 1000 / 60 / 60 / 24;
-          if (days < 30) {
-            console.log('VALID');
-          }
-        }
         if (param === 'callcenter') {
           if (existedUtmTimestamp && existedUtm) {
             const days = (Date.now() - parseInt(existedUtmTimestamp)) / 1000 / 60 / 60 / 24;

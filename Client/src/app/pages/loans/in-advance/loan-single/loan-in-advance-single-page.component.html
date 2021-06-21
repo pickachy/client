@@ -74,7 +74,7 @@
               </svg>
             </span>
           </div>
-          <a *ngIf="data.referralLink" href="{{ data.referralLink+referralQueryParams }}" class="get-money-btn">Получить деньги</a>
+          <a *ngIf="data.referralLink" href="{{ data.referralLink + referralQueryParams }}" class="get-money-btn" target="_blank">Получить деньги</a>
         </div>
       </section>
     </section>
@@ -84,7 +84,7 @@
       [dayRate]="data.dayRate"
       [amountFrom]="data.amountFrom"
       [amountTo]="data.amountTo"
-      [referralLink]="data.referralLink"
+      [referralLink]="data.referralLink ? data.referralLink + referralQueryParams : undefined"
     ></app-page-loans-in-advance-single-calculator>
 
     <section #full_details class="full-details">
@@ -132,7 +132,9 @@
       </section>
     </section>
     <section class="content sticky-btn-wrapper">
-      <a *ngIf="data.referralLink" href="{{ data.referralLink+referralQueryParams }}" class="get-money-btn sticky-btn"> Получить деньги </a>
+      <a *ngIf="data.referralLink" href="{{ data.referralLink + referralQueryParams }}" class="get-money-btn sticky-btn" target="_blank">
+        Получить деньги
+      </a>
     </section>
   </div>
 </ng-container>
