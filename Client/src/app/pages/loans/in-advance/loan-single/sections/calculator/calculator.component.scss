@@ -1,0 +1,143 @@
+@import 'src/app/shared/styles/_mixins';
+
+.greened {
+  color: var(--main-green);
+}
+
+.content {
+  flex-direction: column;
+}
+
+.padded-content {
+  padding: 0 3rem;
+}
+
+.get-money-btn {
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--white);
+  padding: 1.2rem 6rem;
+  border-radius: 0.4rem;
+  white-space: nowrap;
+}
+
+.calculator {
+  padding: 3rem 0;
+  .content {
+    background-color: var(--white);
+  }
+  .padded-content {
+    display: flex;
+    flex-direction: row;
+  }
+  h2 {
+    line-height: 3rem;
+  }
+  .calculator-left {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 3rem 3rem 0;
+    flex: 1 1 73%;
+    label {
+      font-size: 1.4rem;
+    }
+    label,
+    p {
+      margin-top: 3rem;
+    }
+    input {
+      margin-top: 0.5rem;
+      min-height: 3.4rem;
+      border: 0.1rem solid;
+      padding-left: 1rem;
+      border-radius: 0.3rem;
+      cursor: pointer;
+    }
+    .input-invalid {
+      border-color: var(--input-error);
+    }
+    .input-errors-list {
+      margin-top: 0.5rem;
+      span {
+        color: var(--input-error);
+        font-size: 1.4rem;
+      }
+    }
+  }
+  .calculator-right {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 0 2rem 2rem;
+    border-left: 0.1rem solid #dddede;
+    .calculator-rate-mode-switcher {
+      flex-direction: row;
+      input {
+        margin-right: 1rem;
+      }
+    }
+    p {
+      display: flex;
+      flex-direction: column;
+      border-bottom: 0.1rem solid #dddede;
+      padding-bottom: 2rem;
+      margin-top: 2rem;
+      span {
+        line-height: 3rem;
+        font-weight: bold;
+        font-size: 2.4rem;
+      }
+      &:first-child {
+        margin-top: 0;
+      }
+      &:last-of-type {
+        border-bottom: none;
+      }
+    }
+    .get-money-btn {
+      background-color: var(--orange);
+    }
+  }
+}
+
+@include desktop {
+  .calculator {
+    .calculator-right {
+      .get-money-btn {
+        transition: background-color var(--transition-duration) linear;
+        &:hover {
+          background-color: var(--light-orange-btn);
+        }
+      }
+    }
+  }
+}
+
+@include max-screen-custom(645px) {
+  .calculator {
+    .content {
+      .padded-content {
+        padding: 0;
+        flex-direction: column;
+        .calculator-left,
+        .calculator-right {
+          flex-basis: 100%;
+        }
+        .calculator-left {
+          padding-right: 0;
+          label {
+            margin-top: 1rem;
+          }
+          p {
+            margin-top: 1rem;
+          }
+        }
+        .calculator-right {
+          border-left: none;
+          padding-left: 0;
+          padding-right: 0;
+          padding-top: 0;
+        }
+      }
+    }
+  }
+}

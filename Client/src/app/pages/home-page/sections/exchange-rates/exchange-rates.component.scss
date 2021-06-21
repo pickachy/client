@@ -1,0 +1,67 @@
+@import 'src/app/shared/styles/_mixins';
+
+$filter-color: #373f41;
+
+.select-wrapper {
+  flex-direction: row;
+  display: flex;
+  font-weight: 500;
+  color: $filter-color;
+
+  ng-select {
+    min-width: 10rem;
+    ::ng-deep .ng-select-container {
+      span.ng-value-label {
+        color: $filter-color;
+      }
+    }
+  }
+}
+
+.exchange-rates-list {
+  display: flex;
+  .exchange-rate-item {
+    flex-direction: row;
+    font-weight: bold;
+
+    &.active {
+      color: var(--main-green);
+    }
+  }
+}
+
+@include desktop {
+  .exchange-rates {
+    .content {
+      justify-content: space-between;
+      margin-top: 3.7rem;
+      .exchange-rate-item {
+        margin-right: 3.2rem;
+        font-size: 2.4rem;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+@include touch {
+  .exchange-rates {
+    .content {
+      flex-direction: column;
+      margin-top: 1.7rem;
+      .select-wrapper {
+        margin-left: 1rem;
+      }
+      .exchange-rates-list {
+        flex-wrap: wrap;
+        .exchange-rate-item {
+          font-size: 1.8rem;
+          margin-top: 1.5rem;
+          text-align: center;
+          flex: 0 0 50%;
+        }
+      }
+    }
+  }
+}

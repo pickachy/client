@@ -1,0 +1,49 @@
+@import 'src/app/shared/styles/_mixins';
+
+$title-color: #455053;
+
+.content {
+  flex-direction: column;
+}
+
+.padded-content {
+  text-align: center;
+}
+
+h1 {
+  font-size: 3.6rem;
+  color: $title-color;
+  margin-top: 3.7rem;
+  font-weight: normal;
+  text-align: center;
+}
+p {
+  color: $title-color;
+  font-size: 1.8rem;
+  margin-top: 3.1rem;
+  text-align: center;
+}
+
+app-sections-tags-filter {
+  margin-top: 4.3rem;
+}
+
+@include touch {
+  h1 {
+    margin-top: 1.5rem;
+    color: var(--main-green);
+  }
+  p {
+    margin-top: 1rem;
+    font-size: 1.4rem;
+  }
+  app-sections-tags-filter {
+    margin-top: 2rem;
+  }
+}
+
+@include touch-phone {
+  h1 {
+    font-size: 2.9rem;
+  }
+}

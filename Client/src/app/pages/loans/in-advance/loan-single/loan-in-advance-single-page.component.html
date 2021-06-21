@@ -1,0 +1,140 @@
+<ng-container *ngIf="data">
+  <div class="wrapper">
+    <section class="main-description content">
+      <ul class="breadcrumbs">
+        <li>
+          <a routerLink="/">Главная \ </a><span>{{ data.providerName }}</span>
+        </li>
+      </ul>
+      <h1>Микрокредит «До зарплаты» от МФО {{ data.providerName }}</h1>
+      <div class="image-wrapper">
+        <figure class="image-composition">
+          <img
+            src="assets/images/loans-page/loans-in-advance-page/{{ data.providerTypeId + '.' + data.providerImageExtension }}"
+            alt="{{ data.providerName }}"
+            title="{{ data.providerTypeId }}"
+            loading="lazy"
+          />
+        </figure>
+      </div>
+      <section class="padded-content">
+        <div class="main-details-list">
+          <div class="main-details-list-item">
+            <p>Сумма</p>
+            <p>{{ data.amountFrom }} - {{ data.amountTo }}грн</p>
+          </div>
+          <div class="main-details-list-item">
+            <p>Срок</p>
+            <p>{{ data.termDays }} дней</p>
+          </div>
+          <div class="main-details-list-item">
+            <p>Ставка</p>
+            <p>{{ data.initialDayRate }}%</p>
+          </div>
+        </div>
+        <div class="additional-details-list">
+          <ul>
+            <li class="additional-details-list-item">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12.4956 4.30993C12.806 3.93462 13.3474 3.89456 13.7048 4.22045C14.0225 4.51013 14.088 4.99145 13.8806 5.35843L13.79 5.49009L7.83587 12.6901C7.55354 13.0315 7.08174 13.0944 6.73095 12.8611L6.60569 12.7598L2.27417 8.54008C1.92714 8.20202 1.90682 7.63257 2.22879 7.26819C2.51499 6.94429 2.9753 6.89145 3.31779 7.12115L3.44012 7.22055L7.12228 10.8076L12.4956 4.30993Z"
+                  fill="#3C3E44"
+                ></path>
+              </svg>
+              Получение: {{ data.withdrawalMethodsDescription }}
+            </li>
+            <li class="additional-details-list-item">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12.4956 4.30993C12.806 3.93462 13.3474 3.89456 13.7048 4.22045C14.0225 4.51013 14.088 4.99145 13.8806 5.35843L13.79 5.49009L7.83587 12.6901C7.55354 13.0315 7.08174 13.0944 6.73095 12.8611L6.60569 12.7598L2.27417 8.54008C1.92714 8.20202 1.90682 7.63257 2.22879 7.26819C2.51499 6.94429 2.9753 6.89145 3.31779 7.12115L3.44012 7.22055L7.12228 10.8076L12.4956 4.30993Z"
+                  fill="#3C3E44"
+                ></path>
+              </svg>
+              Рассмотрение: до {{ data.processingTimeMinutes }} минут
+            </li>
+            <li class="additional-details-list-item">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12.4956 4.30993C12.806 3.93462 13.3474 3.89456 13.7048 4.22045C14.0225 4.51013 14.088 4.99145 13.8806 5.35843L13.79 5.49009L7.83587 12.6901C7.55354 13.0315 7.08174 13.0944 6.73095 12.8611L6.60569 12.7598L2.27417 8.54008C1.92714 8.20202 1.90682 7.63257 2.22879 7.26819C2.51499 6.94429 2.9753 6.89145 3.31779 7.12115L3.44012 7.22055L7.12228 10.8076L12.4956 4.30993Z"
+                  fill="#3C3E44"
+                ></path>
+              </svg>
+              Погашение: {{ data.repaymentMethodsDescription }}
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="description-buttons">
+        <div class="padded-content">
+          <div class="details-btn-wrapper">
+            <span (click)="scrollToElement(full_details)" class="details-btn"
+              >Подробные условия
+              <svg xmlns="http://www.w3.org/2000/svg" width="8" height="10" xmlns:v="https://vecta.io/nano">
+                <path d="M4 8.603L7.35 5l.65.699L4 10 0 5.699.65 5zm0-5L7.35 0 8 .699 4 5 0 .699.65 0z" />
+              </svg>
+            </span>
+          </div>
+          <a *ngIf="data.referralLink" href="{{ data.referralLink + referralQueryParams }}" class="get-money-btn" target="_blank">Получить деньги</a>
+        </div>
+      </section>
+    </section>
+
+    <app-page-loans-in-advance-single-calculator
+      [initialDayRate]="data.initialDayRate"
+      [dayRate]="data.dayRate"
+      [amountFrom]="data.amountFrom"
+      [amountTo]="data.amountTo"
+      [referralLink]="data.referralLink ? data.referralLink + referralQueryParams : undefined"
+    ></app-page-loans-in-advance-single-calculator>
+
+    <section #full_details class="full-details">
+      <section class="content">
+        <div class="full-details-composition">
+          <h2>О кредите</h2>
+          <div class="full-details-list">
+            <p class="full-details-list-item full-details-list-item-key">Время работы с заявками</p>
+            <p class="full-details-list-item full-details-list-item-value">{{ data.issueWorkingHoursDescription }}</p>
+            <p class="full-details-list-item full-details-list-item-key">Рассмотрение заявки</p>
+            <p class="full-details-list-item full-details-list-item-value">{{ data.processingTimeMinutes }} мин</p>
+            <p class="full-details-list-item full-details-list-item-key">Ставка</p>
+            <p class="full-details-list-item full-details-list-item-value">от 0.01% в день</p>
+            <p class="full-details-list-item full-details-list-item-key">Оформление онлайн</p>
+            <p class="full-details-list-item full-details-list-item-value">{{ data.isOnlineProcessing ? 'Возможно' : 'Нет' }}</p>
+            <p class="full-details-list-item full-details-list-item-key">Подходит для</p>
+            <p class="full-details-list-item full-details-list-item-value">{{ data.receiversDescription }}</p>
+          </div>
+        </div>
+        <div class="full-details-composition">
+          <h2>Условия получения</h2>
+          <div class="full-details-list">
+            <p class="full-details-list-item full-details-list-item-key">Возраст заемщика</p>
+            <p class="full-details-list-item full-details-list-item-value">{{ data.borrowerAgeFrom }}-{{ data.borrowerAgeTo }}лет</p>
+            <p class="full-details-list-item full-details-list-item-key">Комиссия</p>
+            <p class="full-details-list-item full-details-list-item-value">{{ data.commissionDescription }}</p>
+            <p class="full-details-list-item full-details-list-item-key">Документы</p>
+            <p class="full-details-list-item full-details-list-item-value">Паспорт и идентификационный код</p>
+            <p class="full-details-list-item full-details-list-item-key">Пролонгация</p>
+            <p class="full-details-list-item full-details-list-item-value">
+              Первый кредит выдается на срок до 30 дней. После уплаты процентов возможно продление кредита на аналогичный срок
+            </p>
+            <p class="full-details-list-item full-details-list-item-key">Погашение</p>
+            <p class="full-details-list-item full-details-list-item-value">{{ data.repaymentMethodsDescription }}</p>
+            <ng-container *ngIf="data.bonusesDescription">
+              <p class="full-details-list-item full-details-list-item-key">Акции и бонусы</p>
+              <p class="full-details-list-item full-details-list-item-value">{{ data.bonusesDescription }}</p>
+            </ng-container>
+            <ng-container *ngIf="data.extraInfo">
+              <p class="full-details-list-item full-details-list-item-key">Дополнительно</p>
+              <p class="full-details-list-item full-details-list-item-value" innerHTML="{{ data.extraInfo }}"></p>
+            </ng-container>
+          </div>
+        </div>
+      </section>
+    </section>
+    <section class="content sticky-btn-wrapper">
+      <a *ngIf="data.referralLink" href="{{ data.referralLink + referralQueryParams }}" class="get-money-btn sticky-btn" target="_blank">
+        Получить деньги
+      </a>
+    </section>
+  </div>
+</ng-container>

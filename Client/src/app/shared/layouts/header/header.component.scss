@@ -1,0 +1,20 @@
+header{
+  padding: 1.93rem 0;
+  overflow: hidden;
+
+  .content{
+    flex-direction: row;
+  }
+
+  app-header-logo{
+    width:60%;
+  }
+  app-header-navigation{
+    width:40%;
+  }
+
+  app-header-language-switcher{
+    display:flex;
+    width:17.8rem;
+  }
+}

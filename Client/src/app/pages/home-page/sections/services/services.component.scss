@@ -1,0 +1,42 @@
+@import 'src/app/shared/styles/_mixins';
+
+.services {
+  justify-content: center;
+  .content {
+    .services-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      app-page-home-section-service-item {
+        display: flex;
+      }
+    }
+  }
+}
+
+@include desktop {
+  .services-list {
+    padding: 0 11.7rem;
+    flex-direction: row;
+    margin-top: 3.2rem;
+    app-page-home-section-service-item {
+      max-width: 40%;
+      flex-direction: column;
+      margin-bottom: 2.8rem;
+      margin-right: 1.4rem;
+      margin-left: 1.4rem;
+    }
+  }
+}
+
+@include touch {
+  .services-list {
+    flex-direction: column;
+    flex: 0 0 100%;
+    margin-top: 1.4rem;
+    app-page-home-section-service-item {
+      flex-direction: row;
+      margin-bottom: 0.7rem;
+    }
+  }
+}

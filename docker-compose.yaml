@@ -1,0 +1,59 @@
+version: "3.9"
+
+services:
+  proxy:
+    container_name: proxy
+    image: nginx:alpine
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - "api"
+      - "client"
+    networks:
+      - proxy
+    volumes:
+      - client-dist:/var/www/html/
+      - ./Proxy/nginx.conf:/etc/nginx/nginx.conf
+
+  client:
+    container_name: client
+    build: ./Client
+    restart: always
+    depends_on:
+      - "api"
+    networks:
+      - api
+    volumes:
+      - client-dist:/app/dist/zemis/browser/
+
+  api:
+    container_name: api
+    build: ./Api
+    restart: always
+    environment:
+      ASPNET_ENVIRONMENT: Production
+    depends_on:
+      - db
+    networks:
+      - api
+      - proxy
+
+  db:
+    container_name: db
+    image: mysql:8.0.25
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    networks:
+      - api
+
+networks:
+  proxy:
+  api:
+
+volumes:
+  client-dist:

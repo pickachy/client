@@ -1,0 +1,79 @@
+@import 'src/app/shared/styles/_mixins';
+
+$circled-item-bg: #f5f5f5;
+
+:host {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  .filters {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 0.5rem;
+  }
+}
+
+li {
+  display: flex;
+  flex: 0 0 auto;
+  cursor: pointer;
+  color: #373f41;
+  white-space: nowrap;
+
+  &:not(.circled) {
+    border-bottom: 0.1rem solid transparent;
+    padding-bottom: 0.5rem;
+    margin-right: 3.2rem;
+    transition-property: border-bottom-color, color;
+    transition-duration: var(--transition-duration);
+    transition-timing-function: linear;
+  }
+
+  &.circled {
+    padding: 0.6rem 1.6rem;
+    font-style: italic;
+    background-color: $circled-item-bg;
+    border-radius: 2rem 2rem;
+    margin-right: 1.6rem;
+    transition: box-shadow var(--transition-duration) linear, background-color var(--transition-duration) linear;
+
+    &.active-filter {
+      background-color: var(--main-green);
+      color: var(--white);
+      box-shadow: var(--box-shadow);
+    }
+  }
+  &.active-filter {
+    color: var(--main-green);
+    border-bottom-color: var(--main-green);
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+@include desktop {
+  .filters {
+    &.align-center {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+  li {
+    &.circled {
+      &:hover {
+        background-color: var(--main-green);
+        color: var(--white);
+        box-shadow: var(--box-shadow);
+      }
+    }
+
+    &:hover {
+      color: var(--main-green);
+      border-bottom-color: var(--main-green);
+    }
+  }
+}

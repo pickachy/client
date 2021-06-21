@@ -1,0 +1,32 @@
+.top-navigation {
+  ::ng-deep app-navigation-links {
+    nav {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      li {
+        display: flex;
+        margin-right: 4.5rem;
+        margin-top: 1.8rem;
+
+        a {
+          font-size: 1.8rem;
+          border-bottom: 0.2rem solid transparent;
+          padding-bottom: 0.63rem;
+          cursor: pointer;
+          transition: border-bottom-color var(--transition-duration) linear;
+          &:hover,
+          &.active-navigation-link {
+            border-bottom-color: var(--main-green);
+          }
+        }
+
+        &:last-child{
+          margin-right:0;
+        }
+      }
+    }
+  }
+}
