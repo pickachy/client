@@ -26,10 +26,14 @@ export class LoansInAdvancePageComponent implements OnInit, OnDestroy {
   // articles: Article[];
   private querySubscription?: Subscription;
   pageAggregation?: HomePageAggregation;
-  loansCount?: number;
+  loansCount: number = 0;
   currentDate: string = getCurrentDate();
 
-  constructor(/*private articlesService: ArticlesService, */ private title: Title, private meta: Meta, private pageService: PagesService) {
+  constructor(
+    /*private articlesService: ArticlesService, */ private title: Title,
+    private meta: Meta,
+    private pageService: PagesService
+  ) {
     // this.articles = articlesService.getArticles();
   }
 

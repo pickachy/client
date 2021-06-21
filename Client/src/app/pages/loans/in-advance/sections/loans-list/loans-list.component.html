@@ -24,7 +24,7 @@
             </p>
           </div>
           <div class="buttons">
-            <a [attr.href]="item.referralLink ? item.referralLink : null" class="get-money-btn" [class.get-money-btn-disabled]="!item.referralLink"
+            <a [attr.href]="item.referralLink ? item.referralLink+referralQueryParams : null" class="get-money-btn" [class.get-money-btn-disabled]="!item.referralLink"
               >Получить деньги</a
             >
             <a routerLink="loans/mfo/{{ item.providerTypeId }}" class="details-btn">i</a>

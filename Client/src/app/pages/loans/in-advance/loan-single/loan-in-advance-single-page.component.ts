@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PagesService } from '@shared/services/pages.service';
 import { Subscription } from 'rxjs';
 import { Meta, Title } from '@angular/platform-browser';
+import { getReferralSubIdQueryParams } from '@shared/tools/loanTools';
 
 @Component({
   selector: 'app-page-loans-in-advance-single',
@@ -14,7 +15,7 @@ export class LoanInAdvanceSinglePageComponent implements OnInit, OnDestroy {
   data?: Loan;
 
   private querySubscription?: Subscription;
-
+  referralQueryParams: string = getReferralSubIdQueryParams();
   constructor(private title: Title, private meta: Meta, private pagesService: PagesService, private activateRoute: ActivatedRoute) {}
 
   ngOnInit(): void {

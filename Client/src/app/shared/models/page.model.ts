@@ -1,5 +1,5 @@
-import { SeoDto } from '@models/seo.model';
-import { LoanDto, LoanOverviewDto } from '@models/loan.model';
+import { Seo, SeoDto } from '@models/seo.model';
+import { Loan, LoanDto, LoanOverview, LoanOverviewDto } from '@models/loan.model';
 
 export interface HomePageAggregationDto {
   homeWebPageAggregation: {
@@ -16,10 +16,10 @@ export interface SingleLoanInAdvancePageAggregationDto {
 }
 
 export interface HomePageAggregation {
-  seo: SeoDto;
-  loans: LoanOverviewDto[];
+  seo: Seo;
+  loans: LoanOverview[];
 }
 export interface SingleLoanInAdvancePageAggregation {
-  seo: SeoDto;
-  loan: LoanDto;
+  seo: Seo;
+  loan: Loan;
 }
