@@ -28,10 +28,8 @@ export class LoansInAdvancePageComponent implements OnInit, OnDestroy {
       this.pageAggregation = data;
       this.loansCount = data.loans.length;
       this.title.setTitle(data.seo.title);
-      this.meta.addTags([
-        { name: 'title', content: data.seo.title },
-        { name: 'description', content: data.seo.description }
-      ]);
+      this.meta.updateTag({ name: 'description', content: data.seo.description });
+      this.meta.updateTag({ name: 'keywords', content: data.seo.keywords });
     });
   }
 
