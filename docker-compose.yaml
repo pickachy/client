@@ -3,7 +3,7 @@ version: "3.9"
 services:
   proxy:
     container_name: proxy
-    image: nginx:alpine
+    build: ./Proxy
     restart: always
     ports:
       - "80:80"
@@ -14,6 +14,7 @@ services:
     networks:
       - proxy
     volumes:
+      - ./Proxy/letsencrypt:/ets/letsencrypt
       - client-dist:/var/www/html/
       - ./Proxy/nginx.conf:/etc/nginx/nginx.conf
 
@@ -25,6 +26,7 @@ services:
       - "api"
     networks:
       - api
+      - proxy
     volumes:
       - client-dist:/app/dist/zemis/browser/
 
@@ -44,12 +46,12 @@ services:
     container_name: db
     image: mysql:8.0.25
     restart: always
-    ports:
-      - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: Yav9764Z08KQ&&zdqShuwe#Fd%8W0dxsYQRK10cJRBzzj3F!po
     networks:
       - api
+    volumes:
+      - /var/lib/mysql:/var/lib/mysql
 
 networks:
   proxy:

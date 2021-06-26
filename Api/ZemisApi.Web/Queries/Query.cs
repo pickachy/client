@@ -48,10 +48,13 @@ namespace ZemisApi.Queries
             var seoDto = _mapper.Map<SeoDto>(seoTask.Result);
             var loanDto = _mapper.Map<LoanDto>(loanTask.Result);
             
-            seoDto.Description = string.Join(seoDto.Description, 
-                loanDto.ProviderName, 
-                loanDto.AmountFrom, 
+            seoDto.Title = string.Format(seoDto.Title, 
                 loanDto.AmountTo, 
+                loanDto.ProviderName, 
+                loanDto.InitialDayRate);
+            
+            seoDto.Description = string.Format(seoDto.Description, 
+                loanDto.ProviderName,
                 loanDto.InitialDayRate);
             
             return new LoanInAdvanceSingleWebPageAggregation
