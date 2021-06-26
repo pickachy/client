@@ -22,7 +22,7 @@ export function createApollo(httpLink: HttpLink, cache: InMemoryCache, transferS
   return {
     ssrMode: true,
     link: httpLink.create({
-      uri: environment.apiUrl
+      uri: isBrowser ? environment.publicApiUrl : environment.serverApiUrl
     }),
     cache
   };
