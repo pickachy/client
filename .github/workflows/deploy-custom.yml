@@ -54,7 +54,8 @@ jobs:
           CLONE_URL: ${{ secrets.CLONE_URL }}
 
       - name: Deploy application
-        run: ssh production /bin/bash -s << EOT
+        run: |
+          ssh production /bin/bash -s << EOT
           cd /home/zemis/
           bash deploy-custom.sh ${{ github.event.inputs.component }}
           EOT
