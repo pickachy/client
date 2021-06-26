@@ -48,7 +48,7 @@ jobs:
           git clone $CLONE_URL
           else
           cd ./zemis
-          git fetch && git reset --hard origin/master
+          git fetch && git reset --hard origin/main
           fi 
           EOT
         env:
