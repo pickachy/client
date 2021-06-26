@@ -33,4 +33,4 @@ jobs:
           SSH_KEY: ${{ secrets.SSH_KEY }}
           SSH_HOST: ${{ secrets.SSH_HOST }}
       - name: Delete all unused docker materials
-        run: ssh production 'docker system prune -a'
+        run: ssh production 'docker system prune -a --volumes -f'
