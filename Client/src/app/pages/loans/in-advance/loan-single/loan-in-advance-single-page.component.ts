@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PagesService } from '@shared/services/pages.service';
 import { Subscription } from 'rxjs';
 import { Meta, Title } from '@angular/platform-browser';
-import { getReferralSubIdQueryParams } from '@shared/tools/loanTools';
+import { getReferralSubIdQueryParams } from '@shared/tools/loanUtils';
 
 @Component({
   selector: 'app-page-loans-in-advance-single',
