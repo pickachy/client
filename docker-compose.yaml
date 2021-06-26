@@ -46,12 +46,12 @@ services:
     container_name: db
     image: mysql:8.0.25
     restart: always
-    ports:
-      - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: Yav9764Z08KQ&&zdqShuwe#Fd%8W0dxsYQRK10cJRBzzj3F!po
     networks:
       - api
+    volumes:
+      - /var/lib/mysql:/var/lib/mysql
 
 networks:
   proxy:
