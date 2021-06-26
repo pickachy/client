@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PagesService } from '@shared/services/pages.service';
 import { Subscription } from 'rxjs';
 import { Meta, Title } from '@angular/platform-browser';
-import { getReferralSubIdQueryParams } from '@shared/tools/loanTools';
+import { getReferralSubIdQueryParams } from '@shared/tools/loanUtils';
 
 @Component({
   selector: 'app-page-loans-in-advance-single',
@@ -23,10 +23,8 @@ export class LoanInAdvanceSinglePageComponent implements OnInit, OnDestroy {
       .getSingleLoanInAdvancePageAggregation(Number(this.activateRoute.snapshot.params['id']))
       .subscribe(data => {
         this.title.setTitle(data.seo.title);
-        this.meta.addTags([
-          { name: 'title', content: data.seo.title },
-          { name: 'description', content: data.seo.description }
-        ]);
+        this.meta.updateTag({ name: 'description', content: data.seo.description });
+        this.meta.updateTag({ name: 'keywords', content: data.seo.keywords });
         this.data = data.loan;
       });
   }
