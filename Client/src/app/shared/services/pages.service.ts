@@ -3,7 +3,8 @@ import { Apollo, gql } from 'apollo-angular';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import {
-  HomePageAggregation, HomePageAggregationDto,
+  HomePageAggregation,
+  HomePageAggregationDto,
   SingleLoanInAdvancePageAggregation,
   SingleLoanInAdvancePageAggregationDto
 } from '@models/page.model';

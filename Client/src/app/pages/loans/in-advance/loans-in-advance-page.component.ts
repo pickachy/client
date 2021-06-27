@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { PagesService } from '@shared/services/pages.service';
 import { Subscription } from 'rxjs';
-import { HomePageAggregation } from '@models/page.model';
 import { Meta, Title } from '@angular/platform-browser';
 import { getCurrentDate } from '@shared/tools/dateUtils';
+import { LoanOverview } from '@models/loan.model';
 
 @Component({
   selector: 'app-page-loans-in-advance',
@@ -12,26 +12,19 @@ import { getCurrentDate } from '@shared/tools/dateUtils';
 })
 export class LoansInAdvancePageComponent implements OnInit, OnDestroy {
   private querySubscription?: Subscription;
-  pageAggregation?: HomePageAggregation;
+  loans?: LoanOverview[];
   loansCount: number = 0;
   currentDate: string = getCurrentDate();
 
-  constructor(
-    private title: Title,
-    private meta: Meta,
-    private pageService: PagesService
-  ) {
-  }
+  constructor(private title: Title, private meta: Meta, private pageService: PagesService) {}
 
   ngOnInit(): void {
     this.querySubscription = this.pageService.getHomePageAggregation().subscribe(data => {
-      this.pageAggregation = data;
+      this.loans = data.loans;
       this.loansCount = data.loans.length;
       this.title.setTitle(data.seo.title);
-      this.meta.addTags([
-        { name: 'title', content: data.seo.title },
-        { name: 'description', content: data.seo.description }
-      ]);
+      this.meta.updateTag({ name: 'description', content: data.seo.description });
+      this.meta.updateTag({ name: 'keywords', content: data.seo.keywords });
     });
   }
 
