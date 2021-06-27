@@ -26,6 +26,7 @@ const GET_HOME_PAGE_AGGREGATION = gql`
         amountFrom
         amountTo
         initialDayRate
+        dayRate
         processingTimeMinutes
         termDays
       }
