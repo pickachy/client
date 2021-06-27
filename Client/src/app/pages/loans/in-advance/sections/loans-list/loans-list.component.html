@@ -19,7 +19,7 @@
             <span class="key">Срок:</span> <span class="value">до {{ item.termDays }} дней</span>
           </p>
           <p>
-            <span class="key">Ставка:</span><span class="value bold">от {{ item.initialDayRate }}%</span>
+            <span class="key">Ставка:</span><span class="value bold">{{ item.initialDayRate === item.dayRate ? item.dayRate : 'от '+item.initialDayRate }}%</span>
           </p>
         </div>
         <div class="buttons">
