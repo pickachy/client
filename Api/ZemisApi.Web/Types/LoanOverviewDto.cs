@@ -10,6 +10,7 @@ namespace ZemisApi.Types
         public int AmountTo { get; set; }
         public int TermDays { get; set; }
         public double InitialDayRate { get; set; }
+        public double DayRate { get; set; }
         public int ProcessingTimeMinutes { get; set; }
     }
 }
