@@ -5,6 +5,7 @@
     "start": "ng serve --host=0.0.0.0 --disable-host-check",
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
+    "dev:ssr": "ng run zemis:serve-ssr",
     "serve:ssr": "node dist/zemis/server/main.js",
     "build:ssr": "ng build && ng run zemis:server && npm run compress",
     "prerender": "node --max-old-space-size=1024 ./node_modules/@angular/cli/bin/ng run zemis:prerender && npm run compress",
@@ -30,7 +31,8 @@
     "ngx-progressbar": "6.1.1",
     "rxjs": "6.6.7",
     "tslib": "2.3.0",
-    "zone.js": "0.11.4"
+    "zone.js": "0.11.4",
+    "sitemap-generator": "8.5.1"
   },
   "devDependencies": {
     "@angular-builders/custom-webpack": "12.1.0",
@@ -46,6 +48,7 @@
     "@nguniversal/builders": "12.0.2",
     "@types/express": "^4.17.12",
     "@types/node": "14.17.4",
+    "@types/sitemap-generator": "^8.5.0",
     "@typescript-eslint/eslint-plugin": "4.27.0",
     "@typescript-eslint/parser": "4.27.0",
     "eslint": "^7.29.0",
