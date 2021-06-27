@@ -1,5 +1,8 @@
 #!/bin/sh
 
+docker-compose down
+
+docker system prune -a -f --volumes
 
 # deploying database
 docker-compose up -d --build --no-deps db

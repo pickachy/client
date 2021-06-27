@@ -9,4 +9,5 @@ then
 fi
 
 echo deploying $component
-docker-compose up -d --build --no-deps $component
+docker-compose build $component
+docker-compose up --no-deps -d $component
