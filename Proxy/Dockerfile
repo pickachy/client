@@ -1,7 +1,7 @@
 FROM nginx:alpine
 RUN apk add --no-cache certbot
 
-COPY 5xx /usr/share/nginx/html/5xx/
+COPY errors /usr/share/nginx/html/errors/
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
