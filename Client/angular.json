@@ -32,7 +32,9 @@
             "scripts": [],
             "customWebpackConfig": {
               "path": "./webpack.config.js"
-            }
+            },
+            "serviceWorker": true,
+            "ngswConfigPath": "ngsw-config.json"
           },
           "configurations": {
             "production": {

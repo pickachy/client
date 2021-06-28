@@ -9,6 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { PagesService } from '@shared/services/pages.service';
 import { NgProgressModule } from 'ngx-progressbar';
 import { NgProgressHttpModule } from 'ngx-progressbar/http';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,7 +26,13 @@ import { NgProgressHttpModule } from 'ngx-progressbar/http';
       thick: true,
       color: '#85af6a'
     }),
-    NgProgressHttpModule
+    NgProgressHttpModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [PagesService],
   bootstrap: [AppComponent]
