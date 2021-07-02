@@ -4,14 +4,15 @@ import { ApolloClientOptions, InMemoryCache } from '@apollo/client/core';
 import { HttpLink } from 'apollo-angular/http';
 import { environment } from '../environments/environment';
 import { makeStateKey, TransferState } from '@angular/platform-browser';
+import { isBrowser } from '@shared/tools/environmentUtils';
 
 const APOLLO_CACHE = new InjectionToken<InMemoryCache>('apollo-cache');
 const STATE_KEY = makeStateKey<any>('apollo.state');
 
 export function createApollo(httpLink: HttpLink, cache: InMemoryCache, transferState: TransferState): ApolloClientOptions<any> {
-  const isBrowser = transferState.hasKey<any>(STATE_KEY);
+  const hasStateFromServer = transferState.hasKey<any>(STATE_KEY);
 
-  if (isBrowser) {
+  if (hasStateFromServer) {
     const state = transferState.get<any>(STATE_KEY, null);
     cache.restore(state);
   } else {
