@@ -66,12 +66,15 @@ function run(): void {
   // Start up the Node server
   const server = app();
   server.listen(port, () => {
-    const fileLocation = path.join(distFolder, `sitemap.xml`);
-    if (!fs.existsSync(fileLocation)) {
-      SitemapSingleton
-        .getInstance(environment.host, fileLocation)
-        .generate();
-    }
+    // Wait when proxy is connected to the client
+    setTimeout(() => {
+      const fileLocation = path.join(distFolder, `sitemap.xml`);
+      if (!fs.existsSync(fileLocation)) {
+        SitemapSingleton
+          .getInstance(environment.host, fileLocation)
+          .generate();
+      }
+    }, 2000);
 
     console.log(`Node Express server listening on http://localhost:${port}`);
   });
