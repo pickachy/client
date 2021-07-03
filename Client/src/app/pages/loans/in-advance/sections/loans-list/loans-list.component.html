@@ -6,7 +6,8 @@
           <img
             height="35px"
             width="auto"
-            src="assets/images/loans-page/loans-in-advance-page/{{ item.providerTypeId + '.' + item.providerImageExtension }}"
+            class="lazyload"
+            [attr.data-src]="'assets/images/loans-page/loans-in-advance-page/'+item.providerTypeId + '.' + item.providerImageExtension"
             alt="{{ item.providerName }}"
           />
         </figure>

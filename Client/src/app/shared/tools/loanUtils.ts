@@ -1,23 +1,34 @@
 import { isBrowser } from '@shared/tools/environmentUtils';
 
 export const getReferralSubIdQueryParams = (): string => {
-  let value = 'others';
+  let subId1 = 'others';
+  let subId2 = '';
 
   if(!isBrowser){
-    return value;
+    return '';
   }
-  const utmName = 'utm_source';
-  const utmTimestampName = 'utm_timestamp';
+  const utmSourceKey = 'utm_source';
+  const utmCampaignKey = 'utm_campaign';
+  const utmTimestampKey = 'utm_timestamp';
 
-  const existedUtm = localStorage.getItem(utmName);
-  const existedUtmTimestamp = localStorage.getItem(utmTimestampName);
+  const existedUtmSource = localStorage.getItem(utmSourceKey);
+  const existedUtmTimestamp = localStorage.getItem(utmTimestampKey);
 
-  if (existedUtmTimestamp && existedUtm) {
+  // Check if utm is not expired
+  if (existedUtmTimestamp && existedUtmSource) {
     const days = (Date.now() - parseInt(existedUtmTimestamp)) / 1000 / 60 / 60 / 24;
     if (days < 30) {
-      value = 'callcenter';
+      subId1 = existedUtmSource;
+      const existedUtmCampaign = localStorage.getItem(utmCampaignKey);
+      if(existedUtmCampaign){
+        subId2 = existedUtmCampaign;
+      }
     }
   }
 
-  return `?subid1=${value}`;
+  let resultQueryParams = `?subid1=${subId1}`;
+  if(subId2){
+    resultQueryParams += `&subid2=${subId2}`;
+  }
+  return resultQueryParams;
 };
