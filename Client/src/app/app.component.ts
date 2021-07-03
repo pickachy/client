@@ -9,37 +9,47 @@ import { isBrowser } from '@shared/tools/environmentUtils';
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
-  utmSource$?: Observable<string | null>;
+  utmSource$?: Observable<{source: string | null, campaign: string | null} | null>;
   constructor(private router: ActivatedRoute) {}
   ngOnInit(): void {
-    const utmName = 'utm_source';
-    const utmTimestampName = 'utm_timestamp';
-    this.utmSource$ = this.router.queryParamMap.pipe(map((params: ParamMap) => params.get(utmName)));
-    this.utmSource$.subscribe(param => {
-      if (isBrowser) {
-        const existedUtm = localStorage.getItem(utmName);
-        const existedUtmTimestamp = localStorage.getItem(utmTimestampName);
+    const utmSourceKey = 'utm_source';
+    const utmCampaignKey = 'utm_campaign';
+    const utmTimestampKey = 'utm_timestamp';
 
-        if (param === 'callcenter') {
-          if (existedUtmTimestamp && existedUtm) {
+    this.utmSource$ = this.router.queryParamMap.pipe(map((params: ParamMap) => ({
+      source: params.get(utmSourceKey),
+      campaign: params.get(utmCampaignKey)
+    })));
+
+    this.utmSource$.subscribe(utmQueryParams => {
+      if (isBrowser) {
+        // Getting existed main utms from storage
+        const existedUtmSourceName = localStorage.getItem(utmSourceKey);
+        const existedUtmTimestamp = localStorage.getItem(utmTimestampKey);
+
+        // If there are incoming utm data in query params, we process it
+        if (utmQueryParams && utmQueryParams.source) {
+          // Do not process if storage's utm data is not expired
+          if (existedUtmTimestamp && existedUtmSourceName) {
             const days = (Date.now() - parseInt(existedUtmTimestamp)) / 1000 / 60 / 60 / 24;
             if (days < 30) {
               return;
             }
-
-            if (days > 30) {
-              localStorage.setItem(utmTimestampName, Date.now().toString());
-              return;
-            }
           }
-          localStorage.setItem(utmName, param);
-          localStorage.setItem(utmTimestampName, Date.now().toString());
-        } else {
-          if (existedUtmTimestamp && existedUtm) {
+          localStorage.setItem(utmSourceKey, utmQueryParams.source);
+          localStorage.setItem(utmTimestampKey, Date.now().toString());
+          if(utmQueryParams.campaign){
+            localStorage.setItem(utmCampaignKey, utmQueryParams.campaign);
+          }
+        }
+        // If storage contains utm data and it is expired, clean storage
+        else {
+          if (existedUtmTimestamp && existedUtmSourceName) {
             const days = (Date.now() - parseInt(existedUtmTimestamp)) / 1000 / 60 / 60 / 24;
             if (days > 30) {
-              localStorage.removeItem(utmTimestampName);
-              localStorage.removeItem(utmName);
+              localStorage.removeItem(utmTimestampKey);
+              localStorage.removeItem(utmSourceKey);
+              localStorage.removeItem(utmCampaignKey);
             }
           }
         }
