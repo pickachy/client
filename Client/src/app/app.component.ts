@@ -3,23 +3,27 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { isBrowser } from '@shared/tools/environmentUtils';
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
-  utmSource$?: Observable<{source: string | null, campaign: string | null} | null>;
+  utmSource$?: Observable<{ source: string | null; campaign: string | null } | null>;
   constructor(private router: ActivatedRoute) {}
   ngOnInit(): void {
     const utmSourceKey = 'utm_source';
     const utmCampaignKey = 'utm_campaign';
     const utmTimestampKey = 'utm_timestamp';
 
-    this.utmSource$ = this.router.queryParamMap.pipe(map((params: ParamMap) => ({
-      source: params.get(utmSourceKey),
-      campaign: params.get(utmCampaignKey)
-    })));
+    this.utmSource$ = this.router.queryParamMap.pipe(
+      map((params: ParamMap) => ({
+        source: params.get(utmSourceKey),
+        campaign: params.get(utmCampaignKey)
+      }))
+    );
 
     this.utmSource$.subscribe(utmQueryParams => {
       if (isBrowser) {
@@ -38,7 +42,7 @@ export class AppComponent implements OnInit {
           }
           localStorage.setItem(utmSourceKey, utmQueryParams.source);
           localStorage.setItem(utmTimestampKey, Date.now().toString());
-          if(utmQueryParams.campaign){
+          if (utmQueryParams.campaign) {
             localStorage.setItem(utmCampaignKey, utmQueryParams.campaign);
           }
         }
