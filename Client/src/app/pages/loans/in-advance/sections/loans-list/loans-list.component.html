@@ -4,6 +4,8 @@
       <article class="loans-list-item" *ngFor="let item of data">
         <figure class="image-wrapper">
           <img
+            height="35px"
+            width="auto"
             src="assets/images/loans-page/loans-in-advance-page/{{ item.providerTypeId + '.' + item.providerImageExtension }}"
             alt="{{ item.providerName }}"
           />
@@ -19,7 +21,8 @@
             <span class="key">Срок:</span> <span class="value">до {{ item.termDays }} дней</span>
           </p>
           <p>
-            <span class="key">Ставка:</span><span class="value bold">{{ item.initialDayRate === item.dayRate ? item.dayRate : 'от '+item.initialDayRate }}%</span>
+            <span class="key">Ставка:</span
+            ><span class="value bold">{{ item.initialDayRate === item.dayRate ? item.dayRate : 'от ' + item.initialDayRate }}%</span>
           </p>
         </div>
         <div class="buttons">
@@ -28,7 +31,9 @@
             class="get-money-btn"
             [class.get-money-btn-disabled]="!item.referralLink"
             target="_blank"
-            rel="nofollow">Получить деньги</a>
+            rel="nofollow noopener"
+            >Получить деньги</a
+          >
           <a routerLink="loans/mfo/{{ item.providerTypeId }}" class="details-btn">i</a>
         </div>
       </article>

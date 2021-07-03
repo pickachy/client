@@ -8,7 +8,7 @@
   "start_url": "./",
   "icons": [
     {
-      "src": "assets/icons/icon-312x312.png",
+      "src": "assets/images/pwa-icons/icon-312x312.png",
       "sizes": "312x312",
       "type": "image/png",
       "purpose": "maskable any"
