@@ -51,7 +51,7 @@ article.loans-list-item {
 
   img {
     max-width: 12rem;
-    height: 3.5rem;
+    aspect-ratio: attr(width) / attr(height);
     object-fit: contain;
   }
 }
