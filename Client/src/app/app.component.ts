@@ -11,21 +11,23 @@ import 'lazysizes/plugins/parent-fit/ls.parent-fit';
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
-  utmSource$?: Observable<{ source: string | null; campaign: string | null } | null>;
+  referralParams$?: Observable<{ source: string | null; campaign: string | null; mailingStartDate: string | null } | null>;
   constructor(private router: ActivatedRoute) {}
   ngOnInit(): void {
     const utmSourceKey = 'utm_source';
     const utmCampaignKey = 'utm_campaign';
+    const mailingStartDateKey = 'md';
     const utmTimestampKey = 'utm_timestamp';
 
-    this.utmSource$ = this.router.queryParamMap.pipe(
+    this.referralParams$ = this.router.queryParamMap.pipe(
       map((params: ParamMap) => ({
         source: params.get(utmSourceKey),
-        campaign: params.get(utmCampaignKey)
+        campaign: params.get(utmCampaignKey),
+        mailingStartDate: params.get(mailingStartDateKey)
       }))
     );
 
-    this.utmSource$.subscribe(utmQueryParams => {
+    this.referralParams$.subscribe(utmQueryParams => {
       if (isBrowser) {
         // Getting existed main utms from storage
         const existedUtmSourceName = localStorage.getItem(utmSourceKey);
@@ -33,7 +35,7 @@ export class AppComponent implements OnInit {
 
         // If there are incoming utm data in query params, we process it
         if (utmQueryParams && utmQueryParams.source) {
-          // Do not process if storage's utm data is not expired
+          // Do not process if storage's main utm data valid and is not expired
           if (existedUtmTimestamp && existedUtmSourceName) {
             const days = (Date.now() - parseInt(existedUtmTimestamp)) / 1000 / 60 / 60 / 24;
             if (days < 30) {
@@ -45,15 +47,20 @@ export class AppComponent implements OnInit {
           if (utmQueryParams.campaign) {
             localStorage.setItem(utmCampaignKey, utmQueryParams.campaign);
           }
+          if (utmQueryParams.mailingStartDate) {
+            localStorage.setItem(mailingStartDateKey, utmQueryParams.mailingStartDate);
+          }
         }
         // If storage contains utm data and it is expired, clean storage
         else {
+          // If existed main utm data is expired, clean storage
           if (existedUtmTimestamp && existedUtmSourceName) {
             const days = (Date.now() - parseInt(existedUtmTimestamp)) / 1000 / 60 / 60 / 24;
             if (days > 30) {
               localStorage.removeItem(utmTimestampKey);
               localStorage.removeItem(utmSourceKey);
               localStorage.removeItem(utmCampaignKey);
+              localStorage.removeItem(mailingStartDateKey);
             }
           }
         }
