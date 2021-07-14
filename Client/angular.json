@@ -29,7 +29,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets/images",
-              "src/manifest.webmanifest",
+              "src/assets/manifest.webmanifest",
               { "glob": "robots.txt", "input": "src/assets/", "output": "/" }
             ],
             "styles": ["src/styles.scss"],
