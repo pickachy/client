@@ -74,7 +74,7 @@ function run(): void {
           .getInstance(environment.host, fileLocation)
           .generate();
       }
-    }, 2000);
+    }, 5000);
 
     console.log(`Node Express server listening on http://localhost:${port}`);
   });
