@@ -59,9 +59,8 @@
     "eslint-plugin-prefer-arrow": "1.2.3",
     "eslint-plugin-unused-imports": "1.1.1",
     "eslint-webpack-plugin": "2.5.4",
-    "gzipper": "5.0.0",
     "ngx-unused-css": "3.0.0",
-    "gzipper": "^4.5.0",
+    "gzipper": "5.0.0",
     "prettier": "2.3.2",
     "typescript": "4.2.3"
   }
