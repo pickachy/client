@@ -16,7 +16,7 @@ services:
     volumes:
       - ./Proxy/letsencrypt:/ets/letsencrypt
       - client-dist:/var/www/html/
-      - proxy-cache:/var/nginx/cache/
+      - proxy-cache:/var/cache/nginx/proxy
       - ./Proxy/nginx.conf:/etc/nginx/nginx.conf
 
   client:
@@ -43,7 +43,7 @@ services:
       - api
       - proxy
     volumes:      
-      - proxy-cache:/var/nginx/cache/
+      - proxy-cache:/var/cache/nginx/proxy
 
   db:
     container_name: db
