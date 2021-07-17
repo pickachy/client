@@ -24,10 +24,10 @@ export function createApollo(httpLink: HttpLink, cache: InMemoryCache, transferS
     ssrMode: true,
     link: httpLink.create({
       uri(operation){
-        const isQuery = !operation.query.definitions.some((d: any) => d.operation === 'mutation');
+        const isMutation = operation.query.definitions.some((d: any) => d.operation === 'mutation');
         // use docker container api url if ssr
-        // indicating that it is a query for proxy api caching mechanism
-        return `${isBrowser ? environment.publicApiUrl : environment.serverApiUrl}${isQuery ? '?type=query' : ''}`;
+        // indicating that it is a mutation that must not be cached for proxy caching mechanism
+        return `${isBrowser ? environment.publicApiUrl : environment.serverApiUrl}${isMutation ? '?nocache=true' : ''}`;
       }
     }),
     cache,
