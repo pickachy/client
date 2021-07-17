@@ -23,12 +23,8 @@ export function createApollo(httpLink: HttpLink, cache: InMemoryCache, transferS
   return {
     ssrMode: true,
     link: httpLink.create({
-      uri(operation){
-        const isQuery = !operation.query.definitions.some((d: any) => d.operation === 'mutation');
-        // use docker container api url if ssr
-        // indicating that it is a query for proxy api caching mechanism
-        return `${isBrowser ? environment.publicApiUrl : environment.serverApiUrl}${isQuery ? '?type=query' : ''}`;
-      }
+      // use docker container api url if ssr, otherwise public external api that browsers use
+      uri: isBrowser ? environment.publicApiUrl : environment.serverApiUrl
     }),
     cache,
     //disable mutations caching by default in browser. Let server rehydration work
