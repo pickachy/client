@@ -13,7 +13,6 @@
             src="assets/images/loans-page/loans-in-advance-page/{{ data.providerTypeId + '.' + data.providerImageExtension }}"
             alt="{{ data.providerName }}"
             title="{{ data.providerTypeId }}"
-            loading="lazy"
           />
         </figure>
       </div>
@@ -76,7 +75,7 @@
           </div>
           <a
             *ngIf="data.referralLink"
-            href="{{ data.referralLink + referralQueryParams }}"
+            href="{{ getReferralLink(data.referralLink) }}"
             class="get-money-btn"
             target="_blank"
             rel="nofollow noopener"
@@ -91,7 +90,7 @@
       [dayRate]="data.dayRate"
       [amountFrom]="data.amountFrom"
       [amountTo]="data.amountTo"
-      [referralLink]="data.referralLink ? data.referralLink + referralQueryParams : undefined"
+      [referralLink]="getReferralLink(data.referralLink)"
     ></app-page-loans-in-advance-single-calculator>
 
     <section #full_details class="full-details">
@@ -141,7 +140,7 @@
     <section class="content sticky-btn-wrapper">
       <a
         *ngIf="data.referralLink"
-        href="{{ data.referralLink + referralQueryParams }}"
+        href="{{ getReferralLink(data.referralLink) }}"
         class="get-money-btn sticky-btn"
         target="_blank"
         rel="nofollow noopener"

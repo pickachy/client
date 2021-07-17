@@ -33,3 +33,7 @@ export const getCurrentDate = (): string => {
 
   return `${day}.${month}.${year}`;
 };
+
+export const getDaysSinceTimestamp = (timestamp: number) => {
+  return (Date.now() - timestamp) / 1000 / 60 / 60 / 24;
+};
