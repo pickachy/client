@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PagesService } from '@shared/services/pages.service';
 import { Subscription } from 'rxjs';
 import { Meta, Title } from '@angular/platform-browser';
-import { getReferralSubIdQueryParams } from '@shared/tools/loanUtils';
+import { buildReferralLink } from '@shared/tools/loanUtils';
 
 @Component({
   selector: 'app-page-loans-in-advance-single',
@@ -15,7 +15,7 @@ export class LoanInAdvanceSinglePageComponent implements OnInit, OnDestroy {
   data?: Loan;
 
   private querySubscription?: Subscription;
-  referralQueryParams: string = getReferralSubIdQueryParams();
+
   constructor(private title: Title, private meta: Meta, private pagesService: PagesService, private activateRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
@@ -34,5 +34,9 @@ export class LoanInAdvanceSinglePageComponent implements OnInit, OnDestroy {
 
   scrollToElement($element: HTMLElement): void {
     $element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+  }
+
+  getReferralLink(link: string): string | undefined{
+    return buildReferralLink(link);
   }
 }

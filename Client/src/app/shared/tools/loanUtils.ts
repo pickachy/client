@@ -1,43 +1,52 @@
 import { isBrowser } from '@shared/tools/environmentUtils';
+import { getDaysSinceTimestamp } from '@shared/tools/dateUtils';
 
-export const getReferralSubIdQueryParams = (): string => {
-  let subId1 = 'others';
-  let subId2 = '';
-  let subId3 = '';
-
-  if(!isBrowser){
+export const buildReferralLink = (link: string): string | undefined => {
+  if (!isBrowser) {
     return '';
   }
-  const utmSourceKey = 'utm_source';
-  const utmCampaignKey = 'utm_campaign';
-  const mailingStartDate = 'md';
-  const utmTimestampKey = 'utm_timestamp';
+  if(!link){
+    return undefined;
+  }
 
-  const existedUtmSource = localStorage.getItem(utmSourceKey);
-  const existedUtmTimestamp = localStorage.getItem(utmTimestampKey);
+  let isExpired = false;
+  const existedUtmSource = localStorage.getItem('utm_source');
+  const existedUtmTimestamp = localStorage.getItem('utm_timestamp');
+  const existedUtmCampaign = localStorage.getItem('utm_campaign');
+  const existedMailingStartDate = localStorage.getItem('md');
 
-  // Check if utm is not expired
+  // Check if utm is expired
   if (existedUtmTimestamp && existedUtmSource) {
-    const days = (Date.now() - parseInt(existedUtmTimestamp)) / 1000 / 60 / 60 / 24;
-    if (days < 30) {
-      subId1 = existedUtmSource;
-      const existedUtmCampaign = localStorage.getItem(utmCampaignKey);
-      if(existedUtmCampaign){
-        subId2 = existedUtmCampaign;
-      }
-      const existedMailingStartDate = localStorage.getItem(mailingStartDate);
-      if(existedMailingStartDate){
-        subId3 = existedMailingStartDate;
-      }
+    const days = getDaysSinceTimestamp(Number(existedUtmTimestamp));
+    if (days > 30) {
+      isExpired = true;
     }
   }
 
-  let resultQueryParams = `?subid1=${subId1}`;
-  if(subId2){
-    resultQueryParams += `&subid2=${subId2}`;
+  let referralQueryString;
+  const isMediatorLink = link.includes('cmtrckr');
+  // link is not direct, use subid
+  if (isMediatorLink) {
+    if (isExpired || !existedUtmSource || !existedUtmTimestamp) {
+      referralQueryString = '?subid1=others';
+    }
+    else{
+      referralQueryString = `?subid1=${existedUtmSource}`;
+      if (existedUtmCampaign) {
+        referralQueryString += `&subid2=${existedUtmCampaign}`;
+      }
+      if (existedMailingStartDate) {
+        referralQueryString += `&subid3=${existedMailingStartDate}`;
+      }
+    }
   }
-  if(subId3){
-    resultQueryParams += `&subid3=${subId3}`;
+  // link is direct, use utm_campaign -> utm_term substitution
+  else {
+    // now it is only credit 7 direct link
+    const qsConcatChar = link.includes('?') ? '&' : '?';
+
+    referralQueryString = `${qsConcatChar}utm_term=${isExpired || !existedUtmCampaign ? 'others' : existedUtmCampaign}`;
   }
-  return resultQueryParams;
+
+  return `${link}${referralQueryString}`;
 };

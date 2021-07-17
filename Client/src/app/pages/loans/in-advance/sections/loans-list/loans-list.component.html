@@ -28,7 +28,7 @@
         </div>
         <div class="buttons">
           <a
-            [attr.href]="item.referralLink ? item.referralLink + referralQueryParams : null"
+            [attr.href]="getReferralLink(item.referralLink)"
             class="get-money-btn"
             [class.get-money-btn-disabled]="!item.referralLink"
             target="_blank"
