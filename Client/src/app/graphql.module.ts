@@ -30,7 +30,17 @@ export function createApollo(httpLink: HttpLink, cache: InMemoryCache, transferS
         return `${isBrowser ? environment.publicApiUrl : environment.serverApiUrl}${isQuery ? '?type=query' : ''}`;
       }
     }),
-    cache
+    cache,
+    //disable mutations caching by default in browser. Let server rehydration work
+    ...(isBrowser
+      ? {defaultOptions: {
+        mutate: {
+          fetchPolicy: 'no-cache',
+          errorPolicy: 'ignore'
+        }
+      }}
+      : {}
+    )
   };
 }
 
