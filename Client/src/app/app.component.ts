@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { isBrowser } from '@shared/tools/environmentUtils';
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
+import { getDaysSinceTimestamp } from '@shared/tools/dateUtils';
 
 @Component({
   selector: 'app-root',
@@ -37,7 +38,7 @@ export class AppComponent implements OnInit {
         if (utmQueryParams && utmQueryParams.source) {
           // Do not process if storage's main utm data valid and is not expired
           if (existedUtmTimestamp && existedUtmSourceName) {
-            const days = (Date.now() - parseInt(existedUtmTimestamp)) / 1000 / 60 / 60 / 24;
+            const days = getDaysSinceTimestamp(Number(existedUtmTimestamp));
             if (days < 30) {
               return;
             }
@@ -55,7 +56,7 @@ export class AppComponent implements OnInit {
         else {
           // If existed main utm data is expired, clean storage
           if (existedUtmTimestamp && existedUtmSourceName) {
-            const days = (Date.now() - parseInt(existedUtmTimestamp)) / 1000 / 60 / 60 / 24;
+            const days = getDaysSinceTimestamp(Number(existedUtmTimestamp));
             if (days > 30) {
               localStorage.removeItem(utmTimestampKey);
               localStorage.removeItem(utmSourceKey);

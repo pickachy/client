@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { LoanOverview } from '@models/loan.model';
-import { getReferralSubIdQueryParams } from '@shared/tools/loanUtils';
+import { buildReferralLink } from '@shared/tools/loanUtils';
 
 @Component({
   selector: 'app-page-loans-in-advance-sections-loans-list',
@@ -9,5 +9,8 @@ import { getReferralSubIdQueryParams } from '@shared/tools/loanUtils';
 })
 export class LoansListComponent {
   @Input() data?: LoanOverview[];
-  referralQueryParams: string = getReferralSubIdQueryParams();
+
+  getReferralLink(link: string): string | undefined{
+    return buildReferralLink(link);
+  }
 }
