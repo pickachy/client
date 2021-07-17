@@ -8,7 +8,7 @@ namespace ZemisApi.Utils
         public static Dictionary<LoanProviderType, LoanProviderMeta> LoanProviderMetaMap { get; } =
             new()
             {
-                {LoanProviderType.CREDIT7, new LoanProviderMeta {Name = "Credit7", ImageExtension = "svg", ReferralLink = "https://cmtrckr.net/go/sbonvr9i0z"} },
+                {LoanProviderType.CREDIT7, new LoanProviderMeta {Name = "Credit7", ImageExtension = "svg", ReferralLink = "https://credit7.ua/?utm_source=telesolutions&utm_medium=affiliate&utm_campaign=telesolutions"} },
                 {LoanProviderType.CREDIT_PLUS, new LoanProviderMeta{ Name = "CreditPlus", ImageExtension = "svg", ReferralLink = "https://cmtrckr.net/go/shuaw7b4k7"}},
                 {LoanProviderType.MY_CREDIT, new LoanProviderMeta{ Name = "My Credit", ImageExtension = "svg", ReferralLink = "https://cmtrckr.net/go/sy82tlgtdu"}},
                 {LoanProviderType.SHVIDKO_GROSHI, new LoanProviderMeta{ Name = "Швидко грошi", ImageExtension = "svg", ReferralLink = "https://cmtrckr.net/go/s644yee1xc"}},
