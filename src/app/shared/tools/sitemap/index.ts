@@ -13,20 +13,18 @@ class Sitemap {
 
   generate() {
     return new Promise<void>((resolve, reject) => {
-
-      this.generator.on('done', () => {
-        this.isGenerating = false;
-        console.log('Sitemap generation finished successfully');
-        resolve();
-      });
-      this.generator.on('error', (error) => {
-        this.isGenerating = false;
-        console.log(`Sitemap generation finished with error ${error.message}`);
-        reject();
-      });
-
       if (!this.isGenerating) {
         this.isGenerating = true;
+        this.generator.on('done', () => {
+          this.isGenerating = false;
+          console.log('Sitemap generation finished successfully');
+          resolve();
+        });
+        this.generator.on('error', (error) => {
+          this.isGenerating = false;
+          console.log(`Sitemap generation finished with error ${error.message}`);
+          reject();
+        });
         this.generator.start();
         console.log('Sitemap generation started');
       }
