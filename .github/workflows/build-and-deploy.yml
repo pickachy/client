@@ -21,35 +21,7 @@ jobs:
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-    
-      - name: Wait for api deployed
-        run: |
-          SLEEP_INTERVAL=15 
-          while true; do
-              TOTAL_COUNT=$(
-              curl \
-                  -u $OWNER:$WORKFLOW_PAT_TOKEN \
-                  --silent \
-                  --location \
-                  --request GET \
-                  --header 'Accept: application/vnd.github.everest-preview+json' \
-                  --header 'Content-Type: application/json' \
-                  --header 'cache-control: no-cache' \
-                  "https://api.github.com/repos/$API_REPO_PATH/actions/workflows/build-and-deploy.yml/runs?status=in_progress" | grep -oP -- '"total_count": \K[0-9]{1,4}')
-    
-              if [ $TOTAL_COUNT == 0 ]; then
-                  echo "API is finished"
-                  break;
-              fi
-              echo "API is not finished yet"
-              sleep $SLEEP_INTERVAL
-          done
-        env:
-          WORKFLOW_PAT_TOKEN: ${{ secrets.WORKFLOW_PAT_TOKEN }}
-          OWNER: ${{ secrets.OWNER }}
-          API_REPO_PATH: ${{ secrets.API_REPO_PATH }}
-    
+    steps:    
       - name: Checkout
         uses: actions/checkout@v2
 
@@ -99,6 +71,33 @@ jobs:
           
       - name: Copy image to VPS
         run: scp client.tgz production:~
+        
+      - name: Wait for api deployed
+        run: |
+          SLEEP_INTERVAL=15 
+          while true; do
+              TOTAL_COUNT=$(
+              curl \
+                  -u $OWNER:$WORKFLOW_PAT_TOKEN \
+                  --silent \
+                  --location \
+                  --request GET \
+                  --header 'Accept: application/vnd.github.everest-preview+json' \
+                  --header 'Content-Type: application/json' \
+                  --header 'cache-control: no-cache' \
+                  "https://api.github.com/repos/$API_REPO_PATH/actions/workflows/build-and-deploy.yml/runs?status=in_progress" | grep -oP -- '"total_count": \K[0-9]{1,4}')
+    
+              if [ $TOTAL_COUNT == 0 ]; then
+                  echo "API is finished"
+                  break;
+              fi
+              echo "API is not finished yet"
+              sleep $SLEEP_INTERVAL
+          done
+        env:
+          WORKFLOW_PAT_TOKEN: ${{ secrets.WORKFLOW_PAT_TOKEN }}
+          OWNER: ${{ secrets.OWNER }}
+          API_REPO_PATH: ${{ secrets.API_REPO_PATH }}
         
       - name: Deploy
         run: |
