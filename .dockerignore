@@ -1,0 +1,14 @@
+.dockerignore
+node_modules
+npm-debug.log
+Dockerfile
+.git
+.gitignore
+.prettierrc
+README.md
+.ngx-unused-css.json
+.idea
+.vscode
+.editorconfig
+LICENSE
+dist
