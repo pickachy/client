@@ -1,0 +1,100 @@
+.single-news-item {
+  padding-top: 5rem;
+  max-width: 730px;
+  color: var(--black);
+  font-style: normal;
+  font-weight: 400;
+}
+.single-news-title {
+  font-weight: 500;
+  line-height: 4.2rem;
+  font-size: 3.6rem;
+  margin-bottom: 1.2rem;
+}
+.additional-information {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-item_info {
+  display: flex;
+  margin-bottom: 0.5rem;
+  font-weight: 300;
+  & li {
+    line-height: 3rem;
+    font-size: 1.2rem;
+  }
+  & li:not(:last-child) {
+    margin-right: 5rem;
+  }
+  & .counters-list {
+    & li:not(:last-child) {
+      margin-right: 1.2rem;
+    }
+  }
+}
+
+.counters-list {
+  display: flex;
+}
+.single-news-illustrations {
+  text-align: center;
+  margin-bottom: 2rem;
+  & .single-news-photo {
+    margin-bottom: 1rem;
+  }
+  & .photo-caption {
+    line-height: 3rem;
+    font-size: 1.2rem;
+  }
+}
+.single-news-subtitle {
+  font-size: 2rem;
+  line-height: 4.2rem;
+  margin-bottom: 1.2rem;
+  font-weight: 500;
+}
+.single-news-paragraph {
+  line-height: 2.6rem;
+  font-size: 1.6rem;
+  padding-bottom: 1.8rem;
+}
+.news-thesis {
+  background-color: var(--main-green);
+  position: relative;
+  color: var(--white);
+  &::before {
+    content: '';
+    position: absolute;
+    right: 10rem;
+    top: 0.3rem;
+    border: 1px solid inherit;
+    background-color: var(--main-green);
+    border-radius: 1.2rem;
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}
+.paragraph-with-theses {
+  padding-left: 3.1rem;
+}
+.highlighted-paragraph-wrapper {
+  padding: 3rem 0 3rem;
+}
+.highlighted-paragraph {
+  padding: 3rem;
+  box-sizing: content-box;
+  max-width: 60rem;
+  margin: 0 auto;
+  color: var(--white);
+  font-weight: 500;
+  line-height: 3rem;
+  font-size: 1.6rem;
+  font-style: italic;
+  background-color: rgba(232, 154, 38, 0.6);
+}
+
+.news-author {
+  border-top: 0.1rem solid var(--black);
+  border-bottom: 0.1rem solid var(--black);
+}
