@@ -2,7 +2,7 @@
 
 .single-news-item {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding-top: 5rem;
   color: var(--black);
   font-style: normal;
@@ -10,7 +10,7 @@
 }
 .single-news-content {
   max-width: 73rem;
-  min-width: 42rem;
+  // min-width: 42rem;
   margin-right: 3rem;
 }
 .single-news-title {
@@ -22,8 +22,10 @@
 .additional-information {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
   & li {
-    line-height: 3rem;
+    line-height: 1.7rem;
     font-size: 1.2rem;
     font-weight: 300;
   }
@@ -31,19 +33,32 @@
 
 .post-item_info {
   display: flex;
-  margin-bottom: 0.5rem;
+  justify-content: space-between;
+  align-items: center;
 
   & li:not(:last-child) {
     margin-right: 5rem;
   }
-}
-.counters-list {
-  display: flex;
-
-  & li {
-    margin-right: 1.2rem;
+  & img {
+    margin-right: 0.3rem;
   }
 }
+
+.counters-list {
+  display: flex;
+  align-items: center;
+  & li:not(:last-child) {
+    margin-right: 1.2rem;
+  }
+  & li {
+    display: flex;
+    align-items: center;
+  }
+  & img {
+    margin-right: 0.3rem;
+  }
+}
+
 .single-news-illustrations {
   text-align: center;
   margin-bottom: 2rem;
@@ -131,8 +146,6 @@
     margin-right: 0.8rem;
   }
   &-item {
-    // line-height: 1.8rem;
-    // font-size: 1.2rem;
     border: 0.1rem solid var(--black);
     padding: 0 0.5rem;
   }
@@ -151,6 +164,74 @@
   line-height: 1.8rem;
   font-size: 1.2rem;
 }
+// Блок коментов
+.comments-wrapper {
+  max-width: 100%;
+  margin-bottom: 2.6rem;
+}
+.comments-counter {
+  font-weight: 500;
+  line-height: 4.2rem;
+  font-size: 1.6rem;
+}
+
+.comment-form {
+  min-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; //при написании кода для автоматического увеличения textarea например ($("textarea").resizable();)  здесь нужно поменять.
+  box-sizing: border-box;
+  padding: 0 0.8rem 0 1.7rem;
+  border: 0.1rem solid var(--black);
+  & textarea {
+    min-width: 90%;
+    outline: none;
+    border: none;
+    resize: none;
+    overflow: hidden;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    &::placeholder {
+      font-weight: 400;
+      font-size: 1.6rem;
+      // line-height: 4.2rem;
+    }
+  }
+  & button {
+    width: 3.2rem;
+    height: 3.2rem;
+    background-color: #3b5597;
+  }
+}
+.comments-list {
+  padding-left: 9rem;
+
+  & .comment-form {
+    border: 0.1rem solid #737b7d;
+  }
+}
+.comment-author-name {
+  font-weight: 500;
+  line-height: 4.2rem;
+  font-size: 1.6rem;
+}
+.comment-text {
+  font-weight: 400;
+  line-height: 2.4rem;
+  font-size: 1.6rem;
+}
+.button-answer {
+  font-weight: 400;
+  line-height: 3rem;
+  font-size: 1.6rem;
+  color: #737b7d;
+  background-color: var(--white);
+  border: none;
+  margin-bottom: 1rem;
+}
+
+//Навигация по статьям
 .articles-nav-wrapper {
   padding-top: 9rem;
 }
@@ -169,6 +250,7 @@
 .first-articles-block-title {
   background-color: #a135d333;
 }
+
 .articles-block-list {
   & li {
     font-size: 1.6rem;
@@ -183,6 +265,11 @@
   & li:not(:last-child) {
     border-bottom: 0.1rem solid var(--black);
   }
+}
+.hide {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
 }
 
 @include touch {
