@@ -1,5 +1,10 @@
 @import 'src/app/shared/styles/_mixins';
 
+button {
+  background-color: var(--white);
+  border: none;
+}
+
 .single-news-item {
   display: flex;
   justify-content: center;
@@ -31,6 +36,50 @@
   }
 }
 
+.share-section {
+  position: relative;
+  & .share-wrapper {
+    position: absolute;
+    right: -0.1rem;
+    width: 11rem;
+    &::before {
+      content: '';
+      position: absolute;
+      right: 0.3rem;
+      top: -0.4rem;
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 5px solid var(--black);
+    }
+  }
+}
+.share-social-networks {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1.5rem;
+  padding-top: 1.5rem;
+  min-width: 100%;
+  background-color: var(--white);
+  border: 0.1rem solid var(--black);
+
+  & a {
+    display: flex;
+    justify-content: flex-start;
+    min-width: 100%;
+    margin-bottom: 1rem;
+  }
+  & p {
+    line-height: 1.2rem;
+    font-size: 1rem;
+    font-weight: 300;
+    color: #3b5597;
+  }
+  & img {
+    margin-right: 2rem;
+  }
+}
 .post-item_info {
   display: flex;
   justify-content: space-between;
@@ -65,7 +114,8 @@
   & .single-news-photo {
     margin-bottom: 1rem;
     max-width: 100%;
-    object-fit: fill;
+    object-fit: contain;
+    object-position: center;
   }
   & .photo-caption {
     line-height: 3rem;
@@ -179,11 +229,12 @@
   min-width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center; //при написании кода для автоматического увеличения textarea например ($("textarea").resizable();)  здесь нужно поменять.
+  align-items: center;
   box-sizing: border-box;
   padding: 0 0.8rem 0 1.7rem;
   border: 0.1rem solid var(--black);
   & textarea {
+    display: flex;
     min-width: 90%;
     outline: none;
     border: none;
@@ -191,11 +242,11 @@
     overflow: hidden;
     font-weight: 400;
     font-size: 1.6rem;
-    line-height: 2.4rem;
+    line-height: 2rem;
     &::placeholder {
       font-weight: 400;
       font-size: 1.6rem;
-      // line-height: 4.2rem;
+      line-height: 2rem;
     }
   }
   & button {
@@ -226,8 +277,7 @@
   line-height: 3rem;
   font-size: 1.6rem;
   color: #737b7d;
-  background-color: var(--white);
-  border: none;
+
   margin-bottom: 1rem;
 }
 
