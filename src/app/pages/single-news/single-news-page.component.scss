@@ -15,7 +15,6 @@ button {
 }
 .single-news-content {
   max-width: 73rem;
-  // min-width: 42rem;
   margin-right: 3rem;
 }
 .single-news-title {
@@ -40,18 +39,30 @@ button {
   position: relative;
   & .share-wrapper {
     position: absolute;
-    right: -0.1rem;
+    right: 1.1rem;
+    top: 3.2rem;
     width: 11rem;
     &::before {
       content: '';
       position: absolute;
-      right: 0.3rem;
-      top: -0.4rem;
+      right: -0.6rem;
+      top: -0.7rem;
       width: 0;
       height: 0;
-      border-left: 10px solid transparent;
-      border-right: 10px solid transparent;
-      border-bottom: 5px solid var(--black);
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-bottom: 7px solid var(--black);
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      right: -0.6rem;
+      top: -0.57rem;
+      width: 0;
+      height: 0;
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-bottom: 7px solid var(--white);
     }
   }
 }
@@ -216,7 +227,7 @@ button {
 }
 // Блок коментов
 .comments-wrapper {
-  max-width: 100%;
+  max-width: 73rem;
   margin-bottom: 2.6rem;
 }
 .comments-counter {
@@ -226,16 +237,16 @@ button {
 }
 
 .comment-form {
-  min-width: 100%;
+  max-width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
-  padding: 0 0.8rem 0 1.7rem;
+  padding: 0.4rem 0.8rem 0.4rem 1.7rem;
   border: 0.1rem solid var(--black);
   & textarea {
     display: flex;
-    min-width: 90%;
+    max-width: 100%;
     outline: none;
     border: none;
     resize: none;
@@ -250,6 +261,10 @@ button {
     }
   }
   & button {
+    align-self: flex-end;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 3.2rem;
     height: 3.2rem;
     background-color: #3b5597;
@@ -327,7 +342,24 @@ button {
     flex-direction: column;
     align-items: center;
   }
+  .post-item_info {
+    & li:not(:last-child) {
+      margin-right: 2rem;
+    }
+  }
+  .articles-nav-wrapper {
+    min-width: 100%;
+  }
   .articles-nav {
     max-width: 100%;
+  }
+}
+
+@include touch-phone {
+  .comment-form {
+    padding-left: 0.1rem;
+  }
+  .comments-list {
+    padding-left: 0.1rem;
   }
 }
