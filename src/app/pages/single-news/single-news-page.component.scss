@@ -3,6 +3,7 @@
 button {
   background-color: var(--white);
   border: none;
+  cursor: pointer;
 }
 
 .single-news-item {
@@ -78,6 +79,7 @@ button {
   & a {
     display: flex;
     justify-content: flex-start;
+    align-items: center;
     min-width: 100%;
     margin-bottom: 1rem;
   }
@@ -139,6 +141,7 @@ button {
   margin-bottom: 1.2rem;
   font-weight: 500;
 }
+
 .single-news-paragraph {
   line-height: 2.6rem;
   font-size: 1.6rem;
@@ -148,12 +151,14 @@ button {
   background-color: var(--main-green);
   position: relative;
   color: var(--white);
+}
+.theses-list-item {
+  position: relative;
   &::before {
     content: '';
     position: absolute;
-    right: 10rem;
-    top: 0.3rem;
-    border: 1px solid inherit;
+    left: 1rem;
+    top: 0.6rem;
     background-color: var(--main-green);
     border-radius: 1.2rem;
     width: 1.2rem;
@@ -178,7 +183,6 @@ button {
   font-style: italic;
   background-color: rgba(232, 154, 38, 0.6);
 }
-
 .news-author {
   border-top: 0.1rem solid var(--black);
   border-bottom: 0.1rem solid var(--black);
@@ -208,7 +212,6 @@ button {
   }
   &-item {
     border: 0.1rem solid var(--black);
-    padding: 0 0.5rem;
   }
   & .tag-delete {
     padding: 0 0.5rem;
@@ -222,10 +225,12 @@ button {
   }
 }
 .tags-link {
+  display: block;
   line-height: 1.8rem;
   font-size: 1.2rem;
+  padding: 0 0.5rem;
 }
-// Блок коментов
+// Comment block
 .comments-wrapper {
   max-width: 73rem;
   margin-bottom: 2.6rem;
@@ -261,7 +266,6 @@ button {
     }
   }
   & button {
-    align-self: flex-end;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -270,13 +274,11 @@ button {
     background-color: #3b5597;
   }
 }
-.comments-list {
-  padding-left: 9rem;
 
-  & .comment-form {
-    border: 0.1rem solid #737b7d;
-  }
+.comment-form {
+  border: 0.1rem solid #737b7d;
 }
+
 .comment-author-name {
   font-weight: 500;
   line-height: 4.2rem;
@@ -292,16 +294,12 @@ button {
   line-height: 3rem;
   font-size: 1.6rem;
   color: #737b7d;
-
   margin-bottom: 1rem;
 }
 
-//Навигация по статьям
+//Article navigation
 .articles-nav-wrapper {
   padding-top: 9rem;
-}
-
-.articles-nav {
   max-width: 25.5rem;
   min-width: 20rem;
 }
@@ -317,7 +315,8 @@ button {
 }
 
 .articles-block-list {
-  & li {
+  & a {
+    display: block;
     font-size: 1.6rem;
     line-height: 2.2rem;
     font-weight: 400;
@@ -342,24 +341,42 @@ button {
     flex-direction: column;
     align-items: center;
   }
+  .single-news-content {
+    margin: 0;
+  }
+  .single-news-subtitle {
+    line-height: 2.5rem;
+  }
   .post-item_info {
     & li:not(:last-child) {
       margin-right: 2rem;
     }
   }
   .articles-nav-wrapper {
+    padding-top: 2rem;
     min-width: 100%;
-  }
-  .articles-nav {
-    max-width: 100%;
   }
 }
 
 @include touch-phone {
+  .theses-list-item {
+    & p {
+      padding-left: 0;
+    }
+    &::before {
+      top: -9999px;
+      left: -9999px;
+    }
+  }
   .comment-form {
-    padding-left: 0.1rem;
+    padding-left: 1rem;
   }
   .comments-list {
     padding-left: 0.1rem;
+  }
+  .reading-time {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
   }
 }
