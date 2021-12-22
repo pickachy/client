@@ -8,6 +8,7 @@ import { CalculatorComponent } from './loans/in-advance/loan-single/sections/cal
 import { AppRoutingModule } from '../app-routing.module';
 import { SingleNewsPageComponent } from './single-news/single-news-page.component';
 import { SingleNewsSidebarComponent } from './single-news/sections/sidebar/single-news-sidebar.component';
+import { SingleNewsSidebarItemComponent } from './single-news/sections/sidebar/single-news-sidebar-item/single-news-sidebar-item.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SingleNewsSidebarComponent } from './single-news/sections/sidebar/singl
     LoanInAdvanceSinglePageComponent,
     CalculatorComponent,
     SingleNewsPageComponent,
-    SingleNewsSidebarComponent
+    SingleNewsSidebarComponent,
+    SingleNewsSidebarItemComponent
   ],
   exports: [LoansInAdvancePageComponent, LoanInAdvanceSinglePageComponent, SingleNewsPageComponent],
   imports: [CommonModule, FormsModule, AppRoutingModule, ReactiveFormsModule],
