@@ -1,0 +1,43 @@
+@import 'src/app/shared/styles/_mixins';
+
+.tags-wrapper {
+  padding: 1.8rem 0;
+  border-bottom: 0.1rem solid var(--black);
+}
+.single-news-subtitle {
+  font-size: 2rem;
+  line-height: 4.2rem;
+  margin-bottom: 1.2rem;
+  font-weight: 500;
+}
+.tags-list {
+  display: flex;
+  & li:not(:last-child) {
+    margin-right: 0.8rem;
+  }
+  &-item {
+    border: 0.1rem solid var(--black);
+  }
+  & .tag-delete {
+    padding: 0 0.5rem;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    & span {
+      font-size: 10px;
+    }
+  }
+}
+.tags-link {
+  display: block;
+  line-height: 1.8rem;
+  font-size: 1.2rem;
+  padding: 0 0.5rem;
+}
+
+@include touch {
+  .single-news-subtitle {
+    line-height: 2.5rem;
+  }
+}

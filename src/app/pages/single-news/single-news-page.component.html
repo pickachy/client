@@ -29,45 +29,7 @@
                     </li>
                     <li class="additional-information-item share-section"> <button> <img
                                 src="../../../assets/images/single-news-page/share.svg" alt=""></button>
-                        <div class="share-wrapper">
-                            <ul class="share-social-networks">
-                                <li> <a class="share-link" href="#"> <img width="18px"
-                                            src="../../../assets/images/single-news-page/social-icons/navigation.svg"
-                                            alt="Telegram">
-                                        <p>Telegram</p>
-                                    </a>
-
-                                </li>
-                                <li> <a class="share-link" href="#"><img width="18px"
-                                            src="../../../assets/images/single-news-page/social-icons/facebook.svg"
-                                            alt="Facebook">
-                                        <p>Facebook</p>
-                                    </a>
-
-                                </li>
-                                <li> <a class="share-link" href="#"> <img width="18px"
-                                            src="../../../assets/images/single-news-page/social-icons/twitter.svg"
-                                            alt="Twitter">
-                                        <p>Twitter</p>
-                                    </a>
-
-                                </li>
-                                <li> <a class="share-link" href="#"><img width="18px"
-                                            src="../../../assets/images/single-news-page/social-icons/linkedin.svg"
-                                            alt="Linkedin">
-                                        <p>Linkedin</p>
-                                    </a>
-
-                                </li>
-                                <li> <a class="share-link" href="#"> <img width="18px"
-                                            src="../../../assets/images/single-news-page/social-icons/link.svg"
-                                            alt="Копировать ссылку">
-                                        <p>Копировать ссылку</p>
-                                    </a>
-
-                                </li>
-                            </ul>
-                        </div>
+                        <app-page-share-menu></app-page-share-menu>
                     </li>
                 </ul>
                 <figure class="single-news-illustrations"><img class="single-news-photo"
@@ -154,69 +116,18 @@
                                         alt="like"><span>100</span></li>
                             </ul>
                         </li>
-                        <li class="additional-information-item"><button><img
+                        <li class="additional-information-item share-section"><button><img
                                     src="../../../assets/images/single-news-page/share.svg" alt=""></button>
-
+                            <app-page-share-menu class="hide"></app-page-share-menu>
                         </li>
                     </ul>
                     <p class="news-author-name">Дмитрий Веретенников</p>
                     <p class="news-author-description">автор канала о финансах, основатель сети «Эйнштейн-Центр»</p>
                 </div>
-                <div class="tags-wrapper">
-                    <h2 class="single-news-subtitle">Теги</h2>
-                    <ul class="tags-list">
-                        <li class="tags-list-item"><a class="tags-link" href="#">кредит &#10006;</a>
-                        </li>
-                        <li class="tags-list-item"><a class="tags-link" href="#">финансы &#10006;</a>
-                        </li>
-                        <li class="tags-list-item"><a class="tags-link" href="#">банки &#10006;</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="comments-wrapper">
-                    <div class="comments-counter">34 <span>коментария</span></div>
-                    <form class="comment-form" action="#"><textarea name="comment" id="#" cols="30" rows="1"
-                            placeholder="Напишите комментарий..."></textarea> <button type="submit"><img
-                                src="../../../assets/images/single-news-page/arrow-right.svg" alt=""></button></form>
-                    <ul class="comments-list">
-                        <li class="comment-item">
-                            <p class="comment-author-name">Татьяна Иванова</p>
-                            <P class="comment-text">Рассрочка на наличные дается на три месяца, и никакими подписками
-                                этот
-                                срок не увеличить</P>
-                            <button class="button-answer" type="button">Ответить</button>
-                            <form class="comment-form hide" action="#"><textarea name="comment" id="#" cols="30"
-                                    rows="1" placeholder="Напишите комментарий..."></textarea><button type="submit"><img
-                                        src="../../../assets/images/single-news-page/arrow-right.svg" alt=""></button>
-                            </form>
-                        </li>
-
-                        <li class="comment-item">
-                            <p class="comment-author-name">Татьяна Иванова</p>
-                            <P class="comment-text">Рассрочка на наличные дается на три месяца, и никакими подписками
-                                этот
-                                срок не увеличить</P>
-                            <button class="button-answer" type="button">Ответить</button>
-                            <form class="comment-form hide" action="#"><textarea name="comment" id="#" cols="30"
-                                    rows="1" placeholder="Напишите комментарий..."></textarea><button type="submit"><img
-                                        src="../../../assets/images/single-news-page/arrow-right.svg" alt=""></button>
-                            </form>
-                        </li>
-                        <li class="comment-item">
-                            <p class="comment-author-name">Татьяна Иванова</p>
-                            <P class="comment-text">Рассрочка на наличные дается на три месяца, и никакими подписками
-                                этот
-                                срок не увеличить</P>
-                            <button class="button-answer" type="button">Ответить</button>
-                            <form class="comment-form" action="#"><textarea name="comment" id="#" cols="30" rows="1"
-                                    placeholder="Напишите комментарий..."></textarea><button type="submit"><img
-                                        src="../../../assets/images/single-news-page/arrow-right.svg" alt=""></button>
-                            </form>
-                        </li>
-                    </ul>
-                </div>
+                <app-page-single-news-tags-section></app-page-single-news-tags-section>
+                <app-page-single-news-comments-section></app-page-single-news-comments-section>
             </div>
-          <app-page-single-news-sidebar></app-page-single-news-sidebar>
+            <app-page-single-news-sidebar></app-page-single-news-sidebar>
         </article>
     </section>
 
