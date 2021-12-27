@@ -10,8 +10,8 @@ import { SingleNewsPageComponent } from './single-news/single-news-page.componen
 import { SingleNewsSidebarComponent } from './single-news/sections/sidebar/single-news-sidebar.component';
 import { SingleNewsSidebarItemComponent } from './single-news/sections/sidebar/single-news-sidebar-item/single-news-sidebar-item.component';
 import { ShareMenuComponent } from '../shared/sections/share-menu/share-menu.component';
-import { SingleNewsTagsSectionComponent } from './single-news/sections/tags-section/single-news-tags-section.component';
-import { SingleNewsCommentsSectionComponent } from './single-news/sections/comments-section/single-news-comments-section.component';
+import { SingleNewsTagsSectionComponent } from './single-news/sections/tags/single-news-tags-section.component';
+import { SingleNewsCommentsSectionComponent } from './single-news/sections/comments/single-news-comments-section.component';
 
 @NgModule({
   declarations: [
