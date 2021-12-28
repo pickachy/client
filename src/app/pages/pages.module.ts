@@ -9,9 +9,11 @@ import { AppRoutingModule } from '../app-routing.module';
 import { SingleNewsPageComponent } from './single-news/single-news-page.component';
 import { SingleNewsSidebarComponent } from './single-news/sections/sidebar/single-news-sidebar.component';
 import { SingleNewsSidebarItemComponent } from './single-news/sections/sidebar/single-news-sidebar-item/single-news-sidebar-item.component';
-import { ShareMenuComponent } from '../shared/sections/share-menu/share-menu.component';
-import { SingleNewsTagsSectionComponent } from './single-news/sections/tags/single-news-tags-section.component';
-import { SingleNewsCommentsSectionComponent } from './single-news/sections/comments/single-news-comments-section.component';
+import { ShareMenuComponent } from './single-news/sections/share-menu/share-menu.component';
+import { SingleNewsTagsComponent } from './single-news/sections/tags/single-news-tags.component';
+import { SingleNewsCommentsComponent } from './single-news/sections/comments/single-news-comments.component';
+import { SingleNewsCountersComponent } from './single-news/sections/counters/single-news-counters.component';
+
 
 @NgModule({
   declarations: [
@@ -23,11 +25,12 @@ import { SingleNewsCommentsSectionComponent } from './single-news/sections/comme
     SingleNewsSidebarComponent,
     SingleNewsSidebarItemComponent,
     ShareMenuComponent,
-    SingleNewsTagsSectionComponent,
-    SingleNewsCommentsSectionComponent
+    SingleNewsTagsComponent,
+    SingleNewsCommentsComponent,
+    SingleNewsCountersComponent
   ],
   exports: [LoansInAdvancePageComponent, LoanInAdvanceSinglePageComponent, SingleNewsPageComponent],
   imports: [CommonModule, FormsModule, AppRoutingModule, ReactiveFormsModule],
   providers: []
 })
-export class PagesModule {}
+export class PagesModule { }

@@ -51,21 +51,6 @@ button {
   }
 }
 
-.counters-list {
-  display: flex;
-  align-items: center;
-  & li:not(:last-child) {
-    margin-right: 1.2rem;
-  }
-  & li {
-    display: flex;
-    align-items: center;
-  }
-  & img {
-    margin-right: 0.3rem;
-  }
-}
-
 .single-news-illustrations {
   text-align: center;
   margin-bottom: 2rem;
@@ -166,15 +151,6 @@ button {
 }
 
 @include touch-phone {
-  .theses-list-item {
-    & p {
-      padding-left: 0;
-    }
-    &::before {
-      top: -9999px;
-      left: -9999px;
-    }
-  }
   .reading-time {
     position: absolute;
     top: -9999px;
