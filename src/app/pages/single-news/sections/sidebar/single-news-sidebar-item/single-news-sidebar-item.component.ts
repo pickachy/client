@@ -9,5 +9,5 @@ import { Link } from '@models/link.model';
 export class SingleNewsSidebarItemComponent {
   @Input() title: string = '';
   @Input() backgroundColor: string = '#5db9c633';
-  @Input() links: Link[] = [];
+  @Input() links: Link[] = [{ href: '#', text: 'Мода на гейминг или ETF выгодных вложений? Разбор' }, { href: '#', text: 'Как получать пассивный доход? Обучение' }, { href: '#', text: 'Как правильно застраховать недвижимость' }];
 }

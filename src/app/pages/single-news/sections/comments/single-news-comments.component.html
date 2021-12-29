@@ -1,18 +1,16 @@
 <div class="comments-wrapper">
-    <div class="comments-counter">34 <span>коментария</span></div>
+    <div class="comments-counter">{{value}} <span>коментариев</span></div>
     <form class="comment-form" action="#"><textarea name="comment" cols="30" rows="1"
             placeholder="Напишите комментарий..."></textarea> <button type="submit"><img
-                src="assets/images/single-news-page/arrow-right.svg" alt=""></button></form>
+                src="assets/images/single-news-page/arrow-right.svg" alt="submit"></button></form>
     <ul class="comments-list">
-        <li class="comment-item">
-            <p class="comment-author-name">Татьяна Иванова</p>
-            <p class="comment-text">Рассрочка на наличные дается на три месяца, и никакими подписками
-                этот
-                срок не увеличить</p>
+        <li *ngFor="let comment of comments" class="comment-item">
+            <p class="comment-author-name">{{comment.author}}</p>
+            <p class="comment-text">{{comment.text}}</p>
             <button class="button-answer" type="button">Ответить</button>
             <form class="comment-form hide" action="#"><textarea name="comment" cols="30" rows="1"
                     placeholder="Напишите комментарий..."></textarea><button type="submit"><img
-                        src="assets/images/single-news-page/arrow-right.svg" alt=""></button>
+                        src="assets/images/single-news-page/arrow-right.svg" alt="submit"></button>
             </form>
         </li>
     </ul>
