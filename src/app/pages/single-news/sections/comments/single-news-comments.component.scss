@@ -73,7 +73,7 @@ button {
 
 @include touch-phone {
   .comment-form {
-    padding-left: 1rem;
+    padding: 0 0 0 1rem;
   }
   .comments-list {
     padding-left: 0.1rem;
