@@ -1,6 +1,6 @@
 <article class="articles-block">
     <h2 class="articles-block-title" [style.backgroundColor]="backgroundColor">{{ title }}</h2>
     <ul class="articles-block-list">
-        <li *ngFor="let item of links" class="article"><a class="article-link" href={{item.href}}>{{item.text}}</a></li>
+        <li *ngFor="let link of links" class="article"><a class="article-link" href={{link.href}}>{{link.text}}</a></li>
     </ul>
 </article>

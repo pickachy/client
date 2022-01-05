@@ -3,13 +3,14 @@
 .tags-wrapper {
   padding: 1.8rem 0;
   border-bottom: 0.1rem solid var(--black);
+  & h2 {
+    font-size: 2rem;
+    line-height: 4.2rem;
+    margin-bottom: 1.2rem;
+    font-weight: 500;
+  }
 }
-.single-news-subtitle {
-  font-size: 2rem;
-  line-height: 4.2rem;
-  margin-bottom: 1.2rem;
-  font-weight: 500;
-}
+
 .tags-list {
   display: flex;
   & li:not(:last-child) {
@@ -37,7 +38,9 @@
 }
 
 @include touch {
-  .single-news-subtitle {
-    line-height: 2.5rem;
+  .tags-wrapper {
+    & h2 {
+      line-height: 2.5rem;
+    }
   }
 }

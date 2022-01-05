@@ -7,5 +7,5 @@ import { Link } from '@models/link.model';
   styleUrls: ['./single-news-tags.component.scss']
 })
 export class SingleNewsTagsComponent {
-  @Input() links: Link[] = [{ href: '#', text: 'Кредиты' }, { href: '#', text: 'Банки' }, { href: '#', text: 'Овердрафт' }];
+  @Input() links: Link[] = [];
 }

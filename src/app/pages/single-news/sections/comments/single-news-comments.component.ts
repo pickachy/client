@@ -9,5 +9,5 @@ export class SingleNewsCommentsComponent {
   @Input() value: number = 0;
   @Input() text: string = '';
   @Input() author: string = '';
-  comments = [{ author: 'Игорь Злаков', text: 'Рассрочка на наличные дается на три месяца, и никакими подписками этот срок не увеличить' }, { author: 'Татьяна Иванова', text: 'Рассрочка на наличные дается на три месяца, и никакими подписками этот срок не увеличить' }, { author: 'Иван Велич', text: 'Это важно, так как каждое снятие облагается комиссией' }]
+  @Input() comments: any = []
 }
