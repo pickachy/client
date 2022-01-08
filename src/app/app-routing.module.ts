@@ -4,12 +4,16 @@ import { LoansInAdvancePageComponent } from './pages/loans/in-advance/loans-in-a
 import { PageNotFoundComponent } from '@shared/pages/page-not-found.component';
 import { NavigationRoute } from '@models/navigation-route.model';
 import { LoanInAdvanceSinglePageComponent } from './pages/loans/in-advance/loan-single/loan-in-advance-single-page.component';
+import { BrokersPageComponent } from './pages/brokers-page/brokers-page.component';
 
 const routes: NavigationRoute[] = [
   { path: '', component: LoansInAdvancePageComponent },
   {
     path: 'loans/mfo/:id',
     component: LoanInAdvanceSinglePageComponent
+  }, {
+    path: 'brokers',
+    component: BrokersPageComponent
   },
   { path: '**', component: PageNotFoundComponent }
 ];
@@ -22,4 +26,4 @@ const routes: NavigationRoute[] = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
