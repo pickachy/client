@@ -1,0 +1,126 @@
+@import 'src/app/shared/styles/_mixins';
+
+.content {
+  padding: 0;
+}
+.brokers-list-wrapper {
+  width: 100%;
+}
+
+.brokers-list {
+  width: 100%;
+  display: flex;
+  &-item {
+    min-width: 100%;
+    padding: 1rem;
+    border: 0.1rem solid #b7b7b7;
+  }
+}
+.broker-app-preview {
+  display: flex;
+  flex-direction: column;
+  & a {
+    min-width: 100%;
+    max-width: 32rem;
+    text-align: center;
+    margin: 0 auto;
+    background-color: #5db9c6;
+    color: white;
+    line-height: 4rem;
+    font-size: 400;
+    font-size: 1.8rem;
+  }
+}
+
+.broker-logo {
+  padding: 2.3rem 0;
+  & img {
+    max-width: 13rem;
+    align-self: stretch;
+  }
+}
+.app-rating-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2.3rem 0;
+  & img {
+    max-width: 2rem;
+  }
+}
+.app-rating-list {
+  display: flex;
+  max-width: 100%;
+  & li {
+    display: flex;
+    padding: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #373f41;
+    & :not(:last-child) {
+      margin-right: 0.5rem;
+    }
+    & p {
+      font-weight: 400;
+      color: #737b7d;
+    }
+  }
+  & li:not(:last-child) {
+    margin-right: 2rem;
+  }
+}
+
+.broker-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.conditions-list {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 3rem 2rem;
+  border-bottom: solid 0.085rem #c4c4c4;
+  & li:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+  & li {
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    font-size: 1.8rem;
+    line-height: 2rem;
+    color: #373f41;
+  }
+  & span {
+    font-weight: 400;
+    color: #737b7d;
+  }
+}
+.pros-and-cons-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 3rem 0;
+
+  & li {
+    margin-right: 2rem;
+    margin-bottom: 0.85rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.2rem;
+    background-color: #669b4533;
+    padding: 0.6rem 1rem;
+    border-radius: 1.6rem;
+  }
+}
+.details {
+  & button {
+    border: none;
+    background-color: inherit;
+    color: #3b5597;
+    font-weight: 400;
+    font-size: 1.6rem;
+  }
+}
