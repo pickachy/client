@@ -40,9 +40,15 @@
   align-items: center;
   margin-bottom: 0.5rem;
   & li {
-    line-height: 1.7rem;
     font-size: 1.2rem;
     font-weight: 300;
+  }
+  & .reading-time {
+    font-weight: 500;
+    &-text {
+      font-weight: 300;
+      margin-right: 0.3rem;
+    }
   }
 }
 .share-section {
@@ -52,7 +58,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  & li {
+    display: flex;
+    align-items: center;
+  }
   & li:not(:last-child) {
     margin-right: 5rem;
   }
@@ -130,6 +139,9 @@
     font-weight: 300;
   }
 }
+.articles-nav-wrapper {
+  width: 100%;
+}
 
 @include touch {
   .single-news-item {
@@ -145,13 +157,13 @@
 
   .post-item_info {
     & li:not(:last-child) {
-      margin-right: 2rem;
+      margin-right: 1rem;
     }
   }
 }
 
 @include touch-phone {
-  .reading-time {
+  .reading-time-text {
     position: absolute;
     top: -9999px;
     left: -9999px;

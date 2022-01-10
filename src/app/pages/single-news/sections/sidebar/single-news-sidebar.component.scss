@@ -1,13 +1,13 @@
 @import 'src/app/shared/styles/_mixins';
 
-.articles-nav-wrapper {
+.articles-nav {
   padding-top: 9rem;
   max-width: 25.5rem;
   min-width: 20rem;
 }
 
 @include touch {
-  .articles-nav-wrapper {
+  .articles-nav {
     padding-top: 2rem;
     max-width: 100%;
   }

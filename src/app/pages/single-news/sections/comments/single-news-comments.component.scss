@@ -25,7 +25,7 @@ button {
   border: 0.1rem solid var(--black);
   & textarea {
     display: flex;
-    max-width: 100%;
+    width: 100%;
     outline: none;
     border: none;
     resize: none;

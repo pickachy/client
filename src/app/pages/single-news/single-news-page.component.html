@@ -8,9 +8,11 @@
                     <li class="additional-information-item">
                         <ul class="post-item_info">
                             <li class="date-of-creation"><span>26.07.2021 00:12</span></li>
-                            <li class="reading-time"><img src="assets/images/single-news-page/clock.svg" alt="clock">
-                                Время чтения <span class="reading-time-data">7
-                                </span>мин.</li>
+                            <li class="reading-time"><img src="assets/images/single-news-page/clock.svg"
+                                    alt="clock"><span class="reading-time-text">Время чтения </span>
+                                <span class="reading-time-data"> 7
+                                </span>мин.
+                            </li>
                             <li class="counters-wrapper">
                                 <app-page-single-news-counters></app-page-single-news-counters>
                             </li>
@@ -107,7 +109,10 @@
                 <app-page-single-news-tags [links]="tags"></app-page-single-news-tags>
                 <app-page-single-news-comments [comments]="comments"></app-page-single-news-comments>
             </div>
-            <app-page-single-news-sidebar></app-page-single-news-sidebar>
+            <div class="articles-nav-wrapper">
+                <app-page-single-news-sidebar></app-page-single-news-sidebar>
+            </div>
+
         </article>
     </section>
 

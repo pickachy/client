@@ -13,13 +13,14 @@
     font-size: 1.6rem;
     line-height: 2.2rem;
     font-weight: 400;
-    padding: 1.5rem 0;
   }
-  & li:first-child {
-    border-bottom: 0.1rem solid var(--black);
-    padding-top: 2.3rem;
+  & li {
+    padding: 1.5rem 0;
   }
   & li:not(:last-child) {
     border-bottom: 0.1rem solid var(--black);
+  }
+  & li:first-child {
+    padding-top: 2.3rem;
   }
 }
