@@ -2,11 +2,11 @@ import { Component, ElementRef, HostListener } from '@angular/core';
 
 
 @Component({
-  selector: 'app-page-brokers',
-  templateUrl: './brokers-page.component.html',
-  styleUrls: ['./brokers-page.component.scss']
+  selector: 'app-app-page-brokers-section-details',
+  templateUrl: './details.component.html',
+  styleUrls: ['./details.component.scss']
 })
-export class BrokersPageComponent {
+export class DetailsComponent {
 
   hidden: boolean = true;
 
@@ -22,6 +22,5 @@ export class BrokersPageComponent {
   onClick(): void {
     this.hidden = !this.hidden;
   }
-
 
 }

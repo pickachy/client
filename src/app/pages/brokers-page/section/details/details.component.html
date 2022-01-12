@@ -1,0 +1,8 @@
+<section>
+    <ul class="details-list">
+        <li><button type="button">Тарифы</button></li>
+        <li><button type="button">Общая информация</button></li>
+        <li><button (click)="onClick()" type="button">Инструменты</button></li>
+    </ul>
+    <app-app-page-brokers-section-tools [ngClass]="hidden ? 'hide' : ''"></app-app-page-brokers-section-tools>
+</section>

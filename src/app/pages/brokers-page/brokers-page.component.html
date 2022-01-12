@@ -17,7 +17,7 @@
                                     <p>4.0</p>
                                 </li>
                                 <li class="rating"> <img
-                                        src="http://s1.iconbird.com/ico/2013/9/446/w512h5121380376423MetroUIMacAppStoreAlt.png"
+                                        src="https://securenews.ru/wp-content/uploads/2018/11/1200px-App_Store_OS_X.svg_.png"
                                         alt="app store">
                                     <p>4.1</p>
                                 </li>
@@ -48,8 +48,10 @@
                             <li>Относительно высокие комиссии</li>
                         </ul>
                         <div class="details">
-                            <button type="button">Подробнее <span><img src="assets/images/brokers-page/bottom.svg"
-                                        alt=""></span></button>
+                            <button type="button" (click)="onClick()">Подробнее <span><img
+                                        src="assets/images/brokers-page/bottom.svg" alt="details"></span></button>
+                            <app-app-page-brokers-section-details [ngClass]="hidden ? 'hide' : ''">
+                            </app-app-page-brokers-section-details>
                         </div>
                     </div>
                 </li>

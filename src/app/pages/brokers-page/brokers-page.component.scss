@@ -8,8 +8,8 @@
 }
 
 .brokers-list {
-  width: 100%;
   display: flex;
+  flex-direction: column;
   &-item {
     min-width: 100%;
     padding: 1rem;
@@ -116,11 +116,17 @@
   }
 }
 .details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   & button {
     border: none;
     background-color: inherit;
     color: #3b5597;
     font-weight: 400;
     font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
   }
 }

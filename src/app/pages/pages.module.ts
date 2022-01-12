@@ -7,6 +7,8 @@ import { LoanInAdvanceSinglePageComponent } from './loans/in-advance/loan-single
 import { CalculatorComponent } from './loans/in-advance/loan-single/sections/calculator/calculator.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { BrokersPageComponent } from './brokers-page/brokers-page.component';
+import { ToolsComponent } from './brokers-page/section/details/tools/tools.component';
+import { DetailsComponent } from './brokers-page/section/details/details.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { BrokersPageComponent } from './brokers-page/brokers-page.component';
     LoansListComponent,
     LoanInAdvanceSinglePageComponent,
     CalculatorComponent,
-    BrokersPageComponent
+    BrokersPageComponent,
+    DetailsComponent,
+    ToolsComponent
   ],
   exports: [LoansInAdvancePageComponent, LoanInAdvanceSinglePageComponent, BrokersPageComponent],
   imports: [CommonModule, FormsModule, AppRoutingModule, ReactiveFormsModule],
