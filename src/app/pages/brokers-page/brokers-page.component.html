@@ -9,33 +9,79 @@
                                 src="https://data.cbonds.info/organisations_logos/124677/1548131476logo_ff_400px.png"
                                 alt="broker logo"></div>
                         <div class="app-rating-wrapper">
-                            <p>Оценка приложения:</p>
+                            <p class="app-rating-text">Оценка приложения:</p>
                             <ul class="app-rating-list">
-                                <li class="rating"> <img
+                                <li class="rating"><img
                                         src="http://s1.iconbird.com/ico/1012/PlexIcons/w512h5121350249266play.png"
                                         alt="play market">
+                                    <div class="rating-stars">
+                                        <input type="radio" name="rating" id="r1">
+                                        <label for="r1"></label>
+
+                                        <input type="radio" name="rating" id="r2">
+                                        <label for="r2"></label>
+
+                                        <input type="radio" name="rating" id="r3">
+                                        <label for="r3"></label>
+
+                                        <input type="radio" name="rating" id="r4">
+                                        <label for="r4"></label>
+
+                                        <input type="radio" name="rating" id="r5">
+                                        <label for="r5"></label>
+                                    </div>
                                     <p>4.0</p>
                                 </li>
                                 <li class="rating"> <img
                                         src="https://securenews.ru/wp-content/uploads/2018/11/1200px-App_Store_OS_X.svg_.png"
                                         alt="app store">
+                                    <div class="rating-stars"><input type="radio" name="rating" id="r1">
+                                        <label for="r1"></label>
+
+                                        <input type="radio" name="rating" id="r2">
+                                        <label for="r2"></label>
+
+                                        <input type="radio" name="rating" id="r3">
+                                        <label for="r3"></label>
+
+                                        <input type="radio" name="rating" id="r4">
+                                        <label for="r4"></label>
+
+                                        <input type="radio" name="rating" id="r5">
+                                        <label for="r5"></label>
+                                    </div>
                                     <p>4.1</p>
                                 </li>
                             </ul>
 
                         </div>
-                        <a href="#">Перейти на сайт</a>
+                        <a class="link-to-official-site" href="#">Перейти на сайт</a>
                     </div>
                     <div class="broker-info">
                         <ul class="conditions-list">
-                            <li>Дата основания <span>1999 г.</span></li>
-                            <li>Спред <span>от 0,3 пунктов</span></li>
-                            <li> Кол-во активных клиентов<span>140 000+</span></li>
-                            <li>Минимальный депозит <span>1 USD</span></li>
-                            <li>Комиссия за акцию <span>0,02 EUR</span></li>
-                            <li> Стоимость в месяц<span>0 USD</span></li>
-                            <li> Минимальная комиссия
-                                за сделку<span>2 EUR</span></li>
+                            <li class="conditions-list-item">Дата основания <span>1999 г.</span>
+
+                            </li>
+                            <li class="conditions-list-item ">Спред <span>от 0,3 пунктов</span></li>
+                            <li class="conditions-list-item"> Кол-во активных клиентов<span>140 000+</span></li>
+                            <li class="conditions-list-item">Минимальный депозит <span>1 USD</span></li>
+                            <li class="conditions-list-item delimiter"></li>
+                            <li class="conditions-list-item">Комиссия за акцию<div class="tooltip-wrapper">
+                                    <p>i</p>
+                                </div><span>0,02 EUR</span>
+
+                            </li>
+                            <li class="conditions-list-item"> Стоимость в месяц<div class="tooltip-wrapper">
+                                    <p>i</p>
+                                </div><span>0 USD</span>
+
+                            </li>
+                            <li class="conditions-list-item"> Минимальная комиссия
+                                за сделку<div class="tooltip-wrapper">
+                                    <p>i</p>
+                                </div><span>2 EUR</span>
+
+                            </li>
                         </ul>
                         <ul class="pros-and-cons-list">
                             <li>Возможность участия в IPO</li>
@@ -50,10 +96,12 @@
                         <div class="details">
                             <button type="button" (click)="onClick()">Подробнее <span><img
                                         src="assets/images/brokers-page/bottom.svg" alt="details"></span></button>
-                            <app-app-page-brokers-section-details [ngClass]="hidden ? 'hide' : ''">
-                            </app-app-page-brokers-section-details>
+                            <a class="link-to-official-site" href="#">Перейти на сайт</a>
                         </div>
+
                     </div>
+                    <app-app-page-brokers-section-details [ngClass]="hidden ? 'hide' : ''">
+                    </app-app-page-brokers-section-details>
                 </li>
             </ul>
         </section>
