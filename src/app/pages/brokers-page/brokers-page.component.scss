@@ -91,7 +91,6 @@
   align-items: stretch;
   padding: 3rem 1rem;
   border-bottom: solid 0.085rem #c4c4c4;
-  width: 90%;
   &-item:not(:last-child) {
     margin-bottom: 1.5rem;
   }
@@ -103,7 +102,7 @@
     font-size: 1.8rem;
     line-height: 2rem;
     color: #373f41;
-    max-width: 36rem;
+
     margin-right: 2.5rem;
   }
   & span {
