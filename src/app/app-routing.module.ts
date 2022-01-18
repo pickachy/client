@@ -4,12 +4,17 @@ import { LoansInAdvancePageComponent } from './pages/loans/in-advance/loans-in-a
 import { PageNotFoundComponent } from '@shared/pages/page-not-found.component';
 import { NavigationRoute } from '@models/navigation-route.model';
 import { LoanInAdvanceSinglePageComponent } from './pages/loans/in-advance/loan-single/loan-in-advance-single-page.component';
+import { SingleNewsPageComponent } from './pages/single-news/single-news-page.component';
 
 const routes: NavigationRoute[] = [
   { path: '', component: LoansInAdvancePageComponent },
   {
     path: 'loans/mfo/:id',
     component: LoanInAdvanceSinglePageComponent
+  },
+  {
+    path: 'single-news',
+    component: SingleNewsPageComponent
   },
   { path: '**', component: PageNotFoundComponent }
 ];

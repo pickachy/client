@@ -1,0 +1,8 @@
+<div class="tags-wrapper">
+    <h2>Теги</h2>
+    <ul class="tags-list">
+        <li *ngFor="let link of links" class="tags-list-item"><a class="tags-link" href={{link.href}}>{{link.text}}
+                &#10006;</a>
+        </li>
+    </ul>
+</div>

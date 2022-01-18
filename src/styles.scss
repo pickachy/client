@@ -32,6 +32,11 @@ html {
     padding-left: 0.8rem;
     padding-right: 0.8rem;
   }
+  .hide {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
 
   h2.section-header {
     width: 100%;
