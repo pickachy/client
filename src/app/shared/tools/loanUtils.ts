@@ -24,14 +24,15 @@ export const buildReferralLink = (link: string): string | undefined => {
   }
 
   let referralQueryString;
-  const isMediatorLink = link.includes('cmtrckr');
-  // link is not direct, use subid
-  if (isMediatorLink) {
+  const qsConcatChar = link.includes('?') ? '&' : '?';
+  const isSubIdLogic = link.includes('cmtrckr') || link.includes('lnkrdrct') || link.includes('aventus.credit-net');
+  // link is affiliate network or credit plus. Use subid logic for it
+  if (isSubIdLogic) {
     if (isExpired || !existedUtmSource || !existedUtmTimestamp) {
-      referralQueryString = '?subid1=others';
+      referralQueryString = `${qsConcatChar}subid1=others`;
     }
     else{
-      referralQueryString = `?subid1=${existedUtmSource}`;
+      referralQueryString = `${qsConcatChar}subid1=${existedUtmSource}`;
       if (existedUtmCampaign) {
         referralQueryString += `&subid2=${existedUtmCampaign}`;
       }
@@ -42,9 +43,7 @@ export const buildReferralLink = (link: string): string | undefined => {
   }
   // link is direct, use utm_campaign -> utm_term substitution
   else {
-    // now it is only credit 7 direct link
-    const qsConcatChar = link.includes('?') ? '&' : '?';
-
+    // credit 7 direct link
     referralQueryString = `${qsConcatChar}utm_term=${isExpired || !existedUtmCampaign ? 'others' : existedUtmCampaign}`;
   }
 
