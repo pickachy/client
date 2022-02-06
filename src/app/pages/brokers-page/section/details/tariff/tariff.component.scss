@@ -1,0 +1,14 @@
+@import 'src/app/shared/styles/_mixins';
+
+.tariff-plan {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  & h3 {
+    color: #737b7d;
+    background-color: #f7f7f7;
+    font-size: 1.4rem;
+    font-weight: normal;
+    line-height: 4rem;
+  }
+}

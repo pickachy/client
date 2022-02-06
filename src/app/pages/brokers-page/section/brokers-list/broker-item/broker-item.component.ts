@@ -2,11 +2,11 @@ import { Component, ElementRef, HostListener } from '@angular/core';
 
 
 @Component({
-  selector: 'app-page-brokers-section-details',
-  templateUrl: './details.component.html',
-  styleUrls: ['./details.component.scss']
+  selector: 'app-page-broker-item',
+  templateUrl: './broker-item.component.html',
+  styleUrls: ['./broker-item.component.scss']
 })
-export class DetailsComponent {
+export class BrokerItemComponent {
 
   hidden: boolean = true;
 

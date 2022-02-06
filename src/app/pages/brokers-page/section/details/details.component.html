@@ -4,5 +4,6 @@
         <li><button type="button">Общая информация</button></li>
         <li><button (click)="onClick()" type="button">Инструменты</button></li>
     </ul>
-    <app-app-page-brokers-section-tools [ngClass]="hidden ? 'hide' : ''"></app-app-page-brokers-section-tools>
+    <app-page-brokers-section-tools [ngClass]="hidden ? 'hide' : ''"></app-page-brokers-section-tools>
+    <app-page-brokers-section-information></app-page-brokers-section-information>
 </section>

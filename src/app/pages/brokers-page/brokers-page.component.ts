@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 
 
 @Component({
@@ -7,21 +7,4 @@ import { Component, ElementRef, HostListener } from '@angular/core';
   styleUrls: ['./brokers-page.component.scss']
 })
 export class BrokersPageComponent {
-
-  hidden: boolean = true;
-
-  constructor(private eRef: ElementRef) { }
-
-  @HostListener('document:click', ['$event'])
-  clickOut(event: Event) {
-    if (!this.eRef.nativeElement.contains(event.target)) {
-      this.hidden = true;
-    }
-  }
-
-  onClick(): void {
-    this.hidden = !this.hidden;
-  }
-
-
 }

@@ -35,7 +35,7 @@
 }
 
 // stars
-@mixin star-rating($filled-color: #f9bf3b, $empty-color: #07eded, $size: 20px, $width: 80px) {
+@mixin star-rating($filled-color: #f9bf3b, $empty-color: #5db9c680, $size: 20px, $width: 80px) {
   $star--filled: ★;
   $star--empty: ☆;
   width: $width;

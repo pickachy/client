@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 
 @Component({
-  selector: 'app-app-page-brokers-section-tariff',
+  selector: 'app-page-brokers-section-tariff',
   templateUrl: './tariff.component.html',
   styleUrls: ['./tariff.component.scss']
 })

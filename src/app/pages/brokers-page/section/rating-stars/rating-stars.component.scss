@@ -1,0 +1,22 @@
+@import 'src/app/shared/styles/_mixins';
+.rating-stars {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+@include tablet {
+  .rating-stars {
+    position: relative;
+    top: 0;
+    left: 0;
+    padding-right: 0.5rem;
+    @include star-rating();
+  }
+}
+@include desktop-computer {
+  .rating-stars {
+    padding-right: 0;
+    @include star-rating($size: 2.6rem, $width: 12rem);
+  }
+}

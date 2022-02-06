@@ -1,0 +1,20 @@
+@import 'src/app/shared/styles/_mixins';
+.pros-and-cons-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 3rem 0;
+
+  & li {
+    margin-right: 2rem;
+    margin-bottom: 0.85rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.2rem;
+    background-color: #669b4533;
+    padding: 0.6rem 1rem;
+    border-radius: 1.6rem;
+  }
+  & .cons {
+    background-color: #e4747433;
+  }
+}

@@ -2,115 +2,48 @@
     <section class="content">
         <section class="brokers">
             <section class="hero">
-                <div class="brokers-logo">
+                <div class="brokers-page-logo">
                     <div class="logo-img"></div>
                     <h2><span> Брокеры</span> в Украине</h2>
                 </div>
-                <div class="brokers-filter"><button type="button">Фильтр </button>
-                </div>
-            </section>
-            <ul class="brokers-list">
-                <li class="brokers-list-item">
-                    <div class="broker-app-preview">
-                        <div class="broker-logo"><img
-                                src="https://data.cbonds.info/organisations_logos/124677/1548131476logo_ff_400px.png"
-                                alt="broker logo"></div>
-                        <div class="app-rating-wrapper">
-                            <p class="app-rating-text">Оценка приложения:</p>
-                            <ul class="app-rating-list">
-                                <li class="rating"><img
-                                        src="http://s1.iconbird.com/ico/1012/PlexIcons/w512h5121350249266play.png"
-                                        alt="play market">
-                                    <div class="rating-stars">
-                                        <input type="radio" name="rating" id="r1">
-                                        <label for="r1"></label>
-
-                                        <input type="radio" name="rating" id="r2">
-                                        <label for="r2"></label>
-
-                                        <input type="radio" name="rating" id="r3">
-                                        <label for="r3"></label>
-
-                                        <input type="radio" name="rating" id="r4">
-                                        <label for="r4"></label>
-
-                                        <input type="radio" name="rating" id="r5">
-                                        <label for="r5"></label>
-                                    </div>
-                                    <p>4.0</p>
+                <div class="brokers-filters"><button type="button">Фильтр </button>
+                    <div class="filters">
+                        <div class="lists-group">
+                            <div class="sort-by">
+                                <h3>Сортировать по</h3>
+                                <p>Самые низкие комиссии</p>
+                            </div>
+                            <div class="Country">
+                                <h3>Страна</h3>
+                                <p>Украина</p>
+                            </div>
+                        </div>
+                        <div class="radio-buttons-group">
+                            <ul class="radio-buttons-list">
+                                <li><input class="custom-checkbox" type="checkbox" id="choice1" name="item"
+                                        value="free-account">
+                                    <label for="choice1">Бесплатное открытие счета</label>
                                 </li>
-                                <li class="rating"> <img
-                                        src="https://securenews.ru/wp-content/uploads/2018/11/1200px-App_Store_OS_X.svg_.png"
-                                        alt="app store">
-                                    <div class="rating-stars"><input type="radio" name="rating" id="r1">
-                                        <label for="r1"></label>
-
-                                        <input type="radio" name="rating" id="r2">
-                                        <label for="r2"></label>
-
-                                        <input type="radio" name="rating" id="r3">
-                                        <label for="r3"></label>
-
-                                        <input type="radio" name="rating" id="r4">
-                                        <label for="r4"></label>
-
-                                        <input type="radio" name="rating" id="r5">
-                                        <label for="r5"></label>
-                                    </div>
-                                    <p>4.1</p>
+                                <li><input class="custom-checkbox" type="checkbox" id="choice2" name="item2"
+                                        value="automatic-following">
+                                    <label for="choice2">Автоследование</label>
+                                </li>
+                                <li><input class="custom-checkbox" type="checkbox" id="choice3" name="item3"
+                                        value="ipo">
+                                    <label for="choice3">Участие в IPO</label>
+                                </li>
+                                <li><input class="custom-checkbox" type="checkbox" id="choice4" name="item4"
+                                        value="free-service">
+                                    <label for="choice4">Бесплатное обслуживание</label>
                                 </li>
                             </ul>
-
                         </div>
-                        <a class="link-to-official-site" href="#">Перейти на сайт</a>
+                        <div class="investment"><textarea type="text" placeholder="Сумма инвестиций" cols="1"
+                                rows="1"></textarea></div>
                     </div>
-                    <div class="broker-info">
-                        <ul class="conditions-list">
-                            <li class="conditions-list-item">Дата основания <span>1999 г.</span>
-
-                            </li>
-                            <li class="conditions-list-item ">Спред <span>от 0,3 пунктов</span></li>
-                            <li class="conditions-list-item"> Кол-во активных клиентов<span>140 000+</span></li>
-                            <li class="conditions-list-item">Минимальный депозит <span>1 USD</span></li>
-                            <li class="conditions-list-item delimiter"></li>
-                            <li class="conditions-list-item">Комиссия за акцию<div class="tooltip-wrapper">
-                                    <p>i</p>
-                                </div><span>0,02 EUR</span>
-
-                            </li>
-                            <li class="conditions-list-item"> Стоимость в месяц<div class="tooltip-wrapper">
-                                    <p>i</p>
-                                </div><span>0 USD</span>
-
-                            </li>
-                            <li class="conditions-list-item"> Минимальная комиссия
-                                за сделку<div class="tooltip-wrapper">
-                                    <p>i</p>
-                                </div><span>2 EUR</span>
-
-                            </li>
-                        </ul>
-                        <ul class="pros-and-cons-list">
-                            <li>Возможность участия в IPO</li>
-                            <li>Удобные для новичков платформа и приложение</li>
-                            <li>Первые 30 дней без комиссии</li>
-                            <li>Помощь в выборе акций и IPO</li>
-                            <li>Поддержка с персональным менеджером в
-                                любом мессенджере</li>
-                            <li>Только рынок акций и ETF</li>
-                            <li>Относительно высокие комиссии</li>
-                        </ul>
-                        <div class="details">
-                            <button type="button" (click)="onClick()">Подробнее <span><img
-                                        src="assets/images/brokers-page/bottom.svg" alt="details"></span></button>
-                            <a class="link-to-official-site" href="#">Перейти на сайт</a>
-                        </div>
-
-                    </div>
-                    <app-app-page-brokers-section-details [ngClass]="hidden ? 'hide' : ''">
-                    </app-app-page-brokers-section-details>
-                </li>
-            </ul>
+                </div>
+            </section>
+            <app-page-brokers-list></app-page-brokers-list>
         </section>
     </section>
 </section>

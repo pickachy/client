@@ -1,0 +1,57 @@
+<li class="brokers-list-item">
+    <div class="broker-app-preview">
+        <div class="background-logo"></div>
+        <div class="broker-logo"><img
+                src="https://data.cbonds.info/organisations_logos/124677/1548131476logo_ff_400px.png" alt="broker logo">
+        </div>
+        <div class="app-rating-wrapper">
+            <p class="app-rating-text">Оценка приложения:</p>
+            <ul class="app-rating-list">
+                <li class="rating"><img src="http://s1.iconbird.com/ico/1012/PlexIcons/w512h5121350249266play.png"
+                        alt="play market">
+                    <app-page-rating-stars></app-page-rating-stars>
+                    <p>4.0</p>
+                </li>
+                <li class="rating"> <img
+                        src="https://securenews.ru/wp-content/uploads/2018/11/1200px-App_Store_OS_X.svg_.png"
+                        alt="app store">
+                    <app-page-rating-stars></app-page-rating-stars>
+                    <p>4.1</p>
+                </li>
+            </ul>
+
+        </div>
+        <a class="link-to-official-site" href="#">Перейти на сайт</a>
+    </div>
+    <div class="broker-info">
+        <ul class="conditions-list">
+            <li class="conditions-list-item">Дата основания <span>1999 г.</span>
+            </li>
+            <li class="conditions-list-item ">Спред <span>от 0,3 пунктов</span></li>
+            <li class="conditions-list-item"> Кол-во активных клиентов<span>140 000+</span></li>
+            <li class="conditions-list-item">Минимальный депозит <span>1 USD</span></li>
+            <li class="conditions-list-item delimiter"></li>
+            <li class="conditions-list-item">Комиссия за акцию <app-page-tooltip>
+                </app-page-tooltip><span>0,02 EUR</span>
+            </li>
+            <li class="conditions-list-item"> Стоимость в месяц<app-page-tooltip>
+                </app-page-tooltip><span>0 USD</span>
+            </li>
+            <li class="conditions-list-item"> Минимальная комиссия
+                за сделку<app-page-tooltip>
+                </app-page-tooltip><span>2 EUR</span>
+            </li>
+        </ul>
+        <app-page-brokers-section-pros-and-cons></app-page-brokers-section-pros-and-cons>
+        <div class="details">
+            <button type="button" (click)=" onClick()">Подробнее <span><img src="assets/images/brokers-page/bottom.svg"
+                        alt="details"></span></button>
+            <a class="link-to-official-site" href="#">Перейти на сайт</a>
+        </div>
+    </div>
+    <div class="broker-details-wrapper">
+        <app-page-brokers-section-details [ngClass]="hidden ? 'hide' : ''">
+        </app-page-brokers-section-details>
+    </div>
+
+</li>
