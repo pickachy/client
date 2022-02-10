@@ -17,6 +17,7 @@ import { ProsAndConstComponent } from './brokers-page/section/pros-and-cons/pros
 import { BrokersListComponent } from './brokers-page/section/brokers-list/brokers-list.component';
 import { BrokerItemComponent } from './brokers-page/section/brokers-list/broker-item/broker-item.component';
 
+
 @NgModule({
   declarations: [
     LoansInAdvancePageComponent,

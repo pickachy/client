@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 
 
 @Component({
@@ -8,19 +8,11 @@ import { Component, ElementRef, HostListener } from '@angular/core';
 })
 export class DetailsComponent {
 
-  hidden: boolean = true;
+  markup: string = 'tariff'
 
-  constructor(private eRef: ElementRef) { }
+  onClick(details: string): void {
+    this.markup = details;
 
-  @HostListener('document:click', ['$event'])
-  clickOut(event: Event) {
-    if (!this.eRef.nativeElement.contains(event.target)) {
-      this.hidden = true;
-    }
   }
-
-  onClick(): void {
-    this.hidden = !this.hidden;
-  }
-
 }
+

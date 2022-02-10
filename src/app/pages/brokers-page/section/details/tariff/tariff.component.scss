@@ -3,12 +3,48 @@
 .tariff-plan {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   & h3 {
-    color: #737b7d;
-    background-color: #f7f7f7;
+    position: relative;
+    width: 100%;
+    font-weight: 400;
     font-size: 1.4rem;
-    font-weight: normal;
-    line-height: 4rem;
+    line-height: 1.6rem;
+    padding: 1rem 0;
+    color: #737b7d;
+  }
+  & ul {
+    padding: 1rem 0;
+  }
+  & li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3rem 0;
+    & p {
+      width: 77%;
+      font-weight: 400;
+      font-size: 1.4rem;
+      line-height: 1.6rem;
+      color: #373f41;
+    }
+    span:nth-child(odd){
+     margin-right: 0.2rem;
+    }
+  }
+}
+
+@include max-screen-custom(767px) {
+  .tariff-plan {
+    & h3 {
+      &::before {
+        position: absolute;
+        content: '';
+        width: calc(100% + 2rem);
+        height: 100%;
+        top: 0;
+        left: -1rem;
+        background-color: #f7f7f7;
+        z-index: -1;
+      }
+    }
   }
 }
