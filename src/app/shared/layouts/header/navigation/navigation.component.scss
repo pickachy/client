@@ -1,10 +1,11 @@
+@import 'src/app/shared/styles/_mixins';
+
 .top-navigation {
   ::ng-deep app-navigation-links {
     nav {
       display: flex;
       flex-direction: row;
-      align-items: flex-start;
-
+      justify-content: right;
       li {
         display: flex;
         margin-right: 4.5rem;
@@ -22,8 +23,20 @@
           }
         }
 
-        &:last-child{
-          margin-right:0;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+@include touch-phone {
+  .top-navigation {
+    app-navigation-links ::ng-deep {
+      nav {
+        li {
+          margin-right: 2rem;
         }
       }
     }

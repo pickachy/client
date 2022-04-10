@@ -8,10 +8,22 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from '@shared/layouts/footer/footer.component';
 import { SocialIconComponent } from '@shared/social-icon/social-icon.component';
+import { BreadcrumbsComponent } from '@shared/sections/breadcrumbs/breadcrumbs.component';
+import { SafeHtmlPipe } from '@shared/pipes/safe-html.pipe';
 
 @NgModule({
-  declarations: [PageNotFoundComponent, HeaderComponent, LogoComponent, NavigationComponent, NavigationLinksComponent, FooterComponent, SocialIconComponent],
+  declarations: [
+    PageNotFoundComponent,
+    HeaderComponent,
+    LogoComponent,
+    NavigationComponent,
+    NavigationLinksComponent,
+    FooterComponent,
+    SocialIconComponent,
+    BreadcrumbsComponent,
+    SafeHtmlPipe
+  ],
   imports: [CommonModule, RouterModule],
-  exports: [PageNotFoundComponent, HeaderComponent, FooterComponent]
+  exports: [PageNotFoundComponent, HeaderComponent, FooterComponent, BreadcrumbsComponent, SafeHtmlPipe]
 })
 export class SharedModule {}

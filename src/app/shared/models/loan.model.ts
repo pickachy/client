@@ -39,7 +39,17 @@ export const LoanProviderTypeImageMap: { [type: number]: Image } = {
 };
 
 
-export interface LoanOverviewDto {
+export interface GQLLoanPayload {
+  bonusesDescription: string;
+  borrowerAgeFrom: number;
+  borrowerAgeTo: number;
+  commissionDescription: string;
+  extraInfo: string;
+  isOnlineProcessing: boolean;
+  issueWorkingHoursDescription: string;
+  repaymentMethodsDescription: string;
+  withdrawalMethodsDescription: string;
+  receiversDescription: string;
   providerTypeId: LoanProviderType;
   providerImageExtension: string;
   providerName: string;
@@ -52,18 +62,4 @@ export interface LoanOverviewDto {
   termDays: number;
 }
 
-export interface LoanDto extends LoanOverviewDto {
-  bonusesDescription: string;
-  borrowerAgeFrom: number;
-  borrowerAgeTo: number;
-  commissionDescription: string;
-  extraInfo: string;
-  isOnlineProcessing: boolean;
-  issueWorkingHoursDescription: string;
-  repaymentMethodsDescription: string;
-  withdrawalMethodsDescription: string;
-  receiversDescription: string;
-}
-
-export interface LoanOverview extends LoanOverviewDto{}
-export interface Loan extends LoanDto{}
+export interface Loan extends GQLLoanPayload{}

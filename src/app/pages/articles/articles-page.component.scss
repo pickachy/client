@@ -1,1 +1,35 @@
 @import 'src/app/shared/styles/_mixins';
+.articles {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+article {
+  display: flex;
+  width: 100%;
+  margin-top: 2rem;
+  flex-grow: 1;
+  flex-direction: row;
+  align-items: center;
+}
+
+time {
+  display: flex;
+  height: 100%;
+  line-height: 1.8rem;
+  padding-right: 2rem;
+  font-size: 1.2rem;
+  border-bottom: 0.1rem solid var(--grey-section-background);
+  min-width: 11.4rem;
+}
+
+a {
+  display: flex;
+  flex-grow: 1;
+  padding-bottom: 1rem;
+  border-bottom: 0.1rem solid var(--grey-section-background);
+  &:hover {
+    //color: ;
+  }
+}

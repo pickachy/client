@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ArticlesService } from '@shared/services/articles.service';
 import { Article } from '@models/article.model';
+import { getDateTimeString } from '@shared/tools/dateUtils';
+import { PagesService } from '@shared/services/pages.service';
 
 @Component({
   selector: 'app-page-articles',
@@ -10,11 +11,16 @@ import { Article } from '@models/article.model';
 export class ArticlesPageComponent implements OnInit {
   articles: Article[] = [];
 
-  constructor(private _articlesService: ArticlesService) {}
+  constructor(private _pagesService: PagesService) {}
 
   ngOnInit(): void {
-    this._articlesService.getArticles().subscribe(articles => {
-      this.articles = articles;
+    this._pagesService.getArticlesPageAggregation().subscribe(data => {
+      this.articles = data.articles;
+      this._pagesService.setSeoAndOg(data.seo);
     });
+  }
+
+  getDateTimeString(date: Date) {
+    return getDateTimeString(date);
   }
 }

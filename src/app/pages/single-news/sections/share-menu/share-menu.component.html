@@ -3,31 +3,31 @@
   <div class="share-wrapper" [ngClass]="hidden ? 'hide' : ''">
     <ul class="share-social-networks">
       <li>
-        <a class="share-link" href="#">
+        <a class="share-link" href="https://telegram.me/share/url?url={{ currentLocation }}" target="_blank">
           <img width="18px" src="assets/images/single-news-page/social-icons/navigation.svg" alt="Telegram" />
           <p>Telegram</p>
         </a>
       </li>
       <li>
-        <a class="share-link" href="#"><img width="18px" src="assets/images/single-news-page/social-icons/facebook.svg"
-            alt="Facebook" />
+        <a class="share-link" href="https://www.facebook.com/sharer.php?u={{ currentLocation }}" target="_blank"
+          ><img width="18px" src="assets/images/single-news-page/social-icons/facebook.svg" alt="Facebook" />
           <p>Facebook</p>
         </a>
       </li>
       <li>
-        <a class="share-link" href="#">
+        <a class="share-link" href="https://twitter.com/intent/tweet?text={{ currentLocation }}" target="_blank">
           <img width="18px" src="assets/images/single-news-page/social-icons/twitter.svg" alt="Twitter" />
           <p>Twitter</p>
         </a>
       </li>
       <li>
-        <a class="share-link" href="#"><img width="18px" src="assets/images/single-news-page/social-icons/linkedin.svg"
-            alt="Linkedin" />
+        <a class="share-link" href="https://www.linkedin.com/sharing/share-offsite/?url={{ currentLocation }}" target="_blank"
+          ><img width="18px" src="assets/images/single-news-page/social-icons/linkedin.svg" alt="Linkedin" />
           <p>Linkedin</p>
         </a>
       </li>
       <li>
-        <a class="share-link" href="#">
+        <a class="share-link" (click)="copyToClipboard($event, currentLocation)">
           <img width="18px" src="assets/images/single-news-page/social-icons/link.svg" alt="Копировать ссылку" />
           <p>Копировать ссылку</p>
         </a>
