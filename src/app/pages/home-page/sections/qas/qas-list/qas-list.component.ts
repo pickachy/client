@@ -16,7 +16,7 @@ export class QasListComponent {
     if (selectedIds.length === initialLength) {
       this.qaSelectedIds.push(id);
     }
-    else{
+    else {
       this.qaSelectedIds = selectedIds;
     }
   }

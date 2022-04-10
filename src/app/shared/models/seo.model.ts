@@ -1,7 +1,7 @@
-export interface SeoDto {
+export interface GQLSeoPayload {
   title: string;
   description: string;
   keywords: string;
 }
 
-export interface Seo extends SeoDto {}
+export interface Seo extends GQLSeoPayload {}

@@ -1,11 +1,7 @@
 <ng-container *ngIf="data">
   <div class="wrapper">
     <section class="main-description content">
-      <ul class="breadcrumbs">
-        <li>
-          <a routerLink="/">Главная \ </a><span>{{ data.providerName }}</span>
-        </li>
-      </ul>
+      <app-breadcrumbs></app-breadcrumbs>
       <h1>Микрокредит «До зарплаты» от МФО {{ data.providerName }}</h1>
       <div class="image-wrapper">
         <figure class="image-composition">

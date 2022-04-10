@@ -2,7 +2,7 @@
   "name": "zemis",
   "version": "0.0.0",
   "scripts": {
-    "start": "ng serve --host=0.0.0.0 --disable-host-check",
+    "start": "ng serve --host=0.0.0.0 --port 4201 --disable-host-check",
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
     "dev:ssr": "ng run zemis:serve-ssr",
@@ -14,6 +14,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "12.1.0",
+    "@angular/cdk": "^13.3.2",
     "@angular/common": "12.1.0",
     "@angular/compiler": "12.0.5",
     "@angular/core": "12.0.5",
@@ -29,12 +30,13 @@
     "apollo-angular": "2.6.0",
     "express": "4.17.1",
     "graphql": "15.5.1",
+    "lazysizes": "^5.3.2",
     "ngx-progressbar": "6.1.1",
+    "ngx-toastr": "^14.2.2",
     "rxjs": "6.6.7",
-    "tslib": "2.3.0",
-    "zone.js": "0.11.4",
     "sitemap-generator": "8.5.1",
-    "lazysizes": "^5.3.2"
+    "tslib": "2.3.0",
+    "zone.js": "0.11.4"
   },
   "devDependencies": {
     "@angular-builders/custom-webpack": "12.1.0",
@@ -59,8 +61,8 @@
     "eslint-plugin-prefer-arrow": "1.2.3",
     "eslint-plugin-unused-imports": "1.1.1",
     "eslint-webpack-plugin": "2.5.4",
-    "ngx-unused-css": "3.0.0",
     "gzipper": "5.0.0",
+    "ngx-unused-css": "3.0.0",
     "prettier": "2.3.2",
     "typescript": "4.2.3"
   }

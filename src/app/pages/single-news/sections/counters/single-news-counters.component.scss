@@ -1,0 +1,14 @@
+.counters-list {
+  display: flex;
+  align-items: center;
+  & li:not(:last-child) {
+    margin-right: 1.2rem;
+  }
+  & li {
+    display: flex;
+    align-items: center;
+  }
+  & img {
+    margin-right: 0.3rem;
+  }
+}
