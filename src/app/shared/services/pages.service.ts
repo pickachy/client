@@ -39,7 +39,7 @@ const GET_HOME_PAGE_DATA = gql`
 
 const GET_LOAN_IN_ADVANCE_SINGLE_PAGE_DATA = gql`
   query GetSingleLoanPageData($loanProviderId: Int!) {
-    seo(where: { url: { eq: "loans/mfo/$id" } }) {
+    seo(where: { url: { eq: "loans/mfo/$" } }) {
       title
       keywords
       description
