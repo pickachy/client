@@ -4,17 +4,27 @@ import { LoansInAdvancePageComponent } from './pages/loans/in-advance/loans-in-a
 import { PageNotFoundComponent } from '@shared/pages/page-not-found.component';
 import { NavigationRoute } from '@models/navigation-route.model';
 import { LoanInAdvanceSinglePageComponent } from './pages/loans/in-advance/loan-single/loan-in-advance-single-page.component';
-import { SingleNewsPageComponent } from './pages/single-news/single-news-page.component';
+import { SingleArticlePageComponent } from './pages/single-news/single-article-page.component';
+import { ArticlesPageComponent } from './pages/articles/articles-page.component';
 
 const routes: NavigationRoute[] = [
-  { path: '', component: LoansInAdvancePageComponent },
+  {
+    name: 'МФО',
+    path: '',
+    component: LoansInAdvancePageComponent
+  },
   {
     path: 'loans/mfo/:id',
     component: LoanInAdvanceSinglePageComponent
   },
   {
-    path: 'single-news',
-    component: SingleNewsPageComponent
+    name: 'Статьи',
+    path: 'news',
+    component: ArticlesPageComponent
+  },
+  {
+    path: 'news/:id',
+    component: SingleArticlePageComponent
   },
   { path: '**', component: PageNotFoundComponent }
 ];

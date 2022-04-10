@@ -6,14 +6,16 @@ import { LoansListComponent } from './loans/in-advance/sections/loans-list/loans
 import { LoanInAdvanceSinglePageComponent } from './loans/in-advance/loan-single/loan-in-advance-single-page.component';
 import { CalculatorComponent } from './loans/in-advance/loan-single/sections/calculator/calculator.component';
 import { AppRoutingModule } from '../app-routing.module';
-import { SingleNewsPageComponent } from './single-news/single-news-page.component';
-import { SingleNewsSidebarComponent } from './single-news/sections/sidebar/single-news-sidebar.component';
-import { SingleNewsSidebarItemComponent } from './single-news/sections/sidebar/single-news-sidebar-item/single-news-sidebar-item.component';
+import { SingleArticlePageComponent } from './single-news/single-article-page.component';
+// import { SingleNewsSidebarComponent } from './single-news/sections/sidebar/single-news-sidebar.component';
+// import { SingleNewsSidebarItemComponent } from './single-news/sections/sidebar/single-news-sidebar-item/single-news-sidebar-item.component';
 import { ShareMenuComponent } from './single-news/sections/share-menu/share-menu.component';
-import { SingleNewsTagsComponent } from './single-news/sections/tags/single-news-tags.component';
-import { SingleNewsCommentsComponent } from './single-news/sections/comments/single-news-comments.component';
-import { SingleNewsCountersComponent } from './single-news/sections/counters/single-news-counters.component';
-
+import { ArticlesPageComponent } from './articles/articles-page.component';
+import { SharedModule } from '@shared/shared.module';
+import { ClipboardModule } from '@angular/cdk/clipboard';
+// import { SingleNewsTagsComponent } from './single-news/sections/tags/single-news-tags.component';
+// import { SingleNewsCommentsComponent } from './single-news/sections/comments/single-news-comments.component';
+// import { SingleNewsCountersComponent } from './single-news/sections/counters/single-news-counters.component';
 
 @NgModule({
   declarations: [
@@ -21,16 +23,17 @@ import { SingleNewsCountersComponent } from './single-news/sections/counters/sin
     LoansListComponent,
     LoanInAdvanceSinglePageComponent,
     CalculatorComponent,
-    SingleNewsPageComponent,
-    SingleNewsSidebarComponent,
-    SingleNewsSidebarItemComponent,
+    SingleArticlePageComponent,
+    // SingleNewsSidebarComponent,
+    // SingleNewsSidebarItemComponent,
     ShareMenuComponent,
-    SingleNewsTagsComponent,
-    SingleNewsCommentsComponent,
-    SingleNewsCountersComponent
+    // SingleNewsTagsComponent,
+    // SingleNewsCommentsComponent,
+    // SingleNewsCountersComponent,
+    ArticlesPageComponent
   ],
-  exports: [LoansInAdvancePageComponent, LoanInAdvanceSinglePageComponent, SingleNewsPageComponent],
-  imports: [CommonModule, FormsModule, AppRoutingModule, ReactiveFormsModule],
+  exports: [LoansInAdvancePageComponent, LoanInAdvanceSinglePageComponent, SingleArticlePageComponent],
+  imports: [CommonModule, FormsModule, AppRoutingModule, ReactiveFormsModule, SharedModule, ClipboardModule],
   providers: []
 })
-export class PagesModule { }
+export class PagesModule {}

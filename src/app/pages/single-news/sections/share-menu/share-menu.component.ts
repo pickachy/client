@@ -1,4 +1,6 @@
 import { Component, ElementRef, HostListener } from '@angular/core';
+import { NotificationService } from '@shared/services/notifcation.service';
+import { Clipboard } from '@angular/cdk/clipboard';
 
 @Component({
   selector: 'app-page-share-menu',
@@ -7,12 +9,13 @@ import { Component, ElementRef, HostListener } from '@angular/core';
 })
 export class ShareMenuComponent {
   hidden: boolean = true;
+  currentLocation = window.location.href;
 
-  constructor(private eRef: ElementRef) {}
+  constructor(private eRef: ElementRef, private _notificationService: NotificationService, private _clipboard: Clipboard) {}
 
   @HostListener('document:click', ['$event'])
   clickOut(event: Event) {
-    if(!this.eRef.nativeElement.contains(event.target)) {
+    if (!this.eRef.nativeElement.contains(event.target)) {
       this.hidden = true;
     }
   }
@@ -21,4 +24,9 @@ export class ShareMenuComponent {
     this.hidden = !this.hidden;
   }
 
+  copyToClipboard(event: MouseEvent, text: string) {
+    this._clipboard.copy(text);
+    this._notificationService.success('Ссылка на статью скопирована');
+    this.hidden = true;
+  }
 }

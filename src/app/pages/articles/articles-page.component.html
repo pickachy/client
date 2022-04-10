@@ -1,0 +1,12 @@
+<section class="single-news-page">
+  <section class="content">
+    <section class="articles">
+      <article *ngFor="let article of articles">
+        <time [dateTime]="article.publicationDate.toISOString()">{{ getDateTimeString(article.publicationDate) }}</time>
+        <a routerLink="{{ article.id }}">
+          {{ article.title }}
+        </a>
+      </article>
+    </section>
+  </section>
+</section>
