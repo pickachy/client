@@ -1,0 +1,17 @@
+<div class="comments-wrapper">
+    <div class="comments-counter">{{value}} <span>коментариев</span></div>
+    <form class="comment-form" action="#"><textarea name="comment" cols="30" rows="1"
+            placeholder="Напишите комментарий..."></textarea> <button type="submit"><img
+                src="assets/images/single-news-page/arrow-right.svg" alt="submit"></button></form>
+    <ul class="comments-list">
+        <li *ngFor="let comment of comments" class="comment-item">
+            <p class="comment-author-name">{{comment.author}}</p>
+            <p class="comment-text">{{comment.text}}</p>
+            <button class="button-answer" type="button">Ответить</button>
+            <form class="comment-form hide" action="#"><textarea name="comment" cols="30" rows="1"
+                    placeholder="Напишите комментарий..."></textarea><button type="submit"><img
+                        src="assets/images/single-news-page/arrow-right.svg" alt="submit"></button>
+            </form>
+        </li>
+    </ul>
+</div>

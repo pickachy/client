@@ -1,0 +1,12 @@
+<ul class="breadcrumbs">
+  <li><a routerLink="/">Главная</a><span>\</span></li>
+  <ng-container *ngIf="crumbs">
+    <li *ngFor="let crumb of crumbs.crumbs">
+      <a routerLink="{{ crumb.link }}"> {{ crumb.label }}</a
+      ><span>\</span>
+    </li>
+  </ng-container>
+  <li>
+    {{ crumbs?.lastCrumbName }}
+  </li>
+</ul>
