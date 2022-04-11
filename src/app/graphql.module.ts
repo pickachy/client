@@ -1,5 +1,5 @@
 import { InjectionToken, NgModule } from '@angular/core';
-import { APOLLO_OPTIONS } from 'apollo-angular';
+import { APOLLO_OPTIONS, ApolloModule } from 'apollo-angular';
 import { ApolloClientOptions, InMemoryCache } from '@apollo/client/core';
 import { HttpLink } from 'apollo-angular/http';
 import { environment } from '../environments/environment';
@@ -41,6 +41,7 @@ export function createApollo(httpLink: HttpLink, cache: InMemoryCache, transferS
 }
 
 @NgModule({
+  imports: [ApolloModule],
   providers: [
     {
       provide: APOLLO_CACHE,
