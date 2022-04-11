@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://zemis.com.ua/sitemap.xml
+Disallow: /news
