@@ -1,5 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { getCurrentDate } from '@shared/tools';
 import { Loan } from '@core/models/loan.model';
 import { PagesService } from '@core/services/pages.service';
@@ -9,8 +8,7 @@ import { PagesService } from '@core/services/pages.service';
   templateUrl: './loans-in-advance-page.component.html',
   styleUrls: ['./loans-in-advance-page.component.scss']
 })
-export class LoansInAdvancePageComponent implements OnInit, OnDestroy {
-  private querySubscription?: Subscription;
+export class LoansInAdvancePageComponent implements OnInit {
   loans?: Loan[];
   loansCount: number = 0;
   currentDate: string = getCurrentDate();
@@ -18,14 +16,10 @@ export class LoansInAdvancePageComponent implements OnInit, OnDestroy {
   constructor(private pageService: PagesService) {}
 
   ngOnInit(): void {
-    this.querySubscription = this.pageService.getHomePageAggregation().subscribe(data => {
+    this.pageService.getHomePageAggregation().subscribe(data => {
       this.loans = data.loans;
       this.loansCount = data.loans.length;
       this.pageService.setSeoAndOg(data.seo);
     });
-  }
-
-  ngOnDestroy(): void {
-    this.querySubscription?.unsubscribe();
   }
 }

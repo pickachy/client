@@ -1,7 +1,7 @@
 <section class="single-news-page">
   <section class="content">
     <section class="articles">
-      <article *ngFor="let article of articles">
+      <article *ngFor="let article of articles; trackBy: articleTrackBy">
         <time [dateTime]="article.publicationDate.toISOString()">{{ getDateTimeString(article.publicationDate) }}</time>
         <a routerLink="{{ article.id }}">
           {{ article.title }}

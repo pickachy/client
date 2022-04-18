@@ -1,21 +1,33 @@
-import { Component, ElementRef, HostListener } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, HostListener, Inject, Optional } from '@angular/core';
 import { Clipboard } from '@angular/cdk/clipboard';
 import { NotificationService } from '@core/services/notifcation.service';
+import { Router } from '@angular/router';
+import { isBrowser } from '@shared/tools';
 
 @Component({
   selector: 'app-page-share-menu',
   templateUrl: './share-menu.component.html',
-  styleUrls: ['./share-menu.component.scss']
+  styleUrls: ['./share-menu.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ShareMenuComponent {
   hidden: boolean = true;
-  currentLocation = window.location.href;
+  currentLocation: string;
 
-  constructor(private eRef: ElementRef, private _notificationService: NotificationService, private _clipboard: Clipboard) {}
+  constructor(
+    private _router: Router,
+    private _eRef: ElementRef,
+    private _notificationService: NotificationService,
+    private _clipboard: Clipboard,
+    @Inject('HOST') @Optional() private hostUrl?: string
+  ) {
+    //if ssr use injection else browser's location
+    this.currentLocation = isBrowser ? window.location.href : hostUrl + _router.url;
+  }
 
   @HostListener('document:click', ['$event'])
   clickOut(event: Event) {
-    if (!this.eRef.nativeElement.contains(event.target)) {
+    if (!this._eRef.nativeElement.contains(event.target)) {
       this.hidden = true;
     }
   }

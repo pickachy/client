@@ -1,13 +1,13 @@
 <section class="loans">
   <section class="content">
     <section class="loans-list">
-      <article class="loans-list-item" *ngFor="let item of data">
+      <article class="loans-list-item" *ngFor="let item of data; trackBy: loanTrackBy">
         <figure class="image-wrapper">
           <img
             height="35px"
             width="auto"
             class="lazyload"
-            [attr.data-src]="'assets/images/loans-page/loans-in-advance-page/'+item.providerTypeId + '.' + item.providerImageExtension"
+            [attr.data-src]="'assets/images/loans-page/loans-in-advance-page/' + item.providerTypeId + '.' + item.providerImageExtension"
             alt="{{ item.providerName }}"
           />
         </figure>

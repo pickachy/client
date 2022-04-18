@@ -8,7 +8,9 @@
 .ngx-toastr {
   font-size: 1.2rem;
 }
-
+.toast-success {
+  background-color: var(--main-green);
+}
 iframe {
   border: none;
 }
