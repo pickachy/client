@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { getCurrentDate } from '@shared/tools';
 import { Loan } from '@core/models/loan.model';
 import { PagesService } from '@core/services/pages.service';
@@ -6,7 +6,8 @@ import { PagesService } from '@core/services/pages.service';
 @Component({
   selector: 'app-page-loans-in-advance',
   templateUrl: './loans-in-advance-page.component.html',
-  styleUrls: ['./loans-in-advance-page.component.scss']
+  styleUrls: ['./loans-in-advance-page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class LoansInAdvancePageComponent implements OnInit {
   loans?: Loan[];

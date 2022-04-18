@@ -1,12 +1,11 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavigationService } from '@core/services/navigation.service';
 import { NavigationRoute } from '@core/models/navigation-route.model';
 
 @Component({
   selector: 'app-header-navigation',
   templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent {
   navigationRoutes: NavigationRoute[];
