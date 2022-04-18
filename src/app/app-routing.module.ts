@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { LoansModule } from './features/loans/loans.module';
 import { NavigationRoute } from '@core/models/navigation-route.model';
+import { ArticlesModule } from './features/articles/articles.module';
+import { NotFoundModule } from './features/notfound/notfound.module';
 
 const routes: NavigationRoute[] = [
   {
@@ -12,11 +14,11 @@ const routes: NavigationRoute[] = [
   {
     name: 'Статьи',
     path: 'news',
-    loadChildren: () => import('./features/articles/articles.module').then(m => m.ArticlesModule)
+    loadChildren: () => ArticlesModule
   },
   {
     path: '**',
-    loadChildren: () => import('./features/notfound/notfound.module').then(m => m.NotFoundModule)
+    loadChildren: () => NotFoundModule
   }
 ];
 
