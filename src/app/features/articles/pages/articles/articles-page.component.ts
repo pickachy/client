@@ -10,7 +10,6 @@ import { getDateTimeString } from '@shared/tools/dateUtils';
 })
 export class ArticlesPageComponent implements OnInit {
   articles: Article[] = [];
-
   constructor(private _pagesService: PagesService) {}
 
   ngOnInit(): void {
