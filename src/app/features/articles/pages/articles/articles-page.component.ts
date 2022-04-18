@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { PagesService } from '@core/services/pages.service';
 import { Article } from '@core/models/article.model';
 import { getDateTimeString } from '@shared/tools/dateUtils';
@@ -6,7 +6,8 @@ import { getDateTimeString } from '@shared/tools/dateUtils';
 @Component({
   selector: 'app-page-articles',
   templateUrl: './articles-page.component.html',
-  styleUrls: ['./articles-page.component.scss']
+  styleUrls: ['./articles-page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class ArticlesPageComponent implements OnInit {
   articles: Article[] = [];

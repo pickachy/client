@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { addDays, getDateDayWithMonthGeneric } from '@shared/tools';
@@ -6,8 +6,7 @@ import { addDays, getDateDayWithMonthGeneric } from '@shared/tools';
 @Component({
   selector: 'app-page-loans-in-advance-single-calculator',
   templateUrl: './calculator.component.html',
-  styleUrls: ['./calculator.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./calculator.component.scss']
 })
 export class CalculatorComponent implements OnChanges, OnInit, OnDestroy {
   @Input() amountFrom: number = 0;
