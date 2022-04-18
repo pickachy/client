@@ -1,32 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { LoansInAdvancePageComponent } from './pages/loans/in-advance/loans-in-advance-page.component';
-import { PageNotFoundComponent } from '@shared/pages/page-not-found.component';
-import { NavigationRoute } from '@models/navigation-route.model';
-import { LoanInAdvanceSinglePageComponent } from './pages/loans/in-advance/loan-single/loan-in-advance-single-page.component';
-import { SingleArticlePageComponent } from './pages/single-news/single-article-page.component';
-import { ArticlesPageComponent } from './pages/articles/articles-page.component';
+import { LoansModule } from './features/loans/loans.module';
+import { NavigationRoute } from '@core/models/navigation-route.model';
 
 const routes: NavigationRoute[] = [
   {
     name: 'МФО',
     path: '',
-    component: LoansInAdvancePageComponent
-  },
-  {
-    path: 'loans/mfo/:id',
-    component: LoanInAdvanceSinglePageComponent
+    loadChildren: () => LoansModule
   },
   {
     name: 'Статьи',
     path: 'news',
-    component: ArticlesPageComponent
+    loadChildren: () => import('./features/articles/articles.module').then(m => m.ArticlesModule)
   },
   {
-    path: 'news/:id',
-    component: SingleArticlePageComponent
-  },
-  { path: '**', component: PageNotFoundComponent }
+    path: '**',
+    loadChildren: () => import('./features/notfound/notfound.module').then(m => m.NotFoundModule)
+  }
 ];
 
 @NgModule({

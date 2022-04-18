@@ -2,17 +2,15 @@ import { NgModule } from '@angular/core';
 import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SharedModule } from '@shared/shared.module';
-import { PagesModule } from './pages/pages.module';
-import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
-import { PagesService } from '@shared/services/pages.service';
 import { NgProgressModule } from 'ngx-progressbar';
 import { NgProgressHttpModule } from 'ngx-progressbar/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { GraphQLModule } from '@shared/modules/graphql.module';
+import { CoreModule } from '@core/core.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,8 +19,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserTransferStateModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    SharedModule,
-    PagesModule,
     GraphQLModule,
     HttpClientModule,
     NgProgressModule.withConfig({
@@ -36,9 +32,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    CoreModule
   ],
-  providers: [PagesService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
