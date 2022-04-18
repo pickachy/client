@@ -22,4 +22,8 @@ export class ArticlesPageComponent implements OnInit {
   getDateTimeString(date: Date) {
     return getDateTimeString(date);
   }
+
+  articleTrackBy(_: number, article: Article) {
+    return article.id;
+  }
 }
