@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { buildReferralLink } from '@shared/tools';
@@ -8,7 +8,8 @@ import { Loan } from '@core/models/loan.model';
 @Component({
   selector: 'app-page-loans-in-advance-single',
   templateUrl: './loan-in-advance-single-page.component.html',
-  styleUrls: ['./loan-in-advance-single-page.component.scss']
+  styleUrls: ['./loan-in-advance-single-page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class LoanInAdvanceSinglePageComponent implements OnInit, OnDestroy {
   data?: Loan;
