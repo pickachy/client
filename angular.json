@@ -35,7 +35,9 @@
             ],
             "styles": ["src/styles.scss"],
             "sourceMap": false,
-            "scripts": [],
+            "scripts": [
+              "node_modules/lazysizes/lazysizes.min.js"
+            ],
             "customWebpackConfig": {
               "path": "./webpack.config.js"
             },

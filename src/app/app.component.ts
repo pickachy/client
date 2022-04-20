@@ -3,8 +3,6 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { isBrowser } from '@shared/tools/environmentUtils';
-import 'lazysizes';
-import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 import { getDaysSinceTimestamp } from '@shared/tools/dateUtils';
 
 @Component({
