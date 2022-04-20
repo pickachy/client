@@ -1,12 +1,11 @@
-import { ChangeDetectionStrategy, Component, Inject, Input, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, Input, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 export type AdaptTo = 'mobile' | 'desktop';
 
 @Component({
   selector: 'app-adapt',
-  templateUrl: './adapt.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  templateUrl: './adapt.component.html'
 })
 export class AdaptComponent implements OnInit, OnDestroy {
   @Input()

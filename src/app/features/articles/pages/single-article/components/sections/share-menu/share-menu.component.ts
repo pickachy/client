@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ElementRef, HostListener, Inject, Optional } from '@angular/core';
+import { Component, ElementRef, HostListener, Inject, Optional } from '@angular/core';
 import { Clipboard } from '@angular/cdk/clipboard';
 import { NotificationService } from '@core/services/notifcation.service';
 import { Router } from '@angular/router';
@@ -7,8 +7,7 @@ import { isBrowser } from '@shared/tools';
 @Component({
   selector: 'app-page-share-menu',
   templateUrl: './share-menu.component.html',
-  styleUrls: ['./share-menu.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./share-menu.component.scss']
 })
 export class ShareMenuComponent {
   hidden: boolean = true;

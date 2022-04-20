@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { getDateTimeString } from '@shared/tools/dateUtils';
 import { PagesService } from '@core/services/pages.service';
@@ -8,7 +8,8 @@ import { Breadcrumbs } from '@core/models/breadcrumbs.model';
 @Component({
   selector: 'app-page-single-news',
   templateUrl: './single-article-page.component.html',
-  styleUrls: ['./single-article-page.component.scss']
+  styleUrls: ['./single-article-page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class SingleArticlePageComponent implements OnInit {
   constructor(private _pagesService: PagesService, private _activateRoute: ActivatedRoute) {}
