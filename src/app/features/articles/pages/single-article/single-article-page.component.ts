@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { getDateTimeString } from '@shared/tools/dateUtils';
 import { PagesService } from '@core/services/pages.service';
 import { Article } from '@core/models/article.model';
 import { Breadcrumbs } from '@core/models/breadcrumbs.model';
@@ -29,9 +28,6 @@ export class SingleArticlePageComponent implements OnInit {
     });
   }
 
-  getDateTimeString(date?: Date): string {
-    return date ? getDateTimeString(date) : '';
-  }
   // tags = [
   //   { href: '#', text: 'Кредиты' },
   //   { href: '#', text: 'Банки' },

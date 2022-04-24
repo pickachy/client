@@ -9,7 +9,10 @@
     "serve:ssr": "node dist/zemis/server/main.js",
     "build:ssr": "ng build && ng run zemis:server && npm run compress",
     "prerender": "node --max-old-space-size=1500 ./node_modules/@angular/cli/bin/ng run zemis:prerender && npm run compress",
-    "compress": "gzipper compress --gzip --brotli --gzip-level=9 --remove-larger --exclude=woff2  dist/zemis/browser"
+    "compress": "gzipper compress --gzip --brotli --gzip-level=9 --remove-larger --exclude=woff2  dist/zemis/browser",
+    "source-map-explorer:build": "ng build --source-map",
+    "source-map-explorer:show": "./node_modules/.bin/source-map-explorer dist/zemis/browser/*",
+    "source-map-explorer:start": "npm run source-map-explorer:build && npm run source-map-explorer:show"
   },
   "private": true,
   "dependencies": {
@@ -62,6 +65,7 @@
     "gzipper": "7.1.0",
     "ngx-unused-css": "4.0.0-1",
     "prettier": "2.6.2",
+    "source-map-explorer": "^2.5.2",
     "typescript": "4.4.4"
   }
 }

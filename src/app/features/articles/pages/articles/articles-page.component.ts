@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { PagesService } from '@core/services/pages.service';
 import { Article } from '@core/models/article.model';
-import { getDateTimeString } from '@shared/tools/dateUtils';
 
 @Component({
   selector: 'app-page-articles',
@@ -18,10 +17,6 @@ export class ArticlesPageComponent implements OnInit {
       this.articles = data.articles;
       this._pagesService.setSeoAndOg(data.seo);
     });
-  }
-
-  getDateTimeString(date: Date) {
-    return getDateTimeString(date);
   }
 
   articleTrackBy(_: number, article: Article) {
