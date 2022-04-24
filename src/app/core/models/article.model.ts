@@ -1,3 +1,5 @@
+import { getDateTimeString } from '@shared/tools';
+
 export interface GQLArticlePayload {
   id: number;
   title: string;
@@ -18,27 +20,34 @@ export class Article {
     public id:number,
     public title: string,
     public htmlBody: string,
-    public publicationDate: Date
+    public publicationDate: Date,
+    public publicationDateString: string
   ) {
   }
 
   public static convertArticle(payload: GQLArticlePayload): Article{
+    const publicationDate = new Date(payload.publicationDate);
     return new Article(
       payload.id,
       payload.title,
       payload.htmlBody,
-      new Date(payload.publicationDate)
+      publicationDate,
+      getDateTimeString(publicationDate)
     );
   }
 
   public static convertArticles(payload: GQLArticlePayload[]): Article[]{
-    return payload.map(payload => new Article(
-      payload.id,
-      payload.title,
-      payload.htmlBody,
-      new Date(payload.publicationDate)
-    ));
-  }
+    return payload.map(payload => {
+      const publicationDate = new Date(payload.publicationDate);
+      return new Article(
+        payload.id,
+        payload.title,
+        payload.htmlBody,
+        publicationDate,
+        getDateTimeString(publicationDate)
+      );
+    });
+  };
 
 
 }

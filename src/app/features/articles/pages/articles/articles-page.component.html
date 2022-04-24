@@ -2,7 +2,7 @@
   <section class="content">
     <section class="articles">
       <article *ngFor="let article of articles; trackBy: articleTrackBy">
-        <time [dateTime]="article.publicationDate.toISOString()">{{ getDateTimeString(article.publicationDate) }}</time>
+        <time [dateTime]="article.publicationDate.toISOString()">{{ article.publicationDateString }}</time>
         <a routerLink="{{ article.id }}">
           {{ article.title }}
         </a>
