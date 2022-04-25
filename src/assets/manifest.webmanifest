@@ -4,6 +4,7 @@
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
+  "start_url": "https://zemis.com.ua",
   "icons": [
     {
       "src": "images/pwa-icons/icon-72x72.png",
@@ -19,8 +20,7 @@
     {
       "src": "images/pwa-icons/icon-512x512.png",
       "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable any"
+      "type": "image/png"
     }
   ]
 }
