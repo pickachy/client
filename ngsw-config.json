@@ -8,6 +8,7 @@
       "resources": {
         "files": [
           "/manifest.webmanifest",
+          "/index.html",
           "/*.css",
           "/*.js"
         ]
@@ -19,7 +20,7 @@
       "updateMode": "prefetch",
       "resources": {
         "files": [
-          "/assets/**",
+          "/assets/images/**",
           "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
         ]
       }
