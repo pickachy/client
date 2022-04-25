@@ -9,6 +9,7 @@
         "files": [
           "/manifest.webmanifest",
           "/index.html",
+          "/assets/images/favicon.ico",
           "/*.css",
           "/*.js"
         ]
@@ -20,7 +21,7 @@
       "updateMode": "prefetch",
       "resources": {
         "files": [
-          "/*.(eot|svg|cur|ico|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
+          "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
         ]
       }
     }
