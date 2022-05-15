@@ -8,7 +8,7 @@ import { AppServerModule } from './src/main.server';
 import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
 
-const distFolder = join(process.cwd(), 'dist/zemis/browser');
+const distFolder = join(process.cwd(), 'dist/pickachy/browser');
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
