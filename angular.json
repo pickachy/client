@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "zemis": {
+    "pickachy": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -21,7 +21,7 @@
         "build": {
           "builder": "@angular-builders/custom-webpack:browser",
           "options": {
-            "outputPath": "dist/zemis/browser",
+            "outputPath": "dist/pickachy/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -79,14 +79,14 @@
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "zemis:build"
+            "browserTarget": "pickachy:build"
           },
           "configurations": {
             "development": {
-              "browserTarget": "zemis:build:development"
+              "browserTarget": "pickachy:build:development"
             },
             "production": {
-              "browserTarget": "zemis:build:production"
+              "browserTarget": "pickachy:build:production"
             }
           },
           "defaultConfiguration": "development"
@@ -100,7 +100,7 @@
         "server": {
           "builder": "@angular-builders/custom-webpack:server",
           "options": {
-            "outputPath": "dist/zemis/server",
+            "outputPath": "dist/pickachy/server",
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json",
             "inlineStyleLanguage": "scss"
@@ -126,17 +126,17 @@
         "serve-ssr": {
           "builder": "@nguniversal/builders:ssr-dev-server",
           "options": {
-            "browserTarget": "zemis:build",
-            "serverTarget": "zemis:server"
+            "browserTarget": "pickachy:build",
+            "serverTarget": "pickachy:server"
           },
           "configurations": {
             "development": {
-              "browserTarget": "zemis:build:development",
-              "serverTarget": "zemis:server:development"
+              "browserTarget": "pickachy:build:development",
+              "serverTarget": "pickachy:server:development"
             },
             "production": {
-              "browserTarget": "zemis:build:production",
-              "serverTarget": "zemis:server:production"
+              "browserTarget": "pickachy:build:production",
+              "serverTarget": "pickachy:server:production"
             }
           },
           "defaultConfiguration": "development"
@@ -144,8 +144,8 @@
         "prerender": {
           "builder": "@nguniversal/builders:prerender",
           "options": {
-            "browserTarget": "zemis:build:production",
-            "serverTarget": "zemis:server:production",
+            "browserTarget": "pickachy:build:production",
+            "serverTarget": "pickachy:server:production",
             "routes": [
               "/",
               "loans/mfo/1",
@@ -186,7 +186,7 @@
       }
     }
   },
-  "defaultProject": "zemis",
+  "defaultProject": "pickachy",
   "cli": {
     "defaultCollection": "@angular-eslint/schematics"
   }
