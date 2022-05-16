@@ -15,7 +15,7 @@ export class ArticlesPageComponent implements OnInit {
   ngOnInit(): void {
     this._pagesService.getArticlesPageAggregation().subscribe(data => {
       this.articles = data.articles;
-      this._pagesService.setSeoAndOg(data.seo);
+      this._pagesService.setSeoAndOg(data.page);
     });
   }
 
