@@ -1,4 +1,5 @@
 import { Image } from './image.model';
+import { GQLPagePayload } from '@core/models/page.model';
 
 export enum LoanProviderType {
   CREDIT7 = 1,
@@ -60,6 +61,7 @@ export interface GQLLoanPayload {
   initialDayRate: number;
   processingTimeMinutes: number;
   termDays: number;
+  page: GQLPagePayload;
 }
 
 export interface Loan extends GQLLoanPayload{}
