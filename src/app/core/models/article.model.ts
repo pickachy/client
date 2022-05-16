@@ -1,5 +1,5 @@
 import { getDateTimeString } from '@shared/tools';
-import { GQLPagePayload } from '@core/models/page.model';
+import { GQLPagePayload, Page } from '@core/models/page.model';
 
 export interface GQLArticlePayload {
   id: number;
@@ -23,18 +23,21 @@ export class Article {
     public title: string,
     public htmlBody: string,
     public publicationDate: Date,
-    public publicationDateString: string
+    public publicationDateString: string,
+    public page: Page
   ) {
   }
 
   public static convertArticle(payload: GQLArticlePayload): Article{
     const publicationDate = new Date(payload.publicationDate);
+    console.log(payload.page);
     return new Article(
       payload.id,
       payload.title,
       payload.htmlBody,
       publicationDate,
-      getDateTimeString(publicationDate)
+      getDateTimeString(publicationDate),
+      payload.page
     );
   }
 
