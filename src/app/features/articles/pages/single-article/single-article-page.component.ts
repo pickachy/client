@@ -23,8 +23,8 @@ export class SingleArticlePageComponent implements OnInit {
     const id = Number(this._activateRoute.snapshot.paramMap.get('id'));
     this._pagesService.getSingleArticlePageAggregation(id).subscribe(data => {
       this.article = data.article;
-      this.breadcrumbs.lastCrumbName = this.article!.title;
-      this._pagesService.setSeoAndOg(data.seo);
+      this.breadcrumbs.lastCrumbName = this.article.title;
+      this._pagesService.setSeoAndOg(data.page);
     });
   }
 

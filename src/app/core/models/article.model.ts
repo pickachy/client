@@ -1,10 +1,12 @@
 import { getDateTimeString } from '@shared/tools';
+import { GQLPagePayload } from '@core/models/page.model';
 
 export interface GQLArticlePayload {
   id: number;
   title: string;
   htmlBody: string;
   publicationDate: string;
+  page: GQLPagePayload;
 }
 
 export interface GQLGetArticleByIdDtoPayload {
@@ -37,17 +39,6 @@ export class Article {
   }
 
   public static convertArticles(payload: GQLArticlePayload[]): Article[]{
-    return payload.map(payload => {
-      const publicationDate = new Date(payload.publicationDate);
-      return new Article(
-        payload.id,
-        payload.title,
-        payload.htmlBody,
-        publicationDate,
-        getDateTimeString(publicationDate)
-      );
-    });
+    return payload.map(this.convertArticle);
   };
-
-
 }

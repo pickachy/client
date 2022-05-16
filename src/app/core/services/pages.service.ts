@@ -7,15 +7,14 @@ import {
   ArticleSinglePageData,
   ArticlesPageData,
   GQLArticleSinglePageDataPayload, GQLArticlesPageDataPayload,
-  GQLHomePageDataPayload, GQLSingleLoanInAdvancePageDataPayload
+  GQLHomePageDataPayload, GQLSingleLoanInAdvancePageDataPayload, Page
 } from '@core/models/page.model';
 import { LoanProviderType } from '@core/models/loan.model';
 import { Article } from '@core/models/article.model';
-import { Seo } from '@core/models/seo.model';
 
 const GET_HOME_PAGE_DATA = gql`
   query {
-    seo(where: { url: { eq: "/" } }) {
+    page(where: { urlSlug: { eq: "/" } }) {
       title
       keywords
       description
@@ -37,11 +36,6 @@ const GET_HOME_PAGE_DATA = gql`
 
 const GET_LOAN_IN_ADVANCE_SINGLE_PAGE_DATA = gql`
   query GetSingleLoanPageData($loanProviderId: Int!) {
-    seo(where: { url: { eq: "loans/mfo/$" } }) {
-      title
-      keywords
-      description
-    }
     loan(where: { providerTypeId: { eq: $loanProviderId } }) {
       providerTypeId
       providerImageExtension
@@ -63,6 +57,11 @@ const GET_LOAN_IN_ADVANCE_SINGLE_PAGE_DATA = gql`
       termDays
       withdrawalMethodsDescription
       receiversDescription
+      page {
+        title
+        keywords
+        description
+      }
     }
   }
 `;
@@ -74,7 +73,7 @@ const GET_ARTICLES_PAGE_DATA = gql`
       title
       publicationDate
     }
-    seo(where: { url: { eq: "news" } }) {
+    page(where: { urlSlug: { eq: "news" } }) {
       title
       keywords
       description
@@ -89,11 +88,11 @@ const GET_ARTICLE_SINGLE_PAGE_DATA = gql`
       title
       htmlBody
       publicationDate
-    }
-    seo(where: { url: { eq: "news/$id" } }) {
-      title
-      keywords
-      description
+      page {
+        title
+        keywords
+        description
+      }
     }
   }
 `;
@@ -107,13 +106,13 @@ export class PagesService {
   public getArticlesPageAggregation(): Observable<ArticlesPageData> {
     return this.apollo
       .query<GQLArticlesPageDataPayload>({ query: GET_ARTICLES_PAGE_DATA })
-      .pipe(map(result => ({ seo: result.data.seo, articles: Article.convertArticles(result.data.articles) })));
+      .pipe(map(result => ({ page: result.data.page, articles: Article.convertArticles(result.data.articles) })));
   }
 
   public getSingleArticlePageAggregation(id: number): Observable<ArticleSinglePageData> {
     return this.apollo
       .query<GQLArticleSinglePageDataPayload>({ query: GET_ARTICLE_SINGLE_PAGE_DATA, variables: { id } })
-      .pipe(map(result => ({ seo: result.data.seo, article: Article.convertArticle(result.data.article) })));
+      .pipe(map(result => ({ page: result.data.article.page, article: Article.convertArticle(result.data.article) })));
   }
 
   public getHomePageAggregation(): Observable<GQLHomePageDataPayload> {
@@ -126,10 +125,10 @@ export class PagesService {
       .pipe(map(result => result.data));
   }
 
-  public setSeoAndOg(seo: Seo) {
-    this.title.setTitle(seo.title);
-    this.meta.updateTag({ name: 'description', content: seo.description });
-    this.meta.updateTag({ name: 'keywords', content: seo.keywords });
-    this.meta.updateTag({ property: 'og:description', content: seo.description });
+  public setSeoAndOg(page: Page) {
+    this.title.setTitle(page.title);
+    this.meta.updateTag({ name: 'description', content: page.description });
+    this.meta.updateTag({ name: 'keywords', content: page.keywords });
+    this.meta.updateTag({ property: 'og:description', content: page.description });
   }
 }

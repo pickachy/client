@@ -1,20 +1,28 @@
-import { GQLSeoPayload, Seo } from './seo.model';
 import { GQLLoanPayload } from './loan.model';
 import { Article, GQLArticlePayload } from './article.model';
 
-interface GQLPageDataPayload {
-  seo: GQLSeoPayload;
+export interface GQLPagePayload {
+  title: string;
+  description: string;
+  keywords: string;
 }
 
-interface PageDataPayload {
-  seo: Seo;
+export interface Page extends GQLPagePayload {}
+
+
+export interface GQLPageDataPayload {
+  page: GQLPagePayload;
+}
+
+export interface PageDataPayload {
+  page: Page;
 }
 
 export interface GQLHomePageDataPayload extends GQLPageDataPayload {
   loans: GQLLoanPayload[];
 }
 
-export interface GQLSingleLoanInAdvancePageDataPayload extends GQLPageDataPayload {
+export interface GQLSingleLoanInAdvancePageDataPayload {
   loan: GQLLoanPayload;
 }
 
@@ -22,14 +30,15 @@ export interface GQLArticlesPageDataPayload extends GQLPageDataPayload {
   articles: GQLArticlePayload[];
 }
 
-export interface GQLArticleSinglePageDataPayload extends GQLPageDataPayload {
+export interface GQLArticleSinglePageDataPayload {
   article: GQLArticlePayload;
 }
 
-export interface ArticlesPageData extends PageDataPayload{
+export interface ArticlesPageData extends PageDataPayload {
   articles: Article[];
 }
 
-export interface ArticleSinglePageData extends PageDataPayload{
+export interface ArticleSinglePageData {
   article: Article;
+  page: Page;
 }
