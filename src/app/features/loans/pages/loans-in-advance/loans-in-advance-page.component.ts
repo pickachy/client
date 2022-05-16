@@ -20,7 +20,7 @@ export class LoansInAdvancePageComponent implements OnInit {
     this.pageService.getHomePageAggregation().subscribe(data => {
       this.loans = data.loans;
       this.loansCount = data.loans.length;
-      this.pageService.setSeoAndOg(data.seo);
+      this.pageService.setSeoAndOg(data.page);
     });
   }
 }

@@ -22,7 +22,7 @@ export class LoanInAdvanceSinglePageComponent implements OnInit, OnDestroy {
     this.querySubscription = this.pagesService
       .getSingleLoanInAdvancePageAggregation(Number(this.activateRoute.snapshot.params['id']))
       .subscribe(data => {
-        this.pagesService.setSeoAndOg(data.seo);
+        this.pagesService.setSeoAndOg(data.loan.page);
         this.data = data.loan;
       });
   }
