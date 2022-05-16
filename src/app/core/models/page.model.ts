@@ -2,6 +2,7 @@ import { GQLLoanPayload } from './loan.model';
 import { Article, GQLArticlePayload } from './article.model';
 
 export interface GQLPagePayload {
+  urlSlug: string;
   title: string;
   description: string;
   keywords: string;

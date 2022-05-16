@@ -20,8 +20,8 @@ export class SingleArticlePageComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    const id = Number(this._activateRoute.snapshot.paramMap.get('id'));
-    this._pagesService.getSingleArticlePageAggregation(id).subscribe(data => {
+    const urlSlug = String(this._activateRoute.snapshot.paramMap.get('urlSlug'));
+    this._pagesService.getSingleArticlePageAggregation(urlSlug).subscribe(data => {
       this.article = data.article;
       this.breadcrumbs.lastCrumbName = this.article.title;
       this._pagesService.setSeoAndOg(data.page);

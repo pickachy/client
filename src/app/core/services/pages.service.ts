@@ -58,6 +58,7 @@ const GET_LOAN_IN_ADVANCE_SINGLE_PAGE_DATA = gql`
       withdrawalMethodsDescription
       receiversDescription
       page {
+        urlSlug
         title
         keywords
         description
@@ -72,6 +73,9 @@ const GET_ARTICLES_PAGE_DATA = gql`
       id
       title
       publicationDate
+      page {
+        urlSlug
+      }
     }
     page(where: { urlSlug: { eq: "news" } }) {
       title
@@ -82,8 +86,8 @@ const GET_ARTICLES_PAGE_DATA = gql`
 `;
 
 const GET_ARTICLE_SINGLE_PAGE_DATA = gql`
-  query GetArticleSinglePageData($id: Int!) {
-    article(where: { id: { eq: $id } }) {
+  query GetArticleSinglePageData($urlSlug: String!) {
+    article(where: { page: { urlSlug: {eq: $urlSlug} } }) {
       id
       title
       htmlBody
@@ -109,9 +113,9 @@ export class PagesService {
       .pipe(map(result => ({ page: result.data.page, articles: Article.convertArticles(result.data.articles) })));
   }
 
-  public getSingleArticlePageAggregation(id: number): Observable<ArticleSinglePageData> {
+  public getSingleArticlePageAggregation(urlSlug: string): Observable<ArticleSinglePageData> {
     return this.apollo
-      .query<GQLArticleSinglePageDataPayload>({ query: GET_ARTICLE_SINGLE_PAGE_DATA, variables: { id } })
+      .query<GQLArticleSinglePageDataPayload>({ query: GET_ARTICLE_SINGLE_PAGE_DATA, variables: { urlSlug } })
       .pipe(map(result => ({ page: result.data.article.page, article: Article.convertArticle(result.data.article) })));
   }
 

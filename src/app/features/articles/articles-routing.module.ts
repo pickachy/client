@@ -11,7 +11,7 @@ const routes: NavigationRoute[] = [
     component: ArticlesPageComponent
   },
   {
-    path: ':id',
+    path: ':urlSlug',
     component: SingleArticlePageComponent
   }
 ];
