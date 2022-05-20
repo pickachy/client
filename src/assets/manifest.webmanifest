@@ -4,7 +4,7 @@
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
-  "start_url": "https://zemis.com.ua",
+  "start_url": "https://pickachy.com",
   "icons": [
     {
       "src": "images/pwa-icons/icon-72x72.png",
