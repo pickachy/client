@@ -30,7 +30,6 @@ export class Article {
 
   public static convertArticle(payload: GQLArticlePayload): Article{
     const publicationDate = new Date(payload.publicationDate);
-    console.log(payload.page);
     return new Article(
       payload.id,
       payload.title,
