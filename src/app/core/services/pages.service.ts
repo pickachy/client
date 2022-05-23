@@ -11,6 +11,7 @@ import {
 } from '@core/models/page.model';
 import { LoanProviderType } from '@core/models/loan.model';
 import { Article } from '@core/models/article.model';
+import { isBrowser } from '@shared/tools';
 
 const GET_HOME_PAGE_DATA = gql`
   query {
@@ -134,5 +135,7 @@ export class PagesService {
     this.meta.updateTag({ name: 'description', content: page.description });
     this.meta.updateTag({ name: 'keywords', content: page.keywords });
     this.meta.updateTag({ property: 'og:description', content: page.description });
+    this.meta.updateTag({ property: 'og:title', content: page.title });
+    this.meta.updateTag({ property: 'og:url', content: isBrowser ? window.location.href : ''});
   }
 }
