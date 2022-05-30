@@ -1,6 +1,6 @@
 @import 'fonts';
 @import 'app/shared/styles/variables';
-/*@import 'app/shared/styles/select-styles';*/
+@import 'app/shared/styles/select-styles';
 @import 'app/shared/styles/media-queries';
 
 * {
@@ -12,7 +12,9 @@
     outline: none !important;
   }
 }
-
+input{
+  font-family: 'Roboto', serif;
+}
 html {
   font-family: 'Roboto', serif;
   font-size: 62.5%;

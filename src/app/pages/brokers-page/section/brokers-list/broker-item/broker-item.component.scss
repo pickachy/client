@@ -62,16 +62,11 @@ button {
   & li {
     display: flex;
     padding: 0.5rem;
-    justify-content: space-between;
     align-items: center;
     font-size: 1.4rem;
     line-height: 1.6rem;
     font-weight: 500;
     color: #373f41;
-    & p {
-      font-weight: 400;
-      color: #737b7d;
-    }
     & img {
       margin-right: 0.5rem;
     }
@@ -242,7 +237,7 @@ button {
     background-color: #111;
   }
 }
-@include desktop-computer {
+@include desktop-normal {
   .broker-app-preview {
     margin-right: 1.7rem;
   }
@@ -259,7 +254,7 @@ button {
   }
 
   .conditions-list {
-  
+
     & li:nth-last-child(-n + 3) {
       max-width: 20rem;
     }

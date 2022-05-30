@@ -1,49 +1,52 @@
 <section class="brokers-page">
-    <section class="content">
-        <section class="brokers">
-            <section class="hero">
-                <div class="brokers-page-logo">
-                    <div class="logo-img"></div>
-                    <h2><span> Брокеры</span> в Украине</h2>
-                </div>
-                <div class="brokers-filters"><button type="button">Фильтр </button>
-                    <div class="filters">
-                        <div class="lists-group">
-                            <div class="sort-by">
-                                <h3>Сортировать по</h3>
-                                <p>Самые низкие комиссии</p>
-                            </div>
-                            <div class="Country">
-                                <h3>Страна</h3>
-                                <p>Украина</p>
-                            </div>
-                        </div>
-                        <div class="radio-buttons-group">
-                            <ul class="radio-buttons-list">
-                                <li><input class="custom-checkbox" type="checkbox" id="choice1" name="item"
-                                        value="free-account">
-                                    <label for="choice1">Бесплатное открытие счета</label>
-                                </li>
-                                <li><input class="custom-checkbox" type="checkbox" id="choice2" name="item2"
-                                        value="automatic-following">
-                                    <label for="choice2">Автоследование</label>
-                                </li>
-                                <li><input class="custom-checkbox" type="checkbox" id="choice3" name="item3"
-                                        value="ipo">
-                                    <label for="choice3">Участие в IPO</label>
-                                </li>
-                                <li><input class="custom-checkbox" type="checkbox" id="choice4" name="item4"
-                                        value="free-service">
-                                    <label for="choice4">Бесплатное обслуживание</label>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="investment"><textarea type="text" placeholder="Сумма инвестиций" cols="1"
-                                rows="1"></textarea></div>
-                    </div>
-                </div>
-            </section>
-            <app-page-brokers-list></app-page-brokers-list>
-        </section>
+  <section class="content">
+    <section class="brokers">
+      <section class="hero">
+        <div class="brokers-page-logo">
+          <div class="logo-img"></div>
+          <h2><span> Брокеры</span> в Украине</h2>
+        </div>
+        <div class="brokers-filters">
+          <div class="filters">
+            <div class="lists-group">
+              <div class="sort-by">
+                <p>Сортировать по</p>
+                <ng-select [items]="sortFilterOptions" bindValue="value" [(ngModel)]="sortId" [searchable]="false" [clearable]="false"></ng-select>
+              </div>
+              <div class="country">
+                <p>Страна</p>
+                <ng-select
+                  [items]="countryFilterOptions"
+                  bindValue="value"
+                  [(ngModel)]="countryId"
+                  [searchable]="false"
+                  [clearable]="false"
+                ></ng-select>
+              </div>
+            </div>
+            <div class="radio-buttons-group">
+              <ul class="radio-buttons-list">
+                <li>
+                  <app-page-shared-controls-checkbox label="Бесплатное открытие счета"></app-page-shared-controls-checkbox>
+                </li>
+                <li>
+                  <app-page-shared-controls-checkbox label="Автоследование"></app-page-shared-controls-checkbox>
+                </li>
+                <li>
+                  <app-page-shared-controls-checkbox label="Участие в IPO"></app-page-shared-controls-checkbox>
+                </li>
+                <li>
+                  <app-page-shared-controls-checkbox label="Бесплатное обслуживание"></app-page-shared-controls-checkbox>
+                </li>
+              </ul>
+            </div>
+            <div class="investment-sum-field-wrapper">
+              <app-page-shared-controls-inputs inputClassName="input" placeholder="Сумма инвестиций" type="number" id="my-input"></app-page-shared-controls-inputs>
+            </div>
+          </div>
+        </div>
+      </section>
+      <app-page-brokers-list></app-page-brokers-list>
     </section>
+  </section>
 </section>

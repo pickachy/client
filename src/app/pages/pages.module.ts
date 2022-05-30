@@ -16,7 +16,9 @@ import { RatingStarsComponent } from './brokers-page/section/rating-stars/rating
 import { ProsAndConstComponent } from './brokers-page/section/pros-and-cons/pros-and-cons.component';
 import { BrokersListComponent } from './brokers-page/section/brokers-list/brokers-list.component';
 import { BrokerItemComponent } from './brokers-page/section/brokers-list/broker-item/broker-item.component';
-
+import { NgSelectModule } from '@ng-select/ng-select';
+import { CheckboxControlComponent } from './brokers-page/controls/checkbox-control/checkbox-control.component';
+import { InputControlComponent } from './brokers-page/controls/input-control/input-control.component';
 
 @NgModule({
   declarations: [
@@ -33,11 +35,12 @@ import { BrokerItemComponent } from './brokers-page/section/brokers-list/broker-
     RatingStarsComponent,
     ProsAndConstComponent,
     BrokersListComponent,
-    BrokerItemComponent
-
+    BrokerItemComponent,
+    InputControlComponent,
+    CheckboxControlComponent
   ],
   exports: [LoansInAdvancePageComponent, LoanInAdvanceSinglePageComponent, BrokersPageComponent],
-  imports: [CommonModule, FormsModule, AppRoutingModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, AppRoutingModule, ReactiveFormsModule, NgSelectModule],
   providers: []
 })
-export class PagesModule { }
+export class PagesModule {}

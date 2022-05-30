@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 
 @Component({
@@ -6,7 +6,13 @@ import { Component } from '@angular/core';
   templateUrl: './rating-stars.component.html',
   styleUrls: ['./rating-stars.component.scss']
 })
-export class RatingStarsComponent {
+export class RatingStarsComponent implements OnInit{
+  @Input() rating: number = 0;
+  ratingValue: number = 0;
+
+  ngOnInit(): void {
+    this.ratingValue = Math.floor(this.rating);
+  }
 
 
 }
