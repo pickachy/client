@@ -2,16 +2,13 @@ import 'zone.js/dist/zone-node';
 
 import { ngExpressEngine } from '@nguniversal/express-engine';
 import * as express from 'express';
-import path, { join } from 'path';
+import { join } from 'path';
 
 import { AppServerModule } from './src/main.server';
 import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
-import * as fs from 'fs';
-import { environment } from './src/environments/environment';
-import { SitemapSingleton } from '@shared/tools/sitemap';
 
-const distFolder = join(process.cwd(), 'dist/zemis/browser');
+const distFolder = join(process.cwd(), 'dist/pickachy/browser');
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
@@ -37,24 +34,14 @@ export function app(): express.Express {
   );
 
   // All regular routes use the Universal engine
-  server.get('/sitemap.xml', (req, res) => {
-    const fileLocation = path.join(distFolder, `sitemap.xml`);
-    if (fs.existsSync(fileLocation)) {
-      return res.sendFile(fileLocation);
-    }
-
-    return SitemapSingleton
-      .getInstance(environment.host, fileLocation)
-      .generate()
-      .then(() => {
-        res.sendFile(fileLocation);
-      })
-      .catch(() => res.sendStatus(500));
-  });
-
-  // All regular routes use the Universal engine
   server.get('*', (req, res) => {
-    res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
+    res.render(indexHtml, {
+      req,
+      providers: [
+        { provide: APP_BASE_HREF, useValue: req.baseUrl },
+        { provide: 'HOST', useValue: req.protocol + '://' + req.get('host') }
+      ]
+    });
   });
 
   return server;
@@ -62,20 +49,9 @@ export function app(): express.Express {
 
 function run(): void {
   const port = process.env.PORT || 4000;
-
   // Start up the Node server
   const server = app();
   server.listen(port, () => {
-    // Wait when proxy is connected to the client
-    setTimeout(() => {
-      const fileLocation = path.join(distFolder, `sitemap.xml`);
-      if (!fs.existsSync(fileLocation)) {
-        SitemapSingleton
-          .getInstance(environment.host, fileLocation)
-          .generate();
-      }
-    }, 5000);
-
     console.log(`Node Express server listening on http://localhost:${port}`);
   });
 }

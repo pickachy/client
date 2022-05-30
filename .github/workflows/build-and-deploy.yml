@@ -2,7 +2,11 @@
 
 name: Auto build and deploy application
 
-# Controls when the action will run. 
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
@@ -21,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:    
+    steps:
       - name: Checkout
         uses: actions/checkout@v2
 
@@ -29,7 +33,7 @@ jobs:
       - name: Set up Docker Buildx
         id: buildx
         uses: docker/setup-buildx-action@v1
-                  
+
       # Enable docker layers caching
       - name: Cache Docker layers
         uses: actions/cache@v2
@@ -41,16 +45,16 @@ jobs:
 
       # Build the app and store layers caches in above paths
       - name: Build application
-        run: docker buildx build -t zemis-ua/client --cache-from="type=local,src=/tmp/.buildx-cache" --cache-to="type=local,dest=/tmp/.buildx-cache-new" --load .
-        
+        run: docker buildx build -t pickachy/client --cache-from="type=local,src=/tmp/.buildx-cache" --cache-to="type=local,dest=/tmp/.buildx-cache-new" --load .
+
       # Delete old layers cache
       - name: Update Docker layers cache
         run: |
           rm -rf /tmp/.buildx-cache
           mv /tmp/.buildx-cache-new /tmp/.buildx-cache
-        
+
       - name: Compress and Save image
-        run: docker save zemis-ua/client | gzip > client.tgz
+        run: docker save pickachy/client | gzip > client.tgz
 
       - name: Configure SSH
         run: |
@@ -68,13 +72,13 @@ jobs:
           SSH_USER: ${{ secrets.SSH_USER }}
           SSH_KEY: ${{ secrets.SSH_KEY }}
           SSH_HOST: ${{ secrets.SSH_HOST }}
-          
+
       - name: Copy image to VPS
         run: scp client.tgz production:~
-        
+
       - name: Wait for api deployed
         run: |
-          SLEEP_INTERVAL=15 
+          SLEEP_INTERVAL=15
           while true; do
               TOTAL_COUNT=$(
               curl \
@@ -86,7 +90,7 @@ jobs:
                   --header 'Content-Type: application/json' \
                   --header 'cache-control: no-cache' \
                   "https://api.github.com/repos/$API_REPO_PATH/actions/workflows/build-and-deploy.yml/runs?status=in_progress" | grep -oP -- '"total_count": \K[0-9]{1,4}')
-    
+
               if [ $TOTAL_COUNT == 0 ]; then
                   echo "API is finished"
                   break;
@@ -98,7 +102,7 @@ jobs:
           WORKFLOW_PAT_TOKEN: ${{ secrets.WORKFLOW_PAT_TOKEN }}
           OWNER: ${{ secrets.OWNER }}
           API_REPO_PATH: ${{ secrets.API_REPO_PATH }}
-        
+
       - name: Deploy
         run: |
           ssh production /bin/bash -s << EOT
