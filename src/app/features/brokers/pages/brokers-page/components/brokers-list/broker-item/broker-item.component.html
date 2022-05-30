@@ -28,7 +28,7 @@
       <li class="conditions-list-item">Стоимость в месяц<app-page-tooltip> </app-page-tooltip><span>0 USD</span></li>
       <li class="conditions-list-item">Минимальная комиссия за сделку<app-page-tooltip> </app-page-tooltip><span>2 EUR</span></li>
     </ul>
-    <app-page-brokers-section-pros-and-cons></app-page-brokers-section-pros-and-cons>
+    <app-page-brokers-components-pros-and-cons></app-page-brokers-components-pros-and-cons>
     <div class="details">
       <button type="button" (click)="onClick()">
         Подробнее <span><img src="assets/images/brokers-page/bottom.svg" alt="details" /></span>
@@ -37,6 +37,6 @@
     </div>
   </div>
   <div class="broker-details-wrapper">
-    <app-page-brokers-section-details [ngClass]="hidden ? 'hide' : ''"> </app-page-brokers-section-details>
+    <app-page-brokers-components-details [ngClass]="hidden ? 'hide' : ''"> </app-page-brokers-components-details>
   </div>
 </li>

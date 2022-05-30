@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 
 @Component({
-  selector: 'app-page-brokers-section-details',
+  selector: 'app-page-brokers-components-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss']
 })

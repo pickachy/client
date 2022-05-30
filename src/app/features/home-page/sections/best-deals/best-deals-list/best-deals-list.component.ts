@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { BestDeal } from '../../../../../core/models/best-deal.model';
 
 @Component({
-  selector: 'app-page-home-section-best-deals-list',
+  selector: 'app-page-home-components-best-deals-list',
   templateUrl: './best-deals-list.component.html',
   styleUrls: ['./best-deals-list.component.scss']
 })
