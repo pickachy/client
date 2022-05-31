@@ -31,7 +31,9 @@
     <app-page-brokers-components-pros-and-cons></app-page-brokers-components-pros-and-cons>
     <div class="details">
       <button type="button" (click)="onClick()">
-        Подробнее <span><img src="assets/images/brokers-page/bottom.svg" alt="details" /></span>
+        <ng-container *ngIf="hidden">Подробнее</ng-container>
+        <ng-container *ngIf="!hidden">Свернуть</ng-container>
+        <span [class.toggle-button-arrow-down]="hidden" [class.toggle-button-arrow-up]="!hidden" class="toggle-button-arrow"></span>
       </button>
       <a class="link-to-official-site" href="#">Перейти на сайт</a>
     </div>
