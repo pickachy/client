@@ -8,11 +8,10 @@ import { Component } from '@angular/core';
 })
 export class DetailsComponent {
 
-  markup: string = 'tariff'
+  markup: 'tariff' | 'general' | 'instruments' = 'tariff';
 
-  onClick(details: string): void {
+  onClick(details: 'tariff' | 'general' | 'instruments'): void {
     this.markup = details;
-
   }
 }
 

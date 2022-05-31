@@ -1,13 +1,13 @@
 <section [ngSwitch]="markup">
     <ul class="details-list">
-        <li><button (click)="onClick('tariff')" type="button">Тарифы</button></li>
-        <li><button (click)="onClick('info')" type="button">Общая информация</button></li>
-        <li><button (click)="onClick('tools')" type="button">Инструменты</button></li>
+        <li><button [class.active]="markup==='tariff'" (click)="onClick('tariff')" type="button">Тарифы</button></li>
+        <li><button [class.active]="markup==='general'" (click)="onClick('general')" type="button">Общая информация</button></li>
+        <li><button [class.active]="markup==='instruments'" (click)="onClick('instruments')" type="button">Инструменты</button></li>
     </ul>
-    <ng-template ngSwitchCase="tools">
+    <ng-template ngSwitchCase="instruments">
         <app-page-brokers-section-tools></app-page-brokers-section-tools>
     </ng-template>
-    <ng-template ngSwitchCase="info">
+    <ng-template ngSwitchCase="general">
         <app-page-brokers-section-information></app-page-brokers-section-information>
     </ng-template>
     <ng-template ngSwitchDefault>

@@ -3,9 +3,8 @@
 .details-list {
   display: flex;
   justify-content: space-between;
-  padding-top: 2.5rem;
   border-top: 0.1rem solid #c4c4c4;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   padding-top: 2.7rem;
   & li {
     position: relative;
@@ -19,14 +18,10 @@
     line-height: 1.6rem;
     cursor: pointer;
     margin: 0;
-    &:hover::after {
-      position: absolute;
-      content: '';
-      display: block;
-      width: 100%;
-      height: 0.17rem;
-      background-color: #737b7d;
-      bottom: -0.7rem;
+    border-bottom: 0.2rem solid transparent;
+    padding-bottom: 0.9rem;
+    &:hover, &.active {
+      border-bottom-color: #737b7d;
     }
   }
 }

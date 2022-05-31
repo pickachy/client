@@ -114,12 +114,29 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  & .toggle-button-arrow{
+    border: solid #3B5597;
+    border-width: 0 0.2rem 0.2rem 0;
+    display: inline-block;
+    padding: 0.3rem;
+    margin-left: 1rem;
+    width: 0.2rem;
+    height: 0.2rem;
+    &.toggle-button-arrow-up{
+      transform: rotate(-135deg);
+      margin-bottom: -0.2rem;
+    }
+    &.toggle-button-arrow-down{
+      transform: rotate(45deg);
+      margin-bottom: 0.2rem;
+    }
+  }
   & button {
     color: #3b5597;
-    font-weight: 400;
     font-size: 1.6rem;
     margin-bottom: 1.5rem;
     cursor: pointer;
+    font-weight: 500;
   }
   & a {
     position: absolute;
