@@ -1,32 +1,33 @@
 <li class="brokers-list-item">
   <div class="broker-app-preview">
-    <div class="background-logo"></div>
-    <div class="broker-logo"><img src="assets/images/brokers-page/freedom-finance.svg" alt="broker logo" /></div>
-    <div class="app-rating-wrapper">
-      <p class="app-rating-text">Оценка приложения:</p>
-      <ul class="app-rating-list">
-        <li class="rating">
-          <img src="assets/images/brokers-page/play-store.svg" alt="play market" />
-          <app-page-rating-stars [rating]="4.3"></app-page-rating-stars>
-        </li>
-        <li class="rating">
-          <img src="assets/images/brokers-page/apple-store.svg" alt="app store" />
-          <app-page-rating-stars [rating]="6"></app-page-rating-stars>
-        </li>
-      </ul>
+    <div class="broker-logo content-padded-mobile"><img src="assets/images/brokers-page/freedom-finance.svg" alt="broker logo" /></div>
+    <div class="content-padded-mobile">
+      <div class="app-rating-wrapper">
+        <p class="app-rating-text hide-tablet hide-desktop">Оценка приложения:</p>
+        <ul class="app-rating-list">
+          <li class="rating">
+            <img src="assets/images/brokers-page/play-store.svg" alt="play market" />
+            <app-page-rating-stars [rating]="3.4"></app-page-rating-stars>
+          </li>
+          <li class="rating">
+            <img src="assets/images/brokers-page/apple-store.svg" alt="app store" />
+            <app-page-rating-stars [rating]="1"></app-page-rating-stars>
+          </li>
+        </ul>
+      </div>
+      <a class="link-to-official-site link-to-official-site-mobile hide-tablet hide-desktop" href="#">Перейти на сайт</a>
     </div>
-    <a class="link-to-official-site" href="#">Перейти на сайт</a>
   </div>
   <div class="broker-info">
     <ul class="conditions-list">
-      <li class="conditions-list-item">Дата основания <span>1999 г.</span></li>
-      <li class="conditions-list-item">Спред <span>от 0,3 пунктов</span></li>
-      <li class="conditions-list-item">Кол-во активных клиентов<span>140 000+</span></li>
-      <li class="conditions-list-item">Минимальный депозит <span>1 USD</span></li>
-      <li class="conditions-list-item delimiter"></li>
-      <li class="conditions-list-item">Комиссия за акцию <app-page-tooltip> </app-page-tooltip><span>0,02 EUR</span></li>
-      <li class="conditions-list-item">Стоимость в месяц<app-page-tooltip> </app-page-tooltip><span>0 USD</span></li>
-      <li class="conditions-list-item">Минимальная комиссия за сделку<app-page-tooltip> </app-page-tooltip><span>2 EUR</span></li>
+      <li class="conditions-list-item"><p>Дата основания <span>1999 г.</span></p></li>
+      <li class="conditions-list-item"><p>Спред <span>от 0,3 пунктов</span></p></li>
+      <li class="conditions-list-item"><p>Кол-во активных клиентов<span>140 000+</span></p></li>
+      <li class="conditions-list-item"><p>Минимальный депозит <span>1 USD</span></p></li>
+      <li class="delimiter tablet desktop"></li>
+      <li class="conditions-list-item"><p>Комиссия за акцию <span>0,02 EUR</span></p> <app-page-tooltip> </app-page-tooltip></li>
+      <li class="conditions-list-item"><p>Стоимость в месяц <span>0 USD</span></p> <app-page-tooltip> </app-page-tooltip></li>
+      <li class="conditions-list-item"><p>Минимальная комиссия за сделку <span>2 EUR</span></p><app-page-tooltip> </app-page-tooltip></li>
     </ul>
     <app-page-brokers-components-pros-and-cons></app-page-brokers-components-pros-and-cons>
     <div class="details">
@@ -35,10 +36,13 @@
         <ng-container *ngIf="!hidden">Свернуть</ng-container>
         <span [class.toggle-button-arrow-down]="hidden" [class.toggle-button-arrow-up]="!hidden" class="toggle-button-arrow"></span>
       </button>
-      <a class="link-to-official-site" href="#">Перейти на сайт</a>
+      <a class="link-to-official-site link-to-official-site-tablet hide-mobile" href="#">Перейти на сайт</a>
+    </div>
+    <div class="broker-details-wrapper hide-mobile" [class.hide]="hidden" [class.line-above]="!hidden">
+      <app-page-brokers-components-details> </app-page-brokers-components-details>
     </div>
   </div>
-  <div class="broker-details-wrapper">
-    <app-page-brokers-components-details [ngClass]="hidden ? 'hide' : ''"> </app-page-brokers-components-details>
+  <div class="broker-details-wrapper hide-tablet hide-desktop" [class.hide]="hidden" [class.line-above]="!hidden">
+    <app-page-brokers-components-details> </app-page-brokers-components-details>
   </div>
 </li>

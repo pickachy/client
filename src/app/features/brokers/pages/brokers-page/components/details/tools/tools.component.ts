@@ -7,6 +7,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./tools.component.scss']
 })
 export class ToolsComponent {
-
-
 }

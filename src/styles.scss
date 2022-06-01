@@ -5,6 +5,15 @@
 // regular style toast
 @import '~ngx-toastr/toastr';
 
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
+}
+
 .ngx-toastr {
   font-size: 1.2rem;
 }
@@ -67,6 +76,11 @@ main {
 .grayed-bg {
   background-color: var(--grey-section-background);
 }
+.content-padded{
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+}
+
 section.content {
   max-width: 114rem;
   margin: 0 auto;
@@ -74,6 +88,18 @@ section.content {
   justify-content: center;
   padding-left: 0.8rem;
   padding-right: 0.8rem;
+  &.no-margin{
+    margin: 0;
+  }
+  &.column{
+    flex-direction: column;
+  }
+  &.full-width{
+    width: 100%;
+  }
+  &.no-padding{
+    padding:0;
+  }
 }
 .hide {
   position: absolute;

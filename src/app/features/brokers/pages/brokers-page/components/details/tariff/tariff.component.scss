@@ -1,50 +1,74 @@
 @import 'src/app/shared/styles/_mixins';
 
-.tariff-plan {
+$font-color: #737b7d;
+$background-color: #F7F7F7;
+
+.tariffs-list-item{
   display: flex;
   flex-direction: column;
-  & h3 {
-    position: relative;
-    width: 100%;
-    font-weight: 400;
+  margin-bottom: 1.4rem;
+  h4{
+    background-color: $background-color;
+    padding: 1.1rem;
     font-size: 1.4rem;
-    line-height: 1.6rem;
-    padding: 1rem 0;
-    color: #737b7d;
+    font-weight: 400;
+    color: $font-color;
+    margin-bottom: 1.9rem;
   }
-  & ul {
-    padding: 1rem 0;
+
+  .key{
+    flex-basis:  100%;
   }
-  & li {
+  .value{
+    text-align: left;
+    flex-basis: 25%;
+  }
+  li{
     display: flex;
-    justify-content: space-between;
-    padding: 0.3rem 0;
-    & p {
-      width: 77%;
-      font-weight: 400;
-      font-size: 1.4rem;
-      line-height: 1.6rem;
-      color: #373f41;
+    p{
+      line-height: 2.4rem;
     }
-    span:nth-child(odd){
-     margin-right: 0.2rem;
-    }
+
+
+  }
+
+  .value{
+    color: $font-color;
   }
 }
 
-@include max-screen-custom(767px) {
-  .tariff-plan {
-    & h3 {
-      &::before {
-        position: absolute;
-        content: '';
-        width: calc(100% + 2rem);
-        height: 100%;
-        top: 0;
-        left: -1rem;
-        background-color: #f7f7f7;
-        z-index: -1;
-      }
-    }
+
+table {
+  display: none;
+}
+
+@include tablet {
+  .tariffs-list{
+    display: none;
+  }
+  table {
+    display: table;
+    border-collapse: collapse;
+    width: 100%;
+    overflow-x: auto;
+  }
+  th,
+  tr td:first-child {
+    color: $font-color;
+    font-weight: 400;
+  }
+  td,
+  th {
+    text-align: left;
+  }
+  td {
+    padding: 1.2rem;
+  }
+  th {
+    padding-bottom: 0.9rem;
+    padding-left: 1.2rem;
+  }
+  tr:nth-child(even) {
+    background-color: $background-color;
   }
 }

@@ -1,9 +1,9 @@
 @import 'src/app/shared/styles/_mixins';
 
 .tooltip {
-  position: absolute;
-  top: 0;
-  right: -3.5rem;
+  display: flex;
+  position: relative;
+  justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
   border: 0.1rem solid black;
@@ -18,38 +18,32 @@
 
 .tooltip-text {
   position: absolute;
-  visibility: hidden;
-  background-color: #fff; //no visualization layout
+  display: none;
   width: 20rem;
-  color: #000000;
-  top: -9999px;
-  right: 9999px;
   padding: 1rem;
-  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  box-shadow: 0 5px 10px 2px rgba(34, 60, 80, 0.2);
   background-color: #555;
   z-index: 1;
   font-weight: 300;
   font-size: 1.2rem;
   color: #fff;
+  white-space: break-spaces;
 }
 .tooltip:hover {
   background-color: #669b45;
   .tooltip-text {
-    visibility: visible;
+    display: block;
     top: -4rem;
     right: 3rem;
   }
 }
 
-// @include desktop-computer {
-//   .tooltip {
-//     &:hover {
-//       background-color: #669b45;
-//       .tooltip-text {
-//         visibility: visible;
-//         top: -4rem;
-//         right: 3rem;
-//       }
-//     }
-//   }
-// }
+@include tablet {
+  .tooltip:hover {
+    .tooltip-text {
+      top: 3rem;
+      right: 0;
+      left:0;
+    }
+  }
+}

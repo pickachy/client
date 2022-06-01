@@ -7,5 +7,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./tariff.component.scss']
 })
 export class TariffComponent {
-
 }

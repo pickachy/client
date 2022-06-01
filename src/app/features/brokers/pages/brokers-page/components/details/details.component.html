@@ -1,9 +1,11 @@
 <section [ngSwitch]="markup">
+  <div class="content-padded-mobile">
     <ul class="details-list">
         <li><button [class.active]="markup==='tariff'" (click)="onClick('tariff')" type="button">Тарифы</button></li>
         <li><button [class.active]="markup==='general'" (click)="onClick('general')" type="button">Общая информация</button></li>
         <li><button [class.active]="markup==='instruments'" (click)="onClick('instruments')" type="button">Инструменты</button></li>
     </ul>
+  </div>
     <ng-template ngSwitchCase="instruments">
         <app-page-brokers-section-tools></app-page-brokers-section-tools>
     </ng-template>

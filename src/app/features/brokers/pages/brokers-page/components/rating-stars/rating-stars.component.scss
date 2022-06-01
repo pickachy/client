@@ -4,7 +4,7 @@ $unchecked-color: #5db9c6;
 $checked-color: #e89a26;
 $percent: calc(var(--rating) / 5 * 100%);
 
-.rating-stars{
+.rating-stars {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -12,38 +12,35 @@ $percent: calc(var(--rating) / 5 * 100%);
 span {
   position: relative;
   display: flex;
-  &::before,
+  margin-right: 0.1rem;
+  &::before {
+    content: '\2605';
+    font-size: 2.2rem;
+    color: $checked-color;
+  }
   &::after {
+    content: none;
     font-size: 2.2rem;
   }
-  &::before {
-    content: '\2606\2606\2606\2606\2606';
-    color: $unchecked-color;
-  }
-  &::after {
-    content: '\2605\2605\2605\2605\2605';
-    position: absolute;
-    left: 0;
-    background: linear-gradient(90deg, $checked-color $percent, rgba(0, 0, 0, 0) $percent);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  margin-right: 1rem;
 }
 p {
   font-weight: 400;
   color: #737b7d;
-  line-height: initial;
+  margin-top:0.2rem;
 }
-@include touch-phone{
-  span{
-    margin-right: 0.1rem;
+@include tablet {
+  span {
     &::before {
-      content: '\2605';
-      color: $checked-color;
+      content: '\2606\2606\2606\2606\2606';
+      color: $unchecked-color;
     }
     &::after {
-      content: none;
+      content: '\2605\2605\2605\2605\2605';
+      position: absolute;
+      left: 0;
+      background: linear-gradient(90deg, $checked-color $percent, rgba(0, 0, 0, 0) $percent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   }
 }
@@ -52,4 +49,3 @@ p {
     padding-right: 0;
   }
 }
-

@@ -9,34 +9,19 @@
     font-weight: 400;
     font-size: 1.4rem;
     line-height: 1.6rem;
-    padding: 1rem 0;
+    padding: 1rem 1rem;
     color: #737b7d;
+    background-color: #f7f7f7;
   }
   & p {
     font-weight: 400;
     font-size: 1.4rem;
     line-height: 1.6rem;
     color: #373f41;
-    padding: 1rem 0;
+    padding: 1rem 1rem;
   }
 }
 
-@include max-screen-custom(767px) {
-  .info-list {
-    & h3 {
-      &::before {
-        position: absolute;
-        content: '';
-        width: calc(100% + 2rem);
-        height: 100% ;
-        top: 0rem;
-        left: -1rem;
-        background-color: #f7f7f7;
-        z-index: -1;
-      }
-    }
-  }
-}
 @include tablet {
   .info-list {
     & li {
@@ -44,10 +29,15 @@
       justify-content: space-between;
       & h3 {
         width: 35%;
+        background-color: transparent;
+        padding-left: 0;
+        padding-right: 0;
       }
       & p {
         width: 50%;
         margin-right: 6rem;
+        padding-left: 0;
+        padding-right: 0;
       }
     }
     & li:nth-child(odd) {

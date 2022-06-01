@@ -14,6 +14,7 @@ import { TariffComponent } from './pages/brokers-page/components/details/tariff/
 import { ToolsComponent } from './pages/brokers-page/components/details/tools/tools.component';
 import { CommonModule } from '@angular/common';
 import { BrokersRoutingModule } from './brokers-routing.module';
+import { BrokersFilterComponent } from './pages/brokers-page/components/filter/brokers-filter.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { BrokersRoutingModule } from './brokers-routing.module';
     TooltipComponent,
     InformationComponent,
     TariffComponent,
-    ToolsComponent
+    ToolsComponent,
+    BrokersFilterComponent
   ],
   exports: [BrokersPageComponent],
   imports: [SharedModule, NgSelectModule, FormsModule, CommonModule, BrokersRoutingModule]
