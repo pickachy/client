@@ -56,7 +56,9 @@ app-page-brokers-filter{
 
 @include tablet {
   .hero {
-    border: 0.1rem solid #b7b7b7;
+    border-left: 0.1rem solid #b7b7b7;
+    border-right: 0.1rem solid #b7b7b7;
+    border-bottom: 0.1rem solid #b7b7b7;
   }
   .brokers-page-logo {
     padding: 1rem 0;
