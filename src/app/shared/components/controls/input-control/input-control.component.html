@@ -1,0 +1,13 @@
+<div>
+  <label *ngIf="label" [for]="id">{{ label }}</label>
+  <input
+    [id]="id"
+    type="text"
+    [value]="value"
+    (change)="onChange($event.target)"
+    [type]="type"
+    [placeholder]="placeholder"
+    [max]="max"
+    [min]="min"
+  />
+</div>

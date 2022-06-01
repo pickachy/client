@@ -1,0 +1,74 @@
+@import 'src/app/shared/styles/_mixins';
+
+$font-color: #737b7d;
+$background-color: #F7F7F7;
+
+.tariffs-list-item{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.4rem;
+  h4{
+    background-color: $background-color;
+    padding: 1.1rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: $font-color;
+    margin-bottom: 1.9rem;
+  }
+
+  .key{
+    flex-basis:  100%;
+  }
+  .value{
+    text-align: left;
+    flex-basis: 25%;
+  }
+  li{
+    display: flex;
+    p{
+      line-height: 2.4rem;
+    }
+
+
+  }
+
+  .value{
+    color: $font-color;
+  }
+}
+
+
+table {
+  display: none;
+}
+
+@include tablet {
+  .tariffs-list{
+    display: none;
+  }
+  table {
+    display: table;
+    border-collapse: collapse;
+    width: 100%;
+    overflow-x: auto;
+  }
+  th,
+  tr td:first-child {
+    color: $font-color;
+    font-weight: 400;
+  }
+  td,
+  th {
+    text-align: left;
+  }
+  td {
+    padding: 1.2rem;
+  }
+  th {
+    padding-bottom: 0.9rem;
+    padding-left: 1.2rem;
+  }
+  tr:nth-child(even) {
+    background-color: $background-color;
+  }
+}

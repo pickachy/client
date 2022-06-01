@@ -4,6 +4,7 @@ import { LoansModule } from './features/loans/loans.module';
 import { NavigationRoute } from '@core/models/navigation-route.model';
 import { ArticlesModule } from './features/articles/articles.module';
 import { NotFoundModule } from './features/notfound/notfound.module';
+import { BrokersModule } from './features/brokers/brokers.module';
 
 const routes: NavigationRoute[] = [
   {
@@ -15,6 +16,11 @@ const routes: NavigationRoute[] = [
     name: 'Статьи',
     path: 'news',
     loadChildren: () => ArticlesModule
+  },
+  {
+    name: 'Брокеры',
+    path: 'brokers',
+    loadChildren: () => BrokersModule
   },
   {
     path: '**',
@@ -30,4 +36,4 @@ const routes: NavigationRoute[] = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

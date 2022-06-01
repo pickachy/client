@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { QuestionAnswer } from '../../../../../core/models/qa.model';
 
 @Component({
-  selector: 'app-page-home-section-qas-list',
+  selector: 'app-page-home-components-qas-list',
   templateUrl: './qas-list.component.html',
   styleUrls: ['./qas-list.component.scss']
 })

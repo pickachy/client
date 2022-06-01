@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-page-home-section-advantages',
+  selector: 'app-page-home-components-advantages',
   templateUrl: './advantages.component.html',
   styleUrls: ['./advantages.component.scss']
 })

@@ -4,7 +4,7 @@ import { QuestionAnswer } from '../../../../core/models/qa.model';
 import { QasService } from '@shared/../../../../core/services/qas.service';
 
 @Component({
-  selector: 'app-page-home-section-qas',
+  selector: 'app-page-home-components-qas',
   templateUrl: './qas.component.html',
   styleUrls: ['./qas.component.scss']
 })
