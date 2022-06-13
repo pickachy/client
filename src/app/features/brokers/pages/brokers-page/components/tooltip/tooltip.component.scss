@@ -1,0 +1,49 @@
+@import 'src/app/shared/styles/_mixins';
+
+.tooltip {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0.1rem solid black;
+  cursor: pointer;
+  & p {
+    font-weight: 500;
+    font-size: 1.9rem;
+    line-height: 2.5rem;
+    text-align: center;
+  }
+}
+
+.tooltip-text {
+  position: absolute;
+  display: none;
+  width: 20rem;
+  padding: 1rem;
+  box-shadow: 0 5px 10px 2px rgba(34, 60, 80, 0.2);
+  background-color: #555;
+  z-index: 1;
+  font-weight: 300;
+  font-size: 1.2rem;
+  color: #fff;
+  white-space: break-spaces;
+}
+.tooltip:hover {
+  background-color: #669b45;
+  .tooltip-text {
+    display: block;
+    top: -4rem;
+    right: 3rem;
+  }
+}
+
+@include tablet {
+  .tooltip:hover {
+    .tooltip-text {
+      top: 3rem;
+      right: 0;
+      left:0;
+    }
+  }
+}

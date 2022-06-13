@@ -1,39 +1,129 @@
 @import 'src/app/shared/styles/_mixins';
 
+$burgerWidth: 24px;
+$burgerBarHeight: 1px;
+$burgerBarColor: #333;
+
 :host ::ng-deep app-navigation-links {
-  nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: right;
     li {
       display: flex;
-      margin-right: 4.5rem;
       margin-top: 1.8rem;
-
       a {
         font-size: 1.8rem;
-        border-bottom: 0.2rem solid transparent;
         padding-bottom: 0.63rem;
-        cursor: pointer;
-        transition: border-bottom-color var(--transition-duration) linear;
-        &:hover,
         &.active-navigation-link {
-          border-bottom-color: var(--main-green);
+          border-bottom: 0.2rem solid var(--main-green);
         }
       }
+    }
+}
 
-      &:last-child {
-        margin-right: 0;
+.burger-menu {
+  width: $burgerWidth;
+  height: $burgerWidth;
+  cursor: pointer;
+
+  .burger-container {
+    position: relative;
+
+    .burger-inner {
+      position: absolute;
+      width: $burgerWidth - 2 * $burgerBarHeight;
+      left: 0;
+      top: 11px;
+      border: $burgerBarHeight solid $burgerBarColor;
+      transition: border-color 0.1s ease-in 0.1s;
+
+      &::before {
+        position: absolute;
+        content: '';
+        top: -10px;
+        left: -$burgerBarHeight;
+        width: 50%;
+        border: $burgerBarHeight solid $burgerBarColor;
+        transition: top 0.1s ease-in 0.2s, transform ease-in 0.1s, width ease-in 0.1s;
+      }
+
+      &::after {
+        position: absolute;
+        content: '';
+        top: 8px;
+        left: -$burgerBarHeight;
+        width: $burgerWidth - 2 * $burgerBarHeight;
+        border: $burgerBarHeight solid $burgerBarColor;
+        transition: top 0.1s ease-in 0.2s, transform ease-in 0.1s;
       }
     }
   }
+
+  &.active .burger-container .burger-inner {
+    border-color: transparent;
+    transition: border-color ease-in 0.1s;
+  }
+
+  &.active .burger-container .burger-inner::before {
+    top: -$burgerBarHeight;
+    transform: rotate(-45deg);
+    width: $burgerWidth - 2 * $burgerBarHeight;
+    transition: top ease-out 0.1s, transform 0.1s ease-out 0.2s, width ease-out 0.2s;
+  }
+
+  &.active .burger-container .burger-inner::after {
+    top: -$burgerBarHeight;
+    transform: rotate(45deg);
+    transition: top ease-out 0.1s, transform 0.1s ease-out 0.2s;
+  }
+}
+:host .sidenav {
+  display: flex;
+  position: fixed;
+  z-index: 9;
+  top: 81px;
+  right: 0;
+  height: 100%;
+  background-color: var(--grey-section-background);
+  transform: translate(100%, 0);
+  transition: transform var(--transition-duration);
+  ::ng-deep {
+    ul {
+      flex-direction: column;
+      justify-content: left;
+      width: 100%;
+      li {
+        margin-left: 0;
+        margin-right: 0;
+        text-align: left;
+        padding: 0.5rem 5rem;
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+  &.active {
+    transform: translate(0, 0);
+  }
 }
 
-@include touch-phone {
-  :host app-navigation-links ::ng-deep {
-    nav {
+@include tablet {
+  :host ::ng-deep app-navigation-links {
+    ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: right;
       li {
-        margin-right: 2rem;
+        margin-right: 4.5rem;
+        a {
+          border-bottom: 0.2rem solid transparent;
+          cursor: pointer;
+          transition: border-bottom-color var(--transition-duration) linear;
+          &:hover {
+            border-bottom-color: var(--main-green);
+          }
+        }
+        &:last-child {
+          margin-right: 0;
+        }
       }
     }
   }

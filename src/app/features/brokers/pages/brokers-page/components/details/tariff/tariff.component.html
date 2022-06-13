@@ -1,0 +1,34 @@
+<div class="tariffs-list">
+  <div class="tariffs-list-item" *ngFor="let brokerTariff of brokerTariffs; trackBy: brokerTariffTrackBy">
+    <h4>{{ brokerTariff.name }}</h4>
+    <ul class="content-padded-mobile">
+      <li>
+        <p class="key">Комиссия за акцию</p>
+        <p class="value">{{ brokerTariff.stockCommissionDescription }}<app-page-tooltip [text]="brokerTariff.stockCommissionDescriptionHint"></app-page-tooltip></p>
+      </li>
+      <li>
+        <p class="key">Минимальная комиссия за сделку</p>
+        <p class="value">{{ brokerTariff.minimalCommissionDescription }}<app-page-tooltip [text]="brokerTariff.minimalCommissionDescriptionHint"></app-page-tooltip></p>
+      </li>
+      <li>
+        <p class="key">Стоимость в месяц</p>
+        <p class="value">{{ brokerTariff.pricePerMonthDescription }}<app-page-tooltip [text]="brokerTariff.pricePerMonthDescriptionHint"></app-page-tooltip></p>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<table>
+  <tr>
+    <th></th>
+    <th>Комиссия за акцию</th>
+    <th>Минимальная комиссия за сделку</th>
+    <th>Стоимость в месяц</th>
+  </tr>
+  <tr *ngFor="let brokerTariff of brokerTariffs">
+    <td>{{ brokerTariff.name }}</td>
+    <td><div class="content-wrapper"><p>{{ brokerTariff.stockCommissionDescription }}</p><app-page-tooltip [text]="brokerTariff.stockCommissionDescriptionHint"></app-page-tooltip></div></td>
+    <td><div class="content-wrapper"><p>{{ brokerTariff.minimalCommissionDescription }}</p><app-page-tooltip [text]="brokerTariff.minimalCommissionDescriptionHint"></app-page-tooltip></div></td>
+    <td><div class="content-wrapper"><p>{{ brokerTariff.pricePerMonthDescription }}</p><app-page-tooltip [text]="brokerTariff.pricePerMonthDescriptionHint"></app-page-tooltip></div></td>
+  </tr>
+</table>

@@ -1,5 +1,6 @@
 import { GQLLoanPayload } from './loan.model';
 import { Article, GQLArticlePayload } from './article.model';
+import { Broker, GQLBrokerPayload } from '@core/models/broker.model';
 
 export interface GQLPagePayload {
   urlSlug: string;
@@ -42,4 +43,14 @@ export interface ArticlesPageData extends PageDataPayload {
 export interface ArticleSinglePageData {
   article: Article;
   page: Page;
+}
+
+/* BROKERS */
+
+export interface GQLBrokersPageDataPayload extends GQLPageDataPayload {
+  brokers: GQLBrokerPayload[];
+}
+
+export interface BrokersPageData extends PageDataPayload {
+  brokers: Broker[];
 }

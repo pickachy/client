@@ -1,0 +1,41 @@
+@import 'src/app/shared/styles/_mixins';
+.pros-and-cons-list {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 0;
+  align-items: flex-start;
+
+  & li {
+    margin-bottom: 0.85rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.2rem;
+    padding: 0.6rem 1rem;
+    border-radius: 1.6rem;
+    &.pros {
+      background-color: #669b4533;
+    }
+    &.cons {
+      background-color: #e4747433;
+    }
+  }
+}
+
+@include min-screen-custom(400px) {
+  .pros-and-cons-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    li {
+      margin-right: 1rem;
+    }
+  }
+}
+
+@include tablet {
+  .pros-and-cons-list {
+    li {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+  }
+}

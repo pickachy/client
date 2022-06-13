@@ -1,0 +1,39 @@
+@import 'src/app/shared/styles/_mixins';
+
+.details-list {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-top: 2.7rem;
+  & li {
+    position: relative;
+  }
+  & button {
+    border: none;
+    background-color: inherit;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #373f41;
+    line-height: 1.6rem;
+    cursor: pointer;
+    margin: 0;
+    border-bottom: 0.2rem solid transparent;
+    padding-bottom: 0.9rem;
+    &:hover, &.active {
+      border-bottom-color: #737b7d;
+    }
+  }
+}
+
+@include tablet {
+  .details-list {
+    justify-content: flex-start;
+    width: 100%;
+    & li {
+      margin-right: 2rem;
+    }
+    & button {
+      font-size: 1.6rem;
+    }
+  }
+}

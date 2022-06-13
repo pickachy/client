@@ -1,0 +1,163 @@
+@import 'src/app/shared/styles/_mixins';
+
+$filter-field-bg-color: #f7f7f7;
+
+.brokers-filters {
+  display: flex;
+  margin: 2.1rem 0;
+  width: 100%;
+
+  & button {
+    font-weight: 500;
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+    border-bottom: 1px solid #c4c4c4;
+    margin-bottom: 1rem;
+  }
+}
+.filters {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  ng-select {
+    width: 100%;
+  }
+  .lists-group {
+    display: flex;
+    flex-direction: column;
+  }
+  .sort-by,
+  .country {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+  }
+  .sort-by {
+    margin-bottom: 1.4rem;
+  }
+  & p {
+    font-weight: 500;
+    margin-bottom: 1rem;
+    white-space: nowrap;
+  }
+}
+.radio-buttons-group {
+  width: 100%;
+}
+.radio-buttons-list {
+  display: flex;
+  flex-wrap: wrap;
+  & li {
+    display: flex;
+    font-size: 0.8rem;
+    flex: 1 1;
+    margin: 1.7rem 1.1rem;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+}
+.investment-sum-field-wrapper {
+  display: flex;
+  flex-grow: 1;
+  width: auto;
+  app-page-shared-controls-inputs {
+    width: 100%;
+    ::ng-deep {
+      input {
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+@include tablet {
+  .filters {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 0 1rem;
+    ng-select {
+      font-size: 1rem;
+    }
+    .lists-group {
+      order: 1;
+      margin-right: 2.5rem;
+      flex-direction: row;
+      font-size: 0.8rem;
+      align-content: center;
+      p {
+        margin: 0 1rem 0 0;
+        align-self: center;
+      }
+      .sort-by,
+      .country {
+        margin: 0;
+        align-self: center;
+        flex-direction: row;
+      }
+      .sort-by {
+        margin-right: 1rem;
+      }
+    }
+    .investment-sum-field-wrapper {
+      flex-grow: 1;
+      order: 2;
+      width: auto;
+      ::ng-deep input {
+        font-size: 1rem;
+      }
+    }
+    .radio-buttons-group {
+      width: 100%;
+      margin-top: 2rem;
+      order: 3;
+      justify-content: center;
+    }
+    .radio-buttons-list {
+      justify-content: center;
+      li {
+        margin: 0 1.5rem 0 0;
+      }
+    }
+  }
+  .radio-buttons-list {
+    margin-right: 0;
+    li {
+      flex: none;
+      margin-right: 0;
+      width: auto;
+    }
+  }
+}
+
+@include desktop-large {
+  .filters {
+    flex-wrap: nowrap;
+    .lists-group {
+      order: 1;
+      margin-right: 2.5rem;
+    }
+    .investment-sum-field-wrapper {
+      order: 3;
+      width: 100%;
+    }
+    .radio-buttons-group {
+      order: 2;
+      margin-top: 0;
+      margin-right: 2.5rem;
+      .radio-buttons-list {
+        flex-wrap: nowrap;
+        height: 100%;
+        justify-content: space-between;
+        align-items: center;
+        li {
+          margin: 0 1rem 0 0;
+          &:last-child {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}

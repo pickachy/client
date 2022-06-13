@@ -1,0 +1,24 @@
+div {
+  display: flex;
+  background-color: #f7f7f7;
+  & input {
+    width: 100%;
+    /* Chrome, Safari, Edge, Opera */
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    &[type='number'] {
+      -moz-appearance: textfield;
+    }
+    outline: none;
+    border: none;
+    resize: none;
+    background-color: inherit;
+    padding: 0.8rem 1rem;
+    appearance: none;
+  }
+}
