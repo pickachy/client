@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NavigationRoute } from '@core/models/navigation-route.model';
 
 @Component({
@@ -9,4 +9,9 @@ export class NavigationLinksComponent {
   @Input() links: NavigationRoute[] = [];
   @Input() activeClass: string | undefined = 'active-navigation-link';
   @Input() linkClassName?: string;
+  @Output() onClick: EventEmitter<Event> = new EventEmitter<Event>();
+
+  onClickHandler(event: Event){
+    this.onClick.emit(event);
+  }
 }

@@ -28,6 +28,7 @@ iframe {
   margin: 0;
   padding: 0;
 
+
   &:before,
   &:after {
     outline: none !important;
@@ -37,10 +38,7 @@ input, button{
   font-family: 'Roboto', serif;
 }
 
-html,
-body {
-  height: 100%;
-}
+app-root { min-height: 100vh; }
 
 html {
   font-family: 'Roboto', serif;
