@@ -1,4 +1,4 @@
-import { Component, forwardRef, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -9,7 +9,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     {
       provide: NG_VALUE_ACCESSOR,
       // eslint-disable-next-line no-use-before-define
-      useExisting: forwardRef(() => CheckboxControlComponent),
+      useExisting: CheckboxControlComponent,
       multi: true
     }
   ]
@@ -17,19 +17,17 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 export class CheckboxControlComponent implements ControlValueAccessor {
   @Input() id: string = '';
   @Input() label: string = '';
-  @Input() placeholder: string = '';
-  @Input() type: 'text' | 'number' = 'text';
-  @Input() max?: number;
-  @Input() min?: number;
 
-  value: any = '';
+  value: boolean = false;
 
   onChange = (_event: any) => {};
   onTouched = () => {};
 
-  writeValue(value: any) {
-    this.value = value;
+  handleChange(event: any) {
+    this.onChange(event.target.checked);
   }
+
+  writeValue(_value: boolean) {};
 
   registerOnChange(fn: any) {
     this.onChange = fn;

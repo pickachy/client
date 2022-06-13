@@ -27,13 +27,13 @@ button {
   color: #ffffff;
   font-weight: 400;
   font-size: 1.8rem;
-  &.link-to-official-site-mobile{
+  &.link-to-official-site-mobile {
     display: block;
     width: 100%;
     margin: 0 auto;
     padding: 1.2rem 0;
   }
-  &.link-to-official-site-tablet{
+  &.link-to-official-site-tablet {
     padding: 1.2rem 2.4rem;
   }
 }
@@ -120,7 +120,9 @@ button {
     color: #737b7d;
   }
 }
-
+app-page-brokers-components-pros-and-cons {
+  width: 100%;
+}
 .broker-details-wrapper {
   flex-direction: column;
   width: 100%;
@@ -167,7 +169,7 @@ button {
     padding: 0 1rem 0 1rem;
   }
   .broker-app-preview {
-    margin-top: 9rem;
+    margin-right: 2rem;
     align-self: flex-start;
     justify-content: center;
   }
@@ -175,7 +177,10 @@ button {
     background-color: transparent;
     justify-content: stretch;
     img {
-      max-width: 14rem;
+      margin-top: 2rem;
+      width: 20rem;
+      height: 20rem;
+      object-fit: contain;
     }
   }
   .broker-info {
@@ -229,8 +234,12 @@ button {
     border-bottom: none;
     margin-top: 0;
     &-item {
-      flex: 1 1 25%;
       justify-content: left;
+      flex-grow: 1;
+      flex-basis: 0;
+      &:nth-child(-n+3){
+        margin-right: 2rem;
+      }
       &:last-child {
         margin-right: 0;
       }
@@ -248,31 +257,22 @@ button {
   }
 }
 
-@include min-screen-custom(850px) {
-  .conditions-list {
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 0;
-    border-bottom: none;
 
-    &-item {
-      flex-basis: auto;
-    }
-  }
-}
 @include desktop-normal {
   .broker-app-preview {
     align-self: flex-start;
     margin-right: 1.7rem;
   }
+  .app-rating-wrapper {
+    padding-top: 0;
+  }
+
+
   .app-rating-list {
     max-width: 24rem;
     & img {
       max-width: 2.8rem;
     }
-  }
-  .broker-logo img {
-    max-width: 21rem;
   }
 
   .conditions-list {
@@ -280,9 +280,22 @@ button {
       p {
         white-space: nowrap;
       }
+      &:nth-last-child(-n + 3) {
+        flex-basis: 33%;
+      }
     }
   }
   .link-to-official-site:hover {
     background-color: #669b45;
+  }
+}
+@include desktop-large {
+  .broker-info {
+    padding-right: 9rem;
+  }
+  .broker-logo {
+    img {
+      max-width: 21rem;
+    }
   }
 }

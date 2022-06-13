@@ -1,13 +1,13 @@
 @import 'src/app/shared/styles/_mixins';
 
 $font-color: #737b7d;
-$background-color: #F7F7F7;
+$background-color: #f7f7f7;
 
-.tariffs-list-item{
+.tariffs-list-item {
   display: flex;
   flex-direction: column;
   margin-bottom: 1.4rem;
-  h4{
+  h4 {
     background-color: $background-color;
     padding: 1.1rem;
     font-size: 1.4rem;
@@ -16,34 +16,50 @@ $background-color: #F7F7F7;
     margin-bottom: 1.9rem;
   }
 
-  .key{
-    flex-basis:  100%;
+  .key {
+    flex-basis: 100%;
   }
-  .value{
+  .value {
     text-align: left;
-    flex-basis: 25%;
+    flex-basis: 50%;
   }
-  li{
+  li {
     display: flex;
-    p{
+    margin-top: 1rem;
+    align-items: center;
+    p {
       line-height: 2.4rem;
+      display: inline-block;
+      app-page-tooltip {
+        display: inline-block;
+        margin-left: 1rem;
+      }
     }
-
-
+    &:first-child{
+      margin-top: 0;
+    }
   }
 
-  .value{
+  .value {
     color: $font-color;
   }
 }
-
 
 table {
   display: none;
 }
 
+@include touch-mphone() {
+  .tariffs-list-item {
+    .value {
+      text-align: left;
+      flex-basis: 25%;
+    }
+  }
+}
+
 @include tablet {
-  .tariffs-list{
+  .tariffs-list {
     display: none;
   }
   table {
@@ -63,6 +79,13 @@ table {
   }
   td {
     padding: 1.2rem;
+    p {
+      display: inline-block;
+      margin-right: 1rem;
+    }
+    app-page-tooltip {
+      display: inline-block;
+    }
   }
   th {
     padding-bottom: 0.9rem;

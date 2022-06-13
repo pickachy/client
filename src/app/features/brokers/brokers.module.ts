@@ -4,7 +4,7 @@ import { SharedModule } from '@shared/shared.module';
 import { BrokersListComponent } from './pages/brokers-page/components/brokers-list/brokers-list.component';
 import { BrokerItemComponent } from './pages/brokers-page/components/brokers-list/broker-item/broker-item.component';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RatingStarsComponent } from './pages/brokers-page/components/rating-stars/rating-stars.component';
 import { ProsAndConstComponent } from './pages/brokers-page/components/pros-and-cons/pros-and-cons.component';
 import { DetailsComponent } from './pages/brokers-page/components/details/details.component';
@@ -31,6 +31,6 @@ import { BrokersFilterComponent } from './pages/brokers-page/components/filter/b
     BrokersFilterComponent
   ],
   exports: [BrokersPageComponent],
-  imports: [SharedModule, NgSelectModule, FormsModule, CommonModule, BrokersRoutingModule]
+  imports: [SharedModule, NgSelectModule, FormsModule, CommonModule, BrokersRoutingModule, ReactiveFormsModule]
 })
 export class BrokersModule {}

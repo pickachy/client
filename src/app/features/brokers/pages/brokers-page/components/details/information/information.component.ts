@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Broker } from '@core/models/broker.model';
 
 
 @Component({
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./information.component.scss']
 })
 export class InformationComponent {
+  @Input() broker!: Broker;
 }

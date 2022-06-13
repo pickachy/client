@@ -1,5 +1,5 @@
 <label class="container"
   >{{ label }}
-  <input [id]="id" type="checkbox" [value]="value" (change)="onChange($event.target)" [placeholder]="placeholder" [max]="max" [min]="min" />
+  <input [id]="id" type="checkbox" (change)="handleChange($event)"/>
   <span class="checkmark"></span>
 </label>

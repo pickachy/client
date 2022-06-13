@@ -6,12 +6,18 @@ import { Meta, Title } from '@angular/platform-browser';
 import {
   ArticleSinglePageData,
   ArticlesPageData,
-  GQLArticleSinglePageDataPayload, GQLArticlesPageDataPayload,
-  GQLHomePageDataPayload, GQLSingleLoanInAdvancePageDataPayload, Page
+  BrokersPageData,
+  GQLArticleSinglePageDataPayload,
+  GQLArticlesPageDataPayload,
+  GQLBrokersPageDataPayload,
+  GQLHomePageDataPayload,
+  GQLSingleLoanInAdvancePageDataPayload,
+  Page
 } from '@core/models/page.model';
 import { LoanProviderType } from '@core/models/loan.model';
 import { Article } from '@core/models/article.model';
 import { isBrowser } from '@shared/tools';
+import { BrokerFilterDto } from '@core/models/broker.model';
 
 const GET_HOME_PAGE_DATA = gql`
   query {
@@ -88,7 +94,7 @@ const GET_ARTICLES_PAGE_DATA = gql`
 
 const GET_ARTICLE_SINGLE_PAGE_DATA = gql`
   query GetArticleSinglePageData($urlSlug: String!) {
-    article(where: { page: { urlSlug: {eq: $urlSlug} } }) {
+    article(where: { page: { urlSlug: { eq: $urlSlug } } }) {
       id
       title
       htmlBody
@@ -102,11 +108,94 @@ const GET_ARTICLE_SINGLE_PAGE_DATA = gql`
   }
 `;
 
+const GET_BROKERS_PAGE_DATA = gql`
+  query GetBrokers($where: BrokerFilterInput, $order: [BrokerSortInput!]) {
+    brokers(where: $where, order: $order) {
+      id
+      url
+      imageRelativeUrl
+      creationYear
+      creationYearHint
+      initialSpread
+      initialSpreadHint
+      clientsAmount
+      clientsAmountHint
+      minimalDeposit
+      minimalDepositCurrency
+      minimalDepositHint
+      country
+      stockCommissionDescription
+      stockCommissionDescriptionHint
+      pricePerMonthDescription
+      pricePerMonthDescriptionHint
+      minimalDealCommission
+      minimalDealCommissionCurrency
+      minimalDealCommissionHint
+      googlePlayMarketRating
+      appleMarketRating
+      autoFollow
+      ipoParticipant
+      freeService
+      freeAccountCreation
+      documents
+      documentsHint
+      ipoParticipationPossibility
+      ipoParticipationPossibilityHint
+      ipoParticipationCommission
+      ipoParticipationCommissionHint
+      authorizedCapitalDescription
+      authorizedCapitalDescriptionHint
+      ownCapitalDescription
+      ownCapitalDescriptionHint
+      accountRegistrationPrice
+      accountRegistrationPriceHint
+      replenishmentCommission
+      replenishmentCommissionHint
+      withdrawalCommission
+      withdrawalCommissionHint
+      withdrawalReplenishmentMethods
+      withdrawalReplenishmentMethodsHint
+      ipoParticipationMinimalAmount
+      ipoParticipationMinimalAmountHint
+      creditLeverage
+      creditLeverageHint
+      officialCountries
+      officialCountriesHint
+      instrumentsDescription
+      instrumentsDescriptionHint
+      tariffs {
+        name
+        stockCommissionDescription
+        stockCommissionDescriptionHint
+        minimalCommissionDescription
+        minimalCommissionDescriptionHint
+        pricePerMonthDescription
+        pricePerMonthDescriptionHint
+      }
+      features {
+        name
+        type
+      }
+    }
+    page(where: { urlSlug: { eq: "brokers" } }) {
+      title
+      keywords
+      description
+    }
+  }
+`;
+
 @Injectable({
   providedIn: 'root'
 })
 export class PagesService {
   constructor(private apollo: Apollo, private title: Title, private meta: Meta) {}
+
+  public getBrokersPageAggregation(filter: BrokerFilterDto): Observable<BrokersPageData> {
+    return this.apollo
+      .query<GQLBrokersPageDataPayload>({ query: GET_BROKERS_PAGE_DATA, variables: { where: filter.filter, order: filter.order } })
+      .pipe(map(result => ({ page: result.data.page, brokers: result.data.brokers })));
+  }
 
   public getArticlesPageAggregation(): Observable<ArticlesPageData> {
     return this.apollo
@@ -136,6 +225,6 @@ export class PagesService {
     this.meta.updateTag({ name: 'keywords', content: page.keywords });
     this.meta.updateTag({ property: 'og:description', content: page.description });
     this.meta.updateTag({ property: 'og:title', content: page.title });
-    this.meta.updateTag({ property: 'og:url', content: isBrowser ? window.location.href : ''});
+    this.meta.updateTag({ property: 'og:url', content: isBrowser ? window.location.href : '' });
   }
 }

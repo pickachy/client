@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { GQLBrokerTariffPayload } from '@core/models/broker.model';
 
 
 @Component({
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./tariff.component.scss']
 })
 export class TariffComponent {
+  @Input() brokerTariffs!: GQLBrokerTariffPayload[];
+
+  brokerTariffTrackBy(_: number, broker: GQLBrokerTariffPayload) {
+    return broker.id;
+  }
 }

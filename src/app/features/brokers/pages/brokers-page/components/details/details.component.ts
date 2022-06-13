@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Broker } from '@core/models/broker.model';
 
 
 @Component({
@@ -7,6 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent {
+  @Input() broker!: Broker;
 
   markup: 'tariff' | 'general' | 'instruments' = 'tariff';
 
