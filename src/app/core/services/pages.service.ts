@@ -164,6 +164,7 @@ const GET_BROKERS_PAGE_DATA = gql`
       instrumentsDescription
       instrumentsDescriptionHint
       tariffs {
+        id,
         name
         stockCommissionDescription
         stockCommissionDescriptionHint
@@ -173,6 +174,7 @@ const GET_BROKERS_PAGE_DATA = gql`
         pricePerMonthDescriptionHint
       }
       features {
+        id,
         name
         type
       }

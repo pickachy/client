@@ -10,4 +10,8 @@ import { BrokerFeatureType, GQLBrokerFeaturePayload } from '@core/models/broker.
 export class ProsAndConstComponent {
   @Input() features: GQLBrokerFeaturePayload[] = []
   FeatureType = BrokerFeatureType;
+
+  brokerFeatureTrackBy(_: number, feature: GQLBrokerFeaturePayload) {
+    return feature.id;
+  }
 }

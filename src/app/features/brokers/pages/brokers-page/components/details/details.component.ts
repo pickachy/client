@@ -10,10 +10,10 @@ import { Broker } from '@core/models/broker.model';
 export class DetailsComponent {
   @Input() broker!: Broker;
 
-  markup: 'tariff' | 'general' | 'instruments' = 'tariff';
+  activeTab: 'tariff' | 'general' | 'instruments' = 'tariff';
 
-  onClick(details: 'tariff' | 'general' | 'instruments'): void {
-    this.markup = details;
+  onClick(tab: 'tariff' | 'general' | 'instruments'): void {
+    this.activeTab = tab;
   }
 }
 

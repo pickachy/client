@@ -1,7 +1,7 @@
 <div class="content-padded-mobile">
   <ul class="pros-and-cons-list">
     <li
-      *ngFor="let feature of features"
+      *ngFor="let feature of features; trackBy: brokerFeatureTrackBy"
       [class.pros]="feature.type === FeatureType.Advantage"
       [class.cons]="feature.type === FeatureType.Disadvantage"
     >
