@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-page-home-section-service-item',
+  selector: 'app-page-home-components-service-item',
   templateUrl: './service-item.component.html',
   styleUrls: ['./service-item.component.scss']
 })

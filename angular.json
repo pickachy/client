@@ -45,6 +45,11 @@
           },
           "configurations": {
             "production": {
+              "assets": [
+                "src/assets/images",
+                "src/assets/manifest.webmanifest",
+                { "glob": "robots.txt", "input": "src/assets/", "output": "/" }
+              ],
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -66,6 +71,12 @@
               ]
             },
             "development": {
+              "assets": [
+                "src/assets/images",
+                "src/assets/manifest.webmanifest",
+                { "glob": "robots.txt", "input": "src/assets/", "output": "/" },
+                {"glob": "**/*", "input": "C:\\Projects\\zemis\\server-assets", "output": "./assets/server-assets/"}
+              ],
               "buildOptimizer": false,
               "optimization": false,
               "vendorChunk": true,

@@ -4,7 +4,7 @@ import { LoansService } from '@shared/../../../../core/services/loans.service';
 import { BestDeal } from '../../../../core/models/best-deal.model';
 
 @Component({
-  selector: 'app-page-home-section-best-deals',
+  selector: 'app-page-home-components-best-deals',
   templateUrl: './best-deals.component.html',
   styleUrls: ['./best-deals.component.scss']
 })

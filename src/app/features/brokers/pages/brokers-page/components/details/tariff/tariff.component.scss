@@ -1,0 +1,105 @@
+@import 'src/app/shared/styles/_mixins';
+
+$font-color: #737b7d;
+$background-color: #f7f7f7;
+
+.tariffs-list-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.4rem;
+  h4 {
+    background-color: $background-color;
+    padding: 1.1rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: $font-color;
+    margin-bottom: 1.9rem;
+  }
+
+  .key {
+    flex-basis: 60%;
+  }
+  .value {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    flex-basis: 40%;
+    justify-content: space-between;
+  }
+  li {
+    display: flex;
+    margin-top: 1rem;
+    align-items: center;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  .value {
+    color: $font-color;
+    white-space: pre-line;
+    app-page-tooltip{
+      display: inline-block;
+      margin-left: 1rem;
+      color: initial;
+    }
+  }
+}
+
+table {
+  display: none;
+}
+
+@include touch-mphone() {
+  .tariffs-list-item {
+    .key {
+      flex-basis: 80%;
+    }
+    .value {
+      flex-basis:20%;
+    }
+  }
+}
+
+@include tablet {
+  .tariffs-list {
+    display: none;
+  }
+  table {
+    display: table;
+    border-collapse: collapse;
+    width: 100%;
+    overflow-x: auto;
+  }
+  th,
+  tr td:first-child {
+    color: $font-color;
+    font-weight: 400;
+  }
+  td,
+  th {
+    text-align: left;
+  }
+  td {
+    padding: 1.2rem;
+    .content-wrapper{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    p {
+      display: inline-block;
+      margin-right: 1rem;
+      white-space: pre-line;
+    }
+    app-page-tooltip {
+      display: inline-block;
+    }
+  }
+  th {
+    padding-bottom: 0.9rem;
+    padding-left: 1.2rem;
+  }
+  tr:nth-child(even) {
+    background-color: $background-color;
+  }
+}

@@ -1,0 +1,54 @@
+<ul class="info-list">
+  <li class="info-list-item">
+    <h3>Необходимые документы для открытия счета</h3>
+    <div class="content-wrapper"><p>{{ broker.documents }}</p><app-page-tooltip [text]="broker.documentsHint"></app-page-tooltip></div>
+  </li>
+  <li class="info-list-item">
+    <h3>Возможность участия в IPO</h3>
+    <div class="content-wrapper"><p>{{ broker.ipoParticipationPossibility }}</p><app-page-tooltip [text]="broker.ipoParticipationPossibilityHint"></app-page-tooltip></div>
+  </li>
+  <li class="info-list-item">
+    <h3>Комиссия за участие в IPO</h3>
+    <div class="content-wrapper"><p>{{ broker.ipoParticipationCommission }}</p><app-page-tooltip [text]="broker.ipoParticipationCommissionHint"></app-page-tooltip></div>
+  </li>
+  <li class="info-list-item">
+    <h3>Уставной капитал</h3>
+    <div class="content-wrapper"><p>{{ broker.authorizedCapitalDescription }}</p><app-page-tooltip [text]="broker.authorizedCapitalDescriptionHint"></app-page-tooltip></div>
+  </li>
+  <li class="info-list-item">
+    <h3>Собственный</h3>
+    <div class="content-wrapper"><p>{{ broker.ownCapitalDescription }}</p><app-page-tooltip [text]="broker.ownCapitalDescriptionHint"></app-page-tooltip></div>
+  </li>
+  <li class="info-list-item">
+    <h3>Стоимость открытия счета</h3>
+    <div class="content-wrapper"><p>{{ broker.accountRegistrationPrice }}</p><app-page-tooltip [text]="broker.accountRegistrationPriceHint"></app-page-tooltip></div>
+  </li>
+  <li class="info-list-item">
+    <h3>Комиссия за пополнение счета</h3>
+    <div class="content-wrapper"><p>{{ broker.replenishmentCommission }}</p><app-page-tooltip [text]="broker.replenishmentCommissionHint"></app-page-tooltip></div>
+  </li>
+  <li class="info-list-item">
+    <h3>Комиссия за вывод средств</h3>
+    <div class="content-wrapper"><p>{{ broker.withdrawalCommission }}</p><app-page-tooltip [text]="broker.withdrawalCommissionHint"></app-page-tooltip></div>
+  </li>
+  <li class="info-list-item">
+    <h3>Способы пополнения и вывода</h3>
+    <div class="content-wrapper"><p>{{ broker.withdrawalReplenishmentMethodsHint }}</p><app-page-tooltip [text]="broker.withdrawalReplenishmentMethodsHint"></app-page-tooltip></div>
+  </li>
+  <li class="info-list-item">
+    <h3>Минимальная сумма для участия IPO</h3>
+    <div class="content-wrapper"><p>{{ broker.ipoParticipationMinimalAmount }}</p><app-page-tooltip [text]="broker.ipoParticipationMinimalAmountHint"></app-page-tooltip></div>
+  </li>
+  <li class="info-list-item">
+    <h3>Кредитное плечо (сумма и процент)</h3>
+    <div class="content-wrapper"><p>{{ broker.creditLeverage }}</p><app-page-tooltip [text]="broker.creditLeverageHint"></app-page-tooltip></div>
+  </li>
+  <li class="info-list-item">
+    <h3>Автоследование</h3>
+    <div class="content-wrapper"><p>{{ broker.autoFollow ? "Да" : "Нет" }}</p></div>
+  </li>
+  <li class="info-list-item">
+    <h3>Официальное присутствие в странах</h3>
+    <div class="content-wrapper"><p>{{ broker.officialCountries }}</p><app-page-tooltip [text]="broker.officialCountriesHint"></app-page-tooltip></div>
+  </li>
+</ul>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-page-home-section-exchange-rates',
+  selector: 'app-page-home-components-exchange-rates',
   templateUrl: './exchange-rates.component.html',
   styleUrls: ['./exchange-rates.component.scss']
 })

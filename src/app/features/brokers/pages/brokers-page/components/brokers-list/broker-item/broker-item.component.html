@@ -1,0 +1,48 @@
+<li class="brokers-list-item">
+  <div class="broker-app-preview">
+    <div class="broker-logo content-padded-mobile"><img src="{{serverAssetsStoragePath}}/{{broker.imageRelativeUrl}}" alt="broker logo" /></div>
+    <div class="content-padded-mobile">
+      <div class="app-rating-wrapper">
+        <p class="app-rating-text hide-tablet hide-desktop">Оценка приложения:</p>
+        <ul class="app-rating-list">
+          <li class="rating">
+            <img src="assets/images/brokers-page/play-store.svg" alt="play market" />
+            <app-page-rating-stars [rating]="broker.googlePlayMarketRating"></app-page-rating-stars>
+          </li>
+          <li class="rating">
+            <img src="assets/images/brokers-page/apple-store.svg" alt="app store" />
+            <app-page-rating-stars [rating]="broker.appleMarketRating"></app-page-rating-stars>
+          </li>
+        </ul>
+      </div>
+      <a class="link-to-official-site link-to-official-site-mobile hide-tablet hide-desktop" href="#">Перейти на сайт</a>
+    </div>
+  </div>
+  <div class="broker-info">
+    <ul class="conditions-list">
+      <li class="conditions-list-item"><p>Дата основания <span>{{broker.creationYear}} г.</span></p><app-page-tooltip [text]="broker.creationYearHint"></app-page-tooltip></li>
+      <li class="conditions-list-item"><p>Спред <span>от {{broker.initialSpread}} пунктов</span></p><app-page-tooltip [text]="broker.initialSpreadHint"></app-page-tooltip></li>
+      <li class="conditions-list-item"><p>Кол-во активных клиентов<span>{{broker.clientsAmount}}+</span></p><app-page-tooltip [text]="broker.clientsAmountHint"></app-page-tooltip></li>
+      <li class="conditions-list-item"><p>Минимальный депозит <span>{{broker.minimalDeposit}} {{broker.minimalDepositCurrency}}</span></p><app-page-tooltip [text]="broker.minimalDepositHint"></app-page-tooltip></li>
+      <li class="delimiter tablet desktop"></li>
+      <li class="conditions-list-item"><p>Комиссия за акцию <span>{{broker.stockCommissionDescription}}</span></p> <app-page-tooltip [text]="broker.minimalDepositHint"></app-page-tooltip></li>
+      <li class="conditions-list-item"><p>Стоимость в месяц <span>{{broker.pricePerMonthDescription}}</span></p> <app-page-tooltip [text]="broker.pricePerMonthDescriptionHint"></app-page-tooltip></li>
+      <li class="conditions-list-item"><p>Минимальная комиссия за сделку <span>{{broker.minimalDealCommission}} {{broker.minimalDealCommissionCurrency}}</span></p><app-page-tooltip [text]="broker.minimalDealCommissionHint"></app-page-tooltip></li>
+    </ul>
+    <app-page-brokers-components-pros-and-cons [features]="broker.features"></app-page-brokers-components-pros-and-cons>
+    <div class="details">
+      <button type="button" (click)="onClick()">
+        <ng-container *ngIf="hidden">Подробнее</ng-container>
+        <ng-container *ngIf="!hidden">Свернуть</ng-container>
+        <span [class.toggle-button-arrow-down]="hidden" [class.toggle-button-arrow-up]="!hidden" class="toggle-button-arrow"></span>
+      </button>
+      <a class="link-to-official-site link-to-official-site-tablet hide-mobile" href="{{broker.url}}" target="_blank">Перейти на сайт</a>
+    </div>
+    <div class="broker-details-wrapper hide-mobile" [class.hide]="hidden" [class.line-above]="!hidden">
+      <app-page-brokers-components-details [broker]="broker"> </app-page-brokers-components-details>
+    </div>
+  </div>
+  <div class="broker-details-wrapper hide-tablet hide-desktop" [class.hide]="hidden" [class.line-above]="!hidden">
+    <app-page-brokers-components-details [broker]="broker"> </app-page-brokers-components-details>
+  </div>
+</li>

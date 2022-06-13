@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-page-home-section-additional-links',
+  selector: 'app-page-home-components-additional-links',
   templateUrl: './additional-links.component.html',
   styleUrls: ['./additional-links.component.scss']
 })

@@ -1,7 +1,7 @@
-import { Component, Inject, Input, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { isBrowser } from '@shared/tools';
 
-export type AdaptTo = 'mobile' | 'desktop';
+export type AdaptTo = 'mobile' | 'tablet' | 'desktop';
 
 @Component({
   selector: 'app-adapt',
@@ -9,36 +9,43 @@ export type AdaptTo = 'mobile' | 'desktop';
 })
 export class AdaptComponent implements OnInit, OnDestroy {
   @Input()
-  to?: AdaptTo;
-  show?: AdaptTo;
-  mqList: MediaQueryList;
-  isBrowser: boolean = false;
+  to?: AdaptTo[];
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
-    this.isBrowser = isPlatformBrowser(this.platformId);
-    this.mqList = this.isBrowser ? window.matchMedia('(max-width: 833px)') : (undefined as any);
+  show: boolean = false;
+  checkTablet: MediaQueryList;
+  checkDesktop: MediaQueryList;
+  isBrowser: boolean = isBrowser;
+
+  constructor() {
+    this.checkTablet = isBrowser ? window.matchMedia('(min-width: 768px) and (max-width: 992px') : (undefined as any);
+    this.checkDesktop = isBrowser ? window.matchMedia('(min-width: 992px') : (undefined as any);
   }
 
   ngOnInit(): void {
-    if (this.isBrowser) {
-      this.mqList.addEventListener('change', this.onChange);
+    if (isBrowser) {
+      this.checkTablet.addEventListener('change', this.onChange);
+      this.checkDesktop.addEventListener('change', this.onChange);
+
+      this.onChange();
     }
-    this.onChange(this.mqList);
   }
   ngOnDestroy(): void {
-    if (this.isBrowser) {
-      this.mqList.removeEventListener('change', this.onChange);
+    if (isBrowser) {
+      this.checkTablet.removeEventListener('change', this.onChange);
+      this.checkDesktop.removeEventListener('change', this.onChange);
     }
   }
 
-  private readonly onChange = (x: MediaQueryList | MediaQueryListEvent) => {
-    let show: AdaptTo | undefined;
+  private readonly onChange = (_x?: MediaQueryList | MediaQueryListEvent) => {
+    let show: boolean = false;
 
-    if (!x.matches && this.to === 'desktop') {
-      show = 'desktop';
-    } else if (x.matches && this.to === 'mobile') {
-      show = 'mobile';
+    /* mobile suits if tablet and desktop are not passed*/
+    if (this.checkTablet.matches && this.to?.includes('tablet') ||
+      this.checkDesktop.matches && this.to?.includes('desktop') ||
+      (!this.checkTablet.matches && !this.checkDesktop.matches && this.to?.includes('mobile'))) {
+      show =true;
     }
+
     if (this.show !== show) {
       this.show = show;
     }

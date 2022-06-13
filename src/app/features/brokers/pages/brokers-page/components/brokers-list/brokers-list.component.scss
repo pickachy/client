@@ -1,0 +1,13 @@
+@import 'src/app/shared/styles/_mixins';
+.brokers-list {
+  display: flex;
+  flex-direction: column;
+}
+
+@include tablet {
+  .brokers-list {
+    &-item {
+      display: flex;
+    }
+  }
+}

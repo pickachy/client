@@ -12,4 +12,10 @@ export class NavigationComponent {
   constructor(navigationService: NavigationService) {
     this.navigationRoutes = navigationService.enhancedMainRoutes;
   }
+
+  active = false;
+
+  onBurgerClicked(_event?: Event) {
+    this.active = !this.active;
+  }
 }
