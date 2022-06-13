@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Broker } from '@core/models/broker.model';
+import { environment } from '../../../../../../../../environments/environment';
 
 @Component({
   selector: 'app-page-broker-item',
@@ -6,7 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./broker-item.component.scss']
 })
 export class BrokerItemComponent {
+  @Input() broker!: Broker;
+
   hidden: boolean = true;
+
+  serverAssetsStoragePath = environment.serverAssetsStoragePath;
 
   onClick(): void {
     this.hidden = !this.hidden;

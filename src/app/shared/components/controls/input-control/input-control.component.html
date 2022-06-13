@@ -2,9 +2,7 @@
   <label *ngIf="label" [for]="id">{{ label }}</label>
   <input
     [id]="id"
-    type="text"
-    [value]="value"
-    (change)="onChange($event.target)"
+    (keyup)="handleOnChange($event)"
     [type]="type"
     [placeholder]="placeholder"
     [max]="max"

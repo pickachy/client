@@ -1,39 +1,40 @@
 <div class="brokers-filters">
-  <div class="filters content-padded-mobile">
+  <form class="filters content-padded-mobile" [formGroup]="form" >
     <div class="lists-group">
       <div class="sort-by">
         <p>Сортировать по</p>
-        <ng-select [items]="sortFilterOptions" bindValue="value" [(ngModel)]="sortId" [searchable]="false" [clearable]="false"></ng-select>
+        <ng-select [items]="sortFilterOptions" formControlName="sorting" bindValue="value" [searchable]="false" [clearable]="false"></ng-select>
       </div>
       <div class="country">
         <p>Страна</p>
-        <ng-select
-          [items]="countryFilterOptions"
-          bindValue="value"
-          [(ngModel)]="countryId"
-          [searchable]="false"
-          [clearable]="false"
-        ></ng-select>
+        <ng-select [items]="countryFilterOptions" formControlName="country" bindValue="value" [searchable]="false" [clearable]="false"></ng-select>
       </div>
     </div>
     <div class="radio-buttons-group">
       <ul class="radio-buttons-list">
         <li>
-          <app-page-shared-controls-checkbox label="Бесплатное открытие счета"></app-page-shared-controls-checkbox>
+          <app-page-shared-controls-checkbox
+            label="Бесплатное открытие счета"
+            formControlName="freeAccountRegistration"
+          ></app-page-shared-controls-checkbox>
         </li>
         <li>
-          <app-page-shared-controls-checkbox label="Автоследование"></app-page-shared-controls-checkbox>
+          <app-page-shared-controls-checkbox label="Автоследование" formControlName="autoFollow"></app-page-shared-controls-checkbox>
         </li>
         <li>
-          <app-page-shared-controls-checkbox label="Участие в IPO"></app-page-shared-controls-checkbox>
+          <app-page-shared-controls-checkbox label="Участие в IPO" formControlName="ipoParticipant"></app-page-shared-controls-checkbox>
         </li>
         <li>
-          <app-page-shared-controls-checkbox label="Бесплатное обслуживание"></app-page-shared-controls-checkbox>
+          <app-page-shared-controls-checkbox label="Бесплатное обслуживание" formControlName="freeService"></app-page-shared-controls-checkbox>
         </li>
       </ul>
     </div>
     <div class="investment-sum-field-wrapper">
-      <app-page-shared-controls-inputs placeholder="Сумма инвестиций" type="number" id="my-input"></app-page-shared-controls-inputs>
+      <app-page-shared-controls-inputs
+        placeholder="Сумма инвестиций"
+        type="number"
+        formControlName="minimalDeposit"
+      ></app-page-shared-controls-inputs>
     </div>
-  </div>
+  </form>
 </div>

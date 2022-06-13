@@ -1,4 +1,4 @@
-import { Component, forwardRef, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -9,25 +9,32 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     {
       provide: NG_VALUE_ACCESSOR,
       // eslint-disable-next-line no-use-before-define
-      useExisting: forwardRef(() => InputControlComponent),
+      useExisting: InputControlComponent,
       multi: true
     }
   ]
 })
 export class InputControlComponent implements ControlValueAccessor {
-  @Input() id: string = '';
+  @Input() id?: string;
   @Input() label: string = '';
   @Input() placeholder: string = '';
   @Input() type: 'text' | 'number' = 'text';
   @Input() max?: number;
   @Input() min?: number;
 
-  value: any = '';
+  value?: string | number = undefined;
+  touched = false;
+  disabled = false;
 
-  onChange = (_event: any) => {};
-  onTouched = () => {};
+  onChange: any = () => {};
+  onTouched: any = () => {};
 
-  writeValue(value: any) {
+  handleOnChange = (event: any) => {
+    const value = this.type === 'number' ? Number(event.target.value) : event.target.value;
+    this.onChange(value);
+  };
+
+  writeValue(value: string | number) {
     this.value = value;
   }
 
@@ -37,5 +44,16 @@ export class InputControlComponent implements ControlValueAccessor {
 
   registerOnTouched(fn: any) {
     this.onTouched = fn;
+  }
+
+  markAsTouched() {
+    if (!this.touched) {
+      this.onTouched();
+      this.touched = true;
+    }
+  }
+
+  setDisabledState(disabled: boolean) {
+    this.disabled = disabled;
   }
 }
