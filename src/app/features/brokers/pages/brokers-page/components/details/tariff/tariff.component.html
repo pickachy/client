@@ -27,8 +27,8 @@
   </tr>
   <tr *ngFor="let brokerTariff of brokerTariffs">
     <td>{{ brokerTariff.name }}</td>
-    <td><p>{{ brokerTariff.stockCommissionDescription }}</p><app-page-tooltip [text]="brokerTariff.stockCommissionDescriptionHint"></app-page-tooltip></td>
-    <td><p>{{ brokerTariff.minimalCommissionDescription }}</p><app-page-tooltip [text]="brokerTariff.minimalCommissionDescriptionHint"></app-page-tooltip></td>
-    <td><p>{{ brokerTariff.pricePerMonthDescription }}</p><app-page-tooltip [text]="brokerTariff.pricePerMonthDescriptionHint"></app-page-tooltip></td>
+    <td><div class="content-wrapper"><p>{{ brokerTariff.stockCommissionDescription }}</p><app-page-tooltip [text]="brokerTariff.stockCommissionDescriptionHint"></app-page-tooltip></div></td>
+    <td><div class="content-wrapper"><p>{{ brokerTariff.minimalCommissionDescription }}</p><app-page-tooltip [text]="brokerTariff.minimalCommissionDescriptionHint"></app-page-tooltip></div></td>
+    <td><div class="content-wrapper"><p>{{ brokerTariff.pricePerMonthDescription }}</p><app-page-tooltip [text]="brokerTariff.pricePerMonthDescriptionHint"></app-page-tooltip></div></td>
   </tr>
 </table>

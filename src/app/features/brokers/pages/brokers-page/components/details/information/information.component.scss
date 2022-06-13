@@ -32,16 +32,19 @@
       display: flex;
       justify-content: space-between;
       .content-wrapper{
-        padding: 0;
+        width:100%;
+        padding: 1.2rem 0;
+        flex-basis: 50%;
+        text-align: left;
       }
       & h3 {
-        width: 35%;
         background-color: transparent;
         padding-left: 0;
         padding-right: 0;
+        flex-basis: 50%;
       }
       & p {
-        width: 50%;
+        white-space: pre-line;
         margin-right: 1rem;
         padding-left: 0;
         padding-right: 0;

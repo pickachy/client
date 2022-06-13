@@ -17,31 +17,31 @@ $background-color: #f7f7f7;
   }
 
   .key {
-    flex-basis: 100%;
+    flex-basis: 60%;
   }
   .value {
+    display: flex;
+    align-items: center;
     text-align: left;
-    flex-basis: 50%;
+    flex-basis: 40%;
+    justify-content: space-between;
   }
   li {
     display: flex;
     margin-top: 1rem;
     align-items: center;
-    p {
-      line-height: 2.4rem;
-      display: inline-block;
-      app-page-tooltip {
-        display: inline-block;
-        margin-left: 1rem;
-      }
-    }
-    &:first-child{
+    &:first-child {
       margin-top: 0;
     }
   }
-
   .value {
     color: $font-color;
+    white-space: pre-line;
+    app-page-tooltip{
+      display: inline-block;
+      margin-left: 1rem;
+      color: initial;
+    }
   }
 }
 
@@ -51,9 +51,11 @@ table {
 
 @include touch-mphone() {
   .tariffs-list-item {
+    .key {
+      flex-basis: 80%;
+    }
     .value {
-      text-align: left;
-      flex-basis: 25%;
+      flex-basis:20%;
     }
   }
 }
@@ -79,9 +81,15 @@ table {
   }
   td {
     padding: 1.2rem;
+    .content-wrapper{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
     p {
       display: inline-block;
       margin-right: 1rem;
+      white-space: pre-line;
     }
     app-page-tooltip {
       display: inline-block;
