@@ -9,9 +9,9 @@ export class NavigationLinksComponent {
   @Input() links: NavigationRoute[] = [];
   @Input() activeClass: string | undefined = 'active-navigation-link';
   @Input() linkClassName?: string;
-  @Output() onClick: EventEmitter<Event> = new EventEmitter<Event>();
+  @Output() clickHandler: EventEmitter<Event> = new EventEmitter<Event>();
 
   onClickHandler(event: Event){
-    this.onClick.emit(event);
+    this.clickHandler.emit(event);
   }
 }

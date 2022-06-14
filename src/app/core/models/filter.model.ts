@@ -16,7 +16,7 @@ export interface ComparableInt32OperationFilterInput {
 export interface StringOperationFilterInput {
   and?: StringOperationFilterInput[];
   or?: StringOperationFilterInput[];
-  eq?: string;
+  eq?: string | null;
   neq?: string;
   contains?: string;
   ncontains?: string;
