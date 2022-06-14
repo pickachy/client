@@ -8,7 +8,7 @@ import { BrokerFeatureType, GQLBrokerFeaturePayload } from '@core/models/broker.
   styleUrls: ['./pros-and-cons.component.scss']
 })
 export class ProsAndConstComponent {
-  @Input() features: GQLBrokerFeaturePayload[] = []
+  @Input() features: GQLBrokerFeaturePayload[] = [];
   FeatureType = BrokerFeatureType;
 
   brokerFeatureTrackBy(_: number, feature: GQLBrokerFeaturePayload) {

@@ -8,8 +8,7 @@ export type AdaptTo = 'mobile' | 'tablet' | 'desktop';
   templateUrl: './adapt.component.html'
 })
 export class AdaptComponent implements OnInit, OnDestroy {
-  @Input()
-  to?: AdaptTo[];
+  @Input() to?: AdaptTo[];
 
   show: boolean = false;
   checkTablet: MediaQueryList;
@@ -40,10 +39,12 @@ export class AdaptComponent implements OnInit, OnDestroy {
     let show: boolean = false;
 
     /* mobile suits if tablet and desktop are not passed*/
-    if (this.checkTablet.matches && this.to?.includes('tablet') ||
-      this.checkDesktop.matches && this.to?.includes('desktop') ||
-      (!this.checkTablet.matches && !this.checkDesktop.matches && this.to?.includes('mobile'))) {
-      show =true;
+    if (
+      (this.checkTablet.matches && this.to?.includes('tablet')) ||
+      (this.checkDesktop.matches && this.to?.includes('desktop')) ||
+      (!this.checkTablet.matches && !this.checkDesktop.matches && this.to?.includes('mobile'))
+    ) {
+      show = true;
     }
 
     if (this.show !== show) {
