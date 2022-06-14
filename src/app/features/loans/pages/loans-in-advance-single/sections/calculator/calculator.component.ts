@@ -40,7 +40,7 @@ export class CalculatorComponent implements OnChanges, OnInit, OnDestroy {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.f.sum.setValue(changes.amountFrom.currentValue.toString());
+    this.f.sum.setValue(changes['amountFrom'].currentValue.toString());
     this.rateDescription = this.getRateDescription();
     this.handleCalculatorChange();
   }
