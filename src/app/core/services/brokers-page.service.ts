@@ -12,7 +12,7 @@ export class BrokersPageService {
     order: {
       minimalDealCommission: SortEnumType.ASC
     }
-  }
+  };
 
   private _brokersFilter: ReplaySubject<BrokerFilterDto> = new ReplaySubject<BrokerFilterDto>(1);
 

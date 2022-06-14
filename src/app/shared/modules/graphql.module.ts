@@ -2,7 +2,7 @@ import { InjectionToken, NgModule } from '@angular/core';
 import { APOLLO_OPTIONS, ApolloModule } from 'apollo-angular';
 import { ApolloClientOptions, InMemoryCache } from '@apollo/client/core';
 import { HttpLink } from 'apollo-angular/http';
-import { makeStateKey, TransferState } from '@angular/platform-browser';
+import { BrowserTransferStateModule, makeStateKey, TransferState } from '@angular/platform-browser';
 import { isBrowser } from '@shared/tools/environmentUtils';
 import { environment } from 'src/environments/environment';
 
@@ -19,6 +19,8 @@ export function createApollo(httpLink: HttpLink, cache: InMemoryCache, transferS
     transferState.onSerialize(STATE_KEY, () => {
       return cache.extract();
     });
+    // Reset cache after extraction to avoid sharing between requests
+    cache.reset();
   }
   return {
     ssrMode: true,
@@ -41,7 +43,7 @@ export function createApollo(httpLink: HttpLink, cache: InMemoryCache, transferS
 }
 
 @NgModule({
-  imports: [ApolloModule],
+  imports: [ApolloModule, BrowserTransferStateModule],
   providers: [
     {
       provide: APOLLO_CACHE,

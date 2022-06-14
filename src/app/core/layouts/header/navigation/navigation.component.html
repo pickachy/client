@@ -4,7 +4,7 @@
   </div>
 </div>
 <div class="sidenav" [class.active]="active">
-  <app-navigation-links (onClick)="onBurgerClicked($event)" [links]="navigationRoutes"></app-navigation-links>
+  <app-navigation-links (clickHandler)="onBurgerClicked($event)" [links]="navigationRoutes"></app-navigation-links>
 </div>
 
 <div class="hide-mobile">
