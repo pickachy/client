@@ -20,7 +20,7 @@ export function createApollo(httpLink: HttpLink, cache: InMemoryCache, transferS
       return cache.extract();
     });
     // Reset cache after extraction to avoid sharing between requests
-    cache.reset();
+    // cache.reset({discardWatches: true});
   }
   return {
     ssrMode: true,

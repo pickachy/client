@@ -31,7 +31,7 @@ const routes: NavigationRoute[] = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-      initialNavigation: 'enabledNonBlocking'
+      initialNavigation: 'enabledBlocking'
     })
   ],
   exports: [RouterModule]

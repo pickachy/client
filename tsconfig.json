@@ -4,21 +4,23 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
+    "noPropertyAccessFromIndexSignature": true,
     "strict": true,
+    "noImplicitOverride": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
+    "noUnusedLocals": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2017",
+    "target": "es2020",
     "module": "es2020",
     "lib": [
-      "es2018",
-      "dom",
-      "esnext.asynciterable"
+      "es2020",
+      "dom"
     ],
     "paths": {
       "@shared/*": [
