@@ -25,7 +25,7 @@
       <li class="conditions-list-item"><p>Кол-во активных клиентов<span>{{broker.clientsAmount}}+</span></p><app-page-tooltip [text]="broker.clientsAmountHint"></app-page-tooltip></li>
       <li class="conditions-list-item"><p>Минимальный депозит <span>{{broker.minimalDeposit}} {{broker.minimalDepositCurrency}}</span></p><app-page-tooltip [text]="broker.minimalDepositHint"></app-page-tooltip></li>
       <li class="delimiter tablet desktop"></li>
-      <li class="conditions-list-item"><p>Комиссия за акцию <span>{{broker.stockCommissionDescription}}</span></p> <app-page-tooltip [text]="broker.minimalDepositHint"></app-page-tooltip></li>
+      <li class="conditions-list-item"><p>Комиссия за акцию <span>{{broker.stockCommissionDescription}}</span></p> <app-page-tooltip [text]="broker.stockCommissionDescriptionHint"></app-page-tooltip></li>
       <li class="conditions-list-item"><p>Стоимость в месяц <span>{{broker.pricePerMonthDescription}}</span></p> <app-page-tooltip [text]="broker.pricePerMonthDescriptionHint"></app-page-tooltip></li>
       <li class="conditions-list-item"><p>Минимальная комиссия за сделку <span>{{broker.minimalDealCommission}} {{broker.minimalDealCommissionCurrency}}</span></p><app-page-tooltip [text]="broker.minimalDealCommissionHint"></app-page-tooltip></li>
     </ul>
