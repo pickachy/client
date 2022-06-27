@@ -20,6 +20,7 @@ const routes: NavigationRoute[] = [
   {
     name: 'МФО',
     path: '',
+    pathMatch: 'full',
     loadChildren: () => LoansModule
   },
   {
