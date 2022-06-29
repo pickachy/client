@@ -8,6 +8,11 @@ import { BrokersModule } from './features/brokers/brokers.module';
 
 const routes: NavigationRoute[] = [
   {
+    name: 'МФО',
+    path: '',
+    loadChildren: () => LoansModule
+  },
+  {
     name: 'Статьи',
     path: 'news',
     loadChildren: () => ArticlesModule
@@ -16,12 +21,6 @@ const routes: NavigationRoute[] = [
     name: 'Брокеры',
     path: 'brokers',
     loadChildren: () => BrokersModule
-  },
-  {
-    name: 'МФО',
-    path: '',
-    pathMatch: 'full',
-    loadChildren: () => LoansModule
   },
   {
     path: '**',
