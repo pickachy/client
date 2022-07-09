@@ -9,6 +9,12 @@ export const buildReferralLink = (link: string): string | undefined => {
     return undefined;
   }
 
+  const bypassBuilding = link.includes('mycredit.ua');
+  if(bypassBuilding){
+    return link;
+  }
+
+
   let isExpired = false;
   const existedUtmSource = localStorage.getItem('utm_source');
   const existedUtmTimestamp = localStorage.getItem('utm_timestamp');
