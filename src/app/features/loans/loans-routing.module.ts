@@ -11,7 +11,7 @@ const routes: NavigationRoute[] = [
     component: LoansInAdvancePageComponent
   },
   {
-    path: 'loans/mfo/:id',
+    path: 'loans/mfo/:urlSlug',
     component: LoanInAdvanceSinglePageComponent
   }
 ];

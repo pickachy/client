@@ -81,6 +81,9 @@ article.loans-list-item {
   &.get-money-btn-disabled {
     cursor: default;
     background-color: var(--grey-section-background);
+    &:hover{
+      background-color: var(--grey-section-background);
+    }
   }
 }
 .details-btn {
