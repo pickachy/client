@@ -151,7 +151,9 @@
           "builder": "@nguniversal/builders:prerender",
           "options": {
             "browserTarget": "pickachy:build:production",
-            "serverTarget": "pickachy:server:production"
+            "serverTarget": "pickachy:server:production",
+            "routes": [
+            ]
           },
           "configurations": {
             "production": {}
