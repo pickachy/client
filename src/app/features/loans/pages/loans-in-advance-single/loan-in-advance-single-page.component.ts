@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { buildReferralLink } from '@shared/tools';
 import { PagesService } from '@core/services/pages.service';
 import { Loan } from '@core/models/loan.model';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-page-loans-in-advance-single',
@@ -16,11 +17,13 @@ export class LoanInAdvanceSinglePageComponent implements OnInit, OnDestroy {
 
   private querySubscription?: Subscription;
 
+  serverAssetsStoragePath = environment.serverAssetsStoragePath;
+
   constructor(private pagesService: PagesService, private activateRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.querySubscription = this.pagesService
-      .getSingleLoanInAdvancePageAggregation(Number(this.activateRoute.snapshot.params['id']))
+      .getSingleLoanInAdvancePageAggregation(this.activateRoute.snapshot.params['urlSlug'])
       .subscribe(data => {
         this.pagesService.setSeoAndOg(data.loan.page);
         this.data = data.loan;

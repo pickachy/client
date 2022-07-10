@@ -2,56 +2,47 @@ import { isBrowser } from '@shared/tools/environmentUtils';
 import { getDaysSinceTimestamp } from '@shared/tools/dateUtils';
 
 export const buildReferralLink = (link: string): string | undefined => {
-  if (!isBrowser) {
+  if (!isBrowser || !link) {
     return '';
   }
-  if(!link){
-    return undefined;
-  }
 
-  const bypassBuilding = link.includes('mycredit.ua');
-  if(bypassBuilding){
-    return link;
-  }
-
-
+  const defaultValue = 'others';
+  const utmSourcePattern = '{{utm_source}}';
+  const utmCampaignPattern = '{{utm_campaign}}';
+  const mdPattern = '{{md}}';
   let isExpired = false;
+
   const existedUtmSource = localStorage.getItem('utm_source');
+
+  if(!existedUtmSource){
+    return link
+      .replace(utmSourcePattern, defaultValue)
+      .replace(utmCampaignPattern, defaultValue)
+      .replace(mdPattern, defaultValue);
+  }
+
   const existedUtmTimestamp = localStorage.getItem('utm_timestamp');
-  const existedUtmCampaign = localStorage.getItem('utm_campaign');
-  const existedMailingStartDate = localStorage.getItem('md');
 
   // Check if utm is expired
-  if (existedUtmTimestamp && existedUtmSource) {
+  if (existedUtmTimestamp) {
     const days = getDaysSinceTimestamp(Number(existedUtmTimestamp));
     if (days > 30) {
       isExpired = true;
     }
   }
 
-  let referralQueryString;
-  const qsConcatChar = link.includes('?') ? '&' : '?';
-  const isSubIdLogic = link.includes('cmtrckr') || link.includes('lnkrdrct') || link.includes('aventus.credit-net');
-  // link is affiliate network or credit plus. Use subid logic for it
-  if (isSubIdLogic) {
-    if (isExpired || !existedUtmSource || !existedUtmTimestamp) {
-      referralQueryString = `${qsConcatChar}subid1=others`;
-    }
-    else{
-      referralQueryString = `${qsConcatChar}subid1=${existedUtmSource}`;
-      if (existedUtmCampaign) {
-        referralQueryString += `&subid2=${existedUtmCampaign}`;
-      }
-      if (existedMailingStartDate) {
-        referralQueryString += `&subid3=${existedMailingStartDate}`;
-      }
-    }
-  }
-  // link is direct, use utm_campaign -> utm_term substitution
-  else {
-    // credit 7 direct link
-    referralQueryString = `${qsConcatChar}utm_term=${isExpired || !existedUtmCampaign ? 'others' : existedUtmCampaign}`;
+  if(isExpired){
+    return link
+      .replace(utmSourcePattern, defaultValue)
+      .replace(utmCampaignPattern, defaultValue)
+      .replace(mdPattern, defaultValue);
   }
 
-  return `${link}${referralQueryString}`;
+  const existedUtmCampaign = localStorage.getItem('utm_campaign');
+  const existedMailingStartDate = localStorage.getItem('md');
+
+  return link
+    .replace(utmSourcePattern, existedUtmSource)
+    .replace(utmCampaignPattern, existedUtmCampaign ?? '')
+    .replace(mdPattern, existedMailingStartDate ?? '');
 };

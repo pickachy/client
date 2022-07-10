@@ -23,9 +23,9 @@ export class AppComponent implements OnInit {
       const utmTimestampLocalStorageKey = 'utm_timestamp';
 
       const utmQueryParams = {
-        source: event.snapshot.paramMap.get(utmSourceQueryParamKey),
-        campaign: event.snapshot.paramMap.get(utmCampaignQueryParamKey),
-        mailingStartDate: event.snapshot.paramMap.get(mailingStartDateQueryParamKey)
+        source: event.snapshot.queryParamMap.get(utmSourceQueryParamKey),
+        campaign: event.snapshot.queryParamMap.get(utmCampaignQueryParamKey),
+        mailingStartDate: event.snapshot.queryParamMap.get(mailingStartDateQueryParamKey)
       };
 
       // Getting existed main utms from storage

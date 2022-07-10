@@ -14,7 +14,6 @@ import {
   GQLSingleLoanInAdvancePageDataPayload,
   Page
 } from '@core/models/page.model';
-import { LoanProviderType } from '@core/models/loan.model';
 import { Article } from '@core/models/article.model';
 import { isBrowser } from '@shared/tools';
 import { BrokerFilterDto } from '@core/models/broker.model';
@@ -27,27 +26,30 @@ const GET_HOME_PAGE_DATA = gql`
       description
     }
     loans {
-      providerTypeId
-      providerImageExtension
-      providerName
-      referralLink
+      id
+      imageRelativeUrl
+      name
+      url
       amountFrom
       amountTo
       initialDayRate
       dayRate
       processingTimeMinutes
       termDays
+      page{
+        urlSlug
+      }
     }
   }
 `;
 
 const GET_LOAN_IN_ADVANCE_SINGLE_PAGE_DATA = gql`
-  query GetSingleLoanPageData($loanProviderId: Int!) {
-    loan(where: { providerTypeId: { eq: $loanProviderId } }) {
-      providerTypeId
-      providerImageExtension
-      providerName
-      referralLink
+  query GetSingleLoanPageData($urlSlug: String!) {
+    loan(where: { page: {urlSlug: { eq: $urlSlug }} }) {
+      id
+      imageRelativeUrl
+      name
+      url
       amountFrom
       amountTo
       bonusesDescription
@@ -215,9 +217,9 @@ export class PagesService {
     return this.apollo.query<GQLHomePageDataPayload>({ query: GET_HOME_PAGE_DATA }).pipe(map(result => result.data));
   }
 
-  public getSingleLoanInAdvancePageAggregation(loanProviderId: LoanProviderType): Observable<GQLSingleLoanInAdvancePageDataPayload> {
+  public getSingleLoanInAdvancePageAggregation(urlSlug: string): Observable<GQLSingleLoanInAdvancePageDataPayload> {
     return this.apollo
-      .query<GQLSingleLoanInAdvancePageDataPayload>({ query: GET_LOAN_IN_ADVANCE_SINGLE_PAGE_DATA, variables: { loanProviderId } })
+      .query<GQLSingleLoanInAdvancePageDataPayload>({ query: GET_LOAN_IN_ADVANCE_SINGLE_PAGE_DATA, variables: { urlSlug } })
       .pipe(map(result => result.data));
   }
 
