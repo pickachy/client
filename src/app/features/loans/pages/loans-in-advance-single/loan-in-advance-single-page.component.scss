@@ -129,6 +129,7 @@ h1 {
     }
     &.full-details-list-item-value {
       flex: 1 1 70%;
+      white-space: pre-line;
     }
   }
 }
