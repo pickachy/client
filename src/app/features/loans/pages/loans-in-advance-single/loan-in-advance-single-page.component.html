@@ -2,13 +2,13 @@
   <div class="wrapper">
     <section class="main-description content">
       <app-breadcrumbs></app-breadcrumbs>
-      <h1>Микрокредит «До зарплаты» от МФО {{ data.providerName }}</h1>
+      <h1>Микрокредит «До зарплаты» от МФО {{ data.name }}</h1>
       <div class="image-wrapper">
         <figure class="image-composition">
           <img
-            src="assets/images/loans-page/loans-in-advance-page/{{ data.providerTypeId + '.' + data.providerImageExtension }}"
-            alt="{{ data.providerName }}"
-            title="{{ data.providerTypeId }}"
+            src="{{serverAssetsStoragePath}}/{{data.imageRelativeUrl}}"
+            alt="{{ data.name }}"
+            title="{{ data.name }}"
           />
         </figure>
       </div>
@@ -70,8 +70,8 @@
             </span>
           </div>
           <a
-            *ngIf="data.referralLink"
-            href="{{ getReferralLink(data.referralLink) }}"
+            *ngIf="data.url"
+            href="{{ getReferralLink(data.url) }}"
             class="get-money-btn"
             target="_blank"
             rel="nofollow noopener"
@@ -86,7 +86,7 @@
       [dayRate]="data.dayRate"
       [amountFrom]="data.amountFrom"
       [amountTo]="data.amountTo"
-      [referralLink]="getReferralLink(data.referralLink)"
+      [referralLink]="getReferralLink(data.url)"
     ></app-page-loans-in-advance-single-calculator>
 
     <section #full_details class="full-details">
@@ -135,8 +135,8 @@
     </section>
     <section class="content sticky-btn-wrapper">
       <a
-        *ngIf="data.referralLink"
-        href="{{ getReferralLink(data.referralLink) }}"
+        *ngIf="data.url"
+        href="{{ getReferralLink(data.url) }}"
         class="get-money-btn sticky-btn"
         target="_blank"
         rel="nofollow noopener"
