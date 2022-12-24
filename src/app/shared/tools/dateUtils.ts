@@ -13,7 +13,7 @@ const monthsGeneric=[
 ];
 
 export const getDateDayWithMonthGeneric = (date: Date): string => {
-  const month = date.getMonth();
+  const month = date.getMonth() - 1;
   const day = date.getDate().toString().padStart(2, '0');
   return `${day} ${monthsGeneric[month]}`;
 };
