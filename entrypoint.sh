@@ -2,7 +2,7 @@
 
 # If folder is empty, we prerender our application only one time. Further restarts will not trigger prerendering
 if [ -z "$(ls -A dist/pickachy/browser)" ] || [ -z "$(ls -A dist/pickachy/server)" ]; then
-   npm run prerender;
+   npm run build:ssr;
 fi
 
 # Starting SSR server that serves our application

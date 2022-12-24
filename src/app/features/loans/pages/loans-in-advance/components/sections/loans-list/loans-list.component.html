@@ -28,7 +28,7 @@
         </div>
         <div class="buttons">
           <a
-            [attr.href]="getReferralLink(item.url)"
+            [attr.href]="item.url ? getReferralLink(item.url) : undefined"
             class="get-money-btn"
             [class.get-money-btn-disabled]="!item.url"
             target="_blank"
