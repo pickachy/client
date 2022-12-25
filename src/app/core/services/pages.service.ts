@@ -25,7 +25,7 @@ const GET_HOME_PAGE_DATA = gql`
       keywords
       description
     }
-    loans {
+    loans(order: {order: ASC}) {
       id
       imageRelativeUrl
       name
