@@ -8,12 +8,13 @@ const monthsGeneric=[
   'Июля',
   'Августа',
   'Сентября',
+  'Октября',
   'Ноября',
   'Декабря'
 ];
 
 export const getDateDayWithMonthGeneric = (date: Date): string => {
-  const month = date.getMonth() - 1;
+  const month = date.getMonth();
   const day = date.getDate().toString().padStart(2, '0');
   return `${day} ${monthsGeneric[month]}`;
 };
