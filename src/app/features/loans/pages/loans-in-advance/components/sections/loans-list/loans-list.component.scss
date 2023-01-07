@@ -89,13 +89,13 @@ article.loans-list-item {
 .details-btn {
   border: 0.1rem solid var(--black);
 }
-@include desktop {
+@include desktop-normal {
   article.loans-list-item {
     transition: box-shadow var(--transition-duration) linear;
     a {
       transition: background-color var(--transition-duration) linear;
 
-      &:hover {
+      &:hover:not(.get-money-btn-disabled) {
         background-color: var(--orange);
       }
     }
